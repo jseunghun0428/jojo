@@ -1,0 +1,401 @@
+{
+  "file": "AutoDLL.dll",
+  "size": 49152,
+  "sha256": "25816a4a462a713c380a94f5a2e6105f3ccec7a6eb4745b2f91be2374237c83b",
+  "machine": "0x14C",
+  "format": "PE32",
+  "timestampRaw": 1060482147,
+  "linkerVersion": "7.10",
+  "imageBase": "0x10000000",
+  "entryPointVA": "0x100014CC",
+  "subsystem": 2,
+  "dllCharacteristics": "0x0",
+  "clrDirectoryRva": "0x0",
+  "sections": [
+    {
+      "name": ".text",
+      "virtualSize": 20644,
+      "rva": 4096,
+      "rawSize": 24576,
+      "rawOffset": 4096,
+      "characteristics": "0x60000020",
+      "entropy": 5.9701
+    },
+    {
+      "name": ".rdata",
+      "virtualSize": 6324,
+      "rva": 28672,
+      "rawSize": 8192,
+      "rawOffset": 28672,
+      "characteristics": "0x40000040",
+      "entropy": 4.1776
+    },
+    {
+      "name": ".data",
+      "virtualSize": 6492,
+      "rva": 36864,
+      "rawSize": 4096,
+      "rawOffset": 36864,
+      "characteristics": "0xC0000040",
+      "entropy": 1.5752
+    },
+    {
+      "name": ".rsrc",
+      "virtualSize": 864,
+      "rva": 45056,
+      "rawSize": 4096,
+      "rawOffset": 40960,
+      "characteristics": "0x40000040",
+      "entropy": 0.9761
+    },
+    {
+      "name": ".reloc",
+      "virtualSize": 3414,
+      "rva": 49152,
+      "rawSize": 4096,
+      "rawOffset": 45056,
+      "characteristics": "0x42000040",
+      "entropy": 3.7143
+    }
+  ],
+  "imports": [
+    {
+      "dll": "KERNEL32.dll",
+      "functions": [
+        {
+          "name": "GetPrivateProfileIntA",
+          "iatVA": "0x10007000"
+        },
+        {
+          "name": "GetModuleFileNameA",
+          "iatVA": "0x10007004"
+        },
+        {
+          "name": "ExitThread",
+          "iatVA": "0x10007008"
+        },
+        {
+          "name": "Sleep",
+          "iatVA": "0x1000700C"
+        },
+        {
+          "name": "CloseHandle",
+          "iatVA": "0x10007010"
+        },
+        {
+          "name": "CreateThread",
+          "iatVA": "0x10007014"
+        },
+        {
+          "name": "GetCurrentThreadId",
+          "iatVA": "0x10007018"
+        },
+        {
+          "name": "GetSystemInfo",
+          "iatVA": "0x1000701C"
+        },
+        {
+          "name": "VirtualProtect",
+          "iatVA": "0x10007020"
+        },
+        {
+          "name": "GetCommandLineA",
+          "iatVA": "0x10007024"
+        },
+        {
+          "name": "GetVersionExA",
+          "iatVA": "0x10007028"
+        },
+        {
+          "name": "ExitProcess",
+          "iatVA": "0x1000702C"
+        },
+        {
+          "name": "GetProcAddress",
+          "iatVA": "0x10007030"
+        },
+        {
+          "name": "GetModuleHandleA",
+          "iatVA": "0x10007034"
+        },
+        {
+          "name": "TerminateProcess",
+          "iatVA": "0x10007038"
+        },
+        {
+          "name": "GetCurrentProcess",
+          "iatVA": "0x1000703C"
+        },
+        {
+          "name": "TlsAlloc",
+          "iatVA": "0x10007040"
+        },
+        {
+          "name": "SetLastError",
+          "iatVA": "0x10007044"
+        },
+        {
+          "name": "GetLastError",
+          "iatVA": "0x10007048"
+        },
+        {
+          "name": "TlsFree",
+          "iatVA": "0x1000704C"
+        },
+        {
+          "name": "TlsSetValue",
+          "iatVA": "0x10007050"
+        },
+        {
+          "name": "TlsGetValue",
+          "iatVA": "0x10007054"
+        },
+        {
+          "name": "HeapFree",
+          "iatVA": "0x10007058"
+        },
+        {
+          "name": "HeapAlloc",
+          "iatVA": "0x1000705C"
+        },
+        {
+          "name": "SetHandleCount",
+          "iatVA": "0x10007060"
+        },
+        {
+          "name": "GetStdHandle",
+          "iatVA": "0x10007064"
+        },
+        {
+          "name": "GetFileType",
+          "iatVA": "0x10007068"
+        },
+        {
+          "name": "GetStartupInfoA",
+          "iatVA": "0x1000706C"
+        },
+        {
+          "name": "DeleteCriticalSection",
+          "iatVA": "0x10007070"
+        },
+        {
+          "name": "FreeEnvironmentStringsA",
+          "iatVA": "0x10007074"
+        },
+        {
+          "name": "GetEnvironmentStrings",
+          "iatVA": "0x10007078"
+        },
+        {
+          "name": "FreeEnvironmentStringsW",
+          "iatVA": "0x1000707C"
+        },
+        {
+          "name": "WideCharToMultiByte",
+          "iatVA": "0x10007080"
+        },
+        {
+          "name": "GetEnvironmentStringsW",
+          "iatVA": "0x10007084"
+        },
+        {
+          "name": "HeapDestroy",
+          "iatVA": "0x10007088"
+        },
+        {
+          "name": "HeapCreate",
+          "iatVA": "0x1000708C"
+        },
+        {
+          "name": "VirtualFree",
+          "iatVA": "0x10007090"
+        },
+        {
+          "name": "UnhandledExceptionFilter",
+          "iatVA": "0x10007094"
+        },
+        {
+          "name": "WriteFile",
+          "iatVA": "0x10007098"
+        },
+        {
+          "name": "LeaveCriticalSection",
+          "iatVA": "0x1000709C"
+        },
+        {
+          "name": "EnterCriticalSection",
+          "iatVA": "0x100070A0"
+        },
+        {
+          "name": "GetACP",
+          "iatVA": "0x100070A4"
+        },
+        {
+          "name": "GetOEMCP",
+          "iatVA": "0x100070A8"
+        },
+        {
+          "name": "GetCPInfo",
+          "iatVA": "0x100070AC"
+        },
+        {
+          "name": "VirtualAlloc",
+          "iatVA": "0x100070B0"
+        },
+        {
+          "name": "HeapReAlloc",
+          "iatVA": "0x100070B4"
+        },
+        {
+          "name": "InitializeCriticalSection",
+          "iatVA": "0x100070B8"
+        },
+        {
+          "name": "RtlUnwind",
+          "iatVA": "0x100070BC"
+        },
+        {
+          "name": "InterlockedExchange",
+          "iatVA": "0x100070C0"
+        },
+        {
+          "name": "VirtualQuery",
+          "iatVA": "0x100070C4"
+        },
+        {
+          "name": "LoadLibraryA",
+          "iatVA": "0x100070C8"
+        },
+        {
+          "name": "HeapSize",
+          "iatVA": "0x100070CC"
+        },
+        {
+          "name": "GetLocaleInfoA",
+          "iatVA": "0x100070D0"
+        },
+        {
+          "name": "GetStringTypeA",
+          "iatVA": "0x100070D4"
+        },
+        {
+          "name": "MultiByteToWideChar",
+          "iatVA": "0x100070D8"
+        },
+        {
+          "name": "GetStringTypeW",
+          "iatVA": "0x100070DC"
+        },
+        {
+          "name": "LCMapStringA",
+          "iatVA": "0x100070E0"
+        },
+        {
+          "name": "LCMapStringW",
+          "iatVA": "0x100070E4"
+        },
+        {
+          "name": "QueryPerformanceCounter",
+          "iatVA": "0x100070E8"
+        },
+        {
+          "name": "GetTickCount",
+          "iatVA": "0x100070EC"
+        },
+        {
+          "name": "GetCurrentProcessId",
+          "iatVA": "0x100070F0"
+        },
+        {
+          "name": "GetSystemTimeAsFileTime",
+          "iatVA": "0x100070F4"
+        }
+      ]
+    },
+    {
+      "dll": "USER32.dll",
+      "functions": [
+        {
+          "name": "SetWindowsHookExA",
+          "iatVA": "0x100070FC"
+        },
+        {
+          "name": "FindWindowA",
+          "iatVA": "0x10007100"
+        },
+        {
+          "name": "PostMessageA",
+          "iatVA": "0x10007104"
+        },
+        {
+          "name": "CallNextHookEx",
+          "iatVA": "0x10007108"
+        },
+        {
+          "name": "UnhookWindowsHookEx",
+          "iatVA": "0x1000710C"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "path": [
+        16,
+        1,
+        2052
+      ],
+      "rva": "0xB060",
+      "offset": "0xA060",
+      "size": 764,
+      "versionInfo": {
+        "values": {
+          "Comments": "打倒弱智的盗版盘制作者们！",
+          "CompanyName": "k??@SMTH",
+          "FileDescription": "曹操传辅助patch",
+          "FileVersion": "1, 0, 0, 1",
+          "InternalName": "AutoDLL",
+          "LegalCopyright": "Copyright (C) k??@SMTH 2003",
+          "OriginalFilename": "AutoDLL.dll",
+          "ProductName": "曹操传辅助patch",
+          "ProductVersion": "1, 0, 0, 1"
+        },
+        "warnings": []
+      }
+    }
+  ],
+  "interestingStrings": [
+    {
+      "offset": "0x719C",
+      "text": "\\AutoDLL.ini"
+    },
+    {
+      "offset": "0x71DC",
+      "text": "mscoree.dll"
+    },
+    {
+      "offset": "0x723C",
+      "text": "kernel32.dll"
+    },
+    {
+      "offset": "0x7900",
+      "text": "user32.dll"
+    },
+    {
+      "offset": "0x8208",
+      "text": "f:\\Work\\Vc\\AutoDLL\\Release\\AutoDLL.pdb"
+    },
+    {
+      "offset": "0x8410",
+      "text": "KERNEL32.dll"
+    },
+    {
+      "offset": "0x8478",
+      "text": "USER32.dll"
+    },
+    {
+      "offset": "0x889C",
+      "text": "AutoDLL.dll"
+    }
+  ]
+}

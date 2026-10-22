@@ -1,0 +1,678 @@
+[
+  {
+    "offset": "0x4D",
+    "text": "!This program cannot be run in DOS mode."
+  },
+  {
+    "offset": "0x1D0",
+    "text": ".text"
+  },
+  {
+    "offset": "0x1F7",
+    "text": "`.rdata"
+  },
+  {
+    "offset": "0x21F",
+    "text": "@.data"
+  },
+  {
+    "offset": "0x248",
+    "text": ".rsrc"
+  },
+  {
+    "offset": "0x26F",
+    "text": "@.reloc"
+  },
+  {
+    "offset": "0x1343",
+    "text": "O(9O$u"
+  },
+  {
+    "offset": "0x1478",
+    "text": "9V0tA9V8t<9V<t7;"
+  },
+  {
+    "offset": "0x158B",
+    "text": "^8#FL"
+  },
+  {
+    "offset": "0x15B5",
+    "text": "X_^[]"
+  },
+  {
+    "offset": "0x15CD",
+    "text": "tW9H tR9H$tM"
+  },
+  {
+    "offset": "0x1693",
+    "text": "9_|t1"
+  },
+  {
+    "offset": "0x1910",
+    "text": "X_^[]"
+  },
+  {
+    "offset": "0x1B96",
+    "text": "X_^[]"
+  },
+  {
+    "offset": "0x1DB2",
+    "text": "F<)~h)~d"
+  },
+  {
+    "offset": "0x1F02",
+    "text": "N<#FL"
+  },
+  {
+    "offset": "0x1FEB",
+    "text": ")Fl;Fx"
+  },
+  {
+    "offset": "0x2018",
+    "text": "N<#V,3"
+  },
+  {
+    "offset": "0x2322",
+    "text": "N<#FL"
+  },
+  {
+    "offset": "0x235F",
+    "text": "Fp;FxsH"
+  },
+  {
+    "offset": "0x239F",
+    "text": "Fd+Fh="
+  },
+  {
+    "offset": "0x23DA",
+    "text": "Npf+F\\"
+  },
+  {
+    "offset": "0x2489",
+    "text": "N<#FL"
+  },
+  {
+    "offset": "0x25B0",
+    "text": "9n`tB"
+  },
+  {
+    "offset": "0x2772",
+    "text": "t<<wuFj8h"
+  },
+  {
+    "offset": "0x27CC",
+    "text": "FDj8h"
+  },
+  {
+    "offset": "0x281A",
+    "text": "~\\wu.j"
+  },
+  {
+    "offset": "0x2821",
+    "text": "SSSSSSj"
+  },
+  {
+    "offset": "0x28AD",
+    "text": "~\\wu>"
+  },
+  {
+    "offset": "0x2A86",
+    "text": "F\\<wu"
+  },
+  {
+    "offset": "0x2B5D",
+    "text": "uB9N<u="
+  },
+  {
+    "offset": "0x2BD5",
+    "text": ";FLYt"
+  },
+  {
+    "offset": "0x2C1D",
+    "text": "9F8uy9F<ut9F"
+  },
+  {
+    "offset": "0x2CC0",
+    "text": "X_^][Y"
+  },
+  {
+    "offset": "0x2D3F",
+    "text": "~\\wun"
+  },
+  {
+    "offset": "0x2F4F",
+    "text": "~\\wu]9M"
+  },
+  {
+    "offset": "0x2FBF",
+    "text": "|{9NXt$"
+  },
+  {
+    "offset": "0x3053",
+    "text": "~\\ruD"
+  },
+  {
+    "offset": "0x3059",
+    "text": "FDWWW"
+  },
+  {
+    "offset": "0x311C",
+    "text": "~\\wu'j"
+  },
+  {
+    "offset": "0x3289",
+    "text": "G0_^["
+  },
+  {
+    "offset": "0x3EBC",
+    "text": "G,+G(+C"
+  },
+  {
+    "offset": "0x40DE",
+    "text": "9W0t$"
+  },
+  {
+    "offset": "0x4533",
+    "text": "~(9~$u"
+  },
+  {
+    "offset": "0x48FE",
+    "text": "X_^[]"
+  },
+  {
+    "offset": "0x4A6E",
+    "text": "X_^[]"
+  },
+  {
+    "offset": "0x5052",
+    "text": "N(9F4"
+  },
+  {
+    "offset": "0x6B7B",
+    "text": "u7WPS"
+  },
+  {
+    "offset": "0x6B8C",
+    "text": "u&WVS"
+  },
+  {
+    "offset": "0x71B1",
+    "text": "Qkkbal"
+  },
+  {
+    "offset": "0x740D",
+    "text": "wn>Jj"
+  },
+  {
+    "offset": "0x746F",
+    "text": "- deflate 1.1.3 Copyright 1995-1998 Jean-loup Gailly "
+  },
+  {
+    "offset": "0x7570",
+    "text": " inflate 1.1.3 Copyright 1995-1998 Mark Adler "
+  },
+  {
+    "offset": "0x8262",
+    "text": "memcpy"
+  },
+  {
+    "offset": "0x826C",
+    "text": "memset"
+  },
+  {
+    "offset": "0x8276",
+    "text": "ftell"
+  },
+  {
+    "offset": "0x827E",
+    "text": "fprintf"
+  },
+  {
+    "offset": "0x8288",
+    "text": "_fdopen"
+  },
+  {
+    "offset": "0x8292",
+    "text": "fopen"
+  },
+  {
+    "offset": "0x829A",
+    "text": "_errno"
+  },
+  {
+    "offset": "0x82A4",
+    "text": "strcpy"
+  },
+  {
+    "offset": "0x82AE",
+    "text": "strlen"
+  },
+  {
+    "offset": "0x82B8",
+    "text": "malloc"
+  },
+  {
+    "offset": "0x82C2",
+    "text": "sprintf"
+  },
+  {
+    "offset": "0x82CC",
+    "text": "fwrite"
+  },
+  {
+    "offset": "0x82D6",
+    "text": "fread"
+  },
+  {
+    "offset": "0x82DE",
+    "text": "fclose"
+  },
+  {
+    "offset": "0x82F0",
+    "text": "vsprintf"
+  },
+  {
+    "offset": "0x82FC",
+    "text": "fflush"
+  },
+  {
+    "offset": "0x8306",
+    "text": "fseek"
+  },
+  {
+    "offset": "0x830E",
+    "text": "rewind"
+  },
+  {
+    "offset": "0x8318",
+    "text": "fputc"
+  },
+  {
+    "offset": "0x8320",
+    "text": "strcat"
+  },
+  {
+    "offset": "0x832A",
+    "text": "calloc"
+  },
+  {
+    "offset": "0x8332",
+    "text": "MSVCRT.dll"
+  },
+  {
+    "offset": "0x8340",
+    "text": "_initterm"
+  },
+  {
+    "offset": "0x834C",
+    "text": "_adjust_fdiv"
+  },
+  {
+    "offset": "0x835C",
+    "text": "DisableThreadLibraryCalls"
+  },
+  {
+    "offset": "0x8376",
+    "text": "KERNEL32.dll"
+  },
+  {
+    "offset": "0x8552",
+    "text": "zlib.dll"
+  },
+  {
+    "offset": "0x855B",
+    "text": "adler32"
+  },
+  {
+    "offset": "0x8563",
+    "text": "compress2"
+  },
+  {
+    "offset": "0x856D",
+    "text": "compress"
+  },
+  {
+    "offset": "0x8576",
+    "text": "crc32"
+  },
+  {
+    "offset": "0x857C",
+    "text": "deflate"
+  },
+  {
+    "offset": "0x8584",
+    "text": "deflateCopy"
+  },
+  {
+    "offset": "0x8590",
+    "text": "deflateEnd"
+  },
+  {
+    "offset": "0x859B",
+    "text": "deflateInit2_"
+  },
+  {
+    "offset": "0x85A9",
+    "text": "deflateInit_"
+  },
+  {
+    "offset": "0x85B6",
+    "text": "deflateParams"
+  },
+  {
+    "offset": "0x85C4",
+    "text": "deflateReset"
+  },
+  {
+    "offset": "0x85D1",
+    "text": "deflateSetDictionary"
+  },
+  {
+    "offset": "0x85E6",
+    "text": "get_crc_table"
+  },
+  {
+    "offset": "0x85F4",
+    "text": "gzclose"
+  },
+  {
+    "offset": "0x85FC",
+    "text": "gzdopen"
+  },
+  {
+    "offset": "0x8604",
+    "text": "gzeof"
+  },
+  {
+    "offset": "0x860A",
+    "text": "gzerror"
+  },
+  {
+    "offset": "0x8612",
+    "text": "gzflush"
+  },
+  {
+    "offset": "0x861A",
+    "text": "gzgetc"
+  },
+  {
+    "offset": "0x8621",
+    "text": "gzgets"
+  },
+  {
+    "offset": "0x8628",
+    "text": "gzopen"
+  },
+  {
+    "offset": "0x862F",
+    "text": "gzprintf"
+  },
+  {
+    "offset": "0x8638",
+    "text": "gzputc"
+  },
+  {
+    "offset": "0x863F",
+    "text": "gzputs"
+  },
+  {
+    "offset": "0x8646",
+    "text": "gzread"
+  },
+  {
+    "offset": "0x864D",
+    "text": "gzrewind"
+  },
+  {
+    "offset": "0x8656",
+    "text": "gzseek"
+  },
+  {
+    "offset": "0x865D",
+    "text": "gzsetparams"
+  },
+  {
+    "offset": "0x8669",
+    "text": "gztell"
+  },
+  {
+    "offset": "0x8670",
+    "text": "gzwrite"
+  },
+  {
+    "offset": "0x8678",
+    "text": "inflate"
+  },
+  {
+    "offset": "0x8680",
+    "text": "inflateEnd"
+  },
+  {
+    "offset": "0x868B",
+    "text": "inflateInit2_"
+  },
+  {
+    "offset": "0x8699",
+    "text": "inflateInit_"
+  },
+  {
+    "offset": "0x86A6",
+    "text": "inflateReset"
+  },
+  {
+    "offset": "0x86B3",
+    "text": "inflateSetDictionary"
+  },
+  {
+    "offset": "0x86C8",
+    "text": "inflateSync"
+  },
+  {
+    "offset": "0x86D4",
+    "text": "inflateSyncPoint"
+  },
+  {
+    "offset": "0x86E5",
+    "text": "uncompress"
+  },
+  {
+    "offset": "0x86F0",
+    "text": "zError"
+  },
+  {
+    "offset": "0x86F7",
+    "text": "zlibVersion"
+  },
+  {
+    "offset": "0x9010",
+    "text": "1.1.3"
+  },
+  {
+    "offset": "0x9024",
+    "text": "%c%c%c%c%c%c%c%c%c%c"
+  },
+  {
+    "offset": "0x903C",
+    "text": "<fd:%d>"
+  },
+  {
+    "offset": "0x9048",
+    "text": "invalid bit length repeat"
+  },
+  {
+    "offset": "0x9064",
+    "text": "too many length or distance symbols"
+  },
+  {
+    "offset": "0x9088",
+    "text": "invalid stored block lengths"
+  },
+  {
+    "offset": "0x90A8",
+    "text": "invalid block type"
+  },
+  {
+    "offset": "0x90BC",
+    "text": "invalid distance code"
+  },
+  {
+    "offset": "0x90D4",
+    "text": "invalid literal/length code"
+  },
+  {
+    "offset": "0x90F0",
+    "text": "need dictionary"
+  },
+  {
+    "offset": "0x9100",
+    "text": "incorrect data check"
+  },
+  {
+    "offset": "0x9118",
+    "text": "incorrect header check"
+  },
+  {
+    "offset": "0x9130",
+    "text": "invalid window size"
+  },
+  {
+    "offset": "0x9144",
+    "text": "unknown compression method"
+  },
+  {
+    "offset": "0xA268",
+    "text": "incomplete dynamic bit lengths tree"
+  },
+  {
+    "offset": "0xA28C",
+    "text": "oversubscribed dynamic bit lengths tree"
+  },
+  {
+    "offset": "0xA2B4",
+    "text": "incomplete literal/length tree"
+  },
+  {
+    "offset": "0xA2D4",
+    "text": "oversubscribed literal/length tree"
+  },
+  {
+    "offset": "0xA2F8",
+    "text": "empty distance tree with lengths"
+  },
+  {
+    "offset": "0xA31C",
+    "text": "incomplete distance tree"
+  },
+  {
+    "offset": "0xA338",
+    "text": "oversubscribed distance tree"
+  },
+  {
+    "offset": "0xA40C",
+    "text": "incompatible version"
+  },
+  {
+    "offset": "0xA424",
+    "text": "buffer error"
+  },
+  {
+    "offset": "0xA434",
+    "text": "insufficient memory"
+  },
+  {
+    "offset": "0xA448",
+    "text": "data error"
+  },
+  {
+    "offset": "0xA454",
+    "text": "stream error"
+  },
+  {
+    "offset": "0xA464",
+    "text": "file error"
+  },
+  {
+    "offset": "0xA470",
+    "text": "stream end"
+  },
+  {
+    "offset": "0xC00F",
+    "text": "2-2D2[2r2"
+  },
+  {
+    "offset": "0xC01F",
+    "text": "3>3M3"
+  },
+  {
+    "offset": "0xC051",
+    "text": "4(444"
+  },
+  {
+    "offset": "0xC065",
+    "text": "8+81868=8X8"
+  },
+  {
+    "offset": "0xC07B",
+    "text": ":!:s:"
+  },
+  {
+    "offset": "0xC083",
+    "text": ":f;~;u<q="
+  },
+  {
+    "offset": "0xC0B5",
+    "text": "2e3T6"
+  },
+  {
+    "offset": "0xC0BF",
+    "text": "7 989"
+  },
+  {
+    "offset": "0xC0D3",
+    "text": ";!;%;);-;"
+  },
+  {
+    "offset": "0xC0F3",
+    "text": "0d1h1l1p1t1x1|1"
+  },
+  {
+    "offset": "0xC10B",
+    "text": "1F2e2"
+  },
+  {
+    "offset": "0xC119",
+    "text": "4.5=5"
+  },
+  {
+    "offset": "0xC11F",
+    "text": "506f6"
+  },
+  {
+    "offset": "0xC131",
+    "text": "9#9'9+9/93979;9?9C9G9K9"
+  },
+  {
+    "offset": "0xC151",
+    "text": ">&?+?Y?g?u?"
+  },
+  {
+    "offset": "0xC17F",
+    "text": "3*4^5c5m;"
+  },
+  {
+    "offset": "0xC194",
+    "text": "w4'545"
+  },
+  {
+    "offset": "0xC19D",
+    "text": "5b6r6"
+  },
+  {
+    "offset": "0xC1AD",
+    "text": ":$:*:0:r:"
+  },
+  {
+    "offset": "0xC1D5",
+    "text": ";6;H;"
+  }
+]

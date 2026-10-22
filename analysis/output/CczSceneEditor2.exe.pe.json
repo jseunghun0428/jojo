@@ -1,0 +1,7073 @@
+{
+  "file": "Scenario/CczSceneEditor2.exe",
+  "size": 546304,
+  "sha256": "94a583a49dcba7c70fa885e6639271888567a4253b1fa7a6ce02ae683648535f",
+  "machine": "0x14C",
+  "format": "PE32",
+  "timestampRaw": 1759242992,
+  "linkerVersion": "14.29",
+  "imageBase": "0x400000",
+  "entryPointVA": "0x43EEC9",
+  "subsystem": 2,
+  "dllCharacteristics": "0x8140",
+  "clrDirectoryRva": "0x0",
+  "sections": [
+    {
+      "name": ".text",
+      "virtualSize": 264104,
+      "rva": 4096,
+      "rawSize": 264192,
+      "rawOffset": 1024,
+      "characteristics": "0x60000020",
+      "entropy": 6.158
+    },
+    {
+      "name": ".rdata",
+      "virtualSize": 99674,
+      "rva": 270336,
+      "rawSize": 99840,
+      "rawOffset": 265216,
+      "characteristics": "0x40000040",
+      "entropy": 5.1035
+    },
+    {
+      "name": ".data",
+      "virtualSize": 10848,
+      "rva": 372736,
+      "rawSize": 4608,
+      "rawOffset": 365056,
+      "characteristics": "0xC0000040",
+      "entropy": 4.1098
+    },
+    {
+      "name": ".rsrc",
+      "virtualSize": 131656,
+      "rva": 385024,
+      "rawSize": 132096,
+      "rawOffset": 369664,
+      "characteristics": "0x40000040",
+      "entropy": 4.3863
+    },
+    {
+      "name": ".reloc",
+      "virtualSize": 44240,
+      "rva": 520192,
+      "rawSize": 44544,
+      "rawOffset": 501760,
+      "characteristics": "0x42000040",
+      "entropy": 6.4934
+    }
+  ],
+  "imports": [
+    {
+      "dll": "mfc140u.dll",
+      "functions": [
+        {
+          "name": "ordinal:5763",
+          "iatVA": "0x442210"
+        },
+        {
+          "name": "ordinal:12928",
+          "iatVA": "0x442214"
+        },
+        {
+          "name": "ordinal:12219",
+          "iatVA": "0x442218"
+        },
+        {
+          "name": "ordinal:12251",
+          "iatVA": "0x44221C"
+        },
+        {
+          "name": "ordinal:10433",
+          "iatVA": "0x442220"
+        },
+        {
+          "name": "ordinal:8217",
+          "iatVA": "0x442224"
+        },
+        {
+          "name": "ordinal:12247",
+          "iatVA": "0x442228"
+        },
+        {
+          "name": "ordinal:12239",
+          "iatVA": "0x44222C"
+        },
+        {
+          "name": "ordinal:5918",
+          "iatVA": "0x442230"
+        },
+        {
+          "name": "ordinal:3852",
+          "iatVA": "0x442234"
+        },
+        {
+          "name": "ordinal:6349",
+          "iatVA": "0x442238"
+        },
+        {
+          "name": "ordinal:14668",
+          "iatVA": "0x44223C"
+        },
+        {
+          "name": "ordinal:6350",
+          "iatVA": "0x442240"
+        },
+        {
+          "name": "ordinal:14669",
+          "iatVA": "0x442244"
+        },
+        {
+          "name": "ordinal:6348",
+          "iatVA": "0x442248"
+        },
+        {
+          "name": "ordinal:8000",
+          "iatVA": "0x44224C"
+        },
+        {
+          "name": "ordinal:12531",
+          "iatVA": "0x442250"
+        },
+        {
+          "name": "ordinal:14466",
+          "iatVA": "0x442254"
+        },
+        {
+          "name": "ordinal:11983",
+          "iatVA": "0x442258"
+        },
+        {
+          "name": "ordinal:2034",
+          "iatVA": "0x44225C"
+        },
+        {
+          "name": "ordinal:7941",
+          "iatVA": "0x442260"
+        },
+        {
+          "name": "ordinal:12947",
+          "iatVA": "0x442264"
+        },
+        {
+          "name": "ordinal:4090",
+          "iatVA": "0x442268"
+        },
+        {
+          "name": "ordinal:4152",
+          "iatVA": "0x44226C"
+        },
+        {
+          "name": "ordinal:9398",
+          "iatVA": "0x442270"
+        },
+        {
+          "name": "ordinal:14595",
+          "iatVA": "0x442274"
+        },
+        {
+          "name": "ordinal:7922",
+          "iatVA": "0x442278"
+        },
+        {
+          "name": "ordinal:14589",
+          "iatVA": "0x44227C"
+        },
+        {
+          "name": "ordinal:12542",
+          "iatVA": "0x442280"
+        },
+        {
+          "name": "ordinal:12541",
+          "iatVA": "0x442284"
+        },
+        {
+          "name": "ordinal:2486",
+          "iatVA": "0x442288"
+        },
+        {
+          "name": "ordinal:5357",
+          "iatVA": "0x44228C"
+        },
+        {
+          "name": "ordinal:8324",
+          "iatVA": "0x442290"
+        },
+        {
+          "name": "ordinal:12865",
+          "iatVA": "0x442294"
+        },
+        {
+          "name": "ordinal:8386",
+          "iatVA": "0x442298"
+        },
+        {
+          "name": "ordinal:8470",
+          "iatVA": "0x44229C"
+        },
+        {
+          "name": "ordinal:8461",
+          "iatVA": "0x4422A0"
+        },
+        {
+          "name": "ordinal:2801",
+          "iatVA": "0x4422A4"
+        },
+        {
+          "name": "ordinal:13007",
+          "iatVA": "0x4422A8"
+        },
+        {
+          "name": "ordinal:11893",
+          "iatVA": "0x4422AC"
+        },
+        {
+          "name": "ordinal:14216",
+          "iatVA": "0x4422B0"
+        },
+        {
+          "name": "ordinal:8974",
+          "iatVA": "0x4422B4"
+        },
+        {
+          "name": "ordinal:9208",
+          "iatVA": "0x4422B8"
+        },
+        {
+          "name": "ordinal:8479",
+          "iatVA": "0x4422BC"
+        },
+        {
+          "name": "ordinal:14308",
+          "iatVA": "0x4422C0"
+        },
+        {
+          "name": "ordinal:12583",
+          "iatVA": "0x4422C4"
+        },
+        {
+          "name": "ordinal:4219",
+          "iatVA": "0x4422C8"
+        },
+        {
+          "name": "ordinal:3145",
+          "iatVA": "0x4422CC"
+        },
+        {
+          "name": "ordinal:6220",
+          "iatVA": "0x4422D0"
+        },
+        {
+          "name": "ordinal:13756",
+          "iatVA": "0x4422D4"
+        },
+        {
+          "name": "ordinal:2761",
+          "iatVA": "0x4422D8"
+        },
+        {
+          "name": "ordinal:9126",
+          "iatVA": "0x4422DC"
+        },
+        {
+          "name": "ordinal:12220",
+          "iatVA": "0x4422E0"
+        },
+        {
+          "name": "ordinal:9256",
+          "iatVA": "0x4422E4"
+        },
+        {
+          "name": "ordinal:6129",
+          "iatVA": "0x4422E8"
+        },
+        {
+          "name": "ordinal:6490",
+          "iatVA": "0x4422EC"
+        },
+        {
+          "name": "ordinal:1002",
+          "iatVA": "0x4422F0"
+        },
+        {
+          "name": "ordinal:1066",
+          "iatVA": "0x4422F4"
+        },
+        {
+          "name": "ordinal:3697",
+          "iatVA": "0x4422F8"
+        },
+        {
+          "name": "ordinal:7121",
+          "iatVA": "0x4422FC"
+        },
+        {
+          "name": "ordinal:7501",
+          "iatVA": "0x442300"
+        },
+        {
+          "name": "ordinal:481",
+          "iatVA": "0x442304"
+        },
+        {
+          "name": "ordinal:1128",
+          "iatVA": "0x442308"
+        },
+        {
+          "name": "ordinal:10976",
+          "iatVA": "0x44230C"
+        },
+        {
+          "name": "ordinal:265",
+          "iatVA": "0x442310"
+        },
+        {
+          "name": "ordinal:11024",
+          "iatVA": "0x442314"
+        },
+        {
+          "name": "ordinal:14065",
+          "iatVA": "0x442318"
+        },
+        {
+          "name": "ordinal:5609",
+          "iatVA": "0x44231C"
+        },
+        {
+          "name": "ordinal:6199",
+          "iatVA": "0x442320"
+        },
+        {
+          "name": "ordinal:5816",
+          "iatVA": "0x442324"
+        },
+        {
+          "name": "ordinal:11267",
+          "iatVA": "0x442328"
+        },
+        {
+          "name": "ordinal:500",
+          "iatVA": "0x44232C"
+        },
+        {
+          "name": "ordinal:1142",
+          "iatVA": "0x442330"
+        },
+        {
+          "name": "ordinal:11962",
+          "iatVA": "0x442334"
+        },
+        {
+          "name": "ordinal:14606",
+          "iatVA": "0x442338"
+        },
+        {
+          "name": "ordinal:6328",
+          "iatVA": "0x44233C"
+        },
+        {
+          "name": "ordinal:13048",
+          "iatVA": "0x442340"
+        },
+        {
+          "name": "ordinal:2885",
+          "iatVA": "0x442344"
+        },
+        {
+          "name": "ordinal:9197",
+          "iatVA": "0x442348"
+        },
+        {
+          "name": "ordinal:5852",
+          "iatVA": "0x44234C"
+        },
+        {
+          "name": "ordinal:6316",
+          "iatVA": "0x442350"
+        },
+        {
+          "name": "ordinal:5039",
+          "iatVA": "0x442354"
+        },
+        {
+          "name": "ordinal:8738",
+          "iatVA": "0x442358"
+        },
+        {
+          "name": "ordinal:2256",
+          "iatVA": "0x44235C"
+        },
+        {
+          "name": "ordinal:12964",
+          "iatVA": "0x442360"
+        },
+        {
+          "name": "ordinal:14137",
+          "iatVA": "0x442364"
+        },
+        {
+          "name": "ordinal:9212",
+          "iatVA": "0x442368"
+        },
+        {
+          "name": "ordinal:10251",
+          "iatVA": "0x44236C"
+        },
+        {
+          "name": "ordinal:5765",
+          "iatVA": "0x442370"
+        },
+        {
+          "name": "ordinal:3849",
+          "iatVA": "0x442374"
+        },
+        {
+          "name": "ordinal:4703",
+          "iatVA": "0x442378"
+        },
+        {
+          "name": "ordinal:12660",
+          "iatVA": "0x44237C"
+        },
+        {
+          "name": "ordinal:12418",
+          "iatVA": "0x442380"
+        },
+        {
+          "name": "ordinal:13352",
+          "iatVA": "0x442384"
+        },
+        {
+          "name": "ordinal:2843",
+          "iatVA": "0x442388"
+        },
+        {
+          "name": "ordinal:7655",
+          "iatVA": "0x44238C"
+        },
+        {
+          "name": "ordinal:2558",
+          "iatVA": "0x442390"
+        },
+        {
+          "name": "ordinal:8395",
+          "iatVA": "0x442394"
+        },
+        {
+          "name": "ordinal:13832",
+          "iatVA": "0x442398"
+        },
+        {
+          "name": "ordinal:2858",
+          "iatVA": "0x44239C"
+        },
+        {
+          "name": "ordinal:9081",
+          "iatVA": "0x4423A0"
+        },
+        {
+          "name": "ordinal:3857",
+          "iatVA": "0x4423A4"
+        },
+        {
+          "name": "ordinal:12786",
+          "iatVA": "0x4423A8"
+        },
+        {
+          "name": "ordinal:5577",
+          "iatVA": "0x4423AC"
+        },
+        {
+          "name": "ordinal:12575",
+          "iatVA": "0x4423B0"
+        },
+        {
+          "name": "ordinal:11252",
+          "iatVA": "0x4423B4"
+        },
+        {
+          "name": "ordinal:9484",
+          "iatVA": "0x4423B8"
+        },
+        {
+          "name": "ordinal:2718",
+          "iatVA": "0x4423BC"
+        },
+        {
+          "name": "ordinal:12093",
+          "iatVA": "0x4423C0"
+        },
+        {
+          "name": "ordinal:4138",
+          "iatVA": "0x4423C4"
+        },
+        {
+          "name": "ordinal:4088",
+          "iatVA": "0x4423C8"
+        },
+        {
+          "name": "ordinal:14511",
+          "iatVA": "0x4423CC"
+        },
+        {
+          "name": "ordinal:5377",
+          "iatVA": "0x4423D0"
+        },
+        {
+          "name": "ordinal:5368",
+          "iatVA": "0x4423D4"
+        },
+        {
+          "name": "ordinal:10431",
+          "iatVA": "0x4423D8"
+        },
+        {
+          "name": "ordinal:10721",
+          "iatVA": "0x4423DC"
+        },
+        {
+          "name": "ordinal:11138",
+          "iatVA": "0x4423E0"
+        },
+        {
+          "name": "ordinal:11139",
+          "iatVA": "0x4423E4"
+        },
+        {
+          "name": "ordinal:9363",
+          "iatVA": "0x4423E8"
+        },
+        {
+          "name": "ordinal:11743",
+          "iatVA": "0x4423EC"
+        },
+        {
+          "name": "ordinal:9979",
+          "iatVA": "0x4423F0"
+        },
+        {
+          "name": "ordinal:3872",
+          "iatVA": "0x4423F4"
+        },
+        {
+          "name": "ordinal:2993",
+          "iatVA": "0x4423F8"
+        },
+        {
+          "name": "ordinal:8744",
+          "iatVA": "0x4423FC"
+        },
+        {
+          "name": "ordinal:4222",
+          "iatVA": "0x442400"
+        },
+        {
+          "name": "ordinal:3147",
+          "iatVA": "0x442404"
+        },
+        {
+          "name": "ordinal:9128",
+          "iatVA": "0x442408"
+        },
+        {
+          "name": "ordinal:6497",
+          "iatVA": "0x44240C"
+        },
+        {
+          "name": "ordinal:1070",
+          "iatVA": "0x442410"
+        },
+        {
+          "name": "ordinal:6549",
+          "iatVA": "0x442414"
+        },
+        {
+          "name": "ordinal:1133",
+          "iatVA": "0x442418"
+        },
+        {
+          "name": "ordinal:2753",
+          "iatVA": "0x44241C"
+        },
+        {
+          "name": "ordinal:14573",
+          "iatVA": "0x442420"
+        },
+        {
+          "name": "ordinal:3874",
+          "iatVA": "0x442424"
+        },
+        {
+          "name": "ordinal:2994",
+          "iatVA": "0x442428"
+        },
+        {
+          "name": "ordinal:8745",
+          "iatVA": "0x44242C"
+        },
+        {
+          "name": "ordinal:4224",
+          "iatVA": "0x442430"
+        },
+        {
+          "name": "ordinal:3189",
+          "iatVA": "0x442434"
+        },
+        {
+          "name": "ordinal:9131",
+          "iatVA": "0x442438"
+        },
+        {
+          "name": "ordinal:6588",
+          "iatVA": "0x44243C"
+        },
+        {
+          "name": "ordinal:1179",
+          "iatVA": "0x442440"
+        },
+        {
+          "name": "ordinal:4236",
+          "iatVA": "0x442444"
+        },
+        {
+          "name": "ordinal:3257",
+          "iatVA": "0x442448"
+        },
+        {
+          "name": "ordinal:9135",
+          "iatVA": "0x44244C"
+        },
+        {
+          "name": "ordinal:6834",
+          "iatVA": "0x442450"
+        },
+        {
+          "name": "ordinal:1446",
+          "iatVA": "0x442454"
+        },
+        {
+          "name": "ordinal:286",
+          "iatVA": "0x442458"
+        },
+        {
+          "name": "ordinal:1689",
+          "iatVA": "0x44245C"
+        },
+        {
+          "name": "ordinal:280",
+          "iatVA": "0x442460"
+        },
+        {
+          "name": "ordinal:7428",
+          "iatVA": "0x442464"
+        },
+        {
+          "name": "ordinal:10149",
+          "iatVA": "0x442468"
+        },
+        {
+          "name": "ordinal:3833",
+          "iatVA": "0x44246C"
+        },
+        {
+          "name": "ordinal:7648",
+          "iatVA": "0x442470"
+        },
+        {
+          "name": "ordinal:10048",
+          "iatVA": "0x442474"
+        },
+        {
+          "name": "ordinal:11146",
+          "iatVA": "0x442478"
+        },
+        {
+          "name": "ordinal:11746",
+          "iatVA": "0x44247C"
+        },
+        {
+          "name": "ordinal:8913",
+          "iatVA": "0x442480"
+        },
+        {
+          "name": "ordinal:8923",
+          "iatVA": "0x442484"
+        },
+        {
+          "name": "ordinal:10509",
+          "iatVA": "0x442488"
+        },
+        {
+          "name": "ordinal:11118",
+          "iatVA": "0x44248C"
+        },
+        {
+          "name": "ordinal:9526",
+          "iatVA": "0x442490"
+        },
+        {
+          "name": "ordinal:9991",
+          "iatVA": "0x442494"
+        },
+        {
+          "name": "ordinal:9986",
+          "iatVA": "0x442498"
+        },
+        {
+          "name": "ordinal:9514",
+          "iatVA": "0x44249C"
+        },
+        {
+          "name": "ordinal:9524",
+          "iatVA": "0x4424A0"
+        },
+        {
+          "name": "ordinal:9509",
+          "iatVA": "0x4424A4"
+        },
+        {
+          "name": "ordinal:11279",
+          "iatVA": "0x4424A8"
+        },
+        {
+          "name": "ordinal:11276",
+          "iatVA": "0x4424AC"
+        },
+        {
+          "name": "ordinal:8304",
+          "iatVA": "0x4424B0"
+        },
+        {
+          "name": "ordinal:12088",
+          "iatVA": "0x4424B4"
+        },
+        {
+          "name": "ordinal:6876",
+          "iatVA": "0x4424B8"
+        },
+        {
+          "name": "ordinal:2681",
+          "iatVA": "0x4424BC"
+        },
+        {
+          "name": "ordinal:12122",
+          "iatVA": "0x4424C0"
+        },
+        {
+          "name": "ordinal:9226",
+          "iatVA": "0x4424C4"
+        },
+        {
+          "name": "ordinal:1078",
+          "iatVA": "0x4424C8"
+        },
+        {
+          "name": "ordinal:376",
+          "iatVA": "0x4424CC"
+        },
+        {
+          "name": "ordinal:2350",
+          "iatVA": "0x4424D0"
+        },
+        {
+          "name": "ordinal:12367",
+          "iatVA": "0x4424D4"
+        },
+        {
+          "name": "ordinal:6332",
+          "iatVA": "0x4424D8"
+        },
+        {
+          "name": "ordinal:5893",
+          "iatVA": "0x4424DC"
+        },
+        {
+          "name": "ordinal:12351",
+          "iatVA": "0x4424E0"
+        },
+        {
+          "name": "ordinal:8773",
+          "iatVA": "0x4424E4"
+        },
+        {
+          "name": "ordinal:8776",
+          "iatVA": "0x4424E8"
+        },
+        {
+          "name": "ordinal:13648",
+          "iatVA": "0x4424EC"
+        },
+        {
+          "name": "ordinal:7909",
+          "iatVA": "0x4424F0"
+        },
+        {
+          "name": "ordinal:8746",
+          "iatVA": "0x4424F4"
+        },
+        {
+          "name": "ordinal:4227",
+          "iatVA": "0x4424F8"
+        },
+        {
+          "name": "ordinal:6607",
+          "iatVA": "0x4424FC"
+        },
+        {
+          "name": "ordinal:3932",
+          "iatVA": "0x442500"
+        },
+        {
+          "name": "ordinal:2215",
+          "iatVA": "0x442504"
+        },
+        {
+          "name": "ordinal:2526",
+          "iatVA": "0x442508"
+        },
+        {
+          "name": "ordinal:4885",
+          "iatVA": "0x44250C"
+        },
+        {
+          "name": "ordinal:14377",
+          "iatVA": "0x442510"
+        },
+        {
+          "name": "ordinal:2337",
+          "iatVA": "0x442514"
+        },
+        {
+          "name": "ordinal:4130",
+          "iatVA": "0x442518"
+        },
+        {
+          "name": "ordinal:890",
+          "iatVA": "0x44251C"
+        },
+        {
+          "name": "ordinal:1391",
+          "iatVA": "0x442520"
+        },
+        {
+          "name": "ordinal:450",
+          "iatVA": "0x442524"
+        },
+        {
+          "name": "ordinal:1108",
+          "iatVA": "0x442528"
+        },
+        {
+          "name": "ordinal:2520",
+          "iatVA": "0x44252C"
+        },
+        {
+          "name": "ordinal:6486",
+          "iatVA": "0x442530"
+        },
+        {
+          "name": "ordinal:2522",
+          "iatVA": "0x442534"
+        },
+        {
+          "name": "ordinal:13070",
+          "iatVA": "0x442538"
+        },
+        {
+          "name": "ordinal:4649",
+          "iatVA": "0x44253C"
+        },
+        {
+          "name": "ordinal:11037",
+          "iatVA": "0x442540"
+        },
+        {
+          "name": "ordinal:8754",
+          "iatVA": "0x442544"
+        },
+        {
+          "name": "ordinal:7820",
+          "iatVA": "0x442548"
+        },
+        {
+          "name": "ordinal:2473",
+          "iatVA": "0x44254C"
+        },
+        {
+          "name": "ordinal:4477",
+          "iatVA": "0x442550"
+        },
+        {
+          "name": "ordinal:13345",
+          "iatVA": "0x442554"
+        },
+        {
+          "name": "ordinal:5174",
+          "iatVA": "0x442558"
+        },
+        {
+          "name": "ordinal:1653",
+          "iatVA": "0x44255C"
+        },
+        {
+          "name": "ordinal:3846",
+          "iatVA": "0x442560"
+        },
+        {
+          "name": "ordinal:8031",
+          "iatVA": "0x442564"
+        },
+        {
+          "name": "ordinal:8032",
+          "iatVA": "0x442568"
+        },
+        {
+          "name": "ordinal:7176",
+          "iatVA": "0x44256C"
+        },
+        {
+          "name": "ordinal:7512",
+          "iatVA": "0x442570"
+        },
+        {
+          "name": "ordinal:559",
+          "iatVA": "0x442574"
+        },
+        {
+          "name": "ordinal:1189",
+          "iatVA": "0x442578"
+        },
+        {
+          "name": "ordinal:967",
+          "iatVA": "0x44257C"
+        },
+        {
+          "name": "ordinal:1445",
+          "iatVA": "0x442580"
+        },
+        {
+          "name": "ordinal:12107",
+          "iatVA": "0x442584"
+        },
+        {
+          "name": "ordinal:9213",
+          "iatVA": "0x442588"
+        },
+        {
+          "name": "ordinal:3940",
+          "iatVA": "0x44258C"
+        },
+        {
+          "name": "ordinal:5934",
+          "iatVA": "0x442590"
+        },
+        {
+          "name": "ordinal:13700",
+          "iatVA": "0x442594"
+        },
+        {
+          "name": "ordinal:9237",
+          "iatVA": "0x442598"
+        },
+        {
+          "name": "ordinal:2557",
+          "iatVA": "0x44259C"
+        },
+        {
+          "name": "ordinal:4495",
+          "iatVA": "0x4425A0"
+        },
+        {
+          "name": "ordinal:12181",
+          "iatVA": "0x4425A4"
+        },
+        {
+          "name": "ordinal:3834",
+          "iatVA": "0x4425A8"
+        },
+        {
+          "name": "ordinal:12081",
+          "iatVA": "0x4425AC"
+        },
+        {
+          "name": "ordinal:8209",
+          "iatVA": "0x4425B0"
+        },
+        {
+          "name": "ordinal:3174",
+          "iatVA": "0x4425B4"
+        },
+        {
+          "name": "ordinal:8400",
+          "iatVA": "0x4425B8"
+        },
+        {
+          "name": "ordinal:5033",
+          "iatVA": "0x4425BC"
+        },
+        {
+          "name": "ordinal:5034",
+          "iatVA": "0x4425C0"
+        },
+        {
+          "name": "ordinal:6130",
+          "iatVA": "0x4425C4"
+        },
+        {
+          "name": "ordinal:12462",
+          "iatVA": "0x4425C8"
+        },
+        {
+          "name": "ordinal:1790",
+          "iatVA": "0x4425CC"
+        },
+        {
+          "name": "ordinal:7692",
+          "iatVA": "0x4425D0"
+        },
+        {
+          "name": "ordinal:13709",
+          "iatVA": "0x4425D4"
+        },
+        {
+          "name": "ordinal:5939",
+          "iatVA": "0x4425D8"
+        },
+        {
+          "name": "ordinal:13707",
+          "iatVA": "0x4425DC"
+        },
+        {
+          "name": "ordinal:5938",
+          "iatVA": "0x4425E0"
+        },
+        {
+          "name": "ordinal:11432",
+          "iatVA": "0x4425E4"
+        },
+        {
+          "name": "ordinal:5956",
+          "iatVA": "0x4425E8"
+        },
+        {
+          "name": "ordinal:8831",
+          "iatVA": "0x4425EC"
+        },
+        {
+          "name": "ordinal:9352",
+          "iatVA": "0x4425F0"
+        },
+        {
+          "name": "ordinal:11803",
+          "iatVA": "0x4425F4"
+        },
+        {
+          "name": "ordinal:11795",
+          "iatVA": "0x4425F8"
+        },
+        {
+          "name": "ordinal:5369",
+          "iatVA": "0x4425FC"
+        },
+        {
+          "name": "ordinal:3843",
+          "iatVA": "0x442600"
+        },
+        {
+          "name": "ordinal:4587",
+          "iatVA": "0x442604"
+        },
+        {
+          "name": "ordinal:11495",
+          "iatVA": "0x442608"
+        },
+        {
+          "name": "ordinal:10402",
+          "iatVA": "0x44260C"
+        },
+        {
+          "name": "ordinal:3191",
+          "iatVA": "0x442610"
+        },
+        {
+          "name": "ordinal:11797",
+          "iatVA": "0x442614"
+        },
+        {
+          "name": "ordinal:8318",
+          "iatVA": "0x442618"
+        },
+        {
+          "name": "ordinal:2071",
+          "iatVA": "0x44261C"
+        },
+        {
+          "name": "ordinal:10841",
+          "iatVA": "0x442620"
+        },
+        {
+          "name": "ordinal:12538",
+          "iatVA": "0x442624"
+        },
+        {
+          "name": "ordinal:5643",
+          "iatVA": "0x442628"
+        },
+        {
+          "name": "ordinal:5642",
+          "iatVA": "0x44262C"
+        },
+        {
+          "name": "ordinal:14726",
+          "iatVA": "0x442630"
+        },
+        {
+          "name": "ordinal:14544",
+          "iatVA": "0x442634"
+        },
+        {
+          "name": "ordinal:11651",
+          "iatVA": "0x442638"
+        },
+        {
+          "name": "ordinal:7019",
+          "iatVA": "0x44263C"
+        },
+        {
+          "name": "ordinal:11135",
+          "iatVA": "0x442640"
+        },
+        {
+          "name": "ordinal:11649",
+          "iatVA": "0x442644"
+        },
+        {
+          "name": "ordinal:11650",
+          "iatVA": "0x442648"
+        },
+        {
+          "name": "ordinal:7020",
+          "iatVA": "0x44264C"
+        },
+        {
+          "name": "ordinal:5450",
+          "iatVA": "0x442650"
+        },
+        {
+          "name": "ordinal:14021",
+          "iatVA": "0x442654"
+        },
+        {
+          "name": "ordinal:1796",
+          "iatVA": "0x442658"
+        },
+        {
+          "name": "ordinal:14020",
+          "iatVA": "0x44265C"
+        },
+        {
+          "name": "ordinal:11771",
+          "iatVA": "0x442660"
+        },
+        {
+          "name": "ordinal:4886",
+          "iatVA": "0x442664"
+        },
+        {
+          "name": "ordinal:782",
+          "iatVA": "0x442668"
+        },
+        {
+          "name": "ordinal:1320",
+          "iatVA": "0x44266C"
+        },
+        {
+          "name": "ordinal:8616",
+          "iatVA": "0x442670"
+        },
+        {
+          "name": "ordinal:12143",
+          "iatVA": "0x442674"
+        },
+        {
+          "name": "ordinal:9574",
+          "iatVA": "0x442678"
+        },
+        {
+          "name": "ordinal:4491",
+          "iatVA": "0x44267C"
+        },
+        {
+          "name": "ordinal:7296",
+          "iatVA": "0x442680"
+        },
+        {
+          "name": "ordinal:2178",
+          "iatVA": "0x442684"
+        },
+        {
+          "name": "ordinal:469",
+          "iatVA": "0x442688"
+        },
+        {
+          "name": "ordinal:1116",
+          "iatVA": "0x44268C"
+        },
+        {
+          "name": "ordinal:540",
+          "iatVA": "0x442690"
+        },
+        {
+          "name": "ordinal:1171",
+          "iatVA": "0x442694"
+        },
+        {
+          "name": "ordinal:758",
+          "iatVA": "0x442698"
+        },
+        {
+          "name": "ordinal:1306",
+          "iatVA": "0x44269C"
+        },
+        {
+          "name": "ordinal:7496",
+          "iatVA": "0x4426A0"
+        },
+        {
+          "name": "ordinal:9299",
+          "iatVA": "0x4426A4"
+        },
+        {
+          "name": "ordinal:3264",
+          "iatVA": "0x4426A8"
+        },
+        {
+          "name": "ordinal:3217",
+          "iatVA": "0x4426AC"
+        },
+        {
+          "name": "ordinal:8475",
+          "iatVA": "0x4426B0"
+        },
+        {
+          "name": "ordinal:12768",
+          "iatVA": "0x4426B4"
+        },
+        {
+          "name": "ordinal:2203",
+          "iatVA": "0x4426B8"
+        },
+        {
+          "name": "ordinal:5120",
+          "iatVA": "0x4426BC"
+        },
+        {
+          "name": "ordinal:13614",
+          "iatVA": "0x4426C0"
+        },
+        {
+          "name": "ordinal:5212",
+          "iatVA": "0x4426C4"
+        },
+        {
+          "name": "ordinal:5213",
+          "iatVA": "0x4426C8"
+        },
+        {
+          "name": "ordinal:11535",
+          "iatVA": "0x4426CC"
+        },
+        {
+          "name": "ordinal:8072",
+          "iatVA": "0x4426D0"
+        },
+        {
+          "name": "ordinal:9278",
+          "iatVA": "0x4426D4"
+        },
+        {
+          "name": "ordinal:13544",
+          "iatVA": "0x4426D8"
+        },
+        {
+          "name": "ordinal:8225",
+          "iatVA": "0x4426DC"
+        },
+        {
+          "name": "ordinal:7179",
+          "iatVA": "0x4426E0"
+        },
+        {
+          "name": "ordinal:644",
+          "iatVA": "0x4426E4"
+        },
+        {
+          "name": "ordinal:14508",
+          "iatVA": "0x4426E8"
+        },
+        {
+          "name": "ordinal:2646",
+          "iatVA": "0x4426EC"
+        },
+        {
+          "name": "ordinal:14129",
+          "iatVA": "0x4426F0"
+        },
+        {
+          "name": "ordinal:14131",
+          "iatVA": "0x4426F4"
+        },
+        {
+          "name": "ordinal:12175",
+          "iatVA": "0x4426F8"
+        },
+        {
+          "name": "ordinal:13028",
+          "iatVA": "0x4426FC"
+        },
+        {
+          "name": "ordinal:4171",
+          "iatVA": "0x442700"
+        },
+        {
+          "name": "ordinal:11372",
+          "iatVA": "0x442704"
+        },
+        {
+          "name": "ordinal:3869",
+          "iatVA": "0x442708"
+        },
+        {
+          "name": "ordinal:3182",
+          "iatVA": "0x44270C"
+        },
+        {
+          "name": "ordinal:4884",
+          "iatVA": "0x442710"
+        },
+        {
+          "name": "ordinal:2825",
+          "iatVA": "0x442714"
+        },
+        {
+          "name": "ordinal:8390",
+          "iatVA": "0x442718"
+        },
+        {
+          "name": "ordinal:6712",
+          "iatVA": "0x44271C"
+        },
+        {
+          "name": "ordinal:13138",
+          "iatVA": "0x442720"
+        },
+        {
+          "name": "ordinal:6058",
+          "iatVA": "0x442724"
+        },
+        {
+          "name": "ordinal:11713",
+          "iatVA": "0x442728"
+        },
+        {
+          "name": "ordinal:4977",
+          "iatVA": "0x44272C"
+        },
+        {
+          "name": "ordinal:4926",
+          "iatVA": "0x442730"
+        },
+        {
+          "name": "ordinal:4911",
+          "iatVA": "0x442734"
+        },
+        {
+          "name": "ordinal:4969",
+          "iatVA": "0x442738"
+        },
+        {
+          "name": "ordinal:5016",
+          "iatVA": "0x44273C"
+        },
+        {
+          "name": "ordinal:4939",
+          "iatVA": "0x442740"
+        },
+        {
+          "name": "ordinal:4991",
+          "iatVA": "0x442744"
+        },
+        {
+          "name": "ordinal:5006",
+          "iatVA": "0x442748"
+        },
+        {
+          "name": "ordinal:4951",
+          "iatVA": "0x44274C"
+        },
+        {
+          "name": "ordinal:4957",
+          "iatVA": "0x442750"
+        },
+        {
+          "name": "ordinal:4963",
+          "iatVA": "0x442754"
+        },
+        {
+          "name": "ordinal:4945",
+          "iatVA": "0x442758"
+        },
+        {
+          "name": "ordinal:5000",
+          "iatVA": "0x44275C"
+        },
+        {
+          "name": "ordinal:4930",
+          "iatVA": "0x442760"
+        },
+        {
+          "name": "ordinal:1774",
+          "iatVA": "0x442764"
+        },
+        {
+          "name": "ordinal:1747",
+          "iatVA": "0x442768"
+        },
+        {
+          "name": "ordinal:1769",
+          "iatVA": "0x44276C"
+        },
+        {
+          "name": "ordinal:1743",
+          "iatVA": "0x442770"
+        },
+        {
+          "name": "ordinal:1721",
+          "iatVA": "0x442774"
+        },
+        {
+          "name": "ordinal:9247",
+          "iatVA": "0x442778"
+        },
+        {
+          "name": "ordinal:12208",
+          "iatVA": "0x44277C"
+        },
+        {
+          "name": "ordinal:14577",
+          "iatVA": "0x442780"
+        },
+        {
+          "name": "ordinal:5312",
+          "iatVA": "0x442784"
+        },
+        {
+          "name": "ordinal:8174",
+          "iatVA": "0x442788"
+        },
+        {
+          "name": "ordinal:8317",
+          "iatVA": "0x44278C"
+        },
+        {
+          "name": "ordinal:7999",
+          "iatVA": "0x442790"
+        },
+        {
+          "name": "ordinal:8338",
+          "iatVA": "0x442794"
+        },
+        {
+          "name": "ordinal:2725",
+          "iatVA": "0x442798"
+        },
+        {
+          "name": "ordinal:2703",
+          "iatVA": "0x44279C"
+        },
+        {
+          "name": "ordinal:5441",
+          "iatVA": "0x4427A0"
+        },
+        {
+          "name": "ordinal:4387",
+          "iatVA": "0x4427A4"
+        },
+        {
+          "name": "ordinal:4032",
+          "iatVA": "0x4427A8"
+        },
+        {
+          "name": "ordinal:4792",
+          "iatVA": "0x4427AC"
+        },
+        {
+          "name": "ordinal:14313",
+          "iatVA": "0x4427B0"
+        },
+        {
+          "name": "ordinal:2084",
+          "iatVA": "0x4427B4"
+        },
+        {
+          "name": "ordinal:12481",
+          "iatVA": "0x4427B8"
+        },
+        {
+          "name": "ordinal:3311",
+          "iatVA": "0x4427BC"
+        },
+        {
+          "name": "ordinal:8995",
+          "iatVA": "0x4427C0"
+        },
+        {
+          "name": "ordinal:8940",
+          "iatVA": "0x4427C4"
+        },
+        {
+          "name": "ordinal:14197",
+          "iatVA": "0x4427C8"
+        },
+        {
+          "name": "ordinal:6303",
+          "iatVA": "0x4427CC"
+        },
+        {
+          "name": "ordinal:8451",
+          "iatVA": "0x4427D0"
+        },
+        {
+          "name": "ordinal:12996",
+          "iatVA": "0x4427D4"
+        },
+        {
+          "name": "ordinal:8815",
+          "iatVA": "0x4427D8"
+        },
+        {
+          "name": "ordinal:3131",
+          "iatVA": "0x4427DC"
+        },
+        {
+          "name": "ordinal:14441",
+          "iatVA": "0x4427E0"
+        },
+        {
+          "name": "ordinal:11089",
+          "iatVA": "0x4427E4"
+        },
+        {
+          "name": "ordinal:3338",
+          "iatVA": "0x4427E8"
+        },
+        {
+          "name": "ordinal:11331",
+          "iatVA": "0x4427EC"
+        },
+        {
+          "name": "ordinal:1773",
+          "iatVA": "0x4427F0"
+        },
+        {
+          "name": "ordinal:4126",
+          "iatVA": "0x4427F4"
+        },
+        {
+          "name": "ordinal:2067",
+          "iatVA": "0x4427F8"
+        },
+        {
+          "name": "ordinal:5080",
+          "iatVA": "0x4427FC"
+        },
+        {
+          "name": "ordinal:5085",
+          "iatVA": "0x442800"
+        },
+        {
+          "name": "ordinal:3133",
+          "iatVA": "0x442804"
+        },
+        {
+          "name": "ordinal:6276",
+          "iatVA": "0x442808"
+        },
+        {
+          "name": "ordinal:13216",
+          "iatVA": "0x44280C"
+        },
+        {
+          "name": "ordinal:12148",
+          "iatVA": "0x442810"
+        },
+        {
+          "name": "ordinal:4017",
+          "iatVA": "0x442814"
+        },
+        {
+          "name": "ordinal:2672",
+          "iatVA": "0x442818"
+        },
+        {
+          "name": "ordinal:8806",
+          "iatVA": "0x44281C"
+        },
+        {
+          "name": "ordinal:14315",
+          "iatVA": "0x442820"
+        },
+        {
+          "name": "ordinal:8145",
+          "iatVA": "0x442824"
+        },
+        {
+          "name": "ordinal:13480",
+          "iatVA": "0x442828"
+        },
+        {
+          "name": "ordinal:11162",
+          "iatVA": "0x44282C"
+        },
+        {
+          "name": "ordinal:9002",
+          "iatVA": "0x442830"
+        },
+        {
+          "name": "ordinal:8956",
+          "iatVA": "0x442834"
+        },
+        {
+          "name": "ordinal:3230",
+          "iatVA": "0x442838"
+        },
+        {
+          "name": "ordinal:3356",
+          "iatVA": "0x44283C"
+        },
+        {
+          "name": "ordinal:2618",
+          "iatVA": "0x442840"
+        },
+        {
+          "name": "ordinal:2113",
+          "iatVA": "0x442844"
+        },
+        {
+          "name": "ordinal:10250",
+          "iatVA": "0x442848"
+        },
+        {
+          "name": "ordinal:3066",
+          "iatVA": "0x44284C"
+        },
+        {
+          "name": "ordinal:9291",
+          "iatVA": "0x442850"
+        },
+        {
+          "name": "ordinal:8997",
+          "iatVA": "0x442854"
+        },
+        {
+          "name": "ordinal:8955",
+          "iatVA": "0x442858"
+        },
+        {
+          "name": "ordinal:8962",
+          "iatVA": "0x44285C"
+        },
+        {
+          "name": "ordinal:3403",
+          "iatVA": "0x442860"
+        },
+        {
+          "name": "ordinal:13487",
+          "iatVA": "0x442864"
+        },
+        {
+          "name": "ordinal:4016",
+          "iatVA": "0x442868"
+        },
+        {
+          "name": "ordinal:10472",
+          "iatVA": "0x44286C"
+        },
+        {
+          "name": "ordinal:11264",
+          "iatVA": "0x442870"
+        },
+        {
+          "name": "ordinal:14298",
+          "iatVA": "0x442874"
+        },
+        {
+          "name": "ordinal:3352",
+          "iatVA": "0x442878"
+        },
+        {
+          "name": "ordinal:12827",
+          "iatVA": "0x44287C"
+        },
+        {
+          "name": "ordinal:8388",
+          "iatVA": "0x442880"
+        },
+        {
+          "name": "ordinal:8477",
+          "iatVA": "0x442884"
+        },
+        {
+          "name": "ordinal:13314",
+          "iatVA": "0x442888"
+        },
+        {
+          "name": "ordinal:8060",
+          "iatVA": "0x44288C"
+        },
+        {
+          "name": "ordinal:8061",
+          "iatVA": "0x442890"
+        },
+        {
+          "name": "ordinal:8089",
+          "iatVA": "0x442894"
+        },
+        {
+          "name": "ordinal:12651",
+          "iatVA": "0x442898"
+        },
+        {
+          "name": "ordinal:12616",
+          "iatVA": "0x44289C"
+        },
+        {
+          "name": "ordinal:6468",
+          "iatVA": "0x4428A0"
+        },
+        {
+          "name": "ordinal:8691",
+          "iatVA": "0x4428A4"
+        },
+        {
+          "name": "ordinal:8684",
+          "iatVA": "0x4428A8"
+        },
+        {
+          "name": "ordinal:3580",
+          "iatVA": "0x4428AC"
+        },
+        {
+          "name": "ordinal:801",
+          "iatVA": "0x4428B0"
+        },
+        {
+          "name": "ordinal:8694",
+          "iatVA": "0x4428B4"
+        },
+        {
+          "name": "ordinal:8695",
+          "iatVA": "0x4428B8"
+        },
+        {
+          "name": "ordinal:8699",
+          "iatVA": "0x4428BC"
+        },
+        {
+          "name": "ordinal:3821",
+          "iatVA": "0x4428C0"
+        },
+        {
+          "name": "ordinal:12872",
+          "iatVA": "0x4428C4"
+        },
+        {
+          "name": "ordinal:5839",
+          "iatVA": "0x4428C8"
+        },
+        {
+          "name": "ordinal:5798",
+          "iatVA": "0x4428CC"
+        },
+        {
+          "name": "ordinal:13318",
+          "iatVA": "0x4428D0"
+        },
+        {
+          "name": "ordinal:12737",
+          "iatVA": "0x4428D4"
+        },
+        {
+          "name": "ordinal:2701",
+          "iatVA": "0x4428D8"
+        },
+        {
+          "name": "ordinal:12876",
+          "iatVA": "0x4428DC"
+        },
+        {
+          "name": "ordinal:7903",
+          "iatVA": "0x4428E0"
+        },
+        {
+          "name": "ordinal:14395",
+          "iatVA": "0x4428E4"
+        },
+        {
+          "name": "ordinal:12222",
+          "iatVA": "0x4428E8"
+        },
+        {
+          "name": "ordinal:8845",
+          "iatVA": "0x4428EC"
+        },
+        {
+          "name": "ordinal:11367",
+          "iatVA": "0x4428F0"
+        },
+        {
+          "name": "ordinal:10362",
+          "iatVA": "0x4428F4"
+        },
+        {
+          "name": "ordinal:11890",
+          "iatVA": "0x4428F8"
+        },
+        {
+          "name": "ordinal:9087",
+          "iatVA": "0x4428FC"
+        },
+        {
+          "name": "ordinal:9106",
+          "iatVA": "0x442900"
+        },
+        {
+          "name": "ordinal:2656",
+          "iatVA": "0x442904"
+        },
+        {
+          "name": "ordinal:4181",
+          "iatVA": "0x442908"
+        },
+        {
+          "name": "ordinal:4194",
+          "iatVA": "0x44290C"
+        },
+        {
+          "name": "ordinal:2249",
+          "iatVA": "0x442910"
+        },
+        {
+          "name": "ordinal:1731",
+          "iatVA": "0x442914"
+        },
+        {
+          "name": "ordinal:9984",
+          "iatVA": "0x442918"
+        },
+        {
+          "name": "ordinal:9506",
+          "iatVA": "0x44291C"
+        },
+        {
+          "name": "ordinal:9511",
+          "iatVA": "0x442920"
+        },
+        {
+          "name": "ordinal:9521",
+          "iatVA": "0x442924"
+        },
+        {
+          "name": "ordinal:8864",
+          "iatVA": "0x442928"
+        },
+        {
+          "name": "ordinal:4713",
+          "iatVA": "0x44292C"
+        },
+        {
+          "name": "ordinal:2094",
+          "iatVA": "0x442930"
+        },
+        {
+          "name": "ordinal:4269",
+          "iatVA": "0x442934"
+        },
+        {
+          "name": "ordinal:3330",
+          "iatVA": "0x442938"
+        },
+        {
+          "name": "ordinal:9382",
+          "iatVA": "0x44293C"
+        },
+        {
+          "name": "ordinal:4371",
+          "iatVA": "0x442940"
+        },
+        {
+          "name": "ordinal:9023",
+          "iatVA": "0x442944"
+        },
+        {
+          "name": "ordinal:1984",
+          "iatVA": "0x442948"
+        },
+        {
+          "name": "ordinal:14173",
+          "iatVA": "0x44294C"
+        },
+        {
+          "name": "ordinal:2659",
+          "iatVA": "0x442950"
+        },
+        {
+          "name": "ordinal:8938",
+          "iatVA": "0x442954"
+        },
+        {
+          "name": "ordinal:12971",
+          "iatVA": "0x442958"
+        },
+        {
+          "name": "ordinal:8426",
+          "iatVA": "0x44295C"
+        },
+        {
+          "name": "ordinal:14254",
+          "iatVA": "0x442960"
+        },
+        {
+          "name": "ordinal:6535",
+          "iatVA": "0x442964"
+        },
+        {
+          "name": "ordinal:13122",
+          "iatVA": "0x442968"
+        },
+        {
+          "name": "ordinal:4915",
+          "iatVA": "0x44296C"
+        },
+        {
+          "name": "ordinal:4905",
+          "iatVA": "0x442970"
+        },
+        {
+          "name": "ordinal:1733",
+          "iatVA": "0x442974"
+        },
+        {
+          "name": "ordinal:8175",
+          "iatVA": "0x442978"
+        },
+        {
+          "name": "ordinal:8340",
+          "iatVA": "0x44297C"
+        },
+        {
+          "name": "ordinal:8218",
+          "iatVA": "0x442980"
+        },
+        {
+          "name": "ordinal:7111",
+          "iatVA": "0x442984"
+        },
+        {
+          "name": "ordinal:5154",
+          "iatVA": "0x442988"
+        },
+        {
+          "name": "ordinal:5436",
+          "iatVA": "0x44298C"
+        },
+        {
+          "name": "ordinal:2694",
+          "iatVA": "0x442990"
+        },
+        {
+          "name": "ordinal:4396",
+          "iatVA": "0x442994"
+        },
+        {
+          "name": "ordinal:4048",
+          "iatVA": "0x442998"
+        },
+        {
+          "name": "ordinal:8994",
+          "iatVA": "0x44299C"
+        },
+        {
+          "name": "ordinal:8939",
+          "iatVA": "0x4429A0"
+        },
+        {
+          "name": "ordinal:14198",
+          "iatVA": "0x4429A4"
+        },
+        {
+          "name": "ordinal:8439",
+          "iatVA": "0x4429A8"
+        },
+        {
+          "name": "ordinal:12983",
+          "iatVA": "0x4429AC"
+        },
+        {
+          "name": "ordinal:14440",
+          "iatVA": "0x4429B0"
+        },
+        {
+          "name": "ordinal:11755",
+          "iatVA": "0x4429B4"
+        },
+        {
+          "name": "ordinal:11321",
+          "iatVA": "0x4429B8"
+        },
+        {
+          "name": "ordinal:2634",
+          "iatVA": "0x4429BC"
+        },
+        {
+          "name": "ordinal:4112",
+          "iatVA": "0x4429C0"
+        },
+        {
+          "name": "ordinal:4043",
+          "iatVA": "0x4429C4"
+        },
+        {
+          "name": "ordinal:8143",
+          "iatVA": "0x4429C8"
+        },
+        {
+          "name": "ordinal:9000",
+          "iatVA": "0x4429CC"
+        },
+        {
+          "name": "ordinal:8957",
+          "iatVA": "0x4429D0"
+        },
+        {
+          "name": "ordinal:14361",
+          "iatVA": "0x4429D4"
+        },
+        {
+          "name": "ordinal:11129",
+          "iatVA": "0x4429D8"
+        },
+        {
+          "name": "ordinal:3064",
+          "iatVA": "0x4429DC"
+        },
+        {
+          "name": "ordinal:11484",
+          "iatVA": "0x4429E0"
+        },
+        {
+          "name": "ordinal:9666",
+          "iatVA": "0x4429E4"
+        },
+        {
+          "name": "ordinal:8954",
+          "iatVA": "0x4429E8"
+        },
+        {
+          "name": "ordinal:4014",
+          "iatVA": "0x4429EC"
+        },
+        {
+          "name": "ordinal:4507",
+          "iatVA": "0x4429F0"
+        },
+        {
+          "name": "ordinal:14296",
+          "iatVA": "0x4429F4"
+        },
+        {
+          "name": "ordinal:3167",
+          "iatVA": "0x4429F8"
+        },
+        {
+          "name": "ordinal:3166",
+          "iatVA": "0x4429FC"
+        },
+        {
+          "name": "ordinal:3340",
+          "iatVA": "0x442A00"
+        },
+        {
+          "name": "ordinal:7890",
+          "iatVA": "0x442A04"
+        },
+        {
+          "name": "ordinal:2685",
+          "iatVA": "0x442A08"
+        },
+        {
+          "name": "ordinal:14251",
+          "iatVA": "0x442A0C"
+        },
+        {
+          "name": "ordinal:5438",
+          "iatVA": "0x442A10"
+        },
+        {
+          "name": "ordinal:2543",
+          "iatVA": "0x442A14"
+        },
+        {
+          "name": "ordinal:3631",
+          "iatVA": "0x442A18"
+        },
+        {
+          "name": "ordinal:4049",
+          "iatVA": "0x442A1C"
+        },
+        {
+          "name": "ordinal:4034",
+          "iatVA": "0x442A20"
+        },
+        {
+          "name": "ordinal:14473",
+          "iatVA": "0x442A24"
+        },
+        {
+          "name": "ordinal:13268",
+          "iatVA": "0x442A28"
+        },
+        {
+          "name": "ordinal:8558",
+          "iatVA": "0x442A2C"
+        },
+        {
+          "name": "ordinal:3132",
+          "iatVA": "0x442A30"
+        },
+        {
+          "name": "ordinal:14303",
+          "iatVA": "0x442A34"
+        },
+        {
+          "name": "ordinal:4182",
+          "iatVA": "0x442A38"
+        },
+        {
+          "name": "ordinal:2098",
+          "iatVA": "0x442A3C"
+        },
+        {
+          "name": "ordinal:11728",
+          "iatVA": "0x442A40"
+        },
+        {
+          "name": "ordinal:14282",
+          "iatVA": "0x442A44"
+        },
+        {
+          "name": "ordinal:13326",
+          "iatVA": "0x442A48"
+        },
+        {
+          "name": "ordinal:2762",
+          "iatVA": "0x442A4C"
+        },
+        {
+          "name": "ordinal:2784",
+          "iatVA": "0x442A50"
+        },
+        {
+          "name": "ordinal:11597",
+          "iatVA": "0x442A54"
+        },
+        {
+          "name": "ordinal:13144",
+          "iatVA": "0x442A58"
+        },
+        {
+          "name": "ordinal:12142",
+          "iatVA": "0x442A5C"
+        },
+        {
+          "name": "ordinal:3117",
+          "iatVA": "0x442A60"
+        },
+        {
+          "name": "ordinal:9036",
+          "iatVA": "0x442A64"
+        },
+        {
+          "name": "ordinal:9151",
+          "iatVA": "0x442A68"
+        },
+        {
+          "name": "ordinal:9099",
+          "iatVA": "0x442A6C"
+        },
+        {
+          "name": "ordinal:4599",
+          "iatVA": "0x442A70"
+        },
+        {
+          "name": "ordinal:9062",
+          "iatVA": "0x442A74"
+        },
+        {
+          "name": "ordinal:8631",
+          "iatVA": "0x442A78"
+        },
+        {
+          "name": "ordinal:2383",
+          "iatVA": "0x442A7C"
+        },
+        {
+          "name": "ordinal:2404",
+          "iatVA": "0x442A80"
+        },
+        {
+          "name": "ordinal:9751",
+          "iatVA": "0x442A84"
+        },
+        {
+          "name": "ordinal:8999",
+          "iatVA": "0x442A88"
+        },
+        {
+          "name": "ordinal:11714",
+          "iatVA": "0x442A8C"
+        },
+        {
+          "name": "ordinal:12949",
+          "iatVA": "0x442A90"
+        },
+        {
+          "name": "ordinal:12829",
+          "iatVA": "0x442A94"
+        },
+        {
+          "name": "ordinal:3003",
+          "iatVA": "0x442A98"
+        },
+        {
+          "name": "ordinal:6973",
+          "iatVA": "0x442A9C"
+        },
+        {
+          "name": "ordinal:8207",
+          "iatVA": "0x442AA0"
+        },
+        {
+          "name": "ordinal:8230",
+          "iatVA": "0x442AA4"
+        },
+        {
+          "name": "ordinal:13208",
+          "iatVA": "0x442AA8"
+        },
+        {
+          "name": "ordinal:5023",
+          "iatVA": "0x442AAC"
+        },
+        {
+          "name": "ordinal:13888",
+          "iatVA": "0x442AB0"
+        },
+        {
+          "name": "ordinal:11990",
+          "iatVA": "0x442AB4"
+        },
+        {
+          "name": "ordinal:3388",
+          "iatVA": "0x442AB8"
+        },
+        {
+          "name": "ordinal:3425",
+          "iatVA": "0x442ABC"
+        },
+        {
+          "name": "ordinal:14025",
+          "iatVA": "0x442AC0"
+        },
+        {
+          "name": "ordinal:5882",
+          "iatVA": "0x442AC4"
+        },
+        {
+          "name": "ordinal:5419",
+          "iatVA": "0x442AC8"
+        },
+        {
+          "name": "ordinal:6851",
+          "iatVA": "0x442ACC"
+        },
+        {
+          "name": "ordinal:1464",
+          "iatVA": "0x442AD0"
+        },
+        {
+          "name": "ordinal:7647",
+          "iatVA": "0x442AD4"
+        },
+        {
+          "name": "ordinal:14657",
+          "iatVA": "0x442AD8"
+        },
+        {
+          "name": "ordinal:12405",
+          "iatVA": "0x442ADC"
+        },
+        {
+          "name": "ordinal:266",
+          "iatVA": "0x442AE0"
+        },
+        {
+          "name": "ordinal:4856",
+          "iatVA": "0x442AE4"
+        },
+        {
+          "name": "ordinal:3236",
+          "iatVA": "0x442AE8"
+        },
+        {
+          "name": "ordinal:14604",
+          "iatVA": "0x442AEC"
+        },
+        {
+          "name": "ordinal:2378",
+          "iatVA": "0x442AF0"
+        },
+        {
+          "name": "ordinal:12348",
+          "iatVA": "0x442AF4"
+        },
+        {
+          "name": "ordinal:6751",
+          "iatVA": "0x442AF8"
+        },
+        {
+          "name": "ordinal:3183",
+          "iatVA": "0x442AFC"
+        },
+        {
+          "name": "ordinal:7515",
+          "iatVA": "0x442B00"
+        },
+        {
+          "name": "ordinal:2132",
+          "iatVA": "0x442B04"
+        },
+        {
+          "name": "ordinal:562",
+          "iatVA": "0x442B08"
+        },
+        {
+          "name": "ordinal:1191",
+          "iatVA": "0x442B0C"
+        },
+        {
+          "name": "ordinal:634",
+          "iatVA": "0x442B10"
+        },
+        {
+          "name": "ordinal:1240",
+          "iatVA": "0x442B14"
+        },
+        {
+          "name": "ordinal:754",
+          "iatVA": "0x442B18"
+        },
+        {
+          "name": "ordinal:1302",
+          "iatVA": "0x442B1C"
+        },
+        {
+          "name": "ordinal:779",
+          "iatVA": "0x442B20"
+        },
+        {
+          "name": "ordinal:1319",
+          "iatVA": "0x442B24"
+        },
+        {
+          "name": "ordinal:5757",
+          "iatVA": "0x442B28"
+        },
+        {
+          "name": "ordinal:9306",
+          "iatVA": "0x442B2C"
+        },
+        {
+          "name": "ordinal:563",
+          "iatVA": "0x442B30"
+        },
+        {
+          "name": "ordinal:4410",
+          "iatVA": "0x442B34"
+        },
+        {
+          "name": "ordinal:8554",
+          "iatVA": "0x442B38"
+        },
+        {
+          "name": "ordinal:4374",
+          "iatVA": "0x442B3C"
+        },
+        {
+          "name": "ordinal:8026",
+          "iatVA": "0x442B40"
+        },
+        {
+          "name": "ordinal:3215",
+          "iatVA": "0x442B44"
+        },
+        {
+          "name": "ordinal:13627",
+          "iatVA": "0x442B48"
+        },
+        {
+          "name": "ordinal:4386",
+          "iatVA": "0x442B4C"
+        },
+        {
+          "name": "ordinal:4027",
+          "iatVA": "0x442B50"
+        },
+        {
+          "name": "ordinal:13474",
+          "iatVA": "0x442B54"
+        },
+        {
+          "name": "ordinal:4351",
+          "iatVA": "0x442B58"
+        },
+        {
+          "name": "ordinal:2033",
+          "iatVA": "0x442B5C"
+        },
+        {
+          "name": "ordinal:4478",
+          "iatVA": "0x442B60"
+        },
+        {
+          "name": "ordinal:4436",
+          "iatVA": "0x442B64"
+        },
+        {
+          "name": "ordinal:8529",
+          "iatVA": "0x442B68"
+        },
+        {
+          "name": "ordinal:8690",
+          "iatVA": "0x442B6C"
+        },
+        {
+          "name": "ordinal:8372",
+          "iatVA": "0x442B70"
+        },
+        {
+          "name": "ordinal:14101",
+          "iatVA": "0x442B74"
+        },
+        {
+          "name": "ordinal:13283",
+          "iatVA": "0x442B78"
+        },
+        {
+          "name": "ordinal:12109",
+          "iatVA": "0x442B7C"
+        },
+        {
+          "name": "ordinal:14522",
+          "iatVA": "0x442B80"
+        },
+        {
+          "name": "ordinal:14235",
+          "iatVA": "0x442B84"
+        },
+        {
+          "name": "ordinal:789",
+          "iatVA": "0x442B88"
+        },
+        {
+          "name": "ordinal:4471",
+          "iatVA": "0x442B8C"
+        },
+        {
+          "name": "ordinal:11686",
+          "iatVA": "0x442B90"
+        },
+        {
+          "name": "ordinal:2562",
+          "iatVA": "0x442B94"
+        },
+        {
+          "name": "ordinal:4499",
+          "iatVA": "0x442B98"
+        },
+        {
+          "name": "ordinal:13442",
+          "iatVA": "0x442B9C"
+        },
+        {
+          "name": "ordinal:7307",
+          "iatVA": "0x442BA0"
+        },
+        {
+          "name": "ordinal:7310",
+          "iatVA": "0x442BA4"
+        },
+        {
+          "name": "ordinal:8527",
+          "iatVA": "0x442BA8"
+        },
+        {
+          "name": "ordinal:7313",
+          "iatVA": "0x442BAC"
+        },
+        {
+          "name": "ordinal:7308",
+          "iatVA": "0x442BB0"
+        },
+        {
+          "name": "ordinal:7311",
+          "iatVA": "0x442BB4"
+        },
+        {
+          "name": "ordinal:7312",
+          "iatVA": "0x442BB8"
+        },
+        {
+          "name": "ordinal:7314",
+          "iatVA": "0x442BBC"
+        },
+        {
+          "name": "ordinal:13994",
+          "iatVA": "0x442BC0"
+        },
+        {
+          "name": "ordinal:7309",
+          "iatVA": "0x442BC4"
+        },
+        {
+          "name": "ordinal:14658",
+          "iatVA": "0x442BC8"
+        },
+        {
+          "name": "ordinal:8402",
+          "iatVA": "0x442BCC"
+        },
+        {
+          "name": "ordinal:7735",
+          "iatVA": "0x442BD0"
+        },
+        {
+          "name": "ordinal:11463",
+          "iatVA": "0x442BD4"
+        },
+        {
+          "name": "ordinal:8246",
+          "iatVA": "0x442BD8"
+        },
+        {
+          "name": "ordinal:7284",
+          "iatVA": "0x442BDC"
+        },
+        {
+          "name": "ordinal:9280",
+          "iatVA": "0x442BE0"
+        },
+        {
+          "name": "ordinal:5602",
+          "iatVA": "0x442BE4"
+        },
+        {
+          "name": "ordinal:6189",
+          "iatVA": "0x442BE8"
+        },
+        {
+          "name": "ordinal:9217",
+          "iatVA": "0x442BEC"
+        },
+        {
+          "name": "ordinal:14592",
+          "iatVA": "0x442BF0"
+        },
+        {
+          "name": "ordinal:7919",
+          "iatVA": "0x442BF4"
+        },
+        {
+          "name": "ordinal:9240",
+          "iatVA": "0x442BF8"
+        },
+        {
+          "name": "ordinal:12183",
+          "iatVA": "0x442BFC"
+        },
+        {
+          "name": "ordinal:3835",
+          "iatVA": "0x442C00"
+        },
+        {
+          "name": "ordinal:5035",
+          "iatVA": "0x442C04"
+        },
+        {
+          "name": "ordinal:12463",
+          "iatVA": "0x442C08"
+        },
+        {
+          "name": "ordinal:1788",
+          "iatVA": "0x442C0C"
+        },
+        {
+          "name": "ordinal:13710",
+          "iatVA": "0x442C10"
+        },
+        {
+          "name": "ordinal:13708",
+          "iatVA": "0x442C14"
+        },
+        {
+          "name": "ordinal:11433",
+          "iatVA": "0x442C18"
+        },
+        {
+          "name": "ordinal:5955",
+          "iatVA": "0x442C1C"
+        },
+        {
+          "name": "ordinal:8833",
+          "iatVA": "0x442C20"
+        },
+        {
+          "name": "ordinal:9354",
+          "iatVA": "0x442C24"
+        },
+        {
+          "name": "ordinal:11804",
+          "iatVA": "0x442C28"
+        },
+        {
+          "name": "ordinal:11799",
+          "iatVA": "0x442C2C"
+        },
+        {
+          "name": "ordinal:3845",
+          "iatVA": "0x442C30"
+        },
+        {
+          "name": "ordinal:3278",
+          "iatVA": "0x442C34"
+        },
+        {
+          "name": "ordinal:7809",
+          "iatVA": "0x442C38"
+        },
+        {
+          "name": "ordinal:2072",
+          "iatVA": "0x442C3C"
+        },
+        {
+          "name": "ordinal:10842",
+          "iatVA": "0x442C40"
+        },
+        {
+          "name": "ordinal:11493",
+          "iatVA": "0x442C44"
+        },
+        {
+          "name": "ordinal:3057",
+          "iatVA": "0x442C48"
+        },
+        {
+          "name": "ordinal:14337",
+          "iatVA": "0x442C4C"
+        },
+        {
+          "name": "ordinal:11416",
+          "iatVA": "0x442C50"
+        },
+        {
+          "name": "ordinal:11510",
+          "iatVA": "0x442C54"
+        },
+        {
+          "name": "ordinal:1854",
+          "iatVA": "0x442C58"
+        },
+        {
+          "name": "ordinal:9205",
+          "iatVA": "0x442C5C"
+        },
+        {
+          "name": "ordinal:9720",
+          "iatVA": "0x442C60"
+        },
+        {
+          "name": "ordinal:11504",
+          "iatVA": "0x442C64"
+        },
+        {
+          "name": "ordinal:2062",
+          "iatVA": "0x442C68"
+        },
+        {
+          "name": "ordinal:8427",
+          "iatVA": "0x442C6C"
+        },
+        {
+          "name": "ordinal:12961",
+          "iatVA": "0x442C70"
+        },
+        {
+          "name": "ordinal:3325",
+          "iatVA": "0x442C74"
+        },
+        {
+          "name": "ordinal:3437",
+          "iatVA": "0x442C78"
+        },
+        {
+          "name": "ordinal:5748",
+          "iatVA": "0x442C7C"
+        },
+        {
+          "name": "ordinal:755",
+          "iatVA": "0x442C80"
+        },
+        {
+          "name": "ordinal:1303",
+          "iatVA": "0x442C84"
+        },
+        {
+          "name": "ordinal:3216",
+          "iatVA": "0x442C88"
+        },
+        {
+          "name": "ordinal:2259",
+          "iatVA": "0x442C8C"
+        },
+        {
+          "name": "ordinal:7654",
+          "iatVA": "0x442C90"
+        },
+        {
+          "name": "ordinal:7684",
+          "iatVA": "0x442C94"
+        },
+        {
+          "name": "ordinal:14203",
+          "iatVA": "0x442C98"
+        },
+        {
+          "name": "ordinal:14120",
+          "iatVA": "0x442C9C"
+        },
+        {
+          "name": "ordinal:648",
+          "iatVA": "0x442CA0"
+        },
+        {
+          "name": "ordinal:1252",
+          "iatVA": "0x442CA4"
+        },
+        {
+          "name": "ordinal:2157",
+          "iatVA": "0x442CA8"
+        },
+        {
+          "name": "ordinal:4593",
+          "iatVA": "0x442CAC"
+        },
+        {
+          "name": "ordinal:13240",
+          "iatVA": "0x442CB0"
+        },
+        {
+          "name": "ordinal:3606",
+          "iatVA": "0x442CB4"
+        },
+        {
+          "name": "ordinal:4398",
+          "iatVA": "0x442CB8"
+        },
+        {
+          "name": "ordinal:4380",
+          "iatVA": "0x442CBC"
+        },
+        {
+          "name": "ordinal:8735",
+          "iatVA": "0x442CC0"
+        },
+        {
+          "name": "ordinal:653",
+          "iatVA": "0x442CC4"
+        },
+        {
+          "name": "ordinal:1959",
+          "iatVA": "0x442CC8"
+        },
+        {
+          "name": "ordinal:647",
+          "iatVA": "0x442CCC"
+        },
+        {
+          "name": "ordinal:4432",
+          "iatVA": "0x442CD0"
+        },
+        {
+          "name": "ordinal:4358",
+          "iatVA": "0x442CD4"
+        },
+        {
+          "name": "ordinal:1998",
+          "iatVA": "0x442CD8"
+        },
+        {
+          "name": "ordinal:652",
+          "iatVA": "0x442CDC"
+        },
+        {
+          "name": "ordinal:1559",
+          "iatVA": "0x442CE0"
+        },
+        {
+          "name": "ordinal:651",
+          "iatVA": "0x442CE4"
+        },
+        {
+          "name": "ordinal:881",
+          "iatVA": "0x442CE8"
+        },
+        {
+          "name": "ordinal:11454",
+          "iatVA": "0x442CEC"
+        },
+        {
+          "name": "ordinal:6976",
+          "iatVA": "0x442CF0"
+        },
+        {
+          "name": "ordinal:6354",
+          "iatVA": "0x442CF4"
+        },
+        {
+          "name": "ordinal:278",
+          "iatVA": "0x442CF8"
+        },
+        {
+          "name": "ordinal:3957",
+          "iatVA": "0x442CFC"
+        },
+        {
+          "name": "ordinal:6203",
+          "iatVA": "0x442D00"
+        },
+        {
+          "name": "ordinal:14599",
+          "iatVA": "0x442D04"
+        },
+        {
+          "name": "ordinal:7946",
+          "iatVA": "0x442D08"
+        },
+        {
+          "name": "ordinal:8462",
+          "iatVA": "0x442D0C"
+        },
+        {
+          "name": "ordinal:13911",
+          "iatVA": "0x442D10"
+        },
+        {
+          "name": "ordinal:4459",
+          "iatVA": "0x442D14"
+        },
+        {
+          "name": "ordinal:2205",
+          "iatVA": "0x442D18"
+        },
+        {
+          "name": "ordinal:2303",
+          "iatVA": "0x442D1C"
+        },
+        {
+          "name": "ordinal:2307",
+          "iatVA": "0x442D20"
+        },
+        {
+          "name": "ordinal:7997",
+          "iatVA": "0x442D24"
+        },
+        {
+          "name": "ordinal:13248",
+          "iatVA": "0x442D28"
+        },
+        {
+          "name": "ordinal:6559",
+          "iatVA": "0x442D2C"
+        },
+        {
+          "name": "ordinal:1473",
+          "iatVA": "0x442D30"
+        },
+        {
+          "name": "ordinal:996",
+          "iatVA": "0x442D34"
+        },
+        {
+          "name": "ordinal:7653",
+          "iatVA": "0x442D38"
+        },
+        {
+          "name": "ordinal:10151",
+          "iatVA": "0x442D3C"
+        },
+        {
+          "name": "ordinal:10144",
+          "iatVA": "0x442D40"
+        },
+        {
+          "name": "ordinal:9139",
+          "iatVA": "0x442D44"
+        },
+        {
+          "name": "ordinal:12173",
+          "iatVA": "0x442D48"
+        },
+        {
+          "name": "ordinal:1113",
+          "iatVA": "0x442D4C"
+        },
+        {
+          "name": "ordinal:6489",
+          "iatVA": "0x442D50"
+        },
+        {
+          "name": "ordinal:6566",
+          "iatVA": "0x442D54"
+        },
+        {
+          "name": "ordinal:3882",
+          "iatVA": "0x442D58"
+        },
+        {
+          "name": "ordinal:296",
+          "iatVA": "0x442D5C"
+        },
+        {
+          "name": "ordinal:1045",
+          "iatVA": "0x442D60"
+        },
+        {
+          "name": "ordinal:4815",
+          "iatVA": "0x442D64"
+        },
+        {
+          "name": "ordinal:2304",
+          "iatVA": "0x442D68"
+        },
+        {
+          "name": "ordinal:1663",
+          "iatVA": "0x442D6C"
+        },
+        {
+          "name": "ordinal:1111",
+          "iatVA": "0x442D70"
+        },
+        {
+          "name": "ordinal:9209",
+          "iatVA": "0x442D74"
+        },
+        {
+          "name": "ordinal:10255",
+          "iatVA": "0x442D78"
+        },
+        {
+          "name": "ordinal:8219",
+          "iatVA": "0x442D7C"
+        },
+        {
+          "name": "ordinal:5409",
+          "iatVA": "0x442D80"
+        },
+        {
+          "name": "ordinal:7712",
+          "iatVA": "0x442D84"
+        },
+        {
+          "name": "ordinal:7723",
+          "iatVA": "0x442D88"
+        },
+        {
+          "name": "ordinal:7722",
+          "iatVA": "0x442D8C"
+        },
+        {
+          "name": "ordinal:5228",
+          "iatVA": "0x442D90"
+        },
+        {
+          "name": "ordinal:5411",
+          "iatVA": "0x442D94"
+        },
+        {
+          "name": "ordinal:5252",
+          "iatVA": "0x442D98"
+        },
+        {
+          "name": "ordinal:5790",
+          "iatVA": "0x442D9C"
+        },
+        {
+          "name": "ordinal:5525",
+          "iatVA": "0x442DA0"
+        },
+        {
+          "name": "ordinal:9350",
+          "iatVA": "0x442DA4"
+        },
+        {
+          "name": "ordinal:5760",
+          "iatVA": "0x442DA8"
+        },
+        {
+          "name": "ordinal:5549",
+          "iatVA": "0x442DAC"
+        },
+        {
+          "name": "ordinal:5249",
+          "iatVA": "0x442DB0"
+        },
+        {
+          "name": "ordinal:12168",
+          "iatVA": "0x442DB4"
+        },
+        {
+          "name": "ordinal:3265",
+          "iatVA": "0x442DB8"
+        },
+        {
+          "name": "ordinal:3371",
+          "iatVA": "0x442DBC"
+        },
+        {
+          "name": "ordinal:3372",
+          "iatVA": "0x442DC0"
+        },
+        {
+          "name": "ordinal:3941",
+          "iatVA": "0x442DC4"
+        },
+        {
+          "name": "ordinal:12124",
+          "iatVA": "0x442DC8"
+        },
+        {
+          "name": "ordinal:2682",
+          "iatVA": "0x442DCC"
+        },
+        {
+          "name": "ordinal:5935",
+          "iatVA": "0x442DD0"
+        },
+        {
+          "name": "ordinal:13703",
+          "iatVA": "0x442DD4"
+        },
+        {
+          "name": "ordinal:11717",
+          "iatVA": "0x442DD8"
+        },
+        {
+          "name": "ordinal:6877",
+          "iatVA": "0x442DDC"
+        },
+        {
+          "name": "ordinal:14596",
+          "iatVA": "0x442DE0"
+        },
+        {
+          "name": "ordinal:7923",
+          "iatVA": "0x442DE4"
+        },
+        {
+          "name": "ordinal:14590",
+          "iatVA": "0x442DE8"
+        },
+        {
+          "name": "ordinal:3055",
+          "iatVA": "0x442DEC"
+        },
+        {
+          "name": "ordinal:4494",
+          "iatVA": "0x442DF0"
+        },
+        {
+          "name": "ordinal:9693",
+          "iatVA": "0x442DF4"
+        },
+        {
+          "name": "ordinal:4502",
+          "iatVA": "0x442DF8"
+        },
+        {
+          "name": "ordinal:4988",
+          "iatVA": "0x442DFC"
+        },
+        {
+          "name": "ordinal:4927",
+          "iatVA": "0x442E00"
+        },
+        {
+          "name": "ordinal:4912",
+          "iatVA": "0x442E04"
+        },
+        {
+          "name": "ordinal:4974",
+          "iatVA": "0x442E08"
+        },
+        {
+          "name": "ordinal:5019",
+          "iatVA": "0x442E0C"
+        },
+        {
+          "name": "ordinal:4942",
+          "iatVA": "0x442E10"
+        },
+        {
+          "name": "ordinal:4997",
+          "iatVA": "0x442E14"
+        },
+        {
+          "name": "ordinal:5013",
+          "iatVA": "0x442E18"
+        },
+        {
+          "name": "ordinal:4954",
+          "iatVA": "0x442E1C"
+        },
+        {
+          "name": "ordinal:4960",
+          "iatVA": "0x442E20"
+        },
+        {
+          "name": "ordinal:4966",
+          "iatVA": "0x442E24"
+        },
+        {
+          "name": "ordinal:4948",
+          "iatVA": "0x442E28"
+        },
+        {
+          "name": "ordinal:5003",
+          "iatVA": "0x442E2C"
+        },
+        {
+          "name": "ordinal:4936",
+          "iatVA": "0x442E30"
+        },
+        {
+          "name": "ordinal:1777",
+          "iatVA": "0x442E34"
+        },
+        {
+          "name": "ordinal:1756",
+          "iatVA": "0x442E38"
+        },
+        {
+          "name": "ordinal:1770",
+          "iatVA": "0x442E3C"
+        },
+        {
+          "name": "ordinal:1744",
+          "iatVA": "0x442E40"
+        },
+        {
+          "name": "ordinal:1722",
+          "iatVA": "0x442E44"
+        },
+        {
+          "name": "ordinal:12258",
+          "iatVA": "0x442E48"
+        },
+        {
+          "name": "ordinal:12262",
+          "iatVA": "0x442E4C"
+        },
+        {
+          "name": "ordinal:13878",
+          "iatVA": "0x442E50"
+        },
+        {
+          "name": "ordinal:3266",
+          "iatVA": "0x442E54"
+        },
+        {
+          "name": "ordinal:11002",
+          "iatVA": "0x442E58"
+        },
+        {
+          "name": "ordinal:6978",
+          "iatVA": "0x442E5C"
+        },
+        {
+          "name": "ordinal:8965",
+          "iatVA": "0x442E60"
+        },
+        {
+          "name": "ordinal:14588",
+          "iatVA": "0x442E64"
+        },
+        {
+          "name": "ordinal:11936",
+          "iatVA": "0x442E68"
+        },
+        {
+          "name": "ordinal:3838",
+          "iatVA": "0x442E6C"
+        },
+        {
+          "name": "ordinal:12089",
+          "iatVA": "0x442E70"
+        },
+        {
+          "name": "ordinal:11726",
+          "iatVA": "0x442E74"
+        },
+        {
+          "name": "ordinal:11130",
+          "iatVA": "0x442E78"
+        },
+        {
+          "name": "ordinal:6861",
+          "iatVA": "0x442E7C"
+        },
+        {
+          "name": "ordinal:11725",
+          "iatVA": "0x442E80"
+        },
+        {
+          "name": "ordinal:5652",
+          "iatVA": "0x442E84"
+        },
+        {
+          "name": "ordinal:3164",
+          "iatVA": "0x442E88"
+        },
+        {
+          "name": "ordinal:6218",
+          "iatVA": "0x442E8C"
+        },
+        {
+          "name": "ordinal:13752",
+          "iatVA": "0x442E90"
+        },
+        {
+          "name": "ordinal:2760",
+          "iatVA": "0x442E94"
+        },
+        {
+          "name": "ordinal:10288",
+          "iatVA": "0x442E98"
+        },
+        {
+          "name": "ordinal:10284",
+          "iatVA": "0x442E9C"
+        },
+        {
+          "name": "ordinal:10286",
+          "iatVA": "0x442EA0"
+        },
+        {
+          "name": "ordinal:10287",
+          "iatVA": "0x442EA4"
+        },
+        {
+          "name": "ordinal:10285",
+          "iatVA": "0x442EA8"
+        },
+        {
+          "name": "ordinal:14785",
+          "iatVA": "0x442EAC"
+        },
+        {
+          "name": "ordinal:8210",
+          "iatVA": "0x442EB0"
+        },
+        {
+          "name": "ordinal:3302",
+          "iatVA": "0x442EB4"
+        },
+        {
+          "name": "ordinal:3305",
+          "iatVA": "0x442EB8"
+        },
+        {
+          "name": "ordinal:462",
+          "iatVA": "0x442EBC"
+        },
+        {
+          "name": "ordinal:1511",
+          "iatVA": "0x442EC0"
+        },
+        {
+          "name": "ordinal:9235",
+          "iatVA": "0x442EC4"
+        },
+        {
+          "name": "ordinal:9210",
+          "iatVA": "0x442EC8"
+        },
+        {
+          "name": "ordinal:12131",
+          "iatVA": "0x442ECC"
+        },
+        {
+          "name": "ordinal:9040",
+          "iatVA": "0x442ED0"
+        },
+        {
+          "name": "ordinal:11015",
+          "iatVA": "0x442ED4"
+        },
+        {
+          "name": "ordinal:11396",
+          "iatVA": "0x442ED8"
+        },
+        {
+          "name": "ordinal:4509",
+          "iatVA": "0x442EDC"
+        },
+        {
+          "name": "ordinal:6533",
+          "iatVA": "0x442EE0"
+        },
+        {
+          "name": "ordinal:14667",
+          "iatVA": "0x442EE4"
+        },
+        {
+          "name": "ordinal:2899",
+          "iatVA": "0x442EE8"
+        },
+        {
+          "name": "ordinal:14623",
+          "iatVA": "0x442EEC"
+        },
+        {
+          "name": "ordinal:11972",
+          "iatVA": "0x442EF0"
+        },
+        {
+          "name": "ordinal:1449",
+          "iatVA": "0x442EF4"
+        },
+        {
+          "name": "ordinal:973",
+          "iatVA": "0x442EF8"
+        },
+        {
+          "name": "ordinal:10057",
+          "iatVA": "0x442EFC"
+        },
+        {
+          "name": "ordinal:7495",
+          "iatVA": "0x442F00"
+        },
+        {
+          "name": "ordinal:5271",
+          "iatVA": "0x442F04"
+        },
+        {
+          "name": "ordinal:1915",
+          "iatVA": "0x442F08"
+        },
+        {
+          "name": "ordinal:8464",
+          "iatVA": "0x442F0C"
+        },
+        {
+          "name": "ordinal:4092",
+          "iatVA": "0x442F10"
+        },
+        {
+          "name": "ordinal:2246",
+          "iatVA": "0x442F14"
+        },
+        {
+          "name": "ordinal:11982",
+          "iatVA": "0x442F18"
+        },
+        {
+          "name": "ordinal:6196",
+          "iatVA": "0x442F1C"
+        },
+        {
+          "name": "ordinal:1523",
+          "iatVA": "0x442F20"
+        },
+        {
+          "name": "ordinal:6226",
+          "iatVA": "0x442F24"
+        },
+        {
+          "name": "ordinal:4093",
+          "iatVA": "0x442F28"
+        },
+        {
+          "name": "ordinal:6225",
+          "iatVA": "0x442F2C"
+        },
+        {
+          "name": "ordinal:1143",
+          "iatVA": "0x442F30"
+        },
+        {
+          "name": "ordinal:501",
+          "iatVA": "0x442F34"
+        },
+        {
+          "name": "ordinal:4590",
+          "iatVA": "0x442F38"
+        },
+        {
+          "name": "ordinal:2322",
+          "iatVA": "0x442F3C"
+        },
+        {
+          "name": "ordinal:14234",
+          "iatVA": "0x442F40"
+        },
+        {
+          "name": "ordinal:12246",
+          "iatVA": "0x442F44"
+        },
+        {
+          "name": "ordinal:12027",
+          "iatVA": "0x442F48"
+        },
+        {
+          "name": "ordinal:1072",
+          "iatVA": "0x442F4C"
+        },
+        {
+          "name": "ordinal:366",
+          "iatVA": "0x442F50"
+        },
+        {
+          "name": "ordinal:1866",
+          "iatVA": "0x442F54"
+        },
+        {
+          "name": "ordinal:816",
+          "iatVA": "0x442F58"
+        },
+        {
+          "name": "ordinal:7306",
+          "iatVA": "0x442F5C"
+        },
+        {
+          "name": "ordinal:3404",
+          "iatVA": "0x442F60"
+        },
+        {
+          "name": "ordinal:7676",
+          "iatVA": "0x442F64"
+        },
+        {
+          "name": "ordinal:14077",
+          "iatVA": "0x442F68"
+        },
+        {
+          "name": "ordinal:12676",
+          "iatVA": "0x442F6C"
+        },
+        {
+          "name": "ordinal:8024",
+          "iatVA": "0x442F70"
+        },
+        {
+          "name": "ordinal:8244",
+          "iatVA": "0x442F74"
+        },
+        {
+          "name": "ordinal:2409",
+          "iatVA": "0x442F78"
+        },
+        {
+          "name": "ordinal:1513",
+          "iatVA": "0x442F7C"
+        }
+      ]
+    },
+    {
+      "dll": "KERNEL32.dll",
+      "functions": [
+        {
+          "name": "DeleteCriticalSection",
+          "iatVA": "0x442038"
+        },
+        {
+          "name": "GetPrivateProfileStringW",
+          "iatVA": "0x44203C"
+        },
+        {
+          "name": "MultiByteToWideChar",
+          "iatVA": "0x442040"
+        },
+        {
+          "name": "InitializeCriticalSectionEx",
+          "iatVA": "0x442044"
+        },
+        {
+          "name": "GetLastError",
+          "iatVA": "0x442048"
+        },
+        {
+          "name": "EnterCriticalSection",
+          "iatVA": "0x44204C"
+        },
+        {
+          "name": "LeaveCriticalSection",
+          "iatVA": "0x442050"
+        },
+        {
+          "name": "WritePrivateProfileStringW",
+          "iatVA": "0x442054"
+        },
+        {
+          "name": "WideCharToMultiByte",
+          "iatVA": "0x442058"
+        },
+        {
+          "name": "OutputDebugStringW",
+          "iatVA": "0x44205C"
+        },
+        {
+          "name": "InitializeCriticalSectionAndSpinCount",
+          "iatVA": "0x442060"
+        },
+        {
+          "name": "GetModuleHandleW",
+          "iatVA": "0x442064"
+        },
+        {
+          "name": "GetProcAddress",
+          "iatVA": "0x442068"
+        },
+        {
+          "name": "CloseHandle",
+          "iatVA": "0x44206C"
+        },
+        {
+          "name": "SetEvent",
+          "iatVA": "0x442070"
+        },
+        {
+          "name": "ResetEvent",
+          "iatVA": "0x442074"
+        },
+        {
+          "name": "WaitForSingleObjectEx",
+          "iatVA": "0x442078"
+        },
+        {
+          "name": "CreateEventW",
+          "iatVA": "0x44207C"
+        },
+        {
+          "name": "UnhandledExceptionFilter",
+          "iatVA": "0x442080"
+        },
+        {
+          "name": "SetUnhandledExceptionFilter",
+          "iatVA": "0x442084"
+        },
+        {
+          "name": "GetCurrentProcess",
+          "iatVA": "0x442088"
+        },
+        {
+          "name": "TerminateProcess",
+          "iatVA": "0x44208C"
+        },
+        {
+          "name": "IsProcessorFeaturePresent",
+          "iatVA": "0x442090"
+        },
+        {
+          "name": "QueryPerformanceCounter",
+          "iatVA": "0x442094"
+        },
+        {
+          "name": "GetModuleFileNameW",
+          "iatVA": "0x442098"
+        },
+        {
+          "name": "GetCurrentProcessId",
+          "iatVA": "0x44209C"
+        },
+        {
+          "name": "GetCurrentThreadId",
+          "iatVA": "0x4420A0"
+        },
+        {
+          "name": "GetSystemTimeAsFileTime",
+          "iatVA": "0x4420A4"
+        },
+        {
+          "name": "InitializeSListHead",
+          "iatVA": "0x4420A8"
+        },
+        {
+          "name": "IsDebuggerPresent",
+          "iatVA": "0x4420AC"
+        },
+        {
+          "name": "GetStartupInfoW",
+          "iatVA": "0x4420B0"
+        }
+      ]
+    },
+    {
+      "dll": "USER32.dll",
+      "functions": [
+        {
+          "name": "GetSubMenu",
+          "iatVA": "0x4420D0"
+        },
+        {
+          "name": "GetClientRect",
+          "iatVA": "0x4420D4"
+        },
+        {
+          "name": "GetParent",
+          "iatVA": "0x4420D8"
+        },
+        {
+          "name": "SetRectEmpty",
+          "iatVA": "0x4420DC"
+        },
+        {
+          "name": "InvalidateRect",
+          "iatVA": "0x4420E0"
+        },
+        {
+          "name": "GetWindowRect",
+          "iatVA": "0x4420E4"
+        },
+        {
+          "name": "InflateRect",
+          "iatVA": "0x4420E8"
+        },
+        {
+          "name": "GetSysColor",
+          "iatVA": "0x4420EC"
+        },
+        {
+          "name": "ScreenToClient",
+          "iatVA": "0x4420F0"
+        },
+        {
+          "name": "LoadMenuW",
+          "iatVA": "0x4420F4"
+        },
+        {
+          "name": "GetFocus",
+          "iatVA": "0x4420F8"
+        },
+        {
+          "name": "GetWindowLongW",
+          "iatVA": "0x4420FC"
+        },
+        {
+          "name": "LoadImageW",
+          "iatVA": "0x442100"
+        },
+        {
+          "name": "GetSystemMetrics",
+          "iatVA": "0x442104"
+        },
+        {
+          "name": "RedrawWindow",
+          "iatVA": "0x442108"
+        },
+        {
+          "name": "WindowFromPoint",
+          "iatVA": "0x44210C"
+        },
+        {
+          "name": "IsIconic",
+          "iatVA": "0x442110"
+        },
+        {
+          "name": "GetCursorPos",
+          "iatVA": "0x442114"
+        },
+        {
+          "name": "IsChild",
+          "iatVA": "0x442118"
+        },
+        {
+          "name": "MapWindowPoints",
+          "iatVA": "0x44211C"
+        },
+        {
+          "name": "EnableWindow",
+          "iatVA": "0x442120"
+        },
+        {
+          "name": "UpdateWindow",
+          "iatVA": "0x442124"
+        },
+        {
+          "name": "LoadBitmapW",
+          "iatVA": "0x442128"
+        },
+        {
+          "name": "SendMessageW",
+          "iatVA": "0x44212C"
+        },
+        {
+          "name": "FillRect",
+          "iatVA": "0x442130"
+        }
+      ]
+    },
+    {
+      "dll": "GDI32.dll",
+      "functions": [
+        {
+          "name": "SelectObject",
+          "iatVA": "0x44200C"
+        },
+        {
+          "name": "BitBlt",
+          "iatVA": "0x442010"
+        },
+        {
+          "name": "CreateCompatibleDC",
+          "iatVA": "0x442014"
+        },
+        {
+          "name": "CreateCompatibleBitmap",
+          "iatVA": "0x442018"
+        },
+        {
+          "name": "DeleteDC",
+          "iatVA": "0x44201C"
+        },
+        {
+          "name": "GetObjectW",
+          "iatVA": "0x442020"
+        },
+        {
+          "name": "CreateFontIndirectW",
+          "iatVA": "0x442024"
+        },
+        {
+          "name": "GetStockObject",
+          "iatVA": "0x442028"
+        },
+        {
+          "name": "CreateSolidBrush",
+          "iatVA": "0x44202C"
+        },
+        {
+          "name": "DeleteObject",
+          "iatVA": "0x442030"
+        }
+      ]
+    },
+    {
+      "dll": "SHELL32.dll",
+      "functions": [
+        {
+          "name": "DragQueryFileW",
+          "iatVA": "0x4420C8"
+        }
+      ]
+    },
+    {
+      "dll": "COMCTL32.dll",
+      "functions": [
+        {
+          "name": "InitCommonControlsEx",
+          "iatVA": "0x442000"
+        },
+        {
+          "name": "ImageList_AddMasked",
+          "iatVA": "0x442004"
+        }
+      ]
+    },
+    {
+      "dll": "OLEAUT32.dll",
+      "functions": [
+        {
+          "name": "ordinal:9",
+          "iatVA": "0x4420C0"
+        }
+      ]
+    },
+    {
+      "dll": "gdiplus.dll",
+      "functions": [
+        {
+          "name": "GdiplusShutdown",
+          "iatVA": "0x442208"
+        }
+      ]
+    },
+    {
+      "dll": "MSVCP140.dll",
+      "functions": [
+        {
+          "name": "?_Xlength_error@std@@YAXPBD@Z",
+          "iatVA": "0x4420B8"
+        }
+      ]
+    },
+    {
+      "dll": "VERSION.dll",
+      "functions": [
+        {
+          "name": "GetFileVersionInfoW",
+          "iatVA": "0x44216C"
+        },
+        {
+          "name": "VerQueryValueW",
+          "iatVA": "0x442170"
+        },
+        {
+          "name": "GetFileVersionInfoSizeW",
+          "iatVA": "0x442174"
+        }
+      ]
+    },
+    {
+      "dll": "VCRUNTIME140.dll",
+      "functions": [
+        {
+          "name": "__std_terminate",
+          "iatVA": "0x442138"
+        },
+        {
+          "name": "__std_exception_copy",
+          "iatVA": "0x44213C"
+        },
+        {
+          "name": "__std_exception_destroy",
+          "iatVA": "0x442140"
+        },
+        {
+          "name": "_purecall",
+          "iatVA": "0x442144"
+        },
+        {
+          "name": "__CxxFrameHandler3",
+          "iatVA": "0x442148"
+        },
+        {
+          "name": "__current_exception",
+          "iatVA": "0x44214C"
+        },
+        {
+          "name": "__current_exception_context",
+          "iatVA": "0x442150"
+        },
+        {
+          "name": "_except_handler4_common",
+          "iatVA": "0x442154"
+        },
+        {
+          "name": "memmove",
+          "iatVA": "0x442158"
+        },
+        {
+          "name": "memset",
+          "iatVA": "0x44215C"
+        },
+        {
+          "name": "_CxxThrowException",
+          "iatVA": "0x442160"
+        },
+        {
+          "name": "memcpy",
+          "iatVA": "0x442164"
+        }
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-runtime-l1-1-0.dll",
+      "functions": [
+        {
+          "name": "terminate",
+          "iatVA": "0x442198"
+        },
+        {
+          "name": "_initialize_onexit_table",
+          "iatVA": "0x44219C"
+        },
+        {
+          "name": "_crt_atexit",
+          "iatVA": "0x4421A0"
+        },
+        {
+          "name": "_c_exit",
+          "iatVA": "0x4421A4"
+        },
+        {
+          "name": "_cexit",
+          "iatVA": "0x4421A8"
+        },
+        {
+          "name": "_exit",
+          "iatVA": "0x4421AC"
+        },
+        {
+          "name": "_initterm_e",
+          "iatVA": "0x4421B0"
+        },
+        {
+          "name": "_initterm",
+          "iatVA": "0x4421B4"
+        },
+        {
+          "name": "_get_wide_winmain_command_line",
+          "iatVA": "0x4421B8"
+        },
+        {
+          "name": "_initialize_wide_environment",
+          "iatVA": "0x4421BC"
+        },
+        {
+          "name": "_configure_wide_argv",
+          "iatVA": "0x4421C0"
+        },
+        {
+          "name": "_register_onexit_function",
+          "iatVA": "0x4421C4"
+        },
+        {
+          "name": "_set_app_type",
+          "iatVA": "0x4421C8"
+        },
+        {
+          "name": "_seh_filter_exe",
+          "iatVA": "0x4421CC"
+        },
+        {
+          "name": "_controlfp_s",
+          "iatVA": "0x4421D0"
+        },
+        {
+          "name": "exit",
+          "iatVA": "0x4421D4"
+        },
+        {
+          "name": "_invalid_parameter_noinfo_noreturn",
+          "iatVA": "0x4421D8"
+        },
+        {
+          "name": "_register_thread_local_exe_atexit_callback",
+          "iatVA": "0x4421DC"
+        }
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-string-l1-1-0.dll",
+      "functions": [
+        {
+          "name": "wcscat_s",
+          "iatVA": "0x4421F0"
+        },
+        {
+          "name": "wcscpy_s",
+          "iatVA": "0x4421F4"
+        },
+        {
+          "name": "wcsncpy_s",
+          "iatVA": "0x4421F8"
+        },
+        {
+          "name": "wcsnlen",
+          "iatVA": "0x4421FC"
+        },
+        {
+          "name": "strcpy_s",
+          "iatVA": "0x442200"
+        }
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-heap-l1-1-0.dll",
+      "functions": [
+        {
+          "name": "_set_new_mode",
+          "iatVA": "0x44217C"
+        },
+        {
+          "name": "free",
+          "iatVA": "0x442180"
+        }
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-math-l1-1-0.dll",
+      "functions": [
+        {
+          "name": "__setusermatherr",
+          "iatVA": "0x442190"
+        }
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-stdio-l1-1-0.dll",
+      "functions": [
+        {
+          "name": "__p__commode",
+          "iatVA": "0x4421E4"
+        },
+        {
+          "name": "_set_fmode",
+          "iatVA": "0x4421E8"
+        }
+      ]
+    },
+    {
+      "dll": "api-ms-win-crt-locale-l1-1-0.dll",
+      "functions": [
+        {
+          "name": "_configthreadlocale",
+          "iatVA": "0x442188"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        100,
+        2052
+      ],
+      "rva": "0x7D3F0",
+      "offset": "0x797F0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        310,
+        2052
+      ],
+      "rva": "0x7D1A8",
+      "offset": "0x795A8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        312,
+        2052
+      ],
+      "rva": "0x7D1B0",
+      "offset": "0x795B0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        313,
+        2052
+      ],
+      "rva": "0x7D1B8",
+      "offset": "0x795B8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        314,
+        2052
+      ],
+      "rva": "0x7D1C0",
+      "offset": "0x795C0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        315,
+        2052
+      ],
+      "rva": "0x7D1C8",
+      "offset": "0x795C8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        316,
+        2052
+      ],
+      "rva": "0x7D1D0",
+      "offset": "0x795D0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        317,
+        2052
+      ],
+      "rva": "0x7D1D8",
+      "offset": "0x795D8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        318,
+        2052
+      ],
+      "rva": "0x7D1E0",
+      "offset": "0x795E0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        319,
+        2052
+      ],
+      "rva": "0x7D1E8",
+      "offset": "0x795E8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        320,
+        2052
+      ],
+      "rva": "0x7D1F0",
+      "offset": "0x795F0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        321,
+        2052
+      ],
+      "rva": "0x7D1F8",
+      "offset": "0x795F8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        322,
+        2052
+      ],
+      "rva": "0x7D200",
+      "offset": "0x79600",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        323,
+        2052
+      ],
+      "rva": "0x7D208",
+      "offset": "0x79608",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        324,
+        2052
+      ],
+      "rva": "0x7D210",
+      "offset": "0x79610",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        325,
+        2052
+      ],
+      "rva": "0x7D218",
+      "offset": "0x79618",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        326,
+        2052
+      ],
+      "rva": "0x7D220",
+      "offset": "0x79620",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        327,
+        2052
+      ],
+      "rva": "0x7D228",
+      "offset": "0x79628",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        328,
+        2052
+      ],
+      "rva": "0x7D230",
+      "offset": "0x79630",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        329,
+        2052
+      ],
+      "rva": "0x7D238",
+      "offset": "0x79638",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        330,
+        2052
+      ],
+      "rva": "0x7D240",
+      "offset": "0x79640",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        331,
+        2052
+      ],
+      "rva": "0x7D248",
+      "offset": "0x79648",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        332,
+        2052
+      ],
+      "rva": "0x7D250",
+      "offset": "0x79650",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        333,
+        2052
+      ],
+      "rva": "0x7D258",
+      "offset": "0x79658",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        334,
+        2052
+      ],
+      "rva": "0x7D260",
+      "offset": "0x79660",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        335,
+        2052
+      ],
+      "rva": "0x7D268",
+      "offset": "0x79668",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        336,
+        2052
+      ],
+      "rva": "0x7D270",
+      "offset": "0x79670",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        337,
+        2052
+      ],
+      "rva": "0x7D278",
+      "offset": "0x79678",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        338,
+        2052
+      ],
+      "rva": "0x7D280",
+      "offset": "0x79680",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        339,
+        2052
+      ],
+      "rva": "0x7D288",
+      "offset": "0x79688",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        340,
+        2052
+      ],
+      "rva": "0x7D290",
+      "offset": "0x79690",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        341,
+        2052
+      ],
+      "rva": "0x7D298",
+      "offset": "0x79698",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        342,
+        2052
+      ],
+      "rva": "0x7D2A0",
+      "offset": "0x796A0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        343,
+        2052
+      ],
+      "rva": "0x7D2A8",
+      "offset": "0x796A8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        344,
+        2052
+      ],
+      "rva": "0x7D2B0",
+      "offset": "0x796B0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        345,
+        2052
+      ],
+      "rva": "0x7D2B8",
+      "offset": "0x796B8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        346,
+        2052
+      ],
+      "rva": "0x7D2C0",
+      "offset": "0x796C0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        347,
+        2052
+      ],
+      "rva": "0x7D2C8",
+      "offset": "0x796C8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        348,
+        2052
+      ],
+      "rva": "0x7D2D0",
+      "offset": "0x796D0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        349,
+        2052
+      ],
+      "rva": "0x7D2D8",
+      "offset": "0x796D8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        350,
+        2052
+      ],
+      "rva": "0x7D2E0",
+      "offset": "0x796E0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        351,
+        2052
+      ],
+      "rva": "0x7D2E8",
+      "offset": "0x796E8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        352,
+        2052
+      ],
+      "rva": "0x7D2F0",
+      "offset": "0x796F0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        353,
+        2052
+      ],
+      "rva": "0x7D2F8",
+      "offset": "0x796F8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        354,
+        2052
+      ],
+      "rva": "0x7D300",
+      "offset": "0x79700",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        355,
+        2052
+      ],
+      "rva": "0x7D308",
+      "offset": "0x79708",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        356,
+        2052
+      ],
+      "rva": "0x7D310",
+      "offset": "0x79710",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        357,
+        2052
+      ],
+      "rva": "0x7D318",
+      "offset": "0x79718",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        358,
+        2052
+      ],
+      "rva": "0x7D320",
+      "offset": "0x79720",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        359,
+        2052
+      ],
+      "rva": "0x7D328",
+      "offset": "0x79728",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        360,
+        2052
+      ],
+      "rva": "0x7D330",
+      "offset": "0x79730",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        361,
+        2052
+      ],
+      "rva": "0x7D338",
+      "offset": "0x79738",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        362,
+        2052
+      ],
+      "rva": "0x7D340",
+      "offset": "0x79740",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        363,
+        2052
+      ],
+      "rva": "0x7D348",
+      "offset": "0x79748",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        364,
+        2052
+      ],
+      "rva": "0x7D350",
+      "offset": "0x79750",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        365,
+        2052
+      ],
+      "rva": "0x7D358",
+      "offset": "0x79758",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        366,
+        2052
+      ],
+      "rva": "0x7D360",
+      "offset": "0x79760",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        367,
+        2052
+      ],
+      "rva": "0x7D368",
+      "offset": "0x79768",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        368,
+        2052
+      ],
+      "rva": "0x7D370",
+      "offset": "0x79770",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        369,
+        2052
+      ],
+      "rva": "0x7D378",
+      "offset": "0x79778",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        370,
+        2052
+      ],
+      "rva": "0x7D380",
+      "offset": "0x79780",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        371,
+        2052
+      ],
+      "rva": "0x7D388",
+      "offset": "0x79788",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        372,
+        2052
+      ],
+      "rva": "0x7D390",
+      "offset": "0x79790",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        373,
+        2052
+      ],
+      "rva": "0x7D398",
+      "offset": "0x79798",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        374,
+        2052
+      ],
+      "rva": "0x7D3A0",
+      "offset": "0x797A0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        375,
+        2052
+      ],
+      "rva": "0x7D3A8",
+      "offset": "0x797A8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        376,
+        2052
+      ],
+      "rva": "0x7D3B0",
+      "offset": "0x797B0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        377,
+        2052
+      ],
+      "rva": "0x7D3B8",
+      "offset": "0x797B8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        378,
+        2052
+      ],
+      "rva": "0x7D3C0",
+      "offset": "0x797C0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        379,
+        2052
+      ],
+      "rva": "0x7D3C8",
+      "offset": "0x797C8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        380,
+        2052
+      ],
+      "rva": "0x7D3D0",
+      "offset": "0x797D0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        381,
+        2052
+      ],
+      "rva": "0x7D3D8",
+      "offset": "0x797D8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        382,
+        2052
+      ],
+      "rva": "0x7D3E0",
+      "offset": "0x797E0",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        384,
+        2052
+      ],
+      "rva": "0x7D3E8",
+      "offset": "0x797E8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        386,
+        2052
+      ],
+      "rva": "0x7D3F8",
+      "offset": "0x797F8",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        387,
+        2052
+      ],
+      "rva": "0x7D400",
+      "offset": "0x79800",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        388,
+        2052
+      ],
+      "rva": "0x7D408",
+      "offset": "0x79808",
+      "size": 2
+    },
+    {
+      "path": [
+        "AFX_DIALOG_LAYOUT",
+        389,
+        2052
+      ],
+      "rva": "0x7D410",
+      "offset": "0x79810",
+      "size": 2
+    },
+    {
+      "path": [
+        2,
+        128,
+        2052
+      ],
+      "rva": "0x6DC40",
+      "offset": "0x6A040",
+      "size": 1064
+    },
+    {
+      "path": [
+        2,
+        129,
+        2052
+      ],
+      "rva": "0x6E068",
+      "offset": "0x6A468",
+      "size": 5802
+    },
+    {
+      "path": [
+        2,
+        169,
+        2052
+      ],
+      "rva": "0x72040",
+      "offset": "0x6E440",
+      "size": 224
+    },
+    {
+      "path": [
+        2,
+        170,
+        2052
+      ],
+      "rva": "0x72120",
+      "offset": "0x6E520",
+      "size": 762
+    },
+    {
+      "path": [
+        2,
+        171,
+        2052
+      ],
+      "rva": "0x6F718",
+      "offset": "0x6BB18",
+      "size": 344
+    },
+    {
+      "path": [
+        2,
+        172,
+        2052
+      ],
+      "rva": "0x6F870",
+      "offset": "0x6BC70",
+      "size": 1482
+    },
+    {
+      "path": [
+        2,
+        175,
+        2052
+      ],
+      "rva": "0x6FE40",
+      "offset": "0x6C240",
+      "size": 464
+    },
+    {
+      "path": [
+        2,
+        176,
+        2052
+      ],
+      "rva": "0x70010",
+      "offset": "0x6C410",
+      "size": 2202
+    },
+    {
+      "path": [
+        2,
+        177,
+        2052
+      ],
+      "rva": "0x708B0",
+      "offset": "0x6CCB0",
+      "size": 944
+    },
+    {
+      "path": [
+        2,
+        178,
+        2052
+      ],
+      "rva": "0x70C60",
+      "offset": "0x6D060",
+      "size": 5082
+    },
+    {
+      "path": [
+        2,
+        179,
+        2052
+      ],
+      "rva": "0x72420",
+      "offset": "0x6E820",
+      "size": 1064
+    },
+    {
+      "path": [
+        2,
+        180,
+        2052
+      ],
+      "rva": "0x72848",
+      "offset": "0x6EC48",
+      "size": 5802
+    },
+    {
+      "path": [
+        2,
+        183,
+        2052
+      ],
+      "rva": "0x73EF8",
+      "offset": "0x702F8",
+      "size": 584
+    },
+    {
+      "path": [
+        2,
+        184,
+        2052
+      ],
+      "rva": "0x74140",
+      "offset": "0x70540",
+      "size": 2922
+    },
+    {
+      "path": [
+        3,
+        1,
+        2052
+      ],
+      "rva": "0x61170",
+      "offset": "0x5D570",
+      "size": 16936
+    },
+    {
+      "path": [
+        3,
+        2,
+        2052
+      ],
+      "rva": "0x653B0",
+      "offset": "0x617B0",
+      "size": 744
+    },
+    {
+      "path": [
+        3,
+        3,
+        2052
+      ],
+      "rva": "0x65698",
+      "offset": "0x61A98",
+      "size": 296
+    },
+    {
+      "path": [
+        3,
+        4,
+        2052
+      ],
+      "rva": "0x657C0",
+      "offset": "0x61BC0",
+      "size": 2216
+    },
+    {
+      "path": [
+        3,
+        5,
+        2052
+      ],
+      "rva": "0x66068",
+      "offset": "0x62468",
+      "size": 1384
+    },
+    {
+      "path": [
+        3,
+        6,
+        2052
+      ],
+      "rva": "0x66610",
+      "offset": "0x62A10",
+      "size": 744
+    },
+    {
+      "path": [
+        3,
+        7,
+        2052
+      ],
+      "rva": "0x668F8",
+      "offset": "0x62CF8",
+      "size": 296
+    },
+    {
+      "path": [
+        3,
+        8,
+        2052
+      ],
+      "rva": "0x66A48",
+      "offset": "0x62E48",
+      "size": 744
+    },
+    {
+      "path": [
+        3,
+        9,
+        2052
+      ],
+      "rva": "0x66D30",
+      "offset": "0x63130",
+      "size": 1384
+    },
+    {
+      "path": [
+        3,
+        10,
+        2052
+      ],
+      "rva": "0x672C0",
+      "offset": "0x636C0",
+      "size": 744
+    },
+    {
+      "path": [
+        3,
+        11,
+        2052
+      ],
+      "rva": "0x675A8",
+      "offset": "0x639A8",
+      "size": 296
+    },
+    {
+      "path": [
+        3,
+        12,
+        2052
+      ],
+      "rva": "0x676F8",
+      "offset": "0x63AF8",
+      "size": 744
+    },
+    {
+      "path": [
+        3,
+        13,
+        2052
+      ],
+      "rva": "0x679E0",
+      "offset": "0x63DE0",
+      "size": 296
+    },
+    {
+      "path": [
+        3,
+        14,
+        2052
+      ],
+      "rva": "0x67B08",
+      "offset": "0x63F08",
+      "size": 1384
+    },
+    {
+      "path": [
+        3,
+        15,
+        2052
+      ],
+      "rva": "0x680A0",
+      "offset": "0x644A0",
+      "size": 744
+    },
+    {
+      "path": [
+        3,
+        16,
+        2052
+      ],
+      "rva": "0x68388",
+      "offset": "0x64788",
+      "size": 296
+    },
+    {
+      "path": [
+        3,
+        17,
+        2052
+      ],
+      "rva": "0x684D8",
+      "offset": "0x648D8",
+      "size": 744
+    },
+    {
+      "path": [
+        3,
+        18,
+        2052
+      ],
+      "rva": "0x687C0",
+      "offset": "0x64BC0",
+      "size": 1384
+    },
+    {
+      "path": [
+        3,
+        19,
+        2052
+      ],
+      "rva": "0x68D50",
+      "offset": "0x65150",
+      "size": 744
+    },
+    {
+      "path": [
+        3,
+        20,
+        2052
+      ],
+      "rva": "0x69038",
+      "offset": "0x65438",
+      "size": 296
+    },
+    {
+      "path": [
+        3,
+        21,
+        2052
+      ],
+      "rva": "0x69188",
+      "offset": "0x65588",
+      "size": 744
+    },
+    {
+      "path": [
+        3,
+        22,
+        2052
+      ],
+      "rva": "0x69470",
+      "offset": "0x65870",
+      "size": 1384
+    },
+    {
+      "path": [
+        3,
+        23,
+        2052
+      ],
+      "rva": "0x69A00",
+      "offset": "0x65E00",
+      "size": 16936
+    },
+    {
+      "path": [
+        4,
+        "IDR_HELP_MENU",
+        2052
+      ],
+      "rva": "0x75710",
+      "offset": "0x71B10",
+      "size": 50
+    },
+    {
+      "path": [
+        4,
+        119,
+        2052
+      ],
+      "rva": "0x753B8",
+      "offset": "0x717B8",
+      "size": 456
+    },
+    {
+      "path": [
+        4,
+        128,
+        2052
+      ],
+      "rva": "0x74D40",
+      "offset": "0x71140",
+      "size": 706
+    },
+    {
+      "path": [
+        4,
+        130,
+        2052
+      ],
+      "rva": "0x75008",
+      "offset": "0x71408",
+      "size": 938
+    },
+    {
+      "path": [
+        4,
+        173,
+        2052
+      ],
+      "rva": "0x75580",
+      "offset": "0x71980",
+      "size": 112
+    },
+    {
+      "path": [
+        4,
+        174,
+        2052
+      ],
+      "rva": "0x755F0",
+      "offset": "0x719F0",
+      "size": 208
+    },
+    {
+      "path": [
+        4,
+        182,
+        2052
+      ],
+      "rva": "0x756C0",
+      "offset": "0x71AC0",
+      "size": 74
+    },
+    {
+      "path": [
+        4,
+        200,
+        2052
+      ],
+      "rva": "0x75748",
+      "offset": "0x71B48",
+      "size": 238
+    },
+    {
+      "path": [
+        4,
+        201,
+        2052
+      ],
+      "rva": "0x75838",
+      "offset": "0x71C38",
+      "size": 42
+    },
+    {
+      "path": [
+        5,
+        100,
+        2052
+      ],
+      "rva": "0x758D8",
+      "offset": "0x71CD8",
+      "size": 324
+    },
+    {
+      "path": [
+        5,
+        310,
+        2052
+      ],
+      "rva": "0x75A20",
+      "offset": "0x71E20",
+      "size": 212
+    },
+    {
+      "path": [
+        5,
+        312,
+        2052
+      ],
+      "rva": "0x75AF8",
+      "offset": "0x71EF8",
+      "size": 216
+    },
+    {
+      "path": [
+        5,
+        313,
+        2052
+      ],
+      "rva": "0x75BD0",
+      "offset": "0x71FD0",
+      "size": 184
+    },
+    {
+      "path": [
+        5,
+        314,
+        2052
+      ],
+      "rva": "0x75C88",
+      "offset": "0x72088",
+      "size": 304
+    },
+    {
+      "path": [
+        5,
+        315,
+        2052
+      ],
+      "rva": "0x75DB8",
+      "offset": "0x721B8",
+      "size": 360
+    },
+    {
+      "path": [
+        5,
+        316,
+        2052
+      ],
+      "rva": "0x75F20",
+      "offset": "0x72320",
+      "size": 216
+    },
+    {
+      "path": [
+        5,
+        317,
+        2052
+      ],
+      "rva": "0x75FF8",
+      "offset": "0x723F8",
+      "size": 284
+    },
+    {
+      "path": [
+        5,
+        318,
+        2052
+      ],
+      "rva": "0x76118",
+      "offset": "0x72518",
+      "size": 216
+    },
+    {
+      "path": [
+        5,
+        319,
+        2052
+      ],
+      "rva": "0x761F0",
+      "offset": "0x725F0",
+      "size": 216
+    },
+    {
+      "path": [
+        5,
+        320,
+        2052
+      ],
+      "rva": "0x762C8",
+      "offset": "0x726C8",
+      "size": 284
+    },
+    {
+      "path": [
+        5,
+        321,
+        2052
+      ],
+      "rva": "0x763E8",
+      "offset": "0x727E8",
+      "size": 316
+    },
+    {
+      "path": [
+        5,
+        322,
+        2052
+      ],
+      "rva": "0x76528",
+      "offset": "0x72928",
+      "size": 284
+    },
+    {
+      "path": [
+        5,
+        323,
+        2052
+      ],
+      "rva": "0x76648",
+      "offset": "0x72A48",
+      "size": 284
+    },
+    {
+      "path": [
+        5,
+        324,
+        2052
+      ],
+      "rva": "0x76768",
+      "offset": "0x72B68",
+      "size": 216
+    },
+    {
+      "path": [
+        5,
+        325,
+        2052
+      ],
+      "rva": "0x76840",
+      "offset": "0x72C40",
+      "size": 388
+    },
+    {
+      "path": [
+        5,
+        326,
+        2052
+      ],
+      "rva": "0x769C8",
+      "offset": "0x72DC8",
+      "size": 216
+    },
+    {
+      "path": [
+        5,
+        327,
+        2052
+      ],
+      "rva": "0x76AA0",
+      "offset": "0x72EA0",
+      "size": 284
+    },
+    {
+      "path": [
+        5,
+        328,
+        2052
+      ],
+      "rva": "0x76BC0",
+      "offset": "0x72FC0",
+      "size": 216
+    },
+    {
+      "path": [
+        5,
+        329,
+        2052
+      ],
+      "rva": "0x76C98",
+      "offset": "0x73098",
+      "size": 352
+    },
+    {
+      "path": [
+        5,
+        330,
+        2052
+      ],
+      "rva": "0x76DF8",
+      "offset": "0x731F8",
+      "size": 488
+    },
+    {
+      "path": [
+        5,
+        331,
+        2052
+      ],
+      "rva": "0x76FE0",
+      "offset": "0x733E0",
+      "size": 284
+    },
+    {
+      "path": [
+        5,
+        332,
+        2052
+      ],
+      "rva": "0x77100",
+      "offset": "0x73500",
+      "size": 216
+    },
+    {
+      "path": [
+        5,
+        333,
+        2052
+      ],
+      "rva": "0x771D8",
+      "offset": "0x735D8",
+      "size": 328
+    },
+    {
+      "path": [
+        5,
+        334,
+        2052
+      ],
+      "rva": "0x77320",
+      "offset": "0x73720",
+      "size": 320
+    },
+    {
+      "path": [
+        5,
+        335,
+        2052
+      ],
+      "rva": "0x77460",
+      "offset": "0x73860",
+      "size": 488
+    },
+    {
+      "path": [
+        5,
+        336,
+        2052
+      ],
+      "rva": "0x77648",
+      "offset": "0x73A48",
+      "size": 628
+    },
+    {
+      "path": [
+        5,
+        337,
+        2052
+      ],
+      "rva": "0x778C0",
+      "offset": "0x73CC0",
+      "size": 556
+    },
+    {
+      "path": [
+        5,
+        338,
+        2052
+      ],
+      "rva": "0x77AF0",
+      "offset": "0x73EF0",
+      "size": 352
+    },
+    {
+      "path": [
+        5,
+        339,
+        2052
+      ],
+      "rva": "0x77C50",
+      "offset": "0x74050",
+      "size": 284
+    },
+    {
+      "path": [
+        5,
+        340,
+        2052
+      ],
+      "rva": "0x77D70",
+      "offset": "0x74170",
+      "size": 284
+    },
+    {
+      "path": [
+        5,
+        341,
+        2052
+      ],
+      "rva": "0x77E90",
+      "offset": "0x74290",
+      "size": 420
+    },
+    {
+      "path": [
+        5,
+        342,
+        2052
+      ],
+      "rva": "0x78038",
+      "offset": "0x74438",
+      "size": 352
+    },
+    {
+      "path": [
+        5,
+        343,
+        2052
+      ],
+      "rva": "0x78198",
+      "offset": "0x74598",
+      "size": 420
+    },
+    {
+      "path": [
+        5,
+        344,
+        2052
+      ],
+      "rva": "0x78340",
+      "offset": "0x74740",
+      "size": 352
+    },
+    {
+      "path": [
+        5,
+        345,
+        2052
+      ],
+      "rva": "0x784A0",
+      "offset": "0x748A0",
+      "size": 356
+    },
+    {
+      "path": [
+        5,
+        346,
+        2052
+      ],
+      "rva": "0x78608",
+      "offset": "0x74A08",
+      "size": 356
+    },
+    {
+      "path": [
+        5,
+        347,
+        2052
+      ],
+      "rva": "0x78770",
+      "offset": "0x74B70",
+      "size": 392
+    },
+    {
+      "path": [
+        5,
+        348,
+        2052
+      ],
+      "rva": "0x788F8",
+      "offset": "0x74CF8",
+      "size": 556
+    },
+    {
+      "path": [
+        5,
+        349,
+        2052
+      ],
+      "rva": "0x78B28",
+      "offset": "0x74F28",
+      "size": 284
+    },
+    {
+      "path": [
+        5,
+        350,
+        2052
+      ],
+      "rva": "0x78C48",
+      "offset": "0x75048",
+      "size": 216
+    },
+    {
+      "path": [
+        5,
+        351,
+        2052
+      ],
+      "rva": "0x78D20",
+      "offset": "0x75120",
+      "size": 696
+    },
+    {
+      "path": [
+        5,
+        352,
+        2052
+      ],
+      "rva": "0x78FD8",
+      "offset": "0x753D8",
+      "size": 800
+    },
+    {
+      "path": [
+        5,
+        353,
+        2052
+      ],
+      "rva": "0x792F8",
+      "offset": "0x756F8",
+      "size": 864
+    },
+    {
+      "path": [
+        5,
+        354,
+        2052
+      ],
+      "rva": "0x79658",
+      "offset": "0x75A58",
+      "size": 456
+    },
+    {
+      "path": [
+        5,
+        355,
+        2052
+      ],
+      "rva": "0x79820",
+      "offset": "0x75C20",
+      "size": 352
+    },
+    {
+      "path": [
+        5,
+        356,
+        2052
+      ],
+      "rva": "0x79980",
+      "offset": "0x75D80",
+      "size": 1260
+    },
+    {
+      "path": [
+        5,
+        357,
+        2052
+      ],
+      "rva": "0x79E70",
+      "offset": "0x76270",
+      "size": 900
+    },
+    {
+      "path": [
+        5,
+        358,
+        2052
+      ],
+      "rva": "0x7A1F8",
+      "offset": "0x765F8",
+      "size": 478
+    },
+    {
+      "path": [
+        5,
+        359,
+        2052
+      ],
+      "rva": "0x7A3D8",
+      "offset": "0x767D8",
+      "size": 370
+    },
+    {
+      "path": [
+        5,
+        360,
+        2052
+      ],
+      "rva": "0x7A550",
+      "offset": "0x76950",
+      "size": 284
+    },
+    {
+      "path": [
+        5,
+        361,
+        2052
+      ],
+      "rva": "0x7A670",
+      "offset": "0x76A70",
+      "size": 664
+    },
+    {
+      "path": [
+        5,
+        362,
+        2052
+      ],
+      "rva": "0x7A908",
+      "offset": "0x76D08",
+      "size": 220
+    },
+    {
+      "path": [
+        5,
+        363,
+        2052
+      ],
+      "rva": "0x7A9E8",
+      "offset": "0x76DE8",
+      "size": 560
+    },
+    {
+      "path": [
+        5,
+        364,
+        2052
+      ],
+      "rva": "0x7AC18",
+      "offset": "0x77018",
+      "size": 664
+    },
+    {
+      "path": [
+        5,
+        365,
+        2052
+      ],
+      "rva": "0x7AEB0",
+      "offset": "0x772B0",
+      "size": 458
+    },
+    {
+      "path": [
+        5,
+        366,
+        2052
+      ],
+      "rva": "0x7B080",
+      "offset": "0x77480",
+      "size": 284
+    },
+    {
+      "path": [
+        5,
+        367,
+        2052
+      ],
+      "rva": "0x7B1A0",
+      "offset": "0x775A0",
+      "size": 328
+    },
+    {
+      "path": [
+        5,
+        368,
+        2052
+      ],
+      "rva": "0x7B2E8",
+      "offset": "0x776E8",
+      "size": 292
+    },
+    {
+      "path": [
+        5,
+        369,
+        2052
+      ],
+      "rva": "0x7B410",
+      "offset": "0x77810",
+      "size": 260
+    },
+    {
+      "path": [
+        5,
+        370,
+        2052
+      ],
+      "rva": "0x7B518",
+      "offset": "0x77918",
+      "size": 300
+    },
+    {
+      "path": [
+        5,
+        371,
+        2052
+      ],
+      "rva": "0x7B648",
+      "offset": "0x77A48",
+      "size": 298
+    },
+    {
+      "path": [
+        5,
+        372,
+        2052
+      ],
+      "rva": "0x7B778",
+      "offset": "0x77B78",
+      "size": 284
+    },
+    {
+      "path": [
+        5,
+        373,
+        2052
+      ],
+      "rva": "0x7B898",
+      "offset": "0x77C98",
+      "size": 356
+    },
+    {
+      "path": [
+        5,
+        374,
+        2052
+      ],
+      "rva": "0x7BA00",
+      "offset": "0x77E00",
+      "size": 388
+    },
+    {
+      "path": [
+        5,
+        375,
+        2052
+      ],
+      "rva": "0x7BB88",
+      "offset": "0x77F88",
+      "size": 660
+    },
+    {
+      "path": [
+        5,
+        376,
+        2052
+      ],
+      "rva": "0x7BE20",
+      "offset": "0x78220",
+      "size": 216
+    },
+    {
+      "path": [
+        5,
+        377,
+        2052
+      ],
+      "rva": "0x7BEF8",
+      "offset": "0x782F8",
+      "size": 352
+    },
+    {
+      "path": [
+        5,
+        378,
+        2052
+      ],
+      "rva": "0x7C058",
+      "offset": "0x78458",
+      "size": 532
+    },
+    {
+      "path": [
+        5,
+        379,
+        2052
+      ],
+      "rva": "0x7C270",
+      "offset": "0x78670",
+      "size": 496
+    },
+    {
+      "path": [
+        5,
+        380,
+        2052
+      ],
+      "rva": "0x7C460",
+      "offset": "0x78860",
+      "size": 424
+    },
+    {
+      "path": [
+        5,
+        381,
+        2052
+      ],
+      "rva": "0x7C608",
+      "offset": "0x78A08",
+      "size": 496
+    },
+    {
+      "path": [
+        5,
+        382,
+        2052
+      ],
+      "rva": "0x7C7F8",
+      "offset": "0x78BF8",
+      "size": 256
+    },
+    {
+      "path": [
+        5,
+        384,
+        2052
+      ],
+      "rva": "0x7C8F8",
+      "offset": "0x78CF8",
+      "size": 246
+    },
+    {
+      "path": [
+        5,
+        386,
+        2052
+      ],
+      "rva": "0x7C9F0",
+      "offset": "0x78DF0",
+      "size": 420
+    },
+    {
+      "path": [
+        5,
+        387,
+        2052
+      ],
+      "rva": "0x7CB98",
+      "offset": "0x78F98",
+      "size": 368
+    },
+    {
+      "path": [
+        5,
+        388,
+        2052
+      ],
+      "rva": "0x7CD08",
+      "offset": "0x79108",
+      "size": 296
+    },
+    {
+      "path": [
+        5,
+        389,
+        2052
+      ],
+      "rva": "0x7CE30",
+      "offset": "0x79230",
+      "size": 148
+    },
+    {
+      "path": [
+        6,
+        7,
+        2052
+      ],
+      "rva": "0x7D6B8",
+      "offset": "0x79AB8",
+      "size": 88,
+      "strings": [
+        {
+          "id": 100,
+          "text": "OLE 초기화실패.  请确保 OLE 库是正确的版本。"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        8,
+        2052
+      ],
+      "rva": "0x7DE50",
+      "offset": "0x7A250",
+      "size": 64,
+      "strings": [
+        {
+          "id": 122,
+          "text": "窗格 1"
+        },
+        {
+          "id": 123,
+          "text": "窗格 2"
+        },
+        {
+          "id": 124,
+          "text": "메뉴"
+        },
+        {
+          "id": 125,
+          "text": "사용자정의."
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        9,
+        2052
+      ],
+      "rva": "0x7D710",
+      "offset": "0x79B10",
+      "size": 208,
+      "strings": [
+        {
+          "id": 128,
+          "text": "cczSceneEditor2"
+        },
+        {
+          "id": 130,
+          "text": "\ncczEditor2\ncczEditor2\n\n\ncczEditor2.Document\ncczEditor2.Document"
+        },
+        {
+          "id": 131,
+          "text": "창구(&W)..."
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        10,
+        2052
+      ],
+      "rva": "0x7DE90",
+      "offset": "0x7A290",
+      "size": 54,
+      "strings": [
+        {
+          "id": 155,
+          "text": "파일보기"
+        },
+        {
+          "id": 156,
+          "text": "류보기"
+        },
+        {
+          "id": 157,
+          "text": "추출"
+        },
+        {
+          "id": 158,
+          "text": "속성"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        19,
+        2052
+      ],
+      "rva": "0x7DEF8",
+      "offset": "0x7A2F8",
+      "size": 44,
+      "strings": [
+        {
+          "id": 300,
+          "text": "生成"
+        },
+        {
+          "id": 301,
+          "text": "调试"
+        },
+        {
+          "id": 302,
+          "text": "查找"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        20,
+        2052
+      ],
+      "rva": "0x7DEC8",
+      "offset": "0x7A2C8",
+      "size": 46,
+      "strings": [
+        {
+          "id": 305,
+          "text": "지원관리기"
+        },
+        {
+          "id": 306,
+          "text": "편집"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        3585,
+        2052
+      ],
+      "rva": "0x7D7E0",
+      "offset": "0x79BE0",
+      "size": 56,
+      "strings": [
+        {
+          "id": 57344,
+          "text": "cczEditor2"
+        },
+        {
+          "id": 57345,
+          "text": "就绪"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        3601,
+        2052
+      ],
+      "rva": "0x7D860",
+      "offset": "0x79C60",
+      "size": 256,
+      "strings": [
+        {
+          "id": 57600,
+          "text": "새파일작성\n신규"
+        },
+        {
+          "id": 57601,
+          "text": "극본파일열기\n열기"
+        },
+        {
+          "id": 57602,
+          "text": "한자파일닫기\n닫기"
+        },
+        {
+          "id": 57603,
+          "text": "현재파일저장\n저장"
+        },
+        {
+          "id": 57604,
+          "text": "현재파일신규명칭저장\n새이름"
+        },
+        {
+          "id": 57605,
+          "text": "출력선택변경\n页面设置"
+        },
+        {
+          "id": 57606,
+          "text": "更改打印机选项和打印选项\n打印设置"
+        },
+        {
+          "id": 57607,
+          "text": "한자문서출력\n출력"
+        },
+        {
+          "id": 57608,
+          "text": "使用当前选项打印活动文档\n快速打印"
+        },
+        {
+          "id": 57609,
+          "text": "显示整页\n打印预览"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        3602,
+        2052
+      ],
+      "rva": "0x7D9C8",
+      "offset": "0x79DC8",
+      "size": 192,
+      "strings": [
+        {
+          "id": 57616,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57617,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57618,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57619,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57620,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57621,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57622,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57623,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57624,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57625,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57626,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57627,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57628,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57629,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57630,
+          "text": "打开此文档"
+        },
+        {
+          "id": 57631,
+          "text": "打开此文档"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        3603,
+        2052
+      ],
+      "rva": "0x7DBC0",
+      "offset": "0x79FC0",
+      "size": 288,
+      "strings": [
+        {
+          "id": 57632,
+          "text": "清除所选内容\n清除"
+        },
+        {
+          "id": 57633,
+          "text": "清除全部内容\n全部清除"
+        },
+        {
+          "id": 57634,
+          "text": "선택사용복사，클립보드에저장\n복사"
+        },
+        {
+          "id": 57635,
+          "text": "선택내용자름，클립보드에저장\n자름"
+        },
+        {
+          "id": 57636,
+          "text": "지정한문서조사\n조사"
+        },
+        {
+          "id": 57637,
+          "text": "저장한내용삽입\n붙임"
+        },
+        {
+          "id": 57640,
+          "text": "상부조작중복\n중복"
+        },
+        {
+          "id": 57641,
+          "text": "用其他文本替换特定的文本\n替换"
+        },
+        {
+          "id": 57642,
+          "text": "选定整个文档\n全选"
+        },
+        {
+          "id": 57643,
+          "text": "撤消上一操作\n撤消"
+        },
+        {
+          "id": 57644,
+          "text": "重做上次撤消的操作\n重做"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        3604,
+        2052
+      ],
+      "rva": "0x7DAE0",
+      "offset": "0x79EE0",
+      "size": 224,
+      "strings": [
+        {
+          "id": 57648,
+          "text": "为活动文档打开另一个窗口\n신규窗口"
+        },
+        {
+          "id": 57649,
+          "text": "在窗口底部排列图标\n排列图标"
+        },
+        {
+          "id": 57650,
+          "text": "以重叠方式排列窗口\n层叠窗口"
+        },
+        {
+          "id": 57651,
+          "text": "以不重叠的平铺方式排列窗口\n平铺窗口"
+        },
+        {
+          "id": 57652,
+          "text": "以不重叠的平铺方式排列窗口\n平铺窗口"
+        },
+        {
+          "id": 57653,
+          "text": "将活动窗口拆分为多个窗格\n拆分"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        3605,
+        2052
+      ],
+      "rva": "0x7D960",
+      "offset": "0x79D60",
+      "size": 100,
+      "strings": [
+        {
+          "id": 57664,
+          "text": "프로그램정보、버전번호판권표시\n버전"
+        },
+        {
+          "id": 57665,
+          "text": "프로그램종료；저장여부표시\n종료"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        3606,
+        2052
+      ],
+      "rva": "0x7DA88",
+      "offset": "0x79E88",
+      "size": 84,
+      "strings": [
+        {
+          "id": 57680,
+          "text": "切换到下一个窗格\n下一窗格"
+        },
+        {
+          "id": 57681,
+          "text": "切换回上一个窗格\n上一窗格"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        3697,
+        2052
+      ],
+      "rva": "0x7D818",
+      "offset": "0x79C18",
+      "size": 70,
+      "strings": [
+        {
+          "id": 59136,
+          "text": "EXT"
+        },
+        {
+          "id": 59137,
+          "text": "CAP"
+        },
+        {
+          "id": 59138,
+          "text": "NUM"
+        },
+        {
+          "id": 59139,
+          "text": "SCRL"
+        },
+        {
+          "id": 59140,
+          "text": "OVR"
+        },
+        {
+          "id": 59141,
+          "text": "REC"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        3713,
+        2052
+      ],
+      "rva": "0x7DCE0",
+      "offset": "0x7A0E0",
+      "size": 60,
+      "strings": [
+        {
+          "id": 59393,
+          "text": "显示或隐藏状态栏\n切换状态栏"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        3825,
+        2052
+      ],
+      "rva": "0x7DD20",
+      "offset": "0x7A120",
+      "size": 158,
+      "strings": [
+        {
+          "id": 61184,
+          "text": "更改窗口大小"
+        },
+        {
+          "id": 61185,
+          "text": "更改窗口位置"
+        },
+        {
+          "id": 61186,
+          "text": "将窗口缩小成图标"
+        },
+        {
+          "id": 61187,
+          "text": "将窗口放大到最大尺寸"
+        },
+        {
+          "id": 61188,
+          "text": "切换到下一个文档窗口"
+        },
+        {
+          "id": 61189,
+          "text": "切换到上一个文档窗口"
+        },
+        {
+          "id": 61190,
+          "text": "关闭活动窗口并提示保存文档"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        3826,
+        2052
+      ],
+      "rva": "0x7DDC0",
+      "offset": "0x7A1C0",
+      "size": 74,
+      "strings": [
+        {
+          "id": 61202,
+          "text": "将窗口恢复到正常大小"
+        },
+        {
+          "id": 61203,
+          "text": "激活任务列表"
+        },
+        {
+          "id": 61215,
+          "text": "激活此窗口"
+        }
+      ]
+    },
+    {
+      "path": [
+        6,
+        3841,
+        2052
+      ],
+      "rva": "0x7DE10",
+      "offset": "0x7A210",
+      "size": 58,
+      "strings": [
+        {
+          "id": 61445,
+          "text": "닫기打印预览模式\n取消预览"
+        }
+      ]
+    },
+    {
+      "path": [
+        9,
+        128,
+        2052
+      ],
+      "rva": "0x75868",
+      "offset": "0x71C68",
+      "size": 112
+    },
+    {
+      "path": [
+        14,
+        128,
+        2052
+      ],
+      "rva": "0x65398",
+      "offset": "0x61798",
+      "size": 20
+    },
+    {
+      "path": [
+        14,
+        130,
+        2052
+      ],
+      "rva": "0x665D0",
+      "offset": "0x629D0",
+      "size": 62
+    },
+    {
+      "path": [
+        14,
+        161,
+        2052
+      ],
+      "rva": "0x66A20",
+      "offset": "0x62E20",
+      "size": 34
+    },
+    {
+      "path": [
+        14,
+        162,
+        2052
+      ],
+      "rva": "0x67298",
+      "offset": "0x63698",
+      "size": 34
+    },
+    {
+      "path": [
+        14,
+        163,
+        2052
+      ],
+      "rva": "0x676D0",
+      "offset": "0x63AD0",
+      "size": 34
+    },
+    {
+      "path": [
+        14,
+        164,
+        2052
+      ],
+      "rva": "0x68070",
+      "offset": "0x64470",
+      "size": 48
+    },
+    {
+      "path": [
+        14,
+        165,
+        2052
+      ],
+      "rva": "0x684B0",
+      "offset": "0x648B0",
+      "size": 34
+    },
+    {
+      "path": [
+        14,
+        166,
+        2052
+      ],
+      "rva": "0x68D28",
+      "offset": "0x65128",
+      "size": 34
+    },
+    {
+      "path": [
+        14,
+        167,
+        2052
+      ],
+      "rva": "0x69160",
+      "offset": "0x65560",
+      "size": 34
+    },
+    {
+      "path": [
+        14,
+        168,
+        2052
+      ],
+      "rva": "0x699D8",
+      "offset": "0x65DD8",
+      "size": 34
+    },
+    {
+      "path": [
+        14,
+        389,
+        2052
+      ],
+      "rva": "0x6DC28",
+      "offset": "0x6A028",
+      "size": 20
+    },
+    {
+      "path": [
+        16,
+        1,
+        2052
+      ],
+      "rva": "0x7CEC8",
+      "offset": "0x792C8",
+      "size": 732,
+      "versionInfo": {
+        "values": {
+          "CompanyName": "TODO:  <제작자>",
+          "FileDescription": "cczEditor2",
+          "FileVersion": "1.0.2.3",
+          "InternalName": "cczEditor2.exe",
+          "LegalCopyright": "TODO:  (C) <제작자>.  소유권리보유.",
+          "OriginalFilename": "cczEditor2.exe",
+          "ProductName": "TODO:  <제품명>",
+          "ProductVersion": "1.0.2.3"
+        },
+        "warnings": []
+      }
+    },
+    {
+      "path": [
+        24,
+        1,
+        1033
+      ],
+      "rva": "0x7DF28",
+      "offset": "0x7A328",
+      "size": 796
+    },
+    {
+      "path": [
+        240,
+        325,
+        2052
+      ],
+      "rva": "0x7D418",
+      "offset": "0x79818",
+      "size": 28
+    },
+    {
+      "path": [
+        240,
+        331,
+        2052
+      ],
+      "rva": "0x7D438",
+      "offset": "0x79838",
+      "size": 62
+    },
+    {
+      "path": [
+        240,
+        336,
+        2052
+      ],
+      "rva": "0x7D478",
+      "offset": "0x79878",
+      "size": 28
+    },
+    {
+      "path": [
+        240,
+        337,
+        2052
+      ],
+      "rva": "0x7D498",
+      "offset": "0x79898",
+      "size": 36
+    },
+    {
+      "path": [
+        240,
+        346,
+        2052
+      ],
+      "rva": "0x7D4C0",
+      "offset": "0x798C0",
+      "size": 23
+    },
+    {
+      "path": [
+        240,
+        350,
+        2052
+      ],
+      "rva": "0x7D4D8",
+      "offset": "0x798D8",
+      "size": 53
+    },
+    {
+      "path": [
+        240,
+        351,
+        2052
+      ],
+      "rva": "0x7D510",
+      "offset": "0x79910",
+      "size": 36
+    },
+    {
+      "path": [
+        240,
+        353,
+        2052
+      ],
+      "rva": "0x7D538",
+      "offset": "0x79938",
+      "size": 41
+    },
+    {
+      "path": [
+        240,
+        355,
+        2052
+      ],
+      "rva": "0x7D568",
+      "offset": "0x79968",
+      "size": 36
+    },
+    {
+      "path": [
+        240,
+        356,
+        2052
+      ],
+      "rva": "0x7D590",
+      "offset": "0x79990",
+      "size": 75
+    },
+    {
+      "path": [
+        240,
+        357,
+        2052
+      ],
+      "rva": "0x7D5E0",
+      "offset": "0x799E0",
+      "size": 28
+    },
+    {
+      "path": [
+        240,
+        361,
+        2052
+      ],
+      "rva": "0x7D600",
+      "offset": "0x79A00",
+      "size": 28
+    },
+    {
+      "path": [
+        240,
+        363,
+        2052
+      ],
+      "rva": "0x7D620",
+      "offset": "0x79A20",
+      "size": 28
+    },
+    {
+      "path": [
+        240,
+        375,
+        2052
+      ],
+      "rva": "0x7D640",
+      "offset": "0x79A40",
+      "size": 36
+    },
+    {
+      "path": [
+        240,
+        380,
+        2052
+      ],
+      "rva": "0x7D668",
+      "offset": "0x79A68",
+      "size": 26
+    },
+    {
+      "path": [
+        240,
+        386,
+        2052
+      ],
+      "rva": "0x7D688",
+      "offset": "0x79A88",
+      "size": 41
+    },
+    {
+      "path": [
+        241,
+        128,
+        2052
+      ],
+      "rva": "0x74CB0",
+      "offset": "0x710B0",
+      "size": 28
+    },
+    {
+      "path": [
+        241,
+        129,
+        2052
+      ],
+      "rva": "0x74CD0",
+      "offset": "0x710D0",
+      "size": 28
+    },
+    {
+      "path": [
+        241,
+        169,
+        2052
+      ],
+      "rva": "0x74D00",
+      "offset": "0x71100",
+      "size": 10
+    },
+    {
+      "path": [
+        241,
+        171,
+        2052
+      ],
+      "rva": "0x74CF0",
+      "offset": "0x710F0",
+      "size": 12
+    },
+    {
+      "path": [
+        241,
+        179,
+        2052
+      ],
+      "rva": "0x74D10",
+      "offset": "0x71110",
+      "size": 26
+    },
+    {
+      "path": [
+        241,
+        183,
+        2052
+      ],
+      "rva": "0x74D30",
+      "offset": "0x71130",
+      "size": 16
+    }
+  ],
+  "interestingStrings": [
+    {
+      "offset": "0x55CE4",
+      "text": "G:\\Users\\52708\\source\\repos\\cczEditor2\\Release\\s.pdb"
+    },
+    {
+      "offset": "0x58774",
+      "text": "mfc140u.dll"
+    },
+    {
+      "offset": "0x58A2A",
+      "text": "KERNEL32.dll"
+    },
+    {
+      "offset": "0x58BB2",
+      "text": "USER32.dll"
+    },
+    {
+      "offset": "0x58C6E",
+      "text": "GDI32.dll"
+    },
+    {
+      "offset": "0x58C8A",
+      "text": "SHELL32.dll"
+    },
+    {
+      "offset": "0x58CC4",
+      "text": "COMCTL32.dll"
+    },
+    {
+      "offset": "0x58CD2",
+      "text": "OLEAUT32.dll"
+    },
+    {
+      "offset": "0x58CF2",
+      "text": "gdiplus.dll"
+    },
+    {
+      "offset": "0x58D1E",
+      "text": "MSVCP140.dll"
+    },
+    {
+      "offset": "0x58D6E",
+      "text": "VERSION.dll"
+    },
+    {
+      "offset": "0x58E42",
+      "text": "VCRUNTIME140.dll"
+    },
+    {
+      "offset": "0x5905E",
+      "text": "api-ms-win-crt-runtime-l1-1-0.dll"
+    },
+    {
+      "offset": "0x59080",
+      "text": "api-ms-win-crt-string-l1-1-0.dll"
+    },
+    {
+      "offset": "0x590A2",
+      "text": "api-ms-win-crt-heap-l1-1-0.dll"
+    },
+    {
+      "offset": "0x590C2",
+      "text": "api-ms-win-crt-math-l1-1-0.dll"
+    },
+    {
+      "offset": "0x590E2",
+      "text": "api-ms-win-crt-stdio-l1-1-0.dll"
+    },
+    {
+      "offset": "0x59102",
+      "text": "api-ms-win-crt-locale-l1-1-0.dll"
+    }
+  ]
+}

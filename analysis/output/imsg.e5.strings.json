@@ -1,0 +1,306 @@
+[
+  {
+    "offset": "0x4362",
+    "text": " HP 2"
+  },
+  {
+    "offset": "0x4369",
+    "text": " MP 1"
+  },
+  {
+    "offset": "0xC288",
+    "text": "Hex Battle Name Start ( MAX : 18 Bytes )"
+  },
+  {
+    "offset": "0x110A8",
+    "text": "Unit Message Start"
+  },
+  {
+    "offset": "0x15005",
+    "text": "HP x "
+  },
+  {
+    "offset": "0x1613D",
+    "text": "HP x "
+  },
+  {
+    "offset": "0x16529",
+    "text": " 100%"
+  },
+  {
+    "offset": "0x16781",
+    "text": " 100%"
+  },
+  {
+    "offset": "0x16C14",
+    "text": " : SP"
+  },
+  {
+    "offset": "0x22218",
+    "text": "Critical Attack Message Start"
+  },
+  {
+    "offset": "0x27038",
+    "text": "Staff Roll Start( 26 Pages )  // = Comment  % = PartName(MAX 26Char)  ; = NextPage(MAX 12Char)"
+  },
+  {
+    "offset": "0x271C8",
+    "text": "%DIRECTOR"
+  },
+  {
+    "offset": "0x27290",
+    "text": "LEE RUN"
+  },
+  {
+    "offset": "0x274E8",
+    "text": "%SCENARIO WRITER"
+  },
+  {
+    "offset": "0x275B0",
+    "text": "O.TSUCHIYA"
+  },
+  {
+    "offset": "0x27808",
+    "text": "%BATTLE SCENE DESIGNER"
+  },
+  {
+    "offset": "0x278D0",
+    "text": "Y.TAKAYAMA"
+  },
+  {
+    "offset": "0x27B28",
+    "text": "%SYSTEM PLANNER"
+  },
+  {
+    "offset": "0x27BF0",
+    "text": "YASU TOYAMA"
+  },
+  {
+    "offset": "0x27E48",
+    "text": "%STORY EVENT COORDINATOR"
+  },
+  {
+    "offset": "0x27F10",
+    "text": "H.YAMAMOTO"
+  },
+  {
+    "offset": "0x28168",
+    "text": "%BATTLE EVENT COORDINATOR"
+  },
+  {
+    "offset": "0x28230",
+    "text": "T.TSUJI"
+  },
+  {
+    "offset": "0x28488",
+    "text": "%BALANCE COORDINATOR"
+  },
+  {
+    "offset": "0x28550",
+    "text": "Y.TAKAYAMA"
+  },
+  {
+    "offset": "0x287A8",
+    "text": "%MAIN PROGRAMMER"
+  },
+  {
+    "offset": "0x28870",
+    "text": "YASU TOYAMA"
+  },
+  {
+    "offset": "0x28AC8",
+    "text": "%USER INTERFACE PROGRAMMER"
+  },
+  {
+    "offset": "0x28B90",
+    "text": "T.KATOH"
+  },
+  {
+    "offset": "0x28DE8",
+    "text": "%SOUND&MUSIC DIRECTOR"
+  },
+  {
+    "offset": "0x28EB0",
+    "text": "MAHITO"
+  },
+  {
+    "offset": "0x29108",
+    "text": "%GRAPHIC DIRECTOR"
+  },
+  {
+    "offset": "0x291D0",
+    "text": "H.KIKKAWA"
+  },
+  {
+    "offset": "0x29428",
+    "text": "%GRAPHIC MAIN DESIGNER"
+  },
+  {
+    "offset": "0x294F0",
+    "text": "M.SEKIGUCHI"
+  },
+  {
+    "offset": "0x29748",
+    "text": "%GRAPHIC DESIGNERS"
+  },
+  {
+    "offset": "0x29810",
+    "text": "WATARU"
+  },
+  {
+    "offset": "0x298D8",
+    "text": "T.KIMURA"
+  },
+  {
+    "offset": "0x29B30",
+    "text": "%GRAPHIC DESIGNERS"
+  },
+  {
+    "offset": "0x29BF8",
+    "text": "Y.KAMAKURA"
+  },
+  {
+    "offset": "0x29CC0",
+    "text": "YUMI NOJIMA"
+  },
+  {
+    "offset": "0x29F18",
+    "text": "%GRAPHIC DESIGNERS"
+  },
+  {
+    "offset": "0x29FE0",
+    "text": "TOKINORI"
+  },
+  {
+    "offset": "0x2A0A8",
+    "text": "YURA.N"
+  },
+  {
+    "offset": "0x2A170",
+    "text": "SATOKO.K"
+  },
+  {
+    "offset": "0x2A3C8",
+    "text": "%MOVIE 3D CG DESIGNERS"
+  },
+  {
+    "offset": "0x2A490",
+    "text": "T.MIYAMOTO"
+  },
+  {
+    "offset": "0x2A558",
+    "text": "S.MURAKAMI"
+  },
+  {
+    "offset": "0x2A7B0",
+    "text": "%MOVIE 3D CG DESIGNERS"
+  },
+  {
+    "offset": "0x2A878",
+    "text": "SEKIYAC"
+  },
+  {
+    "offset": "0x2AB98",
+    "text": "%SOFTWARE MANUAL"
+  },
+  {
+    "offset": "0x2AC60",
+    "text": "M.YOSHIKAWA"
+  },
+  {
+    "offset": "0x2AEB8",
+    "text": "%MANUAL ILLUSTRATOR"
+  },
+  {
+    "offset": "0x2AF80",
+    "text": "Y.MIZUKAMI"
+  },
+  {
+    "offset": "0x2B1D8",
+    "text": "%TEST PLAYING"
+  },
+  {
+    "offset": "0x2B2A0",
+    "text": "S.MATSUMOTO"
+  },
+  {
+    "offset": "0x2B368",
+    "text": "S.KANEKO"
+  },
+  {
+    "offset": "0x2B5C0",
+    "text": "%TEST PLAYING"
+  },
+  {
+    "offset": "0x2B688",
+    "text": "T.YAMAZAKI"
+  },
+  {
+    "offset": "0x2B750",
+    "text": "MIYABI"
+  },
+  {
+    "offset": "0x2B818",
+    "text": "T.NAGAI"
+  },
+  {
+    "offset": "0x2BA70",
+    "text": "%LOCALIZATION STAFF"
+  },
+  {
+    "offset": "0x2BD90",
+    "text": "%SPECIAL THANKS"
+  },
+  {
+    "offset": "0x2BE58",
+    "text": "JIM YAMIJA"
+  },
+  {
+    "offset": "0x2C0B0",
+    "text": "%SPECIAL THANKS"
+  },
+  {
+    "offset": "0x2C178",
+    "text": "K.FUJISHIGE"
+  },
+  {
+    "offset": "0x2C240",
+    "text": "A.TERUTA"
+  },
+  {
+    "offset": "0x2C308",
+    "text": "S.KUSUBE"
+  },
+  {
+    "offset": "0x2C560",
+    "text": "%SPECIAL THANKS"
+  },
+  {
+    "offset": "0x2C628",
+    "text": "BISCO"
+  },
+  {
+    "offset": "0x2C880",
+    "text": "%PRODUCER"
+  },
+  {
+    "offset": "0x2C948",
+    "text": "S.FUKUI"
+  },
+  {
+    "offset": "0x2CF9A",
+    "text": "   addon by "
+  },
+  {
+    "offset": "0x34104",
+    "text": ". 500"
+  },
+  {
+    "offset": "0x5E316",
+    "text": " NPC "
+  },
+  {
+    "offset": "0x5EE06",
+    "text": " NPC "
+  }
+]

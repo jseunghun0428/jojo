@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"C:\\\\project\\\\jojo\\\\analysis\\\\output\\\\rea\\\\ekd5.snapshot.json\",\"bytes\":4222517,\"primitive_entries\":14,\"workflow_entries\":0,\"evidence_records\":15}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "C:\\project\\jojo\\analysis\\output\\rea\\ekd5.snapshot.json",
+      "bytes": 4222517,
+      "primitive_entries": 14,
+      "workflow_entries": 0,
+      "evidence_records": 15
+    }
+  }
+}

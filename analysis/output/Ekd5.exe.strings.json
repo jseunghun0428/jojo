@@ -1,0 +1,4102 @@
+[
+  {
+    "offset": "0x4D",
+    "text": "!This program cannot be run in DOS mode."
+  },
+  {
+    "offset": "0x178",
+    "text": ".code"
+  },
+  {
+    "offset": "0x1A0",
+    "text": ".text1"
+  },
+  {
+    "offset": "0x1C8",
+    "text": ".text2"
+  },
+  {
+    "offset": "0x218",
+    "text": ".text3"
+  },
+  {
+    "offset": "0x240",
+    "text": ".rsrc"
+  },
+  {
+    "offset": "0x536",
+    "text": "A,PQQ"
+  },
+  {
+    "offset": "0xE4E",
+    "text": "<(s#f"
+  },
+  {
+    "offset": "0x1490",
+    "text": "PQQSPPP"
+  },
+  {
+    "offset": "0x1FC7",
+    "text": "B89B\\u"
+  },
+  {
+    "offset": "0x1FCF",
+    "text": "J`;J<t@"
+  },
+  {
+    "offset": "0x2206",
+    "text": "~gWVS"
+  },
+  {
+    "offset": "0x2643",
+    "text": "PQj@j@"
+  },
+  {
+    "offset": "0x2908",
+    "text": "2Z[^]"
+  },
+  {
+    "offset": "0x29EF",
+    "text": "Pj,hx"
+  },
+  {
+    "offset": "0x2F78",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x3063",
+    "text": "Pj@j@"
+  },
+  {
+    "offset": "0x308A",
+    "text": "Pj@j@"
+  },
+  {
+    "offset": "0x3291",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x3471",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x35D3",
+    "text": "Rj0j0"
+  },
+  {
+    "offset": "0x38A6",
+    "text": "0j0j0"
+  },
+  {
+    "offset": "0x3993",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x3B44",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x3BD6",
+    "text": "Pj@j@"
+  },
+  {
+    "offset": "0x3C92",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x4022",
+    "text": "jxjxQR"
+  },
+  {
+    "offset": "0x4AF6",
+    "text": "  Auf"
+  },
+  {
+    "offset": "0x5D94",
+    "text": "Pj@j@"
+  },
+  {
+    "offset": "0x5F97",
+    "text": "t=<dv"
+  },
+  {
+    "offset": "0x7961",
+    "text": "Pj j "
+  },
+  {
+    "offset": "0x7A36",
+    "text": "Ph8/I"
+  },
+  {
+    "offset": "0x7B50",
+    "text": "Qh8/I"
+  },
+  {
+    "offset": "0x7CA2",
+    "text": "<Ps!k"
+  },
+  {
+    "offset": "0x7E6E",
+    "text": "A+PQP<;"
+  },
+  {
+    "offset": "0x827B",
+    "text": "j0h {J"
+  },
+  {
+    "offset": "0x83AB",
+    "text": "tXPPPPS"
+  },
+  {
+    "offset": "0x83BA",
+    "text": "<fs=P"
+  },
+  {
+    "offset": "0x884D",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x9423",
+    "text": "tKPPPh"
+  },
+  {
+    "offset": "0x9865",
+    "text": ";H(}23"
+  },
+  {
+    "offset": "0x9B44",
+    "text": "t!<0r"
+  },
+  {
+    "offset": "0xA498",
+    "text": "tJj@P"
+  },
+  {
+    "offset": "0xA758",
+    "text": "<Ps#<<u"
+  },
+  {
+    "offset": "0xAAC2",
+    "text": "<(s+;E"
+  },
+  {
+    "offset": "0xAE62",
+    "text": "RPj`j`"
+  },
+  {
+    "offset": "0xAEC6",
+    "text": "A Pj(j"
+  },
+  {
+    "offset": "0xCA83",
+    "text": "j(j<h"
+  },
+  {
+    "offset": "0xD9EB",
+    "text": "I<Su)"
+  },
+  {
+    "offset": "0xDB8B",
+    "text": "8BMuQ"
+  },
+  {
+    "offset": "0xDE2E",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0xE334",
+    "text": "/< }0<"
+  },
+  {
+    "offset": "0xEB9B",
+    "text": "Rj j "
+  },
+  {
+    "offset": "0xF532",
+    "text": ";A$}jP"
+  },
+  {
+    "offset": "0xF5DF",
+    "text": "PPPPP"
+  },
+  {
+    "offset": "0xF963",
+    "text": "fs!PP"
+  },
+  {
+    "offset": "0x10650",
+    "text": "Pj@j@j0R"
+  },
+  {
+    "offset": "0x106FF",
+    "text": "PPPPj"
+  },
+  {
+    "offset": "0x10C3B",
+    "text": "t(PPPj"
+  },
+  {
+    "offset": "0x11590",
+    "text": "QQQPh"
+  },
+  {
+    "offset": "0x11B26",
+    "text": "<$u.j"
+  },
+  {
+    "offset": "0x11B9C",
+    "text": "PPPhf"
+  },
+  {
+    "offset": "0x11FFF",
+    "text": "tfPj "
+  },
+  {
+    "offset": "0x12509",
+    "text": ";E$u^"
+  },
+  {
+    "offset": "0x12523",
+    "text": ";U$u3"
+  },
+  {
+    "offset": "0x12532",
+    "text": ";U$u$"
+  },
+  {
+    "offset": "0x13097",
+    "text": "~vWVS"
+  },
+  {
+    "offset": "0x135C5",
+    "text": "dsTht(I"
+  },
+  {
+    "offset": "0x1459F",
+    "text": "uWh8/I"
+  },
+  {
+    "offset": "0x14936",
+    "text": "57130U"
+  },
+  {
+    "offset": "0x153A0",
+    "text": "+&&&U"
+  },
+  {
+    "offset": "0x16371",
+    "text": "r><<r9"
+  },
+  {
+    "offset": "0x16389",
+    "text": ")<<r%"
+  },
+  {
+    "offset": "0x16765",
+    "text": "QPj0j0"
+  },
+  {
+    "offset": "0x168E5",
+    "text": ":%-BK"
+  },
+  {
+    "offset": "0x16969",
+    "text": "yxzuvtsw}~"
+  },
+  {
+    "offset": "0x17203",
+    "text": "tV<*u"
+  },
+  {
+    "offset": "0x178E5",
+    "text": "PPPPP"
+  },
+  {
+    "offset": "0x1843A",
+    "text": "PPPPPj"
+  },
+  {
+    "offset": "0x189E7",
+    "text": "j0j0j"
+  },
+  {
+    "offset": "0x18E60",
+    "text": "PPPhH"
+  },
+  {
+    "offset": "0x19065",
+    "text": "Ph8/I"
+  },
+  {
+    "offset": "0x19379",
+    "text": "Pj j "
+  },
+  {
+    "offset": "0x199BD",
+    "text": "RRj0j0"
+  },
+  {
+    "offset": "0x1A9DB",
+    "text": "Pj@j@"
+  },
+  {
+    "offset": "0x1B9EB",
+    "text": "Pj j "
+  },
+  {
+    "offset": "0x1BCD9",
+    "text": "Pj j "
+  },
+  {
+    "offset": "0x1BD03",
+    "text": "Pj j "
+  },
+  {
+    "offset": "0x1BE90",
+    "text": "<0r1<9w"
+  },
+  {
+    "offset": "0x1BE9C",
+    "text": "<Ar%<Fw!,7"
+  },
+  {
+    "offset": "0x1BF7E",
+    "text": "QPj`j0"
+  },
+  {
+    "offset": "0x1BF99",
+    "text": "Pj`j0"
+  },
+  {
+    "offset": "0x1BFD6",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x1C037",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x1C0BC",
+    "text": "Pj0j0j8"
+  },
+  {
+    "offset": "0x1C633",
+    "text": "\"#\"$%U"
+  },
+  {
+    "offset": "0x1CA85",
+    "text": "j0h {J"
+  },
+  {
+    "offset": "0x1CCDA",
+    "text": "j)jBj"
+  },
+  {
+    "offset": "0x1CE1D",
+    "text": "PPPP@P"
+  },
+  {
+    "offset": "0x1CE29",
+    "text": "A!P8E"
+  },
+  {
+    "offset": "0x1CE3A",
+    "text": "A!P8E"
+  },
+  {
+    "offset": "0x1D07D",
+    "text": "PPPPQ"
+  },
+  {
+    "offset": "0x1D25F",
+    "text": "Rj`j`"
+  },
+  {
+    "offset": "0x1DF7D",
+    "text": "PRRRj"
+  },
+  {
+    "offset": "0x1E02D",
+    "text": "tyPPj"
+  },
+  {
+    "offset": "0x1E122",
+    "text": "s\"j0j0i"
+  },
+  {
+    "offset": "0x1F2DA",
+    "text": "Ph0dH"
+  },
+  {
+    "offset": "0x1F510",
+    "text": "rR<ru"
+  },
+  {
+    "offset": "0x20B62",
+    "text": "SVWUj"
+  },
+  {
+    "offset": "0x20BA0",
+    "text": "Pj:j0"
+  },
+  {
+    "offset": "0x20C58",
+    "text": "PjxjxP"
+  },
+  {
+    "offset": "0x20C83",
+    "text": "jxjxQR"
+  },
+  {
+    "offset": "0x20DB2",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x220B6",
+    "text": "PPQhH"
+  },
+  {
+    "offset": "0x220C2",
+    "text": "B,PPj"
+  },
+  {
+    "offset": "0x221FE",
+    "text": ")$'TQS756U"
+  },
+  {
+    "offset": "0x22334",
+    "text": "RRRR9"
+  },
+  {
+    "offset": "0x228F3",
+    "text": "usj8h"
+  },
+  {
+    "offset": "0x22942",
+    "text": "t$j8h"
+  },
+  {
+    "offset": "0x22AF3",
+    "text": "<fsIk"
+  },
+  {
+    "offset": "0x23314",
+    "text": "QPh=dH"
+  },
+  {
+    "offset": "0x25859",
+    "text": "Ph8/I"
+  },
+  {
+    "offset": "0x258B3",
+    "text": "QPh8/I"
+  },
+  {
+    "offset": "0x2627C",
+    "text": "<9w'<0r"
+  },
+  {
+    "offset": "0x26B78",
+    "text": "t+Pf;"
+  },
+  {
+    "offset": "0x26F5C",
+    "text": "BPj@j0"
+  },
+  {
+    "offset": "0x26F77",
+    "text": "Z<rs1"
+  },
+  {
+    "offset": "0x2795F",
+    "text": "<(sUP"
+  },
+  {
+    "offset": "0x27CC5",
+    "text": "Rj6QP"
+  },
+  {
+    "offset": "0x27EC1",
+    "text": "8A\"sHQ"
+  },
+  {
+    "offset": "0x283AC",
+    "text": ":--BK"
+  },
+  {
+    "offset": "0x283C9",
+    "text": "j0j0PQ"
+  },
+  {
+    "offset": "0x289C7",
+    "text": "jPj#h"
+  },
+  {
+    "offset": "0x289EB",
+    "text": "jPj#h"
+  },
+  {
+    "offset": "0x28AD5",
+    "text": "ms?<erR"
+  },
+  {
+    "offset": "0x28E4C",
+    "text": "b< u`f"
+  },
+  {
+    "offset": "0x28FCA",
+    "text": "tZ<js"
+  },
+  {
+    "offset": "0x29001",
+    "text": "<js!P"
+  },
+  {
+    "offset": "0x29215",
+    "text": "<js%P"
+  },
+  {
+    "offset": "0x294EA",
+    "text": "P,jjjh"
+  },
+  {
+    "offset": "0x29B1A",
+    "text": ":%-BK"
+  },
+  {
+    "offset": "0x29D84",
+    "text": "t8RQj"
+  },
+  {
+    "offset": "0x2A56C",
+    "text": "jDjahw>J"
+  },
+  {
+    "offset": "0x2A590",
+    "text": "jDjahw>J"
+  },
+  {
+    "offset": "0x2A62B",
+    "text": "j(j<h"
+  },
+  {
+    "offset": "0x2B208",
+    "text": "Pj@j@hT"
+  },
+  {
+    "offset": "0x2C251",
+    "text": "Pj<hX"
+  },
+  {
+    "offset": "0x2C58B",
+    "text": "jJPjThX"
+  },
+  {
+    "offset": "0x2C856",
+    "text": "Pjxjx"
+  },
+  {
+    "offset": "0x2C897",
+    "text": "jJPjThX"
+  },
+  {
+    "offset": "0x2CBC7",
+    "text": "Pj<hX"
+  },
+  {
+    "offset": "0x2CE70",
+    "text": "Pj<hX"
+  },
+  {
+    "offset": "0x2D0C4",
+    "text": "<qw>P"
+  },
+  {
+    "offset": "0x2D30A",
+    "text": "Pjxjx"
+  },
+  {
+    "offset": "0x2EDEA",
+    "text": "\"#\"$%.U"
+  },
+  {
+    "offset": "0x3093B",
+    "text": "<;t4</u"
+  },
+  {
+    "offset": "0x30B2D",
+    "text": "Rj@j "
+  },
+  {
+    "offset": "0x30B5D",
+    "text": "Rj@j "
+  },
+  {
+    "offset": "0x30B81",
+    "text": "Rj@j "
+  },
+  {
+    "offset": "0x30FEA",
+    "text": "j@j@hT"
+  },
+  {
+    "offset": "0x3110A",
+    "text": "jxjxj0"
+  },
+  {
+    "offset": "0x31240",
+    "text": "A5Ph-"
+  },
+  {
+    "offset": "0x31375",
+    "text": "Pjxjxj0j"
+  },
+  {
+    "offset": "0x31386",
+    "text": "jxjxj0j"
+  },
+  {
+    "offset": "0x313A8",
+    "text": "Pjxjxj0j"
+  },
+  {
+    "offset": "0x326C9",
+    "text": "j2jPh"
+  },
+  {
+    "offset": "0x34DA1",
+    "text": ":%-BK"
+  },
+  {
+    "offset": "0x34DD3",
+    "text": "YPjxjx"
+  },
+  {
+    "offset": "0x34E1B",
+    "text": "4M?ZC"
+  },
+  {
+    "offset": "0x34E31",
+    "text": ":5-BK"
+  },
+  {
+    "offset": "0x35013",
+    "text": "RPQh}"
+  },
+  {
+    "offset": "0x3510E",
+    "text": "<`tS<a"
+  },
+  {
+    "offset": "0x35977",
+    "text": "uZ<%wV<"
+  },
+  {
+    "offset": "0x364A3",
+    "text": "8A!t("
+  },
+  {
+    "offset": "0x36BBE",
+    "text": "|-:--BK"
+  },
+  {
+    "offset": "0x37219",
+    "text": ".4.-4-,.+-U"
+  },
+  {
+    "offset": "0x3932C",
+    "text": "BOjPj@j"
+  },
+  {
+    "offset": "0x3933E",
+    "text": "BPjOjGj"
+  },
+  {
+    "offset": "0x393BA",
+    "text": "Pj]j+jD"
+  },
+  {
+    "offset": "0x39D7C",
+    "text": "Qh ,K"
+  },
+  {
+    "offset": "0x39D91",
+    "text": "Ph ,K"
+  },
+  {
+    "offset": "0x3A657",
+    "text": "uBh ,K"
+  },
+  {
+    "offset": "0x3A8DA",
+    "text": "<dsKP"
+  },
+  {
+    "offset": "0x3AD09",
+    "text": "<dt*P"
+  },
+  {
+    "offset": "0x3C1FA",
+    "text": "PPPPPPQ"
+  },
+  {
+    "offset": "0x3C6D9",
+    "text": "Rj0j0"
+  },
+  {
+    "offset": "0x3DB76",
+    "text": "'\"(#'\")$*%/.U"
+  },
+  {
+    "offset": "0x3E12E",
+    "text": ")$()$!$&40474147~z~"
+  },
+  {
+    "offset": "0x3E146",
+    "text": "YSXYU"
+  },
+  {
+    "offset": "0x3E3A2",
+    "text": "<gs{k"
+  },
+  {
+    "offset": "0x3F7B1",
+    "text": "Qh8/I"
+  },
+  {
+    "offset": "0x3FE30",
+    "text": "<(u;j"
+  },
+  {
+    "offset": "0x403CC",
+    "text": "u!<1u"
+  },
+  {
+    "offset": "0x4045D",
+    "text": "Qh8/I"
+  },
+  {
+    "offset": "0x40579",
+    "text": "Qh8/I"
+  },
+  {
+    "offset": "0x405EA",
+    "text": "Qh8/I"
+  },
+  {
+    "offset": "0x406D4",
+    "text": "Qh8/I"
+  },
+  {
+    "offset": "0x40809",
+    "text": "Ph8/I"
+  },
+  {
+    "offset": "0x40B49",
+    "text": "QhPBK"
+  },
+  {
+    "offset": "0x41064",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x41631",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x416B7",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x4294B",
+    "text": "Pl+Qh"
+  },
+  {
+    "offset": "0x4296F",
+    "text": "At+Bp"
+  },
+  {
+    "offset": "0x42A6A",
+    "text": "Pl+Qh"
+  },
+  {
+    "offset": "0x42A90",
+    "text": "At+Bp"
+  },
+  {
+    "offset": "0x42B59",
+    "text": "Rj`j0"
+  },
+  {
+    "offset": "0x42DF1",
+    "text": "Pj@j "
+  },
+  {
+    "offset": "0x43164",
+    "text": "Pj`j`"
+  },
+  {
+    "offset": "0x431D6",
+    "text": "Pj`j`"
+  },
+  {
+    "offset": "0x4322E",
+    "text": "j0j03"
+  },
+  {
+    "offset": "0x43520",
+    "text": "j0j03"
+  },
+  {
+    "offset": "0x436C1",
+    "text": "Pj`j`"
+  },
+  {
+    "offset": "0x4390C",
+    "text": "Pj@j@"
+  },
+  {
+    "offset": "0x43B47",
+    "text": "Pj@j@"
+  },
+  {
+    "offset": "0x43D91",
+    "text": "s)j0j0"
+  },
+  {
+    "offset": "0x43E3D",
+    "text": "Qj`j`"
+  },
+  {
+    "offset": "0x43ED4",
+    "text": "s)j0j0"
+  },
+  {
+    "offset": "0x43F80",
+    "text": "Pj`j`"
+  },
+  {
+    "offset": "0x44205",
+    "text": "s)j0j0"
+  },
+  {
+    "offset": "0x442AB",
+    "text": "Pj`j`"
+  },
+  {
+    "offset": "0x44358",
+    "text": "PRj0j0"
+  },
+  {
+    "offset": "0x443A3",
+    "text": "Pj0j03"
+  },
+  {
+    "offset": "0x4451F",
+    "text": "Pj`j`"
+  },
+  {
+    "offset": "0x44595",
+    "text": "Qj`j`"
+  },
+  {
+    "offset": "0x4463A",
+    "text": "Pj`j`"
+  },
+  {
+    "offset": "0x446B0",
+    "text": "Qj`j`"
+  },
+  {
+    "offset": "0x44755",
+    "text": "Pj`j`"
+  },
+  {
+    "offset": "0x447CB",
+    "text": "Qj`j`"
+  },
+  {
+    "offset": "0x44853",
+    "text": "s8j0j0"
+  },
+  {
+    "offset": "0x4488C",
+    "text": "*j0j0"
+  },
+  {
+    "offset": "0x44927",
+    "text": "Pj`j`"
+  },
+  {
+    "offset": "0x4498C",
+    "text": "Qj`j`"
+  },
+  {
+    "offset": "0x44A1E",
+    "text": "Pj`j`"
+  },
+  {
+    "offset": "0x44ABF",
+    "text": "PRj@j@"
+  },
+  {
+    "offset": "0x44B04",
+    "text": "Pj@j@3"
+  },
+  {
+    "offset": "0x44DA6",
+    "text": "s/j0j0"
+  },
+  {
+    "offset": "0x44E47",
+    "text": "Rj`j`"
+  },
+  {
+    "offset": "0x44F05",
+    "text": "s*j0j0"
+  },
+  {
+    "offset": "0x44F43",
+    "text": "Rj0j0"
+  },
+  {
+    "offset": "0x44FE8",
+    "text": "Rj`j`"
+  },
+  {
+    "offset": "0x460F6",
+    "text": "Pj`j`"
+  },
+  {
+    "offset": "0x464A6",
+    "text": "Pj`j`"
+  },
+  {
+    "offset": "0x4749E",
+    "text": "A ;B u*"
+  },
+  {
+    "offset": "0x476BF",
+    "text": "s&j0j0i"
+  },
+  {
+    "offset": "0x4A69A",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x4B309",
+    "text": "tV<*u"
+  },
+  {
+    "offset": "0x4BFF8",
+    "text": "jxjxj"
+  },
+  {
+    "offset": "0x4C33B",
+    "text": "<0rM<9wIQ"
+  },
+  {
+    "offset": "0x4C62A",
+    "text": "PhPBK"
+  },
+  {
+    "offset": "0x4C92C",
+    "text": "wBj2P"
+  },
+  {
+    "offset": "0x4D3E0",
+    "text": "<PPPP"
+  },
+  {
+    "offset": "0x50F60",
+    "text": "A,;A4|"
+  },
+  {
+    "offset": "0x50F72",
+    "text": "89A0}"
+  },
+  {
+    "offset": "0x5127D",
+    "text": "Rj0j0"
+  },
+  {
+    "offset": "0x51287",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x51CBA",
+    "text": "<%wC<"
+  },
+  {
+    "offset": "0x52710",
+    "text": "t8h {J"
+  },
+  {
+    "offset": "0x52E7E",
+    "text": ":5-BK"
+  },
+  {
+    "offset": "0x53346",
+    "text": ";H<|-"
+  },
+  {
+    "offset": "0x53351",
+    "text": ";B@|\""
+  },
+  {
+    "offset": "0x53B31",
+    "text": "PPPPj"
+  },
+  {
+    "offset": "0x54450",
+    "text": "PPPPQ"
+  },
+  {
+    "offset": "0x54BFE",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x54C76",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x54D55",
+    "text": "Ph8/I"
+  },
+  {
+    "offset": "0x560C0",
+    "text": "t(PPh`"
+  },
+  {
+    "offset": "0x56CFD",
+    "text": "Pj`j0"
+  },
+  {
+    "offset": "0x5708A",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x57136",
+    "text": "Pj@j@"
+  },
+  {
+    "offset": "0x58DFD",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x5C043",
+    "text": "Ph8/I"
+  },
+  {
+    "offset": "0x5C10B",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x5C170",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x5C19F",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x5C2CA",
+    "text": "Pj@j@"
+  },
+  {
+    "offset": "0x5C326",
+    "text": "t(Tj0j0"
+  },
+  {
+    "offset": "0x5C353",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x5CFF6",
+    "text": "j*jZh"
+  },
+  {
+    "offset": "0x5D049",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x5D8B7",
+    "text": "Pj*jZh"
+  },
+  {
+    "offset": "0x5D9D0",
+    "text": "Pj*jZh"
+  },
+  {
+    "offset": "0x5E1A7",
+    "text": "Pj2j2"
+  },
+  {
+    "offset": "0x5E5F1",
+    "text": "0Pj(j"
+  },
+  {
+    "offset": "0x5EDE9",
+    "text": "QQPQQ"
+  },
+  {
+    "offset": "0x600EF",
+    "text": ";B(|W"
+  },
+  {
+    "offset": "0x6010B",
+    "text": ";B,|;"
+  },
+  {
+    "offset": "0x60225",
+    "text": "P0+Q("
+  },
+  {
+    "offset": "0x60237",
+    "text": "A4+B,"
+  },
+  {
+    "offset": "0x60358",
+    "text": ";H$~0"
+  },
+  {
+    "offset": "0x603ED",
+    "text": "H@+HH"
+  },
+  {
+    "offset": "0x628DB",
+    "text": "j#PRj"
+  },
+  {
+    "offset": "0x63B0D",
+    "text": "%;A,u"
+  },
+  {
+    "offset": "0x6487E",
+    "text": "Zh(lH"
+  },
+  {
+    "offset": "0x6489C",
+    "text": ">h8lH"
+  },
+  {
+    "offset": "0x648BA",
+    "text": " hDlH"
+  },
+  {
+    "offset": "0x65CE6",
+    "text": "PPPQ9E"
+  },
+  {
+    "offset": "0x670C6",
+    "text": "tMPH<"
+  },
+  {
+    "offset": "0x68CF3",
+    "text": "}.<2s"
+  },
+  {
+    "offset": "0x6942C",
+    "text": "jxjxj"
+  },
+  {
+    "offset": "0x69657",
+    "text": "H(+H "
+  },
+  {
+    "offset": "0x6A345",
+    "text": "QhGlH"
+  },
+  {
+    "offset": "0x6A5E3",
+    "text": "Qh@nH"
+  },
+  {
+    "offset": "0x6ADB8",
+    "text": "PhGlH"
+  },
+  {
+    "offset": "0x6B94B",
+    "text": "<)s\"H<"
+  },
+  {
+    "offset": "0x6BB3E",
+    "text": "PPPHPh"
+  },
+  {
+    "offset": "0x6C09E",
+    "text": "PPPhx"
+  },
+  {
+    "offset": "0x6C827",
+    "text": "Qj3h8/I"
+  },
+  {
+    "offset": "0x6C845",
+    "text": "PjThX"
+  },
+  {
+    "offset": "0x6CBD8",
+    "text": "Pjxjxj"
+  },
+  {
+    "offset": "0x6CBF0",
+    "text": "PjThX"
+  },
+  {
+    "offset": "0x6D22E",
+    "text": "B@PhhmH"
+  },
+  {
+    "offset": "0x6E233",
+    "text": "QQjhj"
+  },
+  {
+    "offset": "0x6E5DD",
+    "text": "PhGlH"
+  },
+  {
+    "offset": "0x6F0D4",
+    "text": "j@j@j"
+  },
+  {
+    "offset": "0x6F165",
+    "text": "<\"r7<#w"
+  },
+  {
+    "offset": "0x72681",
+    "text": "Pj0j0"
+  },
+  {
+    "offset": "0x75506",
+    "text": "jZj\"h"
+  },
+  {
+    "offset": "0x756FC",
+    "text": "Ph8/I"
+  },
+  {
+    "offset": "0x757DC",
+    "text": "Th8/I"
+  },
+  {
+    "offset": "0x75AE7",
+    "text": "Qh8/I"
+  },
+  {
+    "offset": "0x7736C",
+    "text": "j.QRh"
+  },
+  {
+    "offset": "0x779C6",
+    "text": "@IJKLHWP"
+  },
+  {
+    "offset": "0x77BD3",
+    "text": "jxjxj"
+  },
+  {
+    "offset": "0x7C515",
+    "text": "VWtu3"
+  },
+  {
+    "offset": "0x7C856",
+    "text": "tMJt(Jt"
+  },
+  {
+    "offset": "0x7C861",
+    "text": "JtAJuF"
+  },
+  {
+    "offset": "0x7CA71",
+    "text": "YFGWV"
+  },
+  {
+    "offset": "0x7CF73",
+    "text": "tGIt%It"
+  },
+  {
+    "offset": "0x7D0C5",
+    "text": "JtaJt?Jt"
+  },
+  {
+    "offset": "0x7D20C",
+    "text": "Ht_Ht H"
+  },
+  {
+    "offset": "0x7D903",
+    "text": "ItlItOIt"
+  },
+  {
+    "offset": "0x7DAF3",
+    "text": "_jBWWVV"
+  },
+  {
+    "offset": "0x7DB87",
+    "text": "2BBHu"
+  },
+  {
+    "offset": "0x7DBC6",
+    "text": "jBWWVV"
+  },
+  {
+    "offset": "0x7DEFE",
+    "text": "VHWtvH"
+  },
+  {
+    "offset": "0x7E0C3",
+    "text": "SPSj0"
+  },
+  {
+    "offset": "0x7E480",
+    "text": "t.Ht!HHt,Ht3"
+  },
+  {
+    "offset": "0x7E496",
+    "text": "HHu(;M"
+  },
+  {
+    "offset": "0x7FB92",
+    "text": "SVWuA"
+  },
+  {
+    "offset": "0x80117",
+    "text": "4SVW3"
+  },
+  {
+    "offset": "0x8035C",
+    "text": "t.;t$$t("
+  },
+  {
+    "offset": "0x80432",
+    "text": "D$$VW"
+  },
+  {
+    "offset": "0x806A6",
+    "text": "uRFGHt"
+  },
+  {
+    "offset": "0x80CA5",
+    "text": "> v5F"
+  },
+  {
+    "offset": "0x811A7",
+    "text": "T$ VR"
+  },
+  {
+    "offset": "0x811B2",
+    "text": "T$$RP"
+  },
+  {
+    "offset": "0x811D8",
+    "text": "T$ QRP"
+  },
+  {
+    "offset": "0x811F4",
+    "text": "D$,SUV"
+  },
+  {
+    "offset": "0x81208",
+    "text": "L$H;i"
+  },
+  {
+    "offset": "0x812BF",
+    "text": "D$LQURP"
+  },
+  {
+    "offset": "0x81407",
+    "text": "L$PVR"
+  },
+  {
+    "offset": "0x8140D",
+    "text": "T$TPQRS"
+  },
+  {
+    "offset": "0x81476",
+    "text": "L$HUR"
+  },
+  {
+    "offset": "0x8147C",
+    "text": "T$LPQRS"
+  },
+  {
+    "offset": "0x8148A",
+    "text": " _^]["
+  },
+  {
+    "offset": "0x814AC",
+    "text": "l$(VW"
+  },
+  {
+    "offset": "0x814CA",
+    "text": "D$$QRP"
+  },
+  {
+    "offset": "0x814E9",
+    "text": "T$0QRPWS"
+  },
+  {
+    "offset": "0x81541",
+    "text": "D$,SQ"
+  },
+  {
+    "offset": "0x81547",
+    "text": "L$0RPQ"
+  },
+  {
+    "offset": "0x81666",
+    "text": "D$,PVU"
+  },
+  {
+    "offset": "0x816B9",
+    "text": "L$$PSQVU"
+  },
+  {
+    "offset": "0x82000",
+    "text": "VC20XC00U"
+  },
+  {
+    "offset": "0x824B8",
+    "text": "_^][Y"
+  },
+  {
+    "offset": "0x825EA",
+    "text": "8\"uV@"
+  },
+  {
+    "offset": "0x82762",
+    "text": "D$ _^]"
+  },
+  {
+    "offset": "0x82819",
+    "text": "WSUVj"
+  },
+  {
+    "offset": "0x828D7",
+    "text": "SUVWP"
+  },
+  {
+    "offset": "0x82DAB",
+    "text": ";I<I=j"
+  },
+  {
+    "offset": "0x82DC2",
+    "text": "HSUVWh"
+  },
+  {
+    "offset": "0x8304F",
+    "text": "SUVW3"
+  },
+  {
+    "offset": "0x836CB",
+    "text": "_^][Y"
+  },
+  {
+    "offset": "0x836E4",
+    "text": "_^][Y"
+  },
+  {
+    "offset": "0x837E7",
+    "text": "_^][Y"
+  },
+  {
+    "offset": "0x83825",
+    "text": "_^][Y"
+  },
+  {
+    "offset": "0x83B25",
+    "text": "QVWRP"
+  },
+  {
+    "offset": "0x83B65",
+    "text": "VBWRU"
+  },
+  {
+    "offset": "0x83B96",
+    "text": "WSVQj"
+  },
+  {
+    "offset": "0x83BE9",
+    "text": "D$(PWSUQ"
+  },
+  {
+    "offset": "0x83C34",
+    "text": "VPWSUQ"
+  },
+  {
+    "offset": "0x83C7C",
+    "text": "D$8QVRh "
+  },
+  {
+    "offset": "0x83DED",
+    "text": "L$ RQP"
+  },
+  {
+    "offset": "0x83DF5",
+    "text": "_^][Y"
+  },
+  {
+    "offset": "0x83E2B",
+    "text": "U@RPS"
+  },
+  {
+    "offset": "0x83E51",
+    "text": "VWUQj"
+  },
+  {
+    "offset": "0x83E63",
+    "text": "T$$RP"
+  },
+  {
+    "offset": "0x83E69",
+    "text": "D$ WP"
+  },
+  {
+    "offset": "0x83E81",
+    "text": "_^][Y"
+  },
+  {
+    "offset": "0x83E96",
+    "text": "_^][Y"
+  },
+  {
+    "offset": "0x83EDB",
+    "text": "WuBhX{H"
+  },
+  {
+    "offset": "0x83F04",
+    "text": "tSh<{H"
+  },
+  {
+    "offset": "0x8563D",
+    "text": "%s(%d)"
+  },
+  {
+    "offset": "0x85B10",
+    "text": ".\\SoundTrk\\%02u-AudioTrack %02u.mp3"
+  },
+  {
+    "offset": "0x85B34",
+    "text": "sequencer"
+  },
+  {
+    "offset": "0x85B40",
+    "text": "SUBCLASS_WND"
+  },
+  {
+    "offset": "0x85B50",
+    "text": "GDRV_CTRL"
+  },
+  {
+    "offset": "0x85B60",
+    "text": "TOOLBAR"
+  },
+  {
+    "offset": "0x85B68",
+    "text": "HEADER_CTRL"
+  },
+  {
+    "offset": "0x85B78",
+    "text": "TAB_CTRL"
+  },
+  {
+    "offset": "0x85B88",
+    "text": "LIST_VIEW"
+  },
+  {
+    "offset": "0x85C98",
+    "text": "RCANCEL_DLG_OWNER"
+  },
+  {
+    "offset": "0x85E00",
+    "text": "999/999"
+  },
+  {
+    "offset": "0x85ED4",
+    "text": ":  %s"
+  },
+  {
+    "offset": "0x85EE4",
+    "text": ":  %s"
+  },
+  {
+    "offset": "0x85EF4",
+    "text": ":  %s"
+  },
+  {
+    "offset": "0x85F2C",
+    "text": "%s%s "
+  },
+  {
+    "offset": "0x85FD8",
+    "text": "Lv.%2d%s "
+  },
+  {
+    "offset": "0x86046",
+    "text": " Lv%2d"
+  },
+  {
+    "offset": "0x8608E",
+    "text": "(%d - %d):"
+  },
+  {
+    "offset": "0x860A6",
+    "text": "(%d - %d):"
+  },
+  {
+    "offset": "0x860DA",
+    "text": ": %2d/ %2d"
+  },
+  {
+    "offset": "0x86A30",
+    "text": "runtime error "
+  },
+  {
+    "offset": "0x86A44",
+    "text": "TLOSS error"
+  },
+  {
+    "offset": "0x86A54",
+    "text": "SING error"
+  },
+  {
+    "offset": "0x86A64",
+    "text": "DOMAIN error"
+  },
+  {
+    "offset": "0x86A74",
+    "text": "R6028"
+  },
+  {
+    "offset": "0x86A7B",
+    "text": "- unable to initialize heap"
+  },
+  {
+    "offset": "0x86A9C",
+    "text": "R6027"
+  },
+  {
+    "offset": "0x86AA3",
+    "text": "- not enough space for lowio initialization"
+  },
+  {
+    "offset": "0x86AD4",
+    "text": "R6026"
+  },
+  {
+    "offset": "0x86ADB",
+    "text": "- not enough space for stdio initialization"
+  },
+  {
+    "offset": "0x86B0C",
+    "text": "R6025"
+  },
+  {
+    "offset": "0x86B13",
+    "text": "- pure virtual function call"
+  },
+  {
+    "offset": "0x86B34",
+    "text": "R6024"
+  },
+  {
+    "offset": "0x86B3B",
+    "text": "- not enough space for _onexit/atexit table"
+  },
+  {
+    "offset": "0x86B6C",
+    "text": "R6019"
+  },
+  {
+    "offset": "0x86B73",
+    "text": "- unable to open console device"
+  },
+  {
+    "offset": "0x86B98",
+    "text": "R6018"
+  },
+  {
+    "offset": "0x86B9F",
+    "text": "- unexpected heap error"
+  },
+  {
+    "offset": "0x86BBC",
+    "text": "R6017"
+  },
+  {
+    "offset": "0x86BC3",
+    "text": "- unexpected multithread lock error"
+  },
+  {
+    "offset": "0x86BEC",
+    "text": "R6016"
+  },
+  {
+    "offset": "0x86BF3",
+    "text": "- not enough space for thread data"
+  },
+  {
+    "offset": "0x86C1A",
+    "text": "abnormal program termination"
+  },
+  {
+    "offset": "0x86C3C",
+    "text": "R6009"
+  },
+  {
+    "offset": "0x86C43",
+    "text": "- not enough space for environment"
+  },
+  {
+    "offset": "0x86C68",
+    "text": "R6008"
+  },
+  {
+    "offset": "0x86C6F",
+    "text": "- not enough space for arguments"
+  },
+  {
+    "offset": "0x86C94",
+    "text": "R6002"
+  },
+  {
+    "offset": "0x86C9B",
+    "text": "- floating point not loaded"
+  },
+  {
+    "offset": "0x86CBC",
+    "text": "Microsoft Visual C++ Runtime Library"
+  },
+  {
+    "offset": "0x86CE8",
+    "text": "Runtime Error!"
+  },
+  {
+    "offset": "0x86CF8",
+    "text": "Program: "
+  },
+  {
+    "offset": "0x86D08",
+    "text": "<program name unknown>"
+  },
+  {
+    "offset": "0x86D28",
+    "text": "GetLastActivePopup"
+  },
+  {
+    "offset": "0x86D3C",
+    "text": "GetActiveWindow"
+  },
+  {
+    "offset": "0x86D4C",
+    "text": "MessageBoxA"
+  },
+  {
+    "offset": "0x86D58",
+    "text": "user32.dll"
+  },
+  {
+    "offset": "0x888AE",
+    "text": "mciSendCommandA"
+  },
+  {
+    "offset": "0x888C0",
+    "text": "sndPlaySoundA"
+  },
+  {
+    "offset": "0x888CE",
+    "text": "WINMM.dll"
+  },
+  {
+    "offset": "0x888DA",
+    "text": "ImageList_Destroy"
+  },
+  {
+    "offset": "0x888EE",
+    "text": "ImageList_Draw"
+  },
+  {
+    "offset": "0x88900",
+    "text": "ImageList_Add"
+  },
+  {
+    "offset": "0x88910",
+    "text": "ImageList_Create"
+  },
+  {
+    "offset": "0x88924",
+    "text": "ImageList_DrawEx"
+  },
+  {
+    "offset": "0x88938",
+    "text": "ImageList_GetIcon"
+  },
+  {
+    "offset": "0x8894C",
+    "text": "ImageList_GetIconSize"
+  },
+  {
+    "offset": "0x88964",
+    "text": "CreateToolbarEx"
+  },
+  {
+    "offset": "0x88974",
+    "text": "COMCTL32.dll"
+  },
+  {
+    "offset": "0x88984",
+    "text": "ExitThread"
+  },
+  {
+    "offset": "0x88992",
+    "text": "GetExitCodeThread"
+  },
+  {
+    "offset": "0x889A6",
+    "text": "Sleep"
+  },
+  {
+    "offset": "0x889AE",
+    "text": "SetThreadPriority"
+  },
+  {
+    "offset": "0x889C2",
+    "text": "CreateThread"
+  },
+  {
+    "offset": "0x889D2",
+    "text": "InterlockedExchange"
+  },
+  {
+    "offset": "0x889E8",
+    "text": "LockResource"
+  },
+  {
+    "offset": "0x889F8",
+    "text": "LoadResource"
+  },
+  {
+    "offset": "0x88A08",
+    "text": "FindResourceA"
+  },
+  {
+    "offset": "0x88A18",
+    "text": "FreeLibrary"
+  },
+  {
+    "offset": "0x88A26",
+    "text": "LoadLibraryA"
+  },
+  {
+    "offset": "0x88A36",
+    "text": "lstrlenA"
+  },
+  {
+    "offset": "0x88A42",
+    "text": "GetCurrentDirectoryA"
+  },
+  {
+    "offset": "0x88A5A",
+    "text": "CreateFileA"
+  },
+  {
+    "offset": "0x88A68",
+    "text": "ReadFile"
+  },
+  {
+    "offset": "0x88A74",
+    "text": "SetFilePointer"
+  },
+  {
+    "offset": "0x88A86",
+    "text": "WriteFile"
+  },
+  {
+    "offset": "0x88A92",
+    "text": "CloseHandle"
+  },
+  {
+    "offset": "0x88AA0",
+    "text": "DeleteFileA"
+  },
+  {
+    "offset": "0x88AAE",
+    "text": "FindClose"
+  },
+  {
+    "offset": "0x88ABA",
+    "text": "FindFirstFileA"
+  },
+  {
+    "offset": "0x88ACC",
+    "text": "GetFileSize"
+  },
+  {
+    "offset": "0x88ADA",
+    "text": "GetDriveTypeA"
+  },
+  {
+    "offset": "0x88AEA",
+    "text": "GetVolumeInformationA"
+  },
+  {
+    "offset": "0x88B02",
+    "text": "GetTickCount"
+  },
+  {
+    "offset": "0x88B12",
+    "text": "MulDiv"
+  },
+  {
+    "offset": "0x88B1C",
+    "text": "SuspendThread"
+  },
+  {
+    "offset": "0x88B2C",
+    "text": "ResumeThread"
+  },
+  {
+    "offset": "0x88B3C",
+    "text": "TerminateThread"
+  },
+  {
+    "offset": "0x88B4C",
+    "text": "KERNEL32.dll"
+  },
+  {
+    "offset": "0x88B5C",
+    "text": "SendMessageA"
+  },
+  {
+    "offset": "0x88B6C",
+    "text": "FillRect"
+  },
+  {
+    "offset": "0x88B78",
+    "text": "GetClientRect"
+  },
+  {
+    "offset": "0x88B88",
+    "text": "EnableWindow"
+  },
+  {
+    "offset": "0x88B98",
+    "text": "SetDlgItemInt"
+  },
+  {
+    "offset": "0x88BA8",
+    "text": "ShowWindow"
+  },
+  {
+    "offset": "0x88BB6",
+    "text": "GetDlgItem"
+  },
+  {
+    "offset": "0x88BC4",
+    "text": "SetDlgItemTextA"
+  },
+  {
+    "offset": "0x88BD6",
+    "text": "EndDialog"
+  },
+  {
+    "offset": "0x88BE2",
+    "text": "DdeClientTransaction"
+  },
+  {
+    "offset": "0x88BFA",
+    "text": "SetActiveWindow"
+  },
+  {
+    "offset": "0x88C0C",
+    "text": "IsWindowVisible"
+  },
+  {
+    "offset": "0x88C1E",
+    "text": "MessageBoxA"
+  },
+  {
+    "offset": "0x88C2C",
+    "text": "wsprintfA"
+  },
+  {
+    "offset": "0x88C38",
+    "text": "MoveWindow"
+  },
+  {
+    "offset": "0x88C46",
+    "text": "SetClassLongA"
+  },
+  {
+    "offset": "0x88C56",
+    "text": "RedrawWindow"
+  },
+  {
+    "offset": "0x88C66",
+    "text": "CreateDialogParamA"
+  },
+  {
+    "offset": "0x88C7C",
+    "text": "PeekMessageA"
+  },
+  {
+    "offset": "0x88C8C",
+    "text": "UpdateWindow"
+  },
+  {
+    "offset": "0x88C9C",
+    "text": "InvalidateRect"
+  },
+  {
+    "offset": "0x88CAE",
+    "text": "DialogBoxParamA"
+  },
+  {
+    "offset": "0x88CC0",
+    "text": "ReleaseDC"
+  },
+  {
+    "offset": "0x88CCC",
+    "text": "GetDC"
+  },
+  {
+    "offset": "0x88CD4",
+    "text": "SetCursor"
+  },
+  {
+    "offset": "0x88CE0",
+    "text": "CallNextHookEx"
+  },
+  {
+    "offset": "0x88CF2",
+    "text": "UnhookWindowsHookEx"
+  },
+  {
+    "offset": "0x88D08",
+    "text": "SetWindowsHookExA"
+  },
+  {
+    "offset": "0x88D1C",
+    "text": "GetWindowThreadProcessId"
+  },
+  {
+    "offset": "0x88D38",
+    "text": "SetWindowPos"
+  },
+  {
+    "offset": "0x88D48",
+    "text": "ClientToScreen"
+  },
+  {
+    "offset": "0x88D5A",
+    "text": "LoadCursorA"
+  },
+  {
+    "offset": "0x88D68",
+    "text": "DestroyCursor"
+  },
+  {
+    "offset": "0x88D78",
+    "text": "SetCursorPos"
+  },
+  {
+    "offset": "0x88D88",
+    "text": "ShowCursor"
+  },
+  {
+    "offset": "0x88D96",
+    "text": "GetCursorPos"
+  },
+  {
+    "offset": "0x88DA6",
+    "text": "ScreenToClient"
+  },
+  {
+    "offset": "0x88DB8",
+    "text": "GetActiveWindow"
+  },
+  {
+    "offset": "0x88DCA",
+    "text": "GetMenuState"
+  },
+  {
+    "offset": "0x88DDA",
+    "text": "GetMenu"
+  },
+  {
+    "offset": "0x88DE4",
+    "text": "DestroyWindow"
+  },
+  {
+    "offset": "0x88DF4",
+    "text": "KillTimer"
+  },
+  {
+    "offset": "0x88E00",
+    "text": "BringWindowToTop"
+  },
+  {
+    "offset": "0x88E14",
+    "text": "SetTimer"
+  },
+  {
+    "offset": "0x88E20",
+    "text": "AdjustWindowRect"
+  },
+  {
+    "offset": "0x88E34",
+    "text": "GetWindowLongA"
+  },
+  {
+    "offset": "0x88E46",
+    "text": "GetParent"
+  },
+  {
+    "offset": "0x88E52",
+    "text": "GetWindowRect"
+  },
+  {
+    "offset": "0x88E62",
+    "text": "GetDlgCtrlID"
+  },
+  {
+    "offset": "0x88E72",
+    "text": "SendDlgItemMessageA"
+  },
+  {
+    "offset": "0x88E88",
+    "text": "PtInRect"
+  },
+  {
+    "offset": "0x88E94",
+    "text": "SetCapture"
+  },
+  {
+    "offset": "0x88EA2",
+    "text": "GetCapture"
+  },
+  {
+    "offset": "0x88EB0",
+    "text": "ReleaseCapture"
+  },
+  {
+    "offset": "0x88EC2",
+    "text": "SetParent"
+  },
+  {
+    "offset": "0x88ECE",
+    "text": "DefWindowProcA"
+  },
+  {
+    "offset": "0x88EE0",
+    "text": "CreateWindowExA"
+  },
+  {
+    "offset": "0x88EF2",
+    "text": "RegisterClassA"
+  },
+  {
+    "offset": "0x88F04",
+    "text": "LoadIconA"
+  },
+  {
+    "offset": "0x88F10",
+    "text": "DrawTextA"
+  },
+  {
+    "offset": "0x88F1C",
+    "text": "GetSysColor"
+  },
+  {
+    "offset": "0x88F2A",
+    "text": "SetWindowTextA"
+  },
+  {
+    "offset": "0x88F3C",
+    "text": "wvsprintfA"
+  },
+  {
+    "offset": "0x88F4A",
+    "text": "SystemParametersInfoA"
+  },
+  {
+    "offset": "0x88F62",
+    "text": "IsIconic"
+  },
+  {
+    "offset": "0x88F6E",
+    "text": "SetWindowLongA"
+  },
+  {
+    "offset": "0x88F80",
+    "text": "CallWindowProcA"
+  },
+  {
+    "offset": "0x88F92",
+    "text": "IsWindow"
+  },
+  {
+    "offset": "0x88F9E",
+    "text": "EndPaint"
+  },
+  {
+    "offset": "0x88FAA",
+    "text": "BeginPaint"
+  },
+  {
+    "offset": "0x88FB8",
+    "text": "DestroyIcon"
+  },
+  {
+    "offset": "0x88FC6",
+    "text": "DrawStateA"
+  },
+  {
+    "offset": "0x88FD4",
+    "text": "IsWindowEnabled"
+  },
+  {
+    "offset": "0x88FE6",
+    "text": "LockWindowUpdate"
+  },
+  {
+    "offset": "0x88FFA",
+    "text": "ShowScrollBar"
+  },
+  {
+    "offset": "0x8900A",
+    "text": "WindowFromPoint"
+  },
+  {
+    "offset": "0x8901C",
+    "text": "ChildWindowFromPoint"
+  },
+  {
+    "offset": "0x89034",
+    "text": "SetFocus"
+  },
+  {
+    "offset": "0x89040",
+    "text": "GetDlgItemInt"
+  },
+  {
+    "offset": "0x89050",
+    "text": "GetWindowTextA"
+  },
+  {
+    "offset": "0x89062",
+    "text": "GetFocus"
+  },
+  {
+    "offset": "0x8906E",
+    "text": "PostMessageA"
+  },
+  {
+    "offset": "0x8907E",
+    "text": "DispatchMessageA"
+  },
+  {
+    "offset": "0x89092",
+    "text": "TranslateMessage"
+  },
+  {
+    "offset": "0x890A6",
+    "text": "GetMessageA"
+  },
+  {
+    "offset": "0x890B4",
+    "text": "HideCaret"
+  },
+  {
+    "offset": "0x890C0",
+    "text": "EnumThreadWindows"
+  },
+  {
+    "offset": "0x890D4",
+    "text": "EnableMenuItem"
+  },
+  {
+    "offset": "0x890E6",
+    "text": "GetSystemMenu"
+  },
+  {
+    "offset": "0x890F6",
+    "text": "GetClassNameA"
+  },
+  {
+    "offset": "0x89106",
+    "text": "GetWindow"
+  },
+  {
+    "offset": "0x89112",
+    "text": "GetSystemMetrics"
+  },
+  {
+    "offset": "0x89126",
+    "text": "SetScrollPos"
+  },
+  {
+    "offset": "0x89136",
+    "text": "SetScrollInfo"
+  },
+  {
+    "offset": "0x89146",
+    "text": "GetScrollPos"
+  },
+  {
+    "offset": "0x89156",
+    "text": "ScrollWindowEx"
+  },
+  {
+    "offset": "0x89168",
+    "text": "GetScrollRange"
+  },
+  {
+    "offset": "0x8917A",
+    "text": "GetDialogBaseUnits"
+  },
+  {
+    "offset": "0x89190",
+    "text": "DrawTextExA"
+  },
+  {
+    "offset": "0x8919E",
+    "text": "DrawIcon"
+  },
+  {
+    "offset": "0x891AA",
+    "text": "GetIconInfo"
+  },
+  {
+    "offset": "0x891B8",
+    "text": "GetLastActivePopup"
+  },
+  {
+    "offset": "0x891CE",
+    "text": "FindWindowA"
+  },
+  {
+    "offset": "0x891DC",
+    "text": "DestroyMenu"
+  },
+  {
+    "offset": "0x891EA",
+    "text": "DrawMenuBar"
+  },
+  {
+    "offset": "0x891F8",
+    "text": "SetMenu"
+  },
+  {
+    "offset": "0x89202",
+    "text": "LoadMenuA"
+  },
+  {
+    "offset": "0x8920E",
+    "text": "GetSubMenu"
+  },
+  {
+    "offset": "0x8921C",
+    "text": "GetMenuItemCount"
+  },
+  {
+    "offset": "0x89230",
+    "text": "CheckMenuItem"
+  },
+  {
+    "offset": "0x89240",
+    "text": "IsZoomed"
+  },
+  {
+    "offset": "0x8924A",
+    "text": "USER32.dll"
+  },
+  {
+    "offset": "0x89258",
+    "text": "DeleteDC"
+  },
+  {
+    "offset": "0x89264",
+    "text": "GetDeviceCaps"
+  },
+  {
+    "offset": "0x89274",
+    "text": "CreateDCA"
+  },
+  {
+    "offset": "0x89280",
+    "text": "CreateDIBitmap"
+  },
+  {
+    "offset": "0x89292",
+    "text": "DeleteObject"
+  },
+  {
+    "offset": "0x892A2",
+    "text": "CreateBitmap"
+  },
+  {
+    "offset": "0x892B2",
+    "text": "CreateHalftonePalette"
+  },
+  {
+    "offset": "0x892CA",
+    "text": "CreatePalette"
+  },
+  {
+    "offset": "0x892DA",
+    "text": "RealizePalette"
+  },
+  {
+    "offset": "0x892EC",
+    "text": "SelectPalette"
+  },
+  {
+    "offset": "0x892FC",
+    "text": "StretchDIBits"
+  },
+  {
+    "offset": "0x8930C",
+    "text": "SetStretchBltMode"
+  },
+  {
+    "offset": "0x89320",
+    "text": "StretchBlt"
+  },
+  {
+    "offset": "0x8932E",
+    "text": "SelectObject"
+  },
+  {
+    "offset": "0x8933E",
+    "text": "CreateCompatibleDC"
+  },
+  {
+    "offset": "0x89354",
+    "text": "CreateSolidBrush"
+  },
+  {
+    "offset": "0x89368",
+    "text": "CreateCompatibleBitmap"
+  },
+  {
+    "offset": "0x89382",
+    "text": "BitBlt"
+  },
+  {
+    "offset": "0x8938C",
+    "text": "TextOutA"
+  },
+  {
+    "offset": "0x89398",
+    "text": "SetTextColor"
+  },
+  {
+    "offset": "0x893A8",
+    "text": "SetBkColor"
+  },
+  {
+    "offset": "0x893B6",
+    "text": "CreateDIBSection"
+  },
+  {
+    "offset": "0x893CA",
+    "text": "GetTextExtentPoint32A"
+  },
+  {
+    "offset": "0x893E2",
+    "text": "CreateFontA"
+  },
+  {
+    "offset": "0x893F0",
+    "text": "GetTextMetricsA"
+  },
+  {
+    "offset": "0x89402",
+    "text": "SetRectRgn"
+  },
+  {
+    "offset": "0x89410",
+    "text": "SetBkMode"
+  },
+  {
+    "offset": "0x8941C",
+    "text": "SelectClipRgn"
+  },
+  {
+    "offset": "0x8942C",
+    "text": "CreateRectRgn"
+  },
+  {
+    "offset": "0x8943C",
+    "text": "LineTo"
+  },
+  {
+    "offset": "0x89446",
+    "text": "MoveToEx"
+  },
+  {
+    "offset": "0x89452",
+    "text": "CreatePen"
+  },
+  {
+    "offset": "0x8945E",
+    "text": "GetTextColor"
+  },
+  {
+    "offset": "0x8946E",
+    "text": "CreateRectRgnIndirect"
+  },
+  {
+    "offset": "0x89486",
+    "text": "GetObjectA"
+  },
+  {
+    "offset": "0x89494",
+    "text": "ExcludeClipRect"
+  },
+  {
+    "offset": "0x894A4",
+    "text": "GDI32.dll"
+  },
+  {
+    "offset": "0x894B0",
+    "text": "CDAudioOpen"
+  },
+  {
+    "offset": "0x894BE",
+    "text": "CDAudioGetNumDrives"
+  },
+  {
+    "offset": "0x894D4",
+    "text": "CDAudioInitialize"
+  },
+  {
+    "offset": "0x894E8",
+    "text": "CDAudioTerminate"
+  },
+  {
+    "offset": "0x894FC",
+    "text": "CDAudioPlayTrack"
+  },
+  {
+    "offset": "0x89510",
+    "text": "CDAudioGetDriveLetter"
+  },
+  {
+    "offset": "0x89528",
+    "text": "CDAudioStop"
+  },
+  {
+    "offset": "0x89536",
+    "text": "CDAudioPause"
+  },
+  {
+    "offset": "0x89546",
+    "text": "CDAudioResume"
+  },
+  {
+    "offset": "0x89556",
+    "text": "CDAudioIsPlaying"
+  },
+  {
+    "offset": "0x8956A",
+    "text": "CDAudioGetPlayingPos"
+  },
+  {
+    "offset": "0x89582",
+    "text": "CDAudioGetNumTracks"
+  },
+  {
+    "offset": "0x89596",
+    "text": "koeicda.dll"
+  },
+  {
+    "offset": "0x895A4",
+    "text": "GetVersionExA"
+  },
+  {
+    "offset": "0x895B4",
+    "text": "GlobalFree"
+  },
+  {
+    "offset": "0x895C2",
+    "text": "GlobalUnlock"
+  },
+  {
+    "offset": "0x895D2",
+    "text": "GlobalLock"
+  },
+  {
+    "offset": "0x895E0",
+    "text": "GlobalAlloc"
+  },
+  {
+    "offset": "0x895EE",
+    "text": "ExitProcess"
+  },
+  {
+    "offset": "0x895FC",
+    "text": "RtlUnwind"
+  },
+  {
+    "offset": "0x89608",
+    "text": "RaiseException"
+  },
+  {
+    "offset": "0x8961A",
+    "text": "TerminateProcess"
+  },
+  {
+    "offset": "0x8962E",
+    "text": "GetCurrentProcess"
+  },
+  {
+    "offset": "0x89642",
+    "text": "GetModuleHandleA"
+  },
+  {
+    "offset": "0x89656",
+    "text": "GetStartupInfoA"
+  },
+  {
+    "offset": "0x89668",
+    "text": "GetCommandLineA"
+  },
+  {
+    "offset": "0x8967A",
+    "text": "GetVersion"
+  },
+  {
+    "offset": "0x89688",
+    "text": "HeapAlloc"
+  },
+  {
+    "offset": "0x89694",
+    "text": "HeapFree"
+  },
+  {
+    "offset": "0x896A0",
+    "text": "SetUnhandledExceptionFilter"
+  },
+  {
+    "offset": "0x896BE",
+    "text": "HeapReAlloc"
+  },
+  {
+    "offset": "0x896CC",
+    "text": "HeapSize"
+  },
+  {
+    "offset": "0x896D8",
+    "text": "UnhandledExceptionFilter"
+  },
+  {
+    "offset": "0x896F4",
+    "text": "GetModuleFileNameA"
+  },
+  {
+    "offset": "0x8970A",
+    "text": "FreeEnvironmentStringsA"
+  },
+  {
+    "offset": "0x89724",
+    "text": "MultiByteToWideChar"
+  },
+  {
+    "offset": "0x8973A",
+    "text": "FreeEnvironmentStringsW"
+  },
+  {
+    "offset": "0x89754",
+    "text": "GetEnvironmentStrings"
+  },
+  {
+    "offset": "0x8976C",
+    "text": "GetEnvironmentStringsW"
+  },
+  {
+    "offset": "0x89786",
+    "text": "WideCharToMultiByte"
+  },
+  {
+    "offset": "0x8979C",
+    "text": "GetCPInfo"
+  },
+  {
+    "offset": "0x897A8",
+    "text": "GetACP"
+  },
+  {
+    "offset": "0x897B2",
+    "text": "GetOEMCP"
+  },
+  {
+    "offset": "0x897BE",
+    "text": "SetHandleCount"
+  },
+  {
+    "offset": "0x897D0",
+    "text": "GetStdHandle"
+  },
+  {
+    "offset": "0x897E0",
+    "text": "GetFileType"
+  },
+  {
+    "offset": "0x897EE",
+    "text": "HeapDestroy"
+  },
+  {
+    "offset": "0x897FC",
+    "text": "HeapCreate"
+  },
+  {
+    "offset": "0x8980A",
+    "text": "VirtualFree"
+  },
+  {
+    "offset": "0x89818",
+    "text": "IsBadReadPtr"
+  },
+  {
+    "offset": "0x89828",
+    "text": "IsBadWritePtr"
+  },
+  {
+    "offset": "0x89838",
+    "text": "IsBadCodePtr"
+  },
+  {
+    "offset": "0x89848",
+    "text": "VirtualAlloc"
+  },
+  {
+    "offset": "0x89858",
+    "text": "LCMapStringA"
+  },
+  {
+    "offset": "0x89868",
+    "text": "LCMapStringW"
+  },
+  {
+    "offset": "0x89878",
+    "text": "GetStringTypeA"
+  },
+  {
+    "offset": "0x8988A",
+    "text": "GetStringTypeW"
+  },
+  {
+    "offset": "0x8989C",
+    "text": "GetProcAddress"
+  },
+  {
+    "offset": "0x898AE",
+    "text": "PostQuitMessage"
+  },
+  {
+    "offset": "0x898C0",
+    "text": "GetPaletteEntries"
+  },
+  {
+    "offset": "0x898D4",
+    "text": "SetMapMode"
+  },
+  {
+    "offset": "0x898E2",
+    "text": "GetDIBits"
+  },
+  {
+    "offset": "0x898EE",
+    "text": "PatBlt"
+  },
+  {
+    "offset": "0x898F8",
+    "text": "AnimatePalette"
+  },
+  {
+    "offset": "0x8990A",
+    "text": "SetDIBColorTable"
+  },
+  {
+    "offset": "0x8991E",
+    "text": "GetSystemPaletteEntries"
+  },
+  {
+    "offset": "0x89BA3",
+    "text": "Lv %u"
+  },
+  {
+    "offset": "0x89BB0",
+    "text": "+%u ->"
+  },
+  {
+    "offset": "0x89BD7",
+    "text": "MgcIcon.dll"
+  },
+  {
+    "offset": "0x89BE3",
+    "text": "ItemIcon.dll"
+  },
+  {
+    "offset": "0x89BF0",
+    "text": "CmdIcon.dll"
+  },
+  {
+    "offset": "0x89BFC",
+    "text": "DISPLAY"
+  },
+  {
+    "offset": "0x89CA9",
+    "text": "<ffffffffffff<"
+  },
+  {
+    "offset": "0x89CD2",
+    "text": "  `b~"
+  },
+  {
+    "offset": "0x89CED",
+    "text": ",,,LLL~"
+  },
+  {
+    "offset": "0x89CF9",
+    "text": "|````xdF"
+  },
+  {
+    "offset": "0x89D0A",
+    "text": "$ff`xdfffff$"
+  },
+  {
+    "offset": "0x89D2A",
+    "text": "$ffff<fffff$"
+  },
+  {
+    "offset": "0x89D3A",
+    "text": "$fffff&"
+  },
+  {
+    "offset": "0x89D94",
+    "text": "RS\\R_%s.EEX"
+  },
+  {
+    "offset": "0x89DA0",
+    "text": "RS\\S_%s.EEX"
+  },
+  {
+    "offset": "0x89DB9",
+    "text": ":%sX%d"
+  },
+  {
+    "offset": "0x89DF4",
+    "text": "SOUSOU"
+  },
+  {
+    "offset": "0x89E47",
+    "text": "  %s  %s"
+  },
+  {
+    "offset": "0x89E51",
+    "text": "  %s %s %s  %s"
+  },
+  {
+    "offset": "0x89E7F",
+    "text": "%u-%02u-%02u %02u:%02u"
+  },
+  {
+    "offset": "0x89F1B",
+    "text": "Lv.999"
+  },
+  {
+    "offset": "0x89F31",
+    "text": "S_%s - %s - %s - "
+  },
+  {
+    "offset": "0x89F4B",
+    "text": "R_%s - %s - %s - "
+  },
+  {
+    "offset": "0x89F65",
+    "text": "E5\\%s"
+  },
+  {
+    "offset": "0x89F6B",
+    "text": "SV\\SV%03u.E5S"
+  },
+  {
+    "offset": "0x89F79",
+    "text": "No.%03u"
+  },
+  {
+    "offset": "0x89F81",
+    "text": "Lv.%d"
+  },
+  {
+    "offset": "0x89F94",
+    "text": "No.%03u: %s"
+  },
+  {
+    "offset": "0x89FD0",
+    "text": "No.%03u: %s"
+  },
+  {
+    "offset": "0x8A000",
+    "text": "KANKYOU"
+  },
+  {
+    "offset": "0x8A098",
+    "text": "%s, %s"
+  },
+  {
+    "offset": "0x8A0AC",
+    "text": "[%s] "
+  },
+  {
+    "offset": "0x8A0E8",
+    "text": "LOGO.AVI"
+  },
+  {
+    "offset": "0x8A0F4",
+    "text": "OPEN.AVI"
+  },
+  {
+    "offset": "0x8A100",
+    "text": "END.AVI"
+  },
+  {
+    "offset": "0x8A108",
+    "text": "PRESS.AVI"
+  },
+  {
+    "offset": "0x8A114",
+    "text": "avivideo"
+  },
+  {
+    "offset": "0x8A157",
+    "text": " %s. "
+  },
+  {
+    "offset": "0x8A174",
+    "text": "%sOpenErr"
+  },
+  {
+    "offset": "0x8A1A4",
+    "text": "%s %s"
+  },
+  {
+    "offset": "0x8A1EF",
+    "text": "AutoDll.ini"
+  },
+  {
+    "offset": "0x8A283",
+    "text": "E5\\MCALL%02u.E5"
+  },
+  {
+    "offset": "0x8A2D0",
+    "text": "()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopq"
+  },
+  {
+    "offset": "0x8A4F0",
+    "text": "LOGO.E5"
+  },
+  {
+    "offset": "0x8A4F8",
+    "text": "MMAP.E5"
+  },
+  {
+    "offset": "0x8A500",
+    "text": "GATE.E5"
+  },
+  {
+    "offset": "0x8A508",
+    "text": "PMAP.E5"
+  },
+  {
+    "offset": "0x8A510",
+    "text": "ITEM.E5"
+  },
+  {
+    "offset": "0x8A518",
+    "text": "MEFF.E5"
+  },
+  {
+    "offset": "0x8A520",
+    "text": "MARK.E5"
+  },
+  {
+    "offset": "0x8A528",
+    "text": "FACE.E5"
+  },
+  {
+    "offset": "0x8A530",
+    "text": "HEXZMAP.E5"
+  },
+  {
+    "offset": "0x8A53B",
+    "text": "HITAREA.E5"
+  },
+  {
+    "offset": "0x8A546",
+    "text": "EFFAREA.E5"
+  },
+  {
+    "offset": "0x8A560",
+    "text": "DATA.E5"
+  },
+  {
+    "offset": "0x8A568",
+    "text": "IMSG.E5"
+  },
+  {
+    "offset": "0x8A570",
+    "text": "PMAPOBJ.E5"
+  },
+  {
+    "offset": "0x8A57B",
+    "text": "TR.E5"
+  },
+  {
+    "offset": "0x8A5A0",
+    "text": "U_SELECT.E5"
+  },
+  {
+    "offset": "0x8A5B0",
+    "text": "UNIT_ATK.E5"
+  },
+  {
+    "offset": "0x8A5C0",
+    "text": "UNIT_SPC.E5"
+  },
+  {
+    "offset": "0x8A5D0",
+    "text": "UNIT_MOV.E5"
+  },
+  {
+    "offset": "0x8A5E0",
+    "text": "WEATHER.E5"
+  },
+  {
+    "offset": "0x8A5F0",
+    "text": "SV\\SV.E5S"
+  },
+  {
+    "offset": "0x8A5FA",
+    "text": "DT.E5"
+  },
+  {
+    "offset": "0x8AF30",
+    "text": "star.e5"
+  },
+  {
+    "offset": "0x8AF38",
+    "text": "%s, %s"
+  },
+  {
+    "offset": "0x8B1B0",
+    "text": "SmallMap"
+  },
+  {
+    "offset": "0x8B1BC",
+    "text": "SoldierFace"
+  },
+  {
+    "offset": "0x8B1C8",
+    "text": "Window"
+  },
+  {
+    "offset": "0x8B1D0",
+    "text": "Attack"
+  },
+  {
+    "offset": "0x8B1EC",
+    "text": "BigMap"
+  },
+  {
+    "offset": "0x8B1F4",
+    "text": "Character"
+  },
+  {
+    "offset": "0x8B200",
+    "text": "MapData"
+  },
+  {
+    "offset": "0x8B240",
+    "text": "EIJI FUKUZAWA"
+  },
+  {
+    "offset": "0x8B258",
+    "text": "%s--%s"
+  },
+  {
+    "offset": "0x8B274",
+    "text": " --  "
+  },
+  {
+    "offset": "0x8B290",
+    "text": " %2u  "
+  },
+  {
+    "offset": "0x8B2B0",
+    "text": "Lv --"
+  },
+  {
+    "offset": "0x8B2B7",
+    "text": "Lv %2u"
+  },
+  {
+    "offset": "0x8B2E8",
+    "text": "  STAFF   "
+  },
+  {
+    "offset": "0x8B300",
+    "text": "      "
+  },
+  {
+    "offset": "0x8B31C",
+    "text": ":Star175"
+  },
+  {
+    "offset": "0x8C48A",
+    "text": " 2000"
+  },
+  {
+    "offset": "0x8C5CE",
+    "text": " 4000"
+  },
+  {
+    "offset": "0x8C72E",
+    "text": " 10000"
+  },
+  {
+    "offset": "0x8C936",
+    "text": "30000"
+  },
+  {
+    "offset": "0x8CA30",
+    "text": "Debug : UnitColor Set Error(%s)"
+  },
+  {
+    "offset": "0x8CA58",
+    "text": " Lv%2u"
+  },
+  {
+    "offset": "0x8CA80",
+    "text": "%4u%%"
+  },
+  {
+    "offset": "0x8CA98",
+    "text": "%3u%%"
+  },
+  {
+    "offset": "0x8CAF1",
+    "text": "MAP\\M???.Jpg"
+  },
+  {
+    "offset": "0x8CBA8",
+    "text": "Congratulations!"
+  },
+  {
+    "offset": "0x8CBEE",
+    "text": "MAP\\M%s.Jpg"
+  },
+  {
+    "offset": "0x8CC78",
+    "text": "Lv%2u"
+  },
+  {
+    "offset": "0x8CCA8",
+    "text": "Lv%2u"
+  },
+  {
+    "offset": "0x8CCB4",
+    "text": "%4u /%4u"
+  },
+  {
+    "offset": "0x8CCC0",
+    "text": "%4u /%4u"
+  },
+  {
+    "offset": "0x8CCCC",
+    "text": "%4u /%4u"
+  },
+  {
+    "offset": "0x8CCD8",
+    "text": "%4u /%4u"
+  },
+  {
+    "offset": "0x8CCE4",
+    "text": "    MAX   "
+  },
+  {
+    "offset": "0x8CCF0",
+    "text": "%4u /%4u"
+  },
+  {
+    "offset": "0x8CDB8",
+    "text": "SelectBushouClass::Can't Alloc Memory!!"
+  },
+  {
+    "offset": "0x8CE58",
+    "text": "Lv.%3d"
+  },
+  {
+    "offset": "0x8CE68",
+    "text": "  - %2d/%2d"
+  },
+  {
+    "offset": "0x8CE7C",
+    "text": "<%s%s%s>%s"
+  },
+  {
+    "offset": "0x8CF2C",
+    "text": "SoldierFace"
+  },
+  {
+    "offset": "0x8CF38",
+    "text": "SoldierChar"
+  },
+  {
+    "offset": "0x8CF44",
+    "text": "SmallMap"
+  },
+  {
+    "offset": "0x8CF50",
+    "text": "Weather"
+  },
+  {
+    "offset": "0x8CF58",
+    "text": "Effect"
+  },
+  {
+    "offset": "0x8CF60",
+    "text": "Influence"
+  },
+  {
+    "offset": "0x8CF6C",
+    "text": "ButaiSlct"
+  },
+  {
+    "offset": "0x8CF78",
+    "text": "GoButaiSlct"
+  },
+  {
+    "offset": "0x8CF84",
+    "text": "NamePut"
+  },
+  {
+    "offset": "0x8CF8C",
+    "text": "Practice"
+  },
+  {
+    "offset": "0x8CF98",
+    "text": "MgcEffect"
+  },
+  {
+    "offset": "0x8CFA4",
+    "text": "MgcInfluence"
+  },
+  {
+    "offset": "0x8CFB4",
+    "text": "PracMesBox"
+  },
+  {
+    "offset": "0x8CFC0",
+    "text": "SiJianName"
+  },
+  {
+    "offset": "0x8CFCC",
+    "text": "ChanSuoName"
+  },
+  {
+    "offset": "0x8CFD8",
+    "text": "SoldierFace"
+  },
+  {
+    "offset": "0x8CFE4",
+    "text": "Effect"
+  },
+  {
+    "offset": "0x8CFEB",
+    "text": "Effect"
+  },
+  {
+    "offset": "0x8D022",
+    "text": "(%2d:%2d)"
+  },
+  {
+    "offset": "0x8D034",
+    "text": "999/999 "
+  },
+  {
+    "offset": "0x8D044",
+    "text": "%3d/%3d "
+  },
+  {
+    "offset": "0x8D060",
+    "text": "%s (%s)"
+  },
+  {
+    "offset": "0x8D068",
+    "text": "%s %s"
+  },
+  {
+    "offset": "0x8D080",
+    "text": "%s +%u"
+  },
+  {
+    "offset": "0x8D094",
+    "text": "+%d%%"
+  },
+  {
+    "offset": "0x8D09C",
+    "text": "-%d%%"
+  },
+  {
+    "offset": "0x8D0B4",
+    "text": "STATIC"
+  },
+  {
+    "offset": "0x8D0BC",
+    "text": "STATIC"
+  },
+  {
+    "offset": "0x8D12C",
+    "text": "%u ( -%d )"
+  },
+  {
+    "offset": "0x8D148",
+    "text": "MapAtr.dll"
+  },
+  {
+    "offset": "0x8D194",
+    "text": "BUTTON"
+  },
+  {
+    "offset": "0x8D19C",
+    "text": "No.%2d: %s"
+  },
+  {
+    "offset": "0x8D1A8",
+    "text": "No.%2d: %s"
+  },
+  {
+    "offset": "0x8D1BC",
+    "text": "BUTTON"
+  },
+  {
+    "offset": "0x8D1C4",
+    "text": "STATIC"
+  },
+  {
+    "offset": "0x8D20C",
+    "text": "WAV\\%s"
+  },
+  {
+    "offset": "0x8D213",
+    "text": "SE_V_%03u.WAV"
+  },
+  {
+    "offset": "0x8D221",
+    "text": "SE%02u.WAV"
+  },
+  {
+    "offset": "0x8D22C",
+    "text": "SE_M_%02u.WAV"
+  },
+  {
+    "offset": "0x8D23A",
+    "text": "SE_E_%02u.WAV"
+  },
+  {
+    "offset": "0x8D27E",
+    "text": "HP MAX"
+  },
+  {
+    "offset": "0x8D285",
+    "text": "MP MAX"
+  },
+  {
+    "offset": "0x8D2AA",
+    "text": "(%2d:%2d) %s"
+  },
+  {
+    "offset": "0x8D2B7",
+    "text": "%d/MAX"
+  },
+  {
+    "offset": "0x8D380",
+    "text": "APPMENU"
+  },
+  {
+    "offset": "0x8D5A8",
+    "text": "APPMENU"
+  },
+  {
+    "offset": "0x8D5B4",
+    "text": " %3d/%2d"
+  },
+  {
+    "offset": "0x8D5C0",
+    "text": "%u ( +%d )"
+  },
+  {
+    "offset": "0x8D5D4",
+    "text": " %2d  "
+  },
+  {
+    "offset": "0x8D5E0",
+    "text": " %2d  "
+  },
+  {
+    "offset": "0x8D6C0",
+    "text": "%3u/%3u"
+  },
+  {
+    "offset": "0x8D729",
+    "text": "$$$&<d$$&<d$$$"
+  },
+  {
+    "offset": "0x8D759",
+    "text": "8DDDDX  RRJJD:"
+  },
+  {
+    "offset": "0x8D77D",
+    "text": "      "
+  },
+  {
+    "offset": "0x8D83B",
+    "text": ",,LLL"
+  },
+  {
+    "offset": "0x8D872",
+    "text": "88888"
+  },
+  {
+    "offset": "0x8D8FA",
+    "text": "\"AIUUUUUUJ@!"
+  },
+  {
+    "offset": "0x8D90B",
+    "text": "$$$$$<BBBBB"
+  },
+  {
+    "offset": "0x8D919",
+    "text": "xDBBBDxDBBBDx"
+  },
+  {
+    "offset": "0x8D92A",
+    "text": "$BB@@@@BBB$"
+  },
+  {
+    "offset": "0x8D939",
+    "text": "xDBBBBBBBBBDx"
+  },
+  {
+    "offset": "0x8D949",
+    "text": "~@@@@@|@@@@@~"
+  },
+  {
+    "offset": "0x8D959",
+    "text": "~@@@@@|@@@@@@"
+  },
+  {
+    "offset": "0x8D96A",
+    "text": "$B@@@NBBBB&"
+  },
+  {
+    "offset": "0x8D979",
+    "text": "BBBBBB~BBBBBB"
+  },
+  {
+    "offset": "0x8D9A9",
+    "text": "BDDHHP`PHHDDB"
+  },
+  {
+    "offset": "0x8D9B9",
+    "text": "@@@@@@@@@@@@~"
+  },
+  {
+    "offset": "0x8D9C9",
+    "text": "AccUUIIAAAAAA"
+  },
+  {
+    "offset": "0x8D9D9",
+    "text": "BbbRRRRJJJFFB"
+  },
+  {
+    "offset": "0x8D9EA",
+    "text": "$BBBBBBBBB$"
+  },
+  {
+    "offset": "0x8D9F9",
+    "text": "xDBBBDx@@@@@@"
+  },
+  {
+    "offset": "0x8DA0A",
+    "text": "$BBBBBBBRJ$"
+  },
+  {
+    "offset": "0x8DA19",
+    "text": "xDBBBDxPPHHDB"
+  },
+  {
+    "offset": "0x8DA2A",
+    "text": "$B@@ "
+  },
+  {
+    "offset": "0x8DA49",
+    "text": "BBBBBBBBBBB$"
+  },
+  {
+    "offset": "0x8DA59",
+    "text": "AAAA\"\"\"\""
+  },
+  {
+    "offset": "0x8DA69",
+    "text": "AAAAIIIUUUU\"\"\""
+  },
+  {
+    "offset": "0x8DA79",
+    "text": "BBB$$"
+  },
+  {
+    "offset": "0x8DA80",
+    "text": "$$$BBB"
+  },
+  {
+    "offset": "0x8DA89",
+    "text": "AAA\"\""
+  },
+  {
+    "offset": "0x8DAA1",
+    "text": "  @@~"
+  },
+  {
+    "offset": "0x8DB19",
+    "text": "@@@@XdBBBBBdX"
+  },
+  {
+    "offset": "0x8DB2E",
+    "text": "$B@@@B$"
+  },
+  {
+    "offset": "0x8DB3E",
+    "text": "&BBBBB&"
+  },
+  {
+    "offset": "0x8DB4E",
+    "text": "$BB~@@\""
+  },
+  {
+    "offset": "0x8DB6E",
+    "text": "&BBBB&"
+  },
+  {
+    "offset": "0x8DB79",
+    "text": "@@@@XdBBBBBBB"
+  },
+  {
+    "offset": "0x8DBA9",
+    "text": "@@@@BDHP`PHDB"
+  },
+  {
+    "offset": "0x8DBCD",
+    "text": "ViIIIIIII"
+  },
+  {
+    "offset": "0x8DBDD",
+    "text": "XdBBBBBBB"
+  },
+  {
+    "offset": "0x8DBEE",
+    "text": "$BBBBB$"
+  },
+  {
+    "offset": "0x8DBFD",
+    "text": "XdBBBBdX@@@"
+  },
+  {
+    "offset": "0x8DC0E",
+    "text": "&BBBB&"
+  },
+  {
+    "offset": "0x8DC1D",
+    "text": ",2\"      "
+  },
+  {
+    "offset": "0x8DC4D",
+    "text": "BBBBBBB&"
+  },
+  {
+    "offset": "0x8DC5D",
+    "text": "BBBB$$$"
+  },
+  {
+    "offset": "0x8DC6D",
+    "text": "AIIUUUU\"\""
+  },
+  {
+    "offset": "0x8DC8D",
+    "text": "BBBD$$"
+  },
+  {
+    "offset": "0x90200",
+    "text": "USER32.dll"
+  },
+  {
+    "offset": "0x9020B",
+    "text": "KERNEL32.dll"
+  },
+  {
+    "offset": "0x90218",
+    "text": "Msimg32.dll"
+  },
+  {
+    "offset": "0x90224",
+    "text": "GDI32.dll"
+  },
+  {
+    "offset": "0x9022E",
+    "text": "Jpg.dll"
+  },
+  {
+    "offset": "0x90236",
+    "text": "GDIPLUS.dll"
+  },
+  {
+    "offset": "0x90300",
+    "text": "LoadImageA"
+  },
+  {
+    "offset": "0x9030C",
+    "text": "SetLayeredWindowAttributes"
+  },
+  {
+    "offset": "0x9032A",
+    "text": "GetPrivateProfileIntA"
+  },
+  {
+    "offset": "0x90341",
+    "text": "GetLocalTime"
+  },
+  {
+    "offset": "0x90351",
+    "text": "TransparentBlt"
+  },
+  {
+    "offset": "0x90361",
+    "text": "AlphaBlend"
+  },
+  {
+    "offset": "0x9036F",
+    "text": "GetBitmapBits"
+  },
+  {
+    "offset": "0x9037E",
+    "text": "SetBitmapBits"
+  },
+  {
+    "offset": "0x9038F",
+    "text": "JpgInit"
+  },
+  {
+    "offset": "0x90398",
+    "text": "JpgRead"
+  },
+  {
+    "offset": "0x903A1",
+    "text": "JpgFree"
+  },
+  {
+    "offset": "0x903AA",
+    "text": "PngRead"
+  },
+  {
+    "offset": "0x903B5",
+    "text": "GdiplusStartup"
+  },
+  {
+    "offset": "0x903C5",
+    "text": "GdiplusShutdown"
+  },
+  {
+    "offset": "0x903D6",
+    "text": "GdipDeleteGraphics"
+  },
+  {
+    "offset": "0x903EA",
+    "text": "GdipCreateBitmapFromScan0"
+  },
+  {
+    "offset": "0x90405",
+    "text": "GdipBitmapLockBits"
+  },
+  {
+    "offset": "0x90419",
+    "text": "GdipBitmapUnlockBits"
+  },
+  {
+    "offset": "0x9042F",
+    "text": "GdipDrawImageRectRectI"
+  },
+  {
+    "offset": "0x90447",
+    "text": "GdipCreateFromHDC"
+  },
+  {
+    "offset": "0x9045A",
+    "text": "GdipCreateImageAttributes"
+  },
+  {
+    "offset": "0x90475",
+    "text": "GdipSetImageAttributesColorMatrix"
+  },
+  {
+    "offset": "0x9D7CF",
+    "text": "2ddddd"
+  },
+  {
+    "offset": "0x9D813",
+    "text": "ddd?d"
+  },
+  {
+    "offset": "0x9F7FD",
+    "text": "endHP"
+  },
+  {
+    "offset": "0x9FA10",
+    "text": "Logo.Avi"
+  },
+  {
+    "offset": "0x9FA20",
+    "text": "Open.Avi"
+  },
+  {
+    "offset": "0x9FA30",
+    "text": "End.Avi"
+  },
+  {
+    "offset": "0x9FA40",
+    "text": "Press.Avi"
+  },
+  {
+    "offset": "0x9FA50",
+    "text": "Mov%03u.Avi"
+  },
+  {
+    "offset": "0xA2F20",
+    "text": "cZZP<FcZZP"
+  },
+  {
+    "offset": "0xA2F2F",
+    "text": "ZZFcZ"
+  },
+  {
+    "offset": "0xA2F37",
+    "text": "FcZZP"
+  },
+  {
+    "offset": "0xA2F40",
+    "text": "<dZP<P<ZPZP<P2ZPP<P<F2dddddddd"
+  },
+  {
+    "offset": "0xA2F61",
+    "text": "dddddddddddddd"
+  },
+  {
+    "offset": "0xA2F77",
+    "text": "ddddddd"
+  },
+  {
+    "offset": "0xA2F82",
+    "text": "dddddddddddddddddddddddddddddddddddddd"
+  },
+  {
+    "offset": "0xA3040",
+    "text": "FZ2FZ2FZ2F"
+  },
+  {
+    "offset": "0xA304B",
+    "text": "22F(2"
+  },
+  {
+    "offset": "0xA3051",
+    "text": "(FZ2Fx<FZ2FdFF"
+  },
+  {
+    "offset": "0xA327C",
+    "text": "jikldddddddddddddddddddddddddddddddddddddddddddKd"
+  },
+  {
+    "offset": "0xA32AE",
+    "text": "ddddddddddd"
+  },
+  {
+    "offset": "0xA32BD",
+    "text": "dddddddddddddddddddddd"
+  },
+  {
+    "offset": "0xA32D4",
+    "text": "ddddddd}dd"
+  },
+  {
+    "offset": "0xA32E3",
+    "text": "ddddd"
+  },
+  {
+    "offset": "0xA32EB",
+    "text": "dddd}"
+  },
+  {
+    "offset": "0xA32F3",
+    "text": "dddddddddddddddddddddddddddddddddddddddddddddddd"
+  },
+  {
+    "offset": "0xA3324",
+    "text": "ddddddd}dd"
+  },
+  {
+    "offset": "0xA3333",
+    "text": "ddddd"
+  },
+  {
+    "offset": "0xA333B",
+    "text": "dddd}"
+  },
+  {
+    "offset": "0xA3343",
+    "text": "dddddddd"
+  },
+  {
+    "offset": "0xA334C",
+    "text": "ddddddd}dd"
+  },
+  {
+    "offset": "0xA335B",
+    "text": "ddddd"
+  },
+  {
+    "offset": "0xA3363",
+    "text": "dddd}"
+  },
+  {
+    "offset": "0xA336B",
+    "text": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  },
+  {
+    "offset": "0xA33AD",
+    "text": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  },
+  {
+    "offset": "0xA34ED",
+    "text": "ddddddddddddddddddddddddddd}}}}ddddddd}}dddddddd}dddddddddd"
+  },
+  {
+    "offset": "0xA352D",
+    "text": "dddddd"
+  },
+  {
+    "offset": "0xA353B",
+    "text": "ddddd"
+  },
+  {
+    "offset": "0xA354C",
+    "text": "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  },
+  {
+    "offset": "0xA3698",
+    "text": "ddddddddddd"
+  },
+  {
+    "offset": "0xA36AD",
+    "text": "ddddddd"
+  },
+  {
+    "offset": "0xA36B6",
+    "text": "ddddddd"
+  },
+  {
+    "offset": "0xA36BE",
+    "text": "dddddddd"
+  },
+  {
+    "offset": "0xA36C7",
+    "text": "ddddddddd"
+  },
+  {
+    "offset": "0xA36D5",
+    "text": "ddddddd"
+  },
+  {
+    "offset": "0xA36DE",
+    "text": "ddddd"
+  },
+  {
+    "offset": "0xA36E4",
+    "text": "ddddddd}dd"
+  },
+  {
+    "offset": "0xA36F3",
+    "text": "ddddd"
+  },
+  {
+    "offset": "0xA3703",
+    "text": "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  },
+  {
+    "offset": "0xA39B0",
+    "text": "dddddddddddddnnddddddnnnnnnddddndddd"
+  },
+  {
+    "offset": "0xD1C9A",
+    "text": "FB.E5"
+  },
+  {
+    "offset": "0xD22E0",
+    "text": "D6**D6**"
+  },
+  {
+    "offset": "0xD245E",
+    "text": " %d/%d"
+  },
+  {
+    "offset": "0xD25E2",
+    "text": "DEFAULT"
+  },
+  {
+    "offset": "0xD25EA",
+    "text": "EnableAutoSave"
+  },
+  {
+    "offset": "0xD25FA",
+    "text": "FastKey"
+  },
+  {
+    "offset": "0xD2603",
+    "text": "DelayTime"
+  },
+  {
+    "offset": "0xD263D",
+    "text": "Resize"
+  },
+  {
+    "offset": "0x10C81B",
+    "text": "ccccc"
+  },
+  {
+    "offset": "0x10D1CF",
+    "text": "+(((+"
+  },
+  {
+    "offset": "0x10DBF3",
+    "text": "-@KLDD:(("
+  },
+  {
+    "offset": "0x10DC12",
+    "text": "!QLDDD:8!-("
+  },
+  {
+    "offset": "0x10DC32",
+    "text": "(\\VPLKLD-"
+  },
+  {
+    "offset": "0x10DC53",
+    "text": "gkaa_K:KD8"
+  },
+  {
+    "offset": "0x10DC73",
+    "text": "+8@Hg8"
+  },
+  {
+    "offset": "0x10DCF1",
+    "text": "$XnQ@("
+  },
+  {
+    "offset": "0x10DD1B",
+    "text": "!@8:8"
+  },
+  {
+    "offset": "0x10DD33",
+    "text": "|\\D-OnN"
+  },
+  {
+    "offset": "0x10DD3D",
+    "text": "$&4:("
+  },
+  {
+    "offset": "0x10DD52",
+    "text": "u\\LDKewrV("
+  },
+  {
+    "offset": "0x10DD71",
+    "text": "w\\QK@LQ_lrnD"
+  },
+  {
+    "offset": "0x10DD8F",
+    "text": "h{_QL-(DO_iv|d:"
+  },
+  {
+    "offset": "0x10DDAC",
+    "text": "#-LziQe\\"
+  },
+  {
+    "offset": "0x10DDB5",
+    "text": "!:L\\e_k"
+  },
+  {
+    "offset": "0x10DDCD",
+    "text": "8bcQ>Io-!8@LQ_ee_K("
+  },
+  {
+    "offset": "0x10DDF0",
+    "text": "CD#[S!--DLLLQ\\eK"
+  },
+  {
+    "offset": "0x10DE0E",
+    "text": "-ZbK-2s8(-@KLKKOO!"
+  },
+  {
+    "offset": "0x10DE34",
+    "text": "JO!8@DDDLOL("
+  },
+  {
+    "offset": "0x10DE4E",
+    "text": "7aD-!"
+  },
+  {
+    "offset": "0x10DE55",
+    "text": "T!-:@KKKLD("
+  },
+  {
+    "offset": "0x10DE75",
+    "text": "?L(:@DDKLKD"
+  },
+  {
+    "offset": "0x10DE96",
+    "text": "G:8@@DDKKD("
+  },
+  {
+    "offset": "0x10DEB7",
+    "text": "1D@:@DDDK@"
+  },
+  {
+    "offset": "0x10DED8",
+    "text": "1K@-:DKK@!"
+  },
+  {
+    "offset": "0x10DEF9",
+    "text": "1K888::::"
+  },
+  {
+    "offset": "0x10DF1A",
+    "text": "1@888888"
+  },
+  {
+    "offset": "0x10DF3B",
+    "text": ",@::---("
+  },
+  {
+    "offset": "0x10DF5D",
+    "text": "$@@8!(("
+  }
+]

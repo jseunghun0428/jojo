@@ -1,0 +1,978 @@
+{
+  "file": "형상편집기 6.6.exe",
+  "size": 1486848,
+  "sha256": "687e68f3c26f04ade344db95d3d3392e291d4584e52e962efe0564d3a77616f7",
+  "machine": "0x14C",
+  "format": "PE32",
+  "timestampRaw": 1759428445,
+  "linkerVersion": "6.0",
+  "imageBase": "0x400000",
+  "entryPointVA": "0x406958",
+  "subsystem": 2,
+  "dllCharacteristics": "0x0",
+  "clrDirectoryRva": "0x0",
+  "sections": [
+    {
+      "name": ".text",
+      "virtualSize": 1472916,
+      "rva": 4096,
+      "rawSize": 1474560,
+      "rawOffset": 4096,
+      "characteristics": "0x60000020",
+      "entropy": 5.9678
+    },
+    {
+      "name": ".data",
+      "virtualSize": 39508,
+      "rva": 1478656,
+      "rawSize": 4096,
+      "rawOffset": 1478656,
+      "characteristics": "0xC0000040",
+      "entropy": 0
+    },
+    {
+      "name": ".rsrc",
+      "virtualSize": 3152,
+      "rva": 1519616,
+      "rawSize": 4096,
+      "rawOffset": 1482752,
+      "characteristics": "0x40000040",
+      "entropy": 2.8734
+    }
+  ],
+  "imports": [
+    {
+      "dll": "MSVBVM60.DLL",
+      "functions": [
+        {
+          "name": "__vbaVarSub",
+          "iatVA": "0x401000"
+        },
+        {
+          "name": "__vbaVarTstGt",
+          "iatVA": "0x401004"
+        },
+        {
+          "name": "__vbaStrI2",
+          "iatVA": "0x401008"
+        },
+        {
+          "name": "_CIcos",
+          "iatVA": "0x40100C"
+        },
+        {
+          "name": "_adj_fptan",
+          "iatVA": "0x401010"
+        },
+        {
+          "name": "__vbaVarMove",
+          "iatVA": "0x401014"
+        },
+        {
+          "name": "__vbaStrI4",
+          "iatVA": "0x401018"
+        },
+        {
+          "name": "__vbaVarVargNofree",
+          "iatVA": "0x40101C"
+        },
+        {
+          "name": "__vbaAryMove",
+          "iatVA": "0x401020"
+        },
+        {
+          "name": "__vbaFreeVar",
+          "iatVA": "0x401024"
+        },
+        {
+          "name": "__vbaLateIdCall",
+          "iatVA": "0x401028"
+        },
+        {
+          "name": "__vbaLenBstr",
+          "iatVA": "0x40102C"
+        },
+        {
+          "name": "__vbaStrVarMove",
+          "iatVA": "0x401030"
+        },
+        {
+          "name": "ordinal:696",
+          "iatVA": "0x401034"
+        },
+        {
+          "name": "__vbaPut3",
+          "iatVA": "0x401038"
+        },
+        {
+          "name": "__vbaFreeVarList",
+          "iatVA": "0x40103C"
+        },
+        {
+          "name": "__vbaVarIdiv",
+          "iatVA": "0x401040"
+        },
+        {
+          "name": "_adj_fdiv_m64",
+          "iatVA": "0x401044"
+        },
+        {
+          "name": "ordinal:698",
+          "iatVA": "0x401048"
+        },
+        {
+          "name": "__vbaPut4",
+          "iatVA": "0x40104C"
+        },
+        {
+          "name": "__vbaRaiseEvent",
+          "iatVA": "0x401050"
+        },
+        {
+          "name": "__vbaFreeObjList",
+          "iatVA": "0x401054"
+        },
+        {
+          "name": "__vbaGetFxStr4",
+          "iatVA": "0x401058"
+        },
+        {
+          "name": "_adj_fprem1",
+          "iatVA": "0x40105C"
+        },
+        {
+          "name": "__vbaRecAnsiToUni",
+          "iatVA": "0x401060"
+        },
+        {
+          "name": "__vbaI2Abs",
+          "iatVA": "0x401064"
+        },
+        {
+          "name": "__vbaResume",
+          "iatVA": "0x401068"
+        },
+        {
+          "name": "__vbaCopyBytes",
+          "iatVA": "0x40106C"
+        },
+        {
+          "name": "__vbaVarCmpNe",
+          "iatVA": "0x401070"
+        },
+        {
+          "name": "__vbaStrCat",
+          "iatVA": "0x401074"
+        },
+        {
+          "name": "ordinal:660",
+          "iatVA": "0x401078"
+        },
+        {
+          "name": "__vbaLsetFixstr",
+          "iatVA": "0x40107C"
+        },
+        {
+          "name": "__vbaRecDestruct",
+          "iatVA": "0x401080"
+        },
+        {
+          "name": "__vbaSetSystemError",
+          "iatVA": "0x401084"
+        },
+        {
+          "name": "__vbaHresultCheckObj",
+          "iatVA": "0x401088"
+        },
+        {
+          "name": "__vbaNameFile",
+          "iatVA": "0x40108C"
+        },
+        {
+          "name": "__vbaLenVar",
+          "iatVA": "0x401090"
+        },
+        {
+          "name": "_adj_fdiv_m32",
+          "iatVA": "0x401094"
+        },
+        {
+          "name": "__vbaAryVar",
+          "iatVA": "0x401098"
+        },
+        {
+          "name": "__vbaVarTstLe",
+          "iatVA": "0x40109C"
+        },
+        {
+          "name": "__vbaVarXor",
+          "iatVA": "0x4010A0"
+        },
+        {
+          "name": "__vbaVarCmpGe",
+          "iatVA": "0x4010A4"
+        },
+        {
+          "name": "__vbaAryDestruct",
+          "iatVA": "0x4010A8"
+        },
+        {
+          "name": "__vbaVarPow",
+          "iatVA": "0x4010AC"
+        },
+        {
+          "name": "__vbaVarForInit",
+          "iatVA": "0x4010B0"
+        },
+        {
+          "name": "__vbaExitProc",
+          "iatVA": "0x4010B4"
+        },
+        {
+          "name": "__vbaI4Abs",
+          "iatVA": "0x4010B8"
+        },
+        {
+          "name": "__vbaObjSet",
+          "iatVA": "0x4010BC"
+        },
+        {
+          "name": "ordinal:595",
+          "iatVA": "0x4010C0"
+        },
+        {
+          "name": "__vbaOnError",
+          "iatVA": "0x4010C4"
+        },
+        {
+          "name": "ordinal:596",
+          "iatVA": "0x4010C8"
+        },
+        {
+          "name": "_adj_fdiv_m16i",
+          "iatVA": "0x4010CC"
+        },
+        {
+          "name": "ordinal:303",
+          "iatVA": "0x4010D0"
+        },
+        {
+          "name": "__vbaObjSetAddref",
+          "iatVA": "0x4010D4"
+        },
+        {
+          "name": "_adj_fdivr_m16i",
+          "iatVA": "0x4010D8"
+        },
+        {
+          "name": "ordinal:598",
+          "iatVA": "0x4010DC"
+        },
+        {
+          "name": "ordinal:599",
+          "iatVA": "0x4010E0"
+        },
+        {
+          "name": "__vbaBoolVar",
+          "iatVA": "0x4010E4"
+        },
+        {
+          "name": "ordinal:520",
+          "iatVA": "0x4010E8"
+        },
+        {
+          "name": "__vbaStrFixstr",
+          "iatVA": "0x4010EC"
+        },
+        {
+          "name": "ordinal:309",
+          "iatVA": "0x4010F0"
+        },
+        {
+          "name": "__vbaEraseKeepData",
+          "iatVA": "0x4010F4"
+        },
+        {
+          "name": "__vbaFpR8",
+          "iatVA": "0x4010F8"
+        },
+        {
+          "name": "__vbaVarTstLt",
+          "iatVA": "0x4010FC"
+        },
+        {
+          "name": "__vbaBoolVarNull",
+          "iatVA": "0x401100"
+        },
+        {
+          "name": "_CIsin",
+          "iatVA": "0x401104"
+        },
+        {
+          "name": "__vbaErase",
+          "iatVA": "0x401108"
+        },
+        {
+          "name": "ordinal:709",
+          "iatVA": "0x40110C"
+        },
+        {
+          "name": "ordinal:631",
+          "iatVA": "0x401110"
+        },
+        {
+          "name": "__vbaVarCmpGt",
+          "iatVA": "0x401114"
+        },
+        {
+          "name": "ordinal:632",
+          "iatVA": "0x401118"
+        },
+        {
+          "name": "__vbaChkstk",
+          "iatVA": "0x40111C"
+        },
+        {
+          "name": "ordinal:526",
+          "iatVA": "0x401120"
+        },
+        {
+          "name": "__vbaFileClose",
+          "iatVA": "0x401124"
+        },
+        {
+          "name": "EVENT_SINK_AddRef",
+          "iatVA": "0x401128"
+        },
+        {
+          "name": "__vbaVarAbs",
+          "iatVA": "0x40112C"
+        },
+        {
+          "name": "__vbaGenerateBoundsError",
+          "iatVA": "0x401130"
+        },
+        {
+          "name": "ordinal:528",
+          "iatVA": "0x401134"
+        },
+        {
+          "name": "__vbaGet3",
+          "iatVA": "0x401138"
+        },
+        {
+          "name": "__vbaStrCmp",
+          "iatVA": "0x40113C"
+        },
+        {
+          "name": "ordinal:529",
+          "iatVA": "0x401140"
+        },
+        {
+          "name": "__vbaPutOwner3",
+          "iatVA": "0x401144"
+        },
+        {
+          "name": "__vbaVarTstEq",
+          "iatVA": "0x401148"
+        },
+        {
+          "name": "__vbaAryConstruct2",
+          "iatVA": "0x40114C"
+        },
+        {
+          "name": "__vbaGet4",
+          "iatVA": "0x401150"
+        },
+        {
+          "name": "__vbaDateR8",
+          "iatVA": "0x401154"
+        },
+        {
+          "name": "__vbaPutOwner4",
+          "iatVA": "0x401158"
+        },
+        {
+          "name": "ordinal:561",
+          "iatVA": "0x40115C"
+        },
+        {
+          "name": "__vbaI2I4",
+          "iatVA": "0x401160"
+        },
+        {
+          "name": "DllFunctionCall",
+          "iatVA": "0x401164"
+        },
+        {
+          "name": "__vbaVarOr",
+          "iatVA": "0x401168"
+        },
+        {
+          "name": "__vbaFpUI1",
+          "iatVA": "0x40116C"
+        },
+        {
+          "name": "__vbaLbound",
+          "iatVA": "0x401170"
+        },
+        {
+          "name": "__vbaStrR4",
+          "iatVA": "0x401174"
+        },
+        {
+          "name": "__vbaRedimPreserve",
+          "iatVA": "0x401178"
+        },
+        {
+          "name": "_adj_fpatan",
+          "iatVA": "0x40117C"
+        },
+        {
+          "name": "__vbaR4Var",
+          "iatVA": "0x401180"
+        },
+        {
+          "name": "__vbaFixstrConstruct",
+          "iatVA": "0x401184"
+        },
+        {
+          "name": "__vbaLateIdCallLd",
+          "iatVA": "0x401188"
+        },
+        {
+          "name": "__vbaStrR8",
+          "iatVA": "0x40118C"
+        },
+        {
+          "name": "__vbaRedim",
+          "iatVA": "0x401190"
+        },
+        {
+          "name": "__vbaRecUniToAnsi",
+          "iatVA": "0x401194"
+        },
+        {
+          "name": "EVENT_SINK_Release",
+          "iatVA": "0x401198"
+        },
+        {
+          "name": "__vbaNew",
+          "iatVA": "0x40119C"
+        },
+        {
+          "name": "ordinal:601",
+          "iatVA": "0x4011A0"
+        },
+        {
+          "name": "__vbaUI1I2",
+          "iatVA": "0x4011A4"
+        },
+        {
+          "name": "_CIsqrt",
+          "iatVA": "0x4011A8"
+        },
+        {
+          "name": "__vbaLateIdCallSt",
+          "iatVA": "0x4011AC"
+        },
+        {
+          "name": "__vbaVarAnd",
+          "iatVA": "0x4011B0"
+        },
+        {
+          "name": "__vbaObjIs",
+          "iatVA": "0x4011B4"
+        },
+        {
+          "name": "EVENT_SINK_QueryInterface",
+          "iatVA": "0x4011B8"
+        },
+        {
+          "name": "__vbaUI1I4",
+          "iatVA": "0x4011BC"
+        },
+        {
+          "name": "__vbaStrUI1",
+          "iatVA": "0x4011C0"
+        },
+        {
+          "name": "__vbaVarMul",
+          "iatVA": "0x4011C4"
+        },
+        {
+          "name": "__vbaExceptHandler",
+          "iatVA": "0x4011C8"
+        },
+        {
+          "name": "ordinal:712",
+          "iatVA": "0x4011CC"
+        },
+        {
+          "name": "__vbaStrToUnicode",
+          "iatVA": "0x4011D0"
+        },
+        {
+          "name": "ordinal:606",
+          "iatVA": "0x4011D4"
+        },
+        {
+          "name": "_adj_fprem",
+          "iatVA": "0x4011D8"
+        },
+        {
+          "name": "_adj_fdivr_m64",
+          "iatVA": "0x4011DC"
+        },
+        {
+          "name": "__vbaFailedFriend",
+          "iatVA": "0x4011E0"
+        },
+        {
+          "name": "__vbaI2Str",
+          "iatVA": "0x4011E4"
+        },
+        {
+          "name": "__vbaVarDiv",
+          "iatVA": "0x4011E8"
+        },
+        {
+          "name": "ordinal:608",
+          "iatVA": "0x4011EC"
+        },
+        {
+          "name": "__vbaVarCmpLe",
+          "iatVA": "0x4011F0"
+        },
+        {
+          "name": "ordinal:531",
+          "iatVA": "0x4011F4"
+        },
+        {
+          "name": "__vbaFPException",
+          "iatVA": "0x4011F8"
+        },
+        {
+          "name": "ordinal:717",
+          "iatVA": "0x4011FC"
+        },
+        {
+          "name": "__vbaInStrVar",
+          "iatVA": "0x401200"
+        },
+        {
+          "name": "__vbaGetOwner3",
+          "iatVA": "0x401204"
+        },
+        {
+          "name": "__vbaStrVarVal",
+          "iatVA": "0x401208"
+        },
+        {
+          "name": "__vbaUbound",
+          "iatVA": "0x40120C"
+        },
+        {
+          "name": "__vbaVarCat",
+          "iatVA": "0x401210"
+        },
+        {
+          "name": "__vbaGetOwner4",
+          "iatVA": "0x401214"
+        },
+        {
+          "name": "__vbaDateVar",
+          "iatVA": "0x401218"
+        },
+        {
+          "name": "__vbaLsetFixstrFree",
+          "iatVA": "0x40121C"
+        },
+        {
+          "name": "__vbaI2Var",
+          "iatVA": "0x401220"
+        },
+        {
+          "name": "ordinal:644",
+          "iatVA": "0x401224"
+        },
+        {
+          "name": "ordinal:537",
+          "iatVA": "0x401228"
+        },
+        {
+          "name": "__vbaStopExe",
+          "iatVA": "0x40122C"
+        },
+        {
+          "name": "__vbaFileSeek",
+          "iatVA": "0x401230"
+        },
+        {
+          "name": "ordinal:538",
+          "iatVA": "0x401234"
+        },
+        {
+          "name": "ordinal:645",
+          "iatVA": "0x401238"
+        },
+        {
+          "name": "_CIlog",
+          "iatVA": "0x40123C"
+        },
+        {
+          "name": "ordinal:539",
+          "iatVA": "0x401240"
+        },
+        {
+          "name": "__vbaErrorOverflow",
+          "iatVA": "0x401244"
+        },
+        {
+          "name": "__vbaFileOpen",
+          "iatVA": "0x401248"
+        },
+        {
+          "name": "__vbaInStr",
+          "iatVA": "0x40124C"
+        },
+        {
+          "name": "__vbaVar2Vec",
+          "iatVA": "0x401250"
+        },
+        {
+          "name": "__vbaNew2",
+          "iatVA": "0x401254"
+        },
+        {
+          "name": "ordinal:648",
+          "iatVA": "0x401258"
+        },
+        {
+          "name": "__vbaR8Str",
+          "iatVA": "0x40125C"
+        },
+        {
+          "name": "_adj_fdiv_m32i",
+          "iatVA": "0x401260"
+        },
+        {
+          "name": "_adj_fdivr_m32i",
+          "iatVA": "0x401264"
+        },
+        {
+          "name": "__vbaStrCopy",
+          "iatVA": "0x401268"
+        },
+        {
+          "name": "ordinal:573",
+          "iatVA": "0x40126C"
+        },
+        {
+          "name": "__vbaI4Str",
+          "iatVA": "0x401270"
+        },
+        {
+          "name": "ordinal:681",
+          "iatVA": "0x401274"
+        },
+        {
+          "name": "__vbaVarCmpLt",
+          "iatVA": "0x401278"
+        },
+        {
+          "name": "__vbaFreeStrList",
+          "iatVA": "0x40127C"
+        },
+        {
+          "name": "_adj_fdivr_m32",
+          "iatVA": "0x401280"
+        },
+        {
+          "name": "__vbaPowerR8",
+          "iatVA": "0x401284"
+        },
+        {
+          "name": "__vbaR8Var",
+          "iatVA": "0x401288"
+        },
+        {
+          "name": "_adj_fdiv_r",
+          "iatVA": "0x40128C"
+        },
+        {
+          "name": "ordinal:685",
+          "iatVA": "0x401290"
+        },
+        {
+          "name": "ordinal:578",
+          "iatVA": "0x401294"
+        },
+        {
+          "name": "ordinal:100",
+          "iatVA": "0x401298"
+        },
+        {
+          "name": "__vbaVarTstNe",
+          "iatVA": "0x40129C"
+        },
+        {
+          "name": "__vbaI4Var",
+          "iatVA": "0x4012A0"
+        },
+        {
+          "name": "__vbaVarCmpEq",
+          "iatVA": "0x4012A4"
+        },
+        {
+          "name": "__vbaVarAdd",
+          "iatVA": "0x4012A8"
+        },
+        {
+          "name": "__vbaAryLock",
+          "iatVA": "0x4012AC"
+        },
+        {
+          "name": "__vbaStrToAnsi",
+          "iatVA": "0x4012B0"
+        },
+        {
+          "name": "__vbaVarDup",
+          "iatVA": "0x4012B4"
+        },
+        {
+          "name": "__vbaFpI2",
+          "iatVA": "0x4012B8"
+        },
+        {
+          "name": "__vbaVarMod",
+          "iatVA": "0x4012BC"
+        },
+        {
+          "name": "ordinal:616",
+          "iatVA": "0x4012C0"
+        },
+        {
+          "name": "__vbaFpI4",
+          "iatVA": "0x4012C4"
+        },
+        {
+          "name": "__vbaVarCopy",
+          "iatVA": "0x4012C8"
+        },
+        {
+          "name": "__vbaVarTstGe",
+          "iatVA": "0x4012CC"
+        },
+        {
+          "name": "__vbaRecDestructAnsi",
+          "iatVA": "0x4012D0"
+        },
+        {
+          "name": "ordinal:617",
+          "iatVA": "0x4012D4"
+        },
+        {
+          "name": "_CIatan",
+          "iatVA": "0x4012D8"
+        },
+        {
+          "name": "__vbaUI1Str",
+          "iatVA": "0x4012DC"
+        },
+        {
+          "name": "__vbaStrMove",
+          "iatVA": "0x4012E0"
+        },
+        {
+          "name": "__vbaCastObj",
+          "iatVA": "0x4012E4"
+        },
+        {
+          "name": "__vbaAryCopy",
+          "iatVA": "0x4012E8"
+        },
+        {
+          "name": "ordinal:618",
+          "iatVA": "0x4012EC"
+        },
+        {
+          "name": "__vbaMidStmtVar",
+          "iatVA": "0x4012F0"
+        },
+        {
+          "name": "ordinal:619",
+          "iatVA": "0x4012F4"
+        },
+        {
+          "name": "__vbaStrVarCopy",
+          "iatVA": "0x4012F8"
+        },
+        {
+          "name": "__vbaVarNeg",
+          "iatVA": "0x4012FC"
+        },
+        {
+          "name": "_allmul",
+          "iatVA": "0x401300"
+        },
+        {
+          "name": "__vbaLateIdSt",
+          "iatVA": "0x401304"
+        },
+        {
+          "name": "__vbaLenVarB",
+          "iatVA": "0x401308"
+        },
+        {
+          "name": "_CItan",
+          "iatVA": "0x40130C"
+        },
+        {
+          "name": "__vbaFPInt",
+          "iatVA": "0x401310"
+        },
+        {
+          "name": "__vbaUI1Var",
+          "iatVA": "0x401314"
+        },
+        {
+          "name": "__vbaAryUnlock",
+          "iatVA": "0x401318"
+        },
+        {
+          "name": "__vbaVarForNext",
+          "iatVA": "0x40131C"
+        },
+        {
+          "name": "_CIexp",
+          "iatVA": "0x401320"
+        },
+        {
+          "name": "__vbaFreeObj",
+          "iatVA": "0x401324"
+        },
+        {
+          "name": "__vbaFreeStr",
+          "iatVA": "0x401328"
+        },
+        {
+          "name": "ordinal:581",
+          "iatVA": "0x40132C"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "path": [
+        3,
+        30001,
+        0
+      ],
+      "rva": "0x1733A8",
+      "offset": "0x16A3A8",
+      "size": 2216
+    },
+    {
+      "path": [
+        14,
+        1,
+        0
+      ],
+      "rva": "0x173394",
+      "offset": "0x16A394",
+      "size": 20
+    },
+    {
+      "path": [
+        16,
+        1,
+        2052
+      ],
+      "rva": "0x1730F0",
+      "offset": "0x16A0F0",
+      "size": 676,
+      "versionInfo": {
+        "values": {
+          "Comments": "2025-10-01编译               6.6판 ",
+          "CompanyName": "Star175",
+          "LegalCopyright": "Star175",
+          "ProductName": "형상편집기",
+          "FileVersion": "1.00.0066",
+          "ProductVersion": "1.00.0066",
+          "InternalName": "형상편집기66",
+          "OriginalFilename": "형상편집기66.exe"
+        },
+        "warnings": [
+          "Comments: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+          "CompanyName: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+          "LegalCopyright: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+          "ProductName: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+          "FileVersion: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+          "ProductVersion: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+          "InternalName: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+          "OriginalFilename: nonstandard wValueLength appears to count bytes instead of UTF-16 code units"
+        ]
+      }
+    }
+  ],
+  "interestingStrings": [
+    {
+      "offset": "0x238",
+      "text": "MSVBVM60.DLL"
+    },
+    {
+      "offset": "0x47B7C",
+      "text": "VB5!6&vb6chs.dll"
+    },
+    {
+      "offset": "0x58090",
+      "text": "gdi32.dll"
+    },
+    {
+      "offset": "0x58698",
+      "text": "comdlg32.dll"
+    },
+    {
+      "offset": "0x5A2DC",
+      "text": "psapi.dll"
+    },
+    {
+      "offset": "0x5A9C4",
+      "text": "C:\\Windows\\SysWow64\\msvbvm60.dll\\3"
+    },
+    {
+      "offset": "0x5AA28",
+      "text": "zlib.dll"
+    },
+    {
+      "offset": "0x5AAC0",
+      "text": "kernel32.dll"
+    },
+    {
+      "offset": "0x5AB1C",
+      "text": "user32.dll"
+    },
+    {
+      "offset": "0x5ABFC",
+      "text": "msvbvm60.dll"
+    },
+    {
+      "offset": "0x5AFC4",
+      "text": "VBA6.DLL"
+    },
+    {
+      "offset": "0x5E150",
+      "text": "MSIMG32.dll"
+    },
+    {
+      "offset": "0x5E400",
+      "text": "gdi32.dll   "
+    },
+    {
+      "offset": "0x167F20",
+      "text": "MSVBVM60.DLL"
+    }
+  ]
+}

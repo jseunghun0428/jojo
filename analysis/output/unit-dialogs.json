@@ -1,0 +1,3031 @@
+[
+  {
+    "resource": [
+      5,
+      166,
+      1042
+    ],
+    "offset": "0x10E5AC",
+    "extended": true,
+    "title": "장수정보",
+    "coordinates": {
+      "x": 360,
+      "y": 10,
+      "width": 326,
+      "height": 272
+    },
+    "font": {
+      "pointSize": 9,
+      "weight": 0,
+      "italic": 0,
+      "charset": 0,
+      "face": "굴림체"
+    },
+    "menu": "",
+    "windowClass": "",
+    "style": 2160591040,
+    "exStyle": 0,
+    "controls": [
+      {
+        "id": 2,
+        "idHex": "0x2",
+        "text": "결정",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 276,
+          "y": 256,
+          "width": 38,
+          "height": 13
+        },
+        "sourceOffset": "0x10e5e4"
+      },
+      {
+        "id": 1027,
+        "idHex": "0x403",
+        "text": "뒤로",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 191,
+          "y": 256,
+          "width": 37,
+          "height": 13
+        },
+        "sourceOffset": "0x10e608"
+      },
+      {
+        "id": 1028,
+        "idHex": "0x404",
+        "text": "다음",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 230,
+          "y": 256,
+          "width": 40,
+          "height": 13
+        },
+        "sourceOffset": "0x10e62c"
+      },
+      {
+        "id": 1029,
+        "idHex": "0x405",
+        "text": "Tab1",
+        "class": "SysTabControl32",
+        "coordinates": {
+          "x": 191,
+          "y": 2,
+          "width": 133,
+          "height": 245
+        },
+        "sourceOffset": "0x10e650"
+      },
+      {
+        "id": 1076,
+        "idHex": "0x434",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 5,
+          "y": 3,
+          "width": 80,
+          "height": 80
+        },
+        "sourceOffset": "0x10e694"
+      },
+      {
+        "id": 1235,
+        "idHex": "0x4d3",
+        "text": "",
+        "class": {
+          "ordinal": 131
+        },
+        "coordinates": {
+          "x": 91,
+          "y": 130,
+          "width": 97,
+          "height": 89
+        },
+        "sourceOffset": "0x10e6b4"
+      },
+      {
+        "id": 1014,
+        "idHex": "0x3f6",
+        "text": "N",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 3,
+          "y": 85,
+          "width": 40,
+          "height": 9
+        },
+        "sourceOffset": "0x10e6d4"
+      },
+      {
+        "id": 1015,
+        "idHex": "0x3f7",
+        "text": "B",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 47,
+          "y": 85,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x10e6f8"
+      },
+      {
+        "id": 1016,
+        "idHex": "0x3f8",
+        "text": "Att",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 3,
+          "y": 95,
+          "width": 45,
+          "height": 9
+        },
+        "sourceOffset": "0x10e71c"
+      },
+      {
+        "id": 1017,
+        "idHex": "0x3f9",
+        "text": "9",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 15,
+          "y": 105,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x10e744"
+      },
+      {
+        "id": 1018,
+        "idHex": "0x3fa",
+        "text": "소지금",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 1,
+          "y": 250,
+          "width": 36,
+          "height": 19
+        },
+        "sourceOffset": "0x10e768"
+      },
+      {
+        "id": 1019,
+        "idHex": "0x3fb",
+        "text": "1",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 5,
+          "y": 258,
+          "width": 28,
+          "height": 9
+        },
+        "sourceOffset": "0x10e790"
+      },
+      {
+        "id": 1020,
+        "idHex": "0x3fc",
+        "text": "A",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 40,
+          "y": 256,
+          "width": 147,
+          "height": 12
+        },
+        "sourceOffset": "0x10e7b4"
+      },
+      {
+        "id": 1021,
+        "idHex": "0x3fd",
+        "text": "S",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 1,
+          "y": 221,
+          "width": 188,
+          "height": 26
+        },
+        "sourceOffset": "0x10e7d8"
+      },
+      {
+        "id": 1446,
+        "idHex": "0x5a6",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 91,
+          "y": 50,
+          "width": 97,
+          "height": 76
+        },
+        "sourceOffset": "0x10e7fc"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "Lv",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 3,
+          "y": 105,
+          "width": 8,
+          "height": 9
+        },
+        "sourceOffset": "0x10e81c"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "Exp",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 30,
+          "y": 105,
+          "width": 12,
+          "height": 9
+        },
+        "sourceOffset": "0x10e840"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "능력",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 1,
+          "y": 114,
+          "width": 88,
+          "height": 104
+        },
+        "sourceOffset": "0x10e868"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "HP",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 4,
+          "y": 125,
+          "width": 10,
+          "height": 9
+        },
+        "sourceOffset": "0x10e88c"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "MP",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 4,
+          "y": 135,
+          "width": 10,
+          "height": 9
+        },
+        "sourceOffset": "0x10e8b0"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "SP",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 4,
+          "y": 145,
+          "width": 10,
+          "height": 9
+        },
+        "sourceOffset": "0x10e8d4"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "공격력",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 4,
+          "y": 155,
+          "width": 25,
+          "height": 9
+        },
+        "sourceOffset": "0x10e8f8"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "방어력",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 4,
+          "y": 165,
+          "width": 25,
+          "height": 9
+        },
+        "sourceOffset": "0x10e920"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "정신력",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 4,
+          "y": 175,
+          "width": 25,
+          "height": 9
+        },
+        "sourceOffset": "0x10e948"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "순발력",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 4,
+          "y": 185,
+          "width": 25,
+          "height": 9
+        },
+        "sourceOffset": "0x10e970"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "사기",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 4,
+          "y": 195,
+          "width": 25,
+          "height": 9
+        },
+        "sourceOffset": "0x10e998"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "이동력",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 4,
+          "y": 205,
+          "width": 25,
+          "height": 9
+        },
+        "sourceOffset": "0x10e9bc"
+      },
+      {
+        "id": 1378,
+        "idHex": "0x562",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 45,
+          "y": 105,
+          "width": 41,
+          "height": 9
+        },
+        "sourceOffset": "0x10e9e4"
+      },
+      {
+        "id": 1379,
+        "idHex": "0x563",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 30,
+          "y": 125,
+          "width": 55,
+          "height": 9
+        },
+        "sourceOffset": "0x10ea04"
+      },
+      {
+        "id": 1380,
+        "idHex": "0x564",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 30,
+          "y": 135,
+          "width": 55,
+          "height": 9
+        },
+        "sourceOffset": "0x10ea24"
+      },
+      {
+        "id": 1381,
+        "idHex": "0x565",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 30,
+          "y": 145,
+          "width": 55,
+          "height": 9
+        },
+        "sourceOffset": "0x10ea44"
+      },
+      {
+        "id": 1382,
+        "idHex": "0x566",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 30,
+          "y": 155,
+          "width": 55,
+          "height": 9
+        },
+        "sourceOffset": "0x10ea64"
+      },
+      {
+        "id": 1383,
+        "idHex": "0x567",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 30,
+          "y": 165,
+          "width": 55,
+          "height": 9
+        },
+        "sourceOffset": "0x10ea84"
+      },
+      {
+        "id": 1384,
+        "idHex": "0x568",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 30,
+          "y": 175,
+          "width": 55,
+          "height": 9
+        },
+        "sourceOffset": "0x10eaa4"
+      },
+      {
+        "id": 1385,
+        "idHex": "0x569",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 30,
+          "y": 185,
+          "width": 55,
+          "height": 9
+        },
+        "sourceOffset": "0x10eac4"
+      },
+      {
+        "id": 1386,
+        "idHex": "0x56a",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 30,
+          "y": 195,
+          "width": 55,
+          "height": 9
+        },
+        "sourceOffset": "0x10eae4"
+      },
+      {
+        "id": 1387,
+        "idHex": "0x56b",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 41,
+          "y": 205,
+          "width": 38,
+          "height": 9
+        },
+        "sourceOffset": "0x10eb04"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "기본능력",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 91,
+          "y": 1,
+          "width": 97,
+          "height": 45
+        },
+        "sourceOffset": "0x10eb24"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "무력",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 97,
+          "y": 12,
+          "width": 17,
+          "height": 9
+        },
+        "sourceOffset": "0x10eb4c"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "통솔",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 97,
+          "y": 23,
+          "width": 17,
+          "height": 9
+        },
+        "sourceOffset": "0x10eb70"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "지력",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 97,
+          "y": 34,
+          "width": 17,
+          "height": 9
+        },
+        "sourceOffset": "0x10eb94"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "민첩",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 145,
+          "y": 12,
+          "width": 17,
+          "height": 9
+        },
+        "sourceOffset": "0x10ebb8"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "행운",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 145,
+          "y": 23,
+          "width": 17,
+          "height": 9
+        },
+        "sourceOffset": "0x10ebdc"
+      },
+      {
+        "id": 2001,
+        "idHex": "0x7d1",
+        "text": "0",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 117,
+          "y": 12,
+          "width": 14,
+          "height": 9
+        },
+        "sourceOffset": "0x10ec00"
+      },
+      {
+        "id": 2002,
+        "idHex": "0x7d2",
+        "text": "0",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 117,
+          "y": 23,
+          "width": 14,
+          "height": 9
+        },
+        "sourceOffset": "0x10ec24"
+      },
+      {
+        "id": 2003,
+        "idHex": "0x7d3",
+        "text": "0",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 117,
+          "y": 34,
+          "width": 14,
+          "height": 9
+        },
+        "sourceOffset": "0x10ec48"
+      },
+      {
+        "id": 2004,
+        "idHex": "0x7d4",
+        "text": "0",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 165,
+          "y": 12,
+          "width": 14,
+          "height": 9
+        },
+        "sourceOffset": "0x10ec6c"
+      },
+      {
+        "id": 2005,
+        "idHex": "0x7d5",
+        "text": "0",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 165,
+          "y": 23,
+          "width": 14,
+          "height": 9
+        },
+        "sourceOffset": "0x10ec90"
+      }
+    ]
+  },
+  {
+    "resource": [
+      5,
+      236,
+      1042
+    ],
+    "offset": "0x10F57C",
+    "extended": true,
+    "title": "장수선택",
+    "coordinates": {
+      "x": 0,
+      "y": 0,
+      "width": 475,
+      "height": 313
+    },
+    "font": {
+      "pointSize": 9,
+      "weight": 0,
+      "italic": 0,
+      "charset": 0,
+      "face": "굴림체"
+    },
+    "menu": "",
+    "windowClass": "",
+    "style": 2160591040,
+    "exStyle": 0,
+    "controls": [
+      {
+        "id": 1087,
+        "idHex": "0x43f",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 3,
+          "y": 5,
+          "width": 340,
+          "height": 204
+        },
+        "sourceOffset": "0x10f5b4"
+      },
+      {
+        "id": 1388,
+        "idHex": "0x56c",
+        "text": "Count   ( 99 / 99 )",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 27,
+          "y": 210,
+          "width": 85,
+          "height": 9
+        },
+        "sourceOffset": "0x10f5d4"
+      },
+      {
+        "id": 1089,
+        "idHex": "0x441",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 3,
+          "y": 220,
+          "width": 340,
+          "height": 72
+        },
+        "sourceOffset": "0x10f61c"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "장수정보",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 348,
+          "y": 1,
+          "width": 125,
+          "height": 294
+        },
+        "sourceOffset": "0x10f63c"
+      },
+      {
+        "id": 1076,
+        "idHex": "0x434",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 352,
+          "y": 12,
+          "width": 80,
+          "height": 80
+        },
+        "sourceOffset": "0x10f664"
+      },
+      {
+        "id": 1139,
+        "idHex": "0x473",
+        "text": "N",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 434,
+          "y": 13,
+          "width": 38,
+          "height": 9
+        },
+        "sourceOffset": "0x10f684"
+      },
+      {
+        "id": 1141,
+        "idHex": "0x475",
+        "text": "A",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 434,
+          "y": 23,
+          "width": 35,
+          "height": 9
+        },
+        "sourceOffset": "0x10f6a8"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "Lv",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 434,
+          "y": 33,
+          "width": 8,
+          "height": 9
+        },
+        "sourceOffset": "0x10f6cc"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "무력",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 434,
+          "y": 44,
+          "width": 20,
+          "height": 9
+        },
+        "sourceOffset": "0x10f6f0"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "통솔",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 434,
+          "y": 54,
+          "width": 21,
+          "height": 9
+        },
+        "sourceOffset": "0x10f714"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "지력",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 434,
+          "y": 64,
+          "width": 19,
+          "height": 9
+        },
+        "sourceOffset": "0x10f738"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "민첩",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 434,
+          "y": 74,
+          "width": 19,
+          "height": 9
+        },
+        "sourceOffset": "0x10f75c"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "행운",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 434,
+          "y": 84,
+          "width": 19,
+          "height": 9
+        },
+        "sourceOffset": "0x10f780"
+      },
+      {
+        "id": 1015,
+        "idHex": "0x3f7",
+        "text": "0",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 456,
+          "y": 34,
+          "width": 14,
+          "height": 9
+        },
+        "sourceOffset": "0x10f7a4"
+      },
+      {
+        "id": 1016,
+        "idHex": "0x3f8",
+        "text": "0",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 456,
+          "y": 44,
+          "width": 14,
+          "height": 9
+        },
+        "sourceOffset": "0x10f7c8"
+      },
+      {
+        "id": 1017,
+        "idHex": "0x3f9",
+        "text": "0",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 456,
+          "y": 53,
+          "width": 14,
+          "height": 9
+        },
+        "sourceOffset": "0x10f7ec"
+      },
+      {
+        "id": 1018,
+        "idHex": "0x3fa",
+        "text": "0",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 456,
+          "y": 63,
+          "width": 14,
+          "height": 9
+        },
+        "sourceOffset": "0x10f810"
+      },
+      {
+        "id": 1019,
+        "idHex": "0x3fb",
+        "text": "0",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 456,
+          "y": 74,
+          "width": 14,
+          "height": 9
+        },
+        "sourceOffset": "0x10f834"
+      },
+      {
+        "id": 1020,
+        "idHex": "0x3fc",
+        "text": "0",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 456,
+          "y": 84,
+          "width": 14,
+          "height": 9
+        },
+        "sourceOffset": "0x10f858"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "HP",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 352,
+          "y": 94,
+          "width": 117,
+          "height": 21
+        },
+        "sourceOffset": "0x10f87c"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "MP",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 352,
+          "y": 116,
+          "width": 117,
+          "height": 21
+        },
+        "sourceOffset": "0x10f8a0"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "Exp",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 352,
+          "y": 138,
+          "width": 117,
+          "height": 21
+        },
+        "sourceOffset": "0x10f8c4"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "공격",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 352,
+          "y": 160,
+          "width": 117,
+          "height": 21
+        },
+        "sourceOffset": "0x10f8ec"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "방어",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 352,
+          "y": 182,
+          "width": 117,
+          "height": 21
+        },
+        "sourceOffset": "0x10f910"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "정신",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 352,
+          "y": 204,
+          "width": 117,
+          "height": 21
+        },
+        "sourceOffset": "0x10f934"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "순발",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 352,
+          "y": 226,
+          "width": 117,
+          "height": 21
+        },
+        "sourceOffset": "0x10f958"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "사기",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 352,
+          "y": 248,
+          "width": 117,
+          "height": 21
+        },
+        "sourceOffset": "0x10f97c"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "이동",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 352,
+          "y": 270,
+          "width": 117,
+          "height": 21
+        },
+        "sourceOffset": "0x10f9a0"
+      },
+      {
+        "id": 1379,
+        "idHex": "0x563",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 356,
+          "y": 103,
+          "width": 87,
+          "height": 7
+        },
+        "sourceOffset": "0x10f9c4"
+      },
+      {
+        "id": 1380,
+        "idHex": "0x564",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 356,
+          "y": 125,
+          "width": 87,
+          "height": 7
+        },
+        "sourceOffset": "0x10f9e4"
+      },
+      {
+        "id": 1381,
+        "idHex": "0x565",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 356,
+          "y": 147,
+          "width": 87,
+          "height": 7
+        },
+        "sourceOffset": "0x10fa04"
+      },
+      {
+        "id": 1382,
+        "idHex": "0x566",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 356,
+          "y": 169,
+          "width": 87,
+          "height": 7
+        },
+        "sourceOffset": "0x10fa24"
+      },
+      {
+        "id": 1383,
+        "idHex": "0x567",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 356,
+          "y": 191,
+          "width": 87,
+          "height": 7
+        },
+        "sourceOffset": "0x10fa44"
+      },
+      {
+        "id": 1384,
+        "idHex": "0x568",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 356,
+          "y": 213,
+          "width": 87,
+          "height": 7
+        },
+        "sourceOffset": "0x10fa64"
+      },
+      {
+        "id": 1385,
+        "idHex": "0x569",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 356,
+          "y": 235,
+          "width": 87,
+          "height": 7
+        },
+        "sourceOffset": "0x10fa84"
+      },
+      {
+        "id": 1386,
+        "idHex": "0x56a",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 356,
+          "y": 257,
+          "width": 87,
+          "height": 7
+        },
+        "sourceOffset": "0x10faa4"
+      },
+      {
+        "id": 1021,
+        "idHex": "0x3fd",
+        "text": "1",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 446,
+          "y": 102,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x10fac4"
+      },
+      {
+        "id": 1022,
+        "idHex": "0x3fe",
+        "text": "1",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 446,
+          "y": 125,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x10fae8"
+      },
+      {
+        "id": 1023,
+        "idHex": "0x3ff",
+        "text": "1",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 446,
+          "y": 147,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x10fb0c"
+      },
+      {
+        "id": 1024,
+        "idHex": "0x400",
+        "text": "1",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 446,
+          "y": 169,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x10fb30"
+      },
+      {
+        "id": 1025,
+        "idHex": "0x401",
+        "text": "1",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 446,
+          "y": 191,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x10fb54"
+      },
+      {
+        "id": 1026,
+        "idHex": "0x402",
+        "text": "1",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 446,
+          "y": 213,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x10fb78"
+      },
+      {
+        "id": 1027,
+        "idHex": "0x403",
+        "text": "1",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 446,
+          "y": 235,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x10fb9c"
+      },
+      {
+        "id": 1028,
+        "idHex": "0x404",
+        "text": "1",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 446,
+          "y": 257,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x10fbc0"
+      },
+      {
+        "id": 1029,
+        "idHex": "0x405",
+        "text": "9",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 446,
+          "y": 278,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x10fbe4"
+      },
+      {
+        "id": 1001,
+        "idHex": "0x3e9",
+        "text": "아군위치",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 348,
+          "y": 298,
+          "width": 44,
+          "height": 14
+        },
+        "sourceOffset": "0x10fc08"
+      },
+      {
+        "id": 1,
+        "idHex": "0x1",
+        "text": "결정",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 397,
+          "y": 298,
+          "width": 37,
+          "height": 14
+        },
+        "sourceOffset": "0x10fc30"
+      },
+      {
+        "id": 2,
+        "idHex": "0x2",
+        "text": "취소",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 435,
+          "y": 298,
+          "width": 37,
+          "height": 14
+        },
+        "sourceOffset": "0x10fc54"
+      }
+    ]
+  },
+  {
+    "resource": [
+      5,
+      284,
+      1042
+    ],
+    "offset": "0x10FFF4",
+    "extended": false,
+    "title": "",
+    "coordinates": {
+      "x": 1,
+      "y": 14,
+      "width": 128,
+      "height": 228
+    },
+    "font": {
+      "pointSize": 9,
+      "face": "굴림체"
+    },
+    "menu": "",
+    "windowClass": "",
+    "style": 1073741888,
+    "exStyle": 0,
+    "controls": [
+      {
+        "id": 1018,
+        "idHex": "0x3fa",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 1,
+          "y": 22,
+          "width": 33,
+          "height": 33
+        },
+        "sourceOffset": "0x110018"
+      },
+      {
+        "id": 1016,
+        "idHex": "0x3f8",
+        "text": "전투조형",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 2,
+          "y": 3,
+          "width": 32,
+          "height": 9
+        },
+        "sourceOffset": "0x110034"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "공격",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 2,
+          "y": 58,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x110058"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "방어",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 2,
+          "y": 68,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x110078"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "정신",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 2,
+          "y": 78,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x110098"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "순발",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 2,
+          "y": 88,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x1100b8"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "사기",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 2,
+          "y": 98,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x1100d8"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "이동",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 2,
+          "y": 108,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x1100f8"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "HP",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 2,
+          "y": 118,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x110118"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "MP",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 2,
+          "y": 128,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x110138"
+      },
+      {
+        "id": 2006,
+        "idHex": "0x7d6",
+        "text": "A",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 23,
+          "y": 58,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x110158"
+      },
+      {
+        "id": 2007,
+        "idHex": "0x7d7",
+        "text": "A",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 23,
+          "y": 68,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x110174"
+      },
+      {
+        "id": 2008,
+        "idHex": "0x7d8",
+        "text": "A",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 23,
+          "y": 78,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x110190"
+      },
+      {
+        "id": 2009,
+        "idHex": "0x7d9",
+        "text": "A",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 23,
+          "y": 88,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x1101ac"
+      },
+      {
+        "id": 2010,
+        "idHex": "0x7da",
+        "text": "A",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 23,
+          "y": 98,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x1101c8"
+      },
+      {
+        "id": 1380,
+        "idHex": "0x564",
+        "text": "A",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 23,
+          "y": 108,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x1101e4"
+      },
+      {
+        "id": 1387,
+        "idHex": "0x56b",
+        "text": "A",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 23,
+          "y": 118,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x110200"
+      },
+      {
+        "id": 1388,
+        "idHex": "0x56c",
+        "text": "A",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 23,
+          "y": 128,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x11021c"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "공격범위",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 40,
+          "y": 3,
+          "width": 32,
+          "height": 9
+        },
+        "sourceOffset": "0x110238"
+      },
+      {
+        "id": 1449,
+        "idHex": "0x5a9",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 36,
+          "y": 13,
+          "width": 41,
+          "height": 41
+        },
+        "sourceOffset": "0x11025c"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "영향범위",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 84,
+          "y": 3,
+          "width": 32,
+          "height": 9
+        },
+        "sourceOffset": "0x110278"
+      },
+      {
+        "id": 1450,
+        "idHex": "0x5aa",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 80,
+          "y": 13,
+          "width": 41,
+          "height": 41
+        },
+        "sourceOffset": "0x11029c"
+      },
+      {
+        "id": 1446,
+        "idHex": "0x5a6",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 1,
+          "y": 161,
+          "width": 121,
+          "height": 66
+        },
+        "sourceOffset": "0x1102b8"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "무기:",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 46,
+          "y": 58,
+          "width": 22,
+          "height": 9
+        },
+        "sourceOffset": "0x1102d4"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "의복:",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 46,
+          "y": 108,
+          "width": 22,
+          "height": 9
+        },
+        "sourceOffset": "0x1102f4"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "책략피해:",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 2,
+          "y": 138,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x110314"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "협공참여:",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 62,
+          "y": 138,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x110338"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "간접공격:",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 2,
+          "y": 148,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x11035c"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "병종유형:",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 62,
+          "y": 148,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x110380"
+      },
+      {
+        "id": 1467,
+        "idHex": "0x5bb",
+        "text": "C",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 42,
+          "y": 138,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x1103a4"
+      },
+      {
+        "id": 1468,
+        "idHex": "0x5bc",
+        "text": "W",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 102,
+          "y": 138,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x1103c0"
+      },
+      {
+        "id": 1469,
+        "idHex": "0x5bd",
+        "text": "Y",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 42,
+          "y": 148,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x1103dc"
+      },
+      {
+        "id": 1470,
+        "idHex": "0x5be",
+        "text": "B",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 102,
+          "y": 148,
+          "width": 18,
+          "height": 9
+        },
+        "sourceOffset": "0x1103f8"
+      }
+    ]
+  },
+  {
+    "resource": [
+      5,
+      332,
+      1042
+    ],
+    "offset": "0x1123D4",
+    "extended": false,
+    "title": "",
+    "coordinates": {
+      "x": 0,
+      "y": 0,
+      "width": 231,
+      "height": 111
+    },
+    "font": {
+      "pointSize": 9,
+      "face": "굴림체"
+    },
+    "menu": "",
+    "windowClass": "",
+    "style": 2147484353,
+    "exStyle": 0,
+    "controls": [
+      {
+        "id": 2,
+        "idHex": "0x2",
+        "text": "결정",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 70,
+          "y": 94,
+          "width": 44,
+          "height": 16
+        },
+        "sourceOffset": "0x1123f8"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "공훈",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 117,
+          "y": 0,
+          "width": 113,
+          "height": 109
+        },
+        "sourceOffset": "0x112418"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "점수：",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 131,
+          "y": 92,
+          "width": 24,
+          "height": 8
+        },
+        "sourceOffset": "0x112438"
+      },
+      {
+        "id": 2011,
+        "idHex": "0x7db",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 156,
+          "y": 92,
+          "width": 32,
+          "height": 9
+        },
+        "sourceOffset": "0x112458"
+      },
+      {
+        "id": 1030,
+        "idHex": "0x406",
+        "text": "무력：",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 119,
+          "y": 12,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x112474"
+      },
+      {
+        "id": 2006,
+        "idHex": "0x7d6",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 160,
+          "y": 12,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x112494"
+      },
+      {
+        "id": 2022,
+        "idHex": "0x7e6",
+        "text": "+",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 200,
+          "y": 12,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x1124b0"
+      },
+      {
+        "id": 2027,
+        "idHex": "0x7eb",
+        "text": "-",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 213,
+          "y": 12,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x1124cc"
+      },
+      {
+        "id": 1031,
+        "idHex": "0x407",
+        "text": "통솔：",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 119,
+          "y": 28,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x1124e8"
+      },
+      {
+        "id": 2007,
+        "idHex": "0x7d7",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 160,
+          "y": 28,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x112508"
+      },
+      {
+        "id": 2023,
+        "idHex": "0x7e7",
+        "text": "+",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 200,
+          "y": 28,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112524"
+      },
+      {
+        "id": 2028,
+        "idHex": "0x7ec",
+        "text": "-",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 213,
+          "y": 28,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112540"
+      },
+      {
+        "id": 1032,
+        "idHex": "0x408",
+        "text": "지력：",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 119,
+          "y": 44,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x11255c"
+      },
+      {
+        "id": 2008,
+        "idHex": "0x7d8",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 160,
+          "y": 44,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x11257c"
+      },
+      {
+        "id": 2024,
+        "idHex": "0x7e8",
+        "text": "+",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 200,
+          "y": 44,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112598"
+      },
+      {
+        "id": 2029,
+        "idHex": "0x7ed",
+        "text": "-",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 213,
+          "y": 44,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x1125b4"
+      },
+      {
+        "id": 1033,
+        "idHex": "0x409",
+        "text": "민첩：",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 119,
+          "y": 60,
+          "width": 36,
+          "height": 8
+        },
+        "sourceOffset": "0x1125d0"
+      },
+      {
+        "id": 2009,
+        "idHex": "0x7d9",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 160,
+          "y": 60,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x1125f0"
+      },
+      {
+        "id": 2025,
+        "idHex": "0x7e9",
+        "text": "+",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 200,
+          "y": 60,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x11260c"
+      },
+      {
+        "id": 2030,
+        "idHex": "0x7ee",
+        "text": "-",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 213,
+          "y": 60,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112628"
+      },
+      {
+        "id": 1034,
+        "idHex": "0x40a",
+        "text": "행운：",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 119,
+          "y": 76,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x112644"
+      },
+      {
+        "id": 2010,
+        "idHex": "0x7da",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 160,
+          "y": 76,
+          "width": 36,
+          "height": 9
+        },
+        "sourceOffset": "0x112664"
+      },
+      {
+        "id": 2026,
+        "idHex": "0x7ea",
+        "text": "+",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 200,
+          "y": 76,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112680"
+      },
+      {
+        "id": 2031,
+        "idHex": "0x7ef",
+        "text": "-",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 213,
+          "y": 76,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x11269c"
+      },
+      {
+        "id": 2001,
+        "idHex": "0x7d1",
+        "text": "재편",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 200,
+          "y": 89,
+          "width": 27,
+          "height": 14
+        },
+        "sourceOffset": "0x1126b8"
+      },
+      {
+        "id": 1235,
+        "idHex": "0x4d3",
+        "text": "",
+        "class": {
+          "ordinal": 131
+        },
+        "coordinates": {
+          "x": 1,
+          "y": 4,
+          "width": 113,
+          "height": 88
+        },
+        "sourceOffset": "0x1126d8"
+      }
+    ]
+  },
+  {
+    "resource": [
+      5,
+      336,
+      1042
+    ],
+    "offset": "0x1128F8",
+    "extended": false,
+    "title": "신무장설정",
+    "coordinates": {
+      "x": 0,
+      "y": 0,
+      "width": 222,
+      "height": 100
+    },
+    "font": {
+      "pointSize": 9,
+      "face": "굴림체"
+    },
+    "menu": "",
+    "windowClass": "",
+    "style": 2428504256,
+    "exStyle": 0,
+    "controls": [
+      {
+        "id": 1076,
+        "idHex": "0x434",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 3,
+          "y": 4,
+          "width": 80,
+          "height": 80
+        },
+        "sourceOffset": "0x112924"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "성：",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 98,
+          "y": 7,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x112940"
+      },
+      {
+        "id": 2018,
+        "idHex": "0x7e2",
+        "text": "",
+        "class": {
+          "ordinal": 129
+        },
+        "coordinates": {
+          "x": 114,
+          "y": 4,
+          "width": 21,
+          "height": 13
+        },
+        "sourceOffset": "0x112960"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "명：",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 139,
+          "y": 7,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x11297c"
+      },
+      {
+        "id": 2019,
+        "idHex": "0x7e3",
+        "text": "",
+        "class": {
+          "ordinal": 129
+        },
+        "coordinates": {
+          "x": 156,
+          "y": 4,
+          "width": 21,
+          "height": 13
+        },
+        "sourceOffset": "0x11299c"
+      },
+      {
+        "id": 2021,
+        "idHex": "0x7e5",
+        "text": "자：",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 181,
+          "y": 7,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x1129b8"
+      },
+      {
+        "id": 2020,
+        "idHex": "0x7e4",
+        "text": "",
+        "class": {
+          "ordinal": 129
+        },
+        "coordinates": {
+          "x": 198,
+          "y": 4,
+          "width": 21,
+          "height": 13
+        },
+        "sourceOffset": "0x1129d8"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "병종：",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 90,
+          "y": 22,
+          "width": 24,
+          "height": 9
+        },
+        "sourceOffset": "0x1129f4"
+      },
+      {
+        "id": 2005,
+        "idHex": "0x7d5",
+        "text": "",
+        "class": {
+          "ordinal": 133
+        },
+        "coordinates": {
+          "x": 114,
+          "y": 19,
+          "width": 63,
+          "height": 69
+        },
+        "sourceOffset": "0x112a14"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "능력：",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 181,
+          "y": 39,
+          "width": 24,
+          "height": 9
+        },
+        "sourceOffset": "0x112a30"
+      },
+      {
+        "id": 2011,
+        "idHex": "0x7db",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 204,
+          "y": 39,
+          "width": 12,
+          "height": 9
+        },
+        "sourceOffset": "0x112a50"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "무력：",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 90,
+          "y": 39,
+          "width": 24,
+          "height": 9
+        },
+        "sourceOffset": "0x112a6c"
+      },
+      {
+        "id": 2006,
+        "idHex": "0x7d6",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 115,
+          "y": 39,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112a8c"
+      },
+      {
+        "id": 2022,
+        "idHex": "0x7e6",
+        "text": "+",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 129,
+          "y": 39,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112aa8"
+      },
+      {
+        "id": 2027,
+        "idHex": "0x7eb",
+        "text": "-",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 143,
+          "y": 39,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112ac4"
+      },
+      {
+        "id": 2012,
+        "idHex": "0x7dc",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 160,
+          "y": 39,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x112ae0"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "통솔：",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 90,
+          "y": 51,
+          "width": 24,
+          "height": 9
+        },
+        "sourceOffset": "0x112afc"
+      },
+      {
+        "id": 2007,
+        "idHex": "0x7d7",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 115,
+          "y": 51,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112b1c"
+      },
+      {
+        "id": 2023,
+        "idHex": "0x7e7",
+        "text": "+",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 129,
+          "y": 51,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112b38"
+      },
+      {
+        "id": 2028,
+        "idHex": "0x7ec",
+        "text": "-",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 143,
+          "y": 51,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112b54"
+      },
+      {
+        "id": 2013,
+        "idHex": "0x7dd",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 160,
+          "y": 52,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x112b70"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "지력：",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 90,
+          "y": 63,
+          "width": 24,
+          "height": 9
+        },
+        "sourceOffset": "0x112b8c"
+      },
+      {
+        "id": 2008,
+        "idHex": "0x7d8",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 115,
+          "y": 63,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112bac"
+      },
+      {
+        "id": 2024,
+        "idHex": "0x7e8",
+        "text": "+",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 129,
+          "y": 63,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112bc8"
+      },
+      {
+        "id": 2029,
+        "idHex": "0x7ed",
+        "text": "-",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 143,
+          "y": 63,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112be4"
+      },
+      {
+        "id": 2014,
+        "idHex": "0x7de",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 160,
+          "y": 63,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x112c00"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "민첩：",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 90,
+          "y": 75,
+          "width": 24,
+          "height": 9
+        },
+        "sourceOffset": "0x112c1c"
+      },
+      {
+        "id": 2009,
+        "idHex": "0x7d9",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 115,
+          "y": 75,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112c3c"
+      },
+      {
+        "id": 2025,
+        "idHex": "0x7e9",
+        "text": "+",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 129,
+          "y": 75,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112c58"
+      },
+      {
+        "id": 2030,
+        "idHex": "0x7ee",
+        "text": "-",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 143,
+          "y": 75,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112c74"
+      },
+      {
+        "id": 2015,
+        "idHex": "0x7df",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 160,
+          "y": 75,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x112c90"
+      },
+      {
+        "id": 65535,
+        "idHex": "0xffff",
+        "text": "행운：",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 90,
+          "y": 87,
+          "width": 24,
+          "height": 9
+        },
+        "sourceOffset": "0x112cac"
+      },
+      {
+        "id": 2010,
+        "idHex": "0x7da",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 115,
+          "y": 87,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112ccc"
+      },
+      {
+        "id": 2026,
+        "idHex": "0x7ea",
+        "text": "+",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 129,
+          "y": 87,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112ce8"
+      },
+      {
+        "id": 2031,
+        "idHex": "0x7ef",
+        "text": "-",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 143,
+          "y": 87,
+          "width": 13,
+          "height": 9
+        },
+        "sourceOffset": "0x112d04"
+      },
+      {
+        "id": 2016,
+        "idHex": "0x7e0",
+        "text": "",
+        "class": {
+          "ordinal": 130
+        },
+        "coordinates": {
+          "x": 160,
+          "y": 87,
+          "width": 16,
+          "height": 9
+        },
+        "sourceOffset": "0x112d20"
+      },
+      {
+        "id": 2001,
+        "idHex": "0x7d1",
+        "text": "재편",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 184,
+          "y": 68,
+          "width": 35,
+          "height": 13
+        },
+        "sourceOffset": "0x112d3c"
+      },
+      {
+        "id": 2002,
+        "idHex": "0x7d2",
+        "text": "결정",
+        "class": {
+          "ordinal": 128
+        },
+        "coordinates": {
+          "x": 184,
+          "y": 82,
+          "width": 35,
+          "height": 13
+        },
+        "sourceOffset": "0x112d5c"
+      }
+    ]
+  }
+]

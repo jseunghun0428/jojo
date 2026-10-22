@@ -1,0 +1,7102 @@
+[
+  {
+    "offset": "0x4D",
+    "text": "!This program cannot be run in DOS mode."
+  },
+  {
+    "offset": "0xD7",
+    "text": "~que~pu"
+  },
+  {
+    "offset": "0xE7",
+    "text": "~Richqu"
+  },
+  {
+    "offset": "0x1F8",
+    "text": ".text"
+  },
+  {
+    "offset": "0x21F",
+    "text": "`.rdata"
+  },
+  {
+    "offset": "0x247",
+    "text": "@.data"
+  },
+  {
+    "offset": "0x270",
+    "text": ".rsrc"
+  },
+  {
+    "offset": "0x297",
+    "text": "@.reloc"
+  },
+  {
+    "offset": "0xF23",
+    "text": "x\"fff"
+  },
+  {
+    "offset": "0x1195",
+    "text": "QPh42D"
+  },
+  {
+    "offset": "0x1202",
+    "text": "Phd2D"
+  },
+  {
+    "offset": "0x1225",
+    "text": "Vht2D"
+  },
+  {
+    "offset": "0x288A",
+    "text": "VAQWP"
+  },
+  {
+    "offset": "0x16B3F",
+    "text": ".u@hlUD"
+  },
+  {
+    "offset": "0x1CA28",
+    "text": "\"ujhp"
+  },
+  {
+    "offset": "0x1CB42",
+    "text": "$ujhp"
+  },
+  {
+    "offset": "0x1DDEF",
+    "text": "@ujhp"
+  },
+  {
+    "offset": "0x1E312",
+    "text": "Ku@hp"
+  },
+  {
+    "offset": "0x1E3E1",
+    "text": "Nu@hp"
+  },
+  {
+    "offset": "0x1E426",
+    "text": "Ou@h0"
+  },
+  {
+    "offset": "0x1E4F5",
+    "text": "Su@h0"
+  },
+  {
+    "offset": "0x1E53A",
+    "text": "Vu@hp"
+  },
+  {
+    "offset": "0x1E57F",
+    "text": "Wu@hp"
+  },
+  {
+    "offset": "0x1E609",
+    "text": "Yu@h0"
+  },
+  {
+    "offset": "0x1E64E",
+    "text": "[u@hP"
+  },
+  {
+    "offset": "0x1E6D8",
+    "text": "`u@hp"
+  },
+  {
+    "offset": "0x1E71D",
+    "text": "cu@hP"
+  },
+  {
+    "offset": "0x1E7A7",
+    "text": "eu@hp"
+  },
+  {
+    "offset": "0x1E7EC",
+    "text": "fu@hp"
+  },
+  {
+    "offset": "0x1E900",
+    "text": "mu@hP"
+  },
+  {
+    "offset": "0x1E945",
+    "text": "ou@hp"
+  },
+  {
+    "offset": "0x1EAA5",
+    "text": "xu=h0"
+  },
+  {
+    "offset": "0x1FE47",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x1FE7E",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x1FECB",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x1FEF9",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x1FF2E",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x1FF77",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x1FFD0",
+    "text": "PQSVW"
+  },
+  {
+    "offset": "0x21C66",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x21CC2",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x21CEE",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x22153",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x22180",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x221E0",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x22208",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x22606",
+    "text": "L$4jdQ"
+  },
+  {
+    "offset": "0x2261C",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2263C",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x22689",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x226D6",
+    "text": "L$4jdQ"
+  },
+  {
+    "offset": "0x226EC",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2270C",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x22759",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x227A7",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x227C1",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x227E1",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2282E",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x228B5",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x228DD",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x22EBE",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x22F1E",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x22F46",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2329E",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x232FE",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x23326",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x23386",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x233AE",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2340E",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x23436",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2431B",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2434D",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x243AD",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x243D9",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x24850",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x2487E",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x248E4",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x24910",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x24976",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x249A2",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x24A08",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x24A34",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x24F2B",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x24F59",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x24FBF",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x24FEB",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2504B",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x25077",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x26BB1",
+    "text": "D$`SVW"
+  },
+  {
+    "offset": "0x26D87",
+    "text": "D$0Pj"
+  },
+  {
+    "offset": "0x26E43",
+    "text": "D$0Pj"
+  },
+  {
+    "offset": "0x27F7F",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x27FA7",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x2807E",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x280AC",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x28112",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x2813E",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x281A4",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x281D0",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x28236",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x28262",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x2868A",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x286B8",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x28736",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2875C",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x287A9",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x287B5",
+    "text": "D$0Pj"
+  },
+  {
+    "offset": "0x287FA",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x28820",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2886D",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x28879",
+    "text": "D$0Pj"
+  },
+  {
+    "offset": "0x288D1",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x288FD",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x289D5",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x28A01",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x28F86",
+    "text": "D$Dj2P"
+  },
+  {
+    "offset": "0x28FC0",
+    "text": "D$Dj2P"
+  },
+  {
+    "offset": "0x29011",
+    "text": "D$Dj2P"
+  },
+  {
+    "offset": "0x2904F",
+    "text": "D$Dj2P"
+  },
+  {
+    "offset": "0x2905F",
+    "text": "D$@Pj"
+  },
+  {
+    "offset": "0x29664",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x296A1",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x29701",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x29733",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x29FB8",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2A018",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2A040",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2A0A0",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2A0C8",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2A895",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2A8C1",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2A925",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2A951",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2A9B5",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2A9E1",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2AA45",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2AA71",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2AAD5",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2AB01",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2AD82",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2ADAE",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2AE12",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2AE3A",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2AF33",
+    "text": "QSVWj"
+  },
+  {
+    "offset": "0x2B525",
+    "text": "D$LjdP"
+  },
+  {
+    "offset": "0x2B551",
+    "text": "D$LjdP"
+  },
+  {
+    "offset": "0x2B5BB",
+    "text": "D$LjdP"
+  },
+  {
+    "offset": "0x2B5E7",
+    "text": "D$LjdP"
+  },
+  {
+    "offset": "0x2B651",
+    "text": "D$LjdP"
+  },
+  {
+    "offset": "0x2B67D",
+    "text": "D$LjdP"
+  },
+  {
+    "offset": "0x2B6E7",
+    "text": "D$LjdP"
+  },
+  {
+    "offset": "0x2B713",
+    "text": "D$LjdP"
+  },
+  {
+    "offset": "0x2B82F",
+    "text": "D$LjdP"
+  },
+  {
+    "offset": "0x2B85D",
+    "text": "D$LjdP"
+  },
+  {
+    "offset": "0x2B8BD",
+    "text": "D$LjdP"
+  },
+  {
+    "offset": "0x2B8E9",
+    "text": "D$LjdP"
+  },
+  {
+    "offset": "0x2B9C3",
+    "text": "QSVWj"
+  },
+  {
+    "offset": "0x2C71F",
+    "text": "D$DjdP"
+  },
+  {
+    "offset": "0x2C785",
+    "text": "D$DjdP"
+  },
+  {
+    "offset": "0x2C7AD",
+    "text": "D$DjdP"
+  },
+  {
+    "offset": "0x2C813",
+    "text": "D$DjdP"
+  },
+  {
+    "offset": "0x2C83B",
+    "text": "D$DjdP"
+  },
+  {
+    "offset": "0x2C8A1",
+    "text": "D$DjdP"
+  },
+  {
+    "offset": "0x2C8C9",
+    "text": "D$DjdP"
+  },
+  {
+    "offset": "0x2CA03",
+    "text": "QSVWj"
+  },
+  {
+    "offset": "0x2CF29",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2CF57",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2CFB7",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2CFE3",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2D043",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2D362",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2D4E5",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2D55C",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2D5D3",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2D9E6",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x2DA42",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x2DA6E",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x2DACA",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x2DAF6",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x2DB52",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x2DB7E",
+    "text": "D$,jdP"
+  },
+  {
+    "offset": "0x2F48A",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2F4EA",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2F512",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2F586",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2F5AB",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2F5F3",
+    "text": "D$0Pj"
+  },
+  {
+    "offset": "0x2F626",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2F64A",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2F697",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x2F6A3",
+    "text": "D$0Pj"
+  },
+  {
+    "offset": "0x2FA41",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x2FA73",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x2FAD9",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x2FB05",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x2FB65",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x2FB91",
+    "text": "D$<jdP"
+  },
+  {
+    "offset": "0x30F3C",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x30F68",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x3108D",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x310B5",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x3179C",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x317C8",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x318ED",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x31915",
+    "text": "D$4jdP"
+  },
+  {
+    "offset": "0x32076",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x320AB",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x320CB",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x32126",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x3213C",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x32156",
+    "text": "D$Hj<P"
+  },
+  {
+    "offset": "0x32263",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x32286",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x322D8",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x322EE",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x3230A",
+    "text": "D$DQj<P"
+  },
+  {
+    "offset": "0x323E0",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x3241A",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x3243E",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x32496",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x324BE",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x324D8",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x324E9",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x32505",
+    "text": "D$Hj<P"
+  },
+  {
+    "offset": "0x32513",
+    "text": "D$Tj<P"
+  },
+  {
+    "offset": "0x32537",
+    "text": "D$<j<P"
+  },
+  {
+    "offset": "0x32E61",
+    "text": "D$XSV"
+  },
+  {
+    "offset": "0x33037",
+    "text": "L$d_^[3"
+  },
+  {
+    "offset": "0x33CBF",
+    "text": "SSSSj"
+  },
+  {
+    "offset": "0x34729",
+    "text": "L$d_^[3"
+  },
+  {
+    "offset": "0x35A04",
+    "text": "?wmVW"
+  },
+  {
+    "offset": "0x36E69",
+    "text": "t$0Rj"
+  },
+  {
+    "offset": "0x36E9F",
+    "text": "L$ Pj"
+  },
+  {
+    "offset": "0x36EB2",
+    "text": "L$,_^[3"
+  },
+  {
+    "offset": "0x372E6",
+    "text": ";H t'"
+  },
+  {
+    "offset": "0x37E4F",
+    "text": "~djlj"
+  },
+  {
+    "offset": "0x389B9",
+    "text": "t$0Rj"
+  },
+  {
+    "offset": "0x389EF",
+    "text": "L$ Pj"
+  },
+  {
+    "offset": "0x38A02",
+    "text": "L$,_^[3"
+  },
+  {
+    "offset": "0x38D10",
+    "text": "PQSVW"
+  },
+  {
+    "offset": "0x3917D",
+    "text": "h4(@Ph"
+  },
+  {
+    "offset": "0x3934C",
+    "text": "j h@A"
+  },
+  {
+    "offset": "0x3BE41",
+    "text": "D$ SV"
+  },
+  {
+    "offset": "0x3BEEC",
+    "text": "t$,Qj"
+  },
+  {
+    "offset": "0x3BF1C",
+    "text": "D$0PRj"
+  },
+  {
+    "offset": "0x3BF55",
+    "text": "D$ PQ"
+  },
+  {
+    "offset": "0x3BF69",
+    "text": "L$,_^[3"
+  },
+  {
+    "offset": "0x3BFCF",
+    "text": "T$$Rh"
+  },
+  {
+    "offset": "0x3E745",
+    "text": "tFhH0D"
+  },
+  {
+    "offset": "0x3EF0F",
+    "text": "5ineI"
+  },
+  {
+    "offset": "0x3EF1A",
+    "text": "5Genu"
+  },
+  {
+    "offset": "0x41C48",
+    "text": "SleepConditionVariableCS"
+  },
+  {
+    "offset": "0x41C64",
+    "text": "WakeAllConditionVariable"
+  },
+  {
+    "offset": "0x41D1C",
+    "text": "Unknown exception"
+  },
+  {
+    "offset": "0x41D30",
+    "text": "bad array new length"
+  },
+  {
+    "offset": "0x41D48",
+    "text": "string too long"
+  },
+  {
+    "offset": "0x42450",
+    "text": "CcczEditor2Doc"
+  },
+  {
+    "offset": "0x42524",
+    "text": "vector too long"
+  },
+  {
+    "offset": "0x42AE8",
+    "text": "CcczEditor2View"
+  },
+  {
+    "offset": "0x4FA88",
+    "text": "CChildFrame"
+  },
+  {
+    "offset": "0x4FD04",
+    "text": "CClassViewMenuButton"
+  },
+  {
+    "offset": "0x51544",
+    "text": "CMainFrame"
+  },
+  {
+    "offset": "0x518FF",
+    "text": "Qck>f:y(Wdk"
+  },
+  {
+    "offset": "0x51913",
+    "text": "Qck>f:y(W"
+  },
+  {
+    "offset": "0x51933",
+    "text": "N9hnc"
+  },
+  {
+    "offset": "0x5193D",
+    "text": "f9evQ>f:y"
+  },
+  {
+    "offset": "0x5195B",
+    "text": "Qck>f:y(Wdk"
+  },
+  {
+    "offset": "0x51973",
+    "text": "Qck>f:y(Wdk"
+  },
+  {
+    "offset": "0x55CCC",
+    "text": "RSDS!"
+  },
+  {
+    "offset": "0x55CE4",
+    "text": "G:\\Users\\52708\\source\\repos\\cczEditor2\\Release\\s.pdb"
+  },
+  {
+    "offset": "0x55D3C",
+    "text": ".text$di"
+  },
+  {
+    "offset": "0x55D50",
+    "text": ".text$mn"
+  },
+  {
+    "offset": "0x55D64",
+    "text": ".text$x"
+  },
+  {
+    "offset": "0x55D74",
+    "text": ".text$yd"
+  },
+  {
+    "offset": "0x55D88",
+    "text": ".idata$5"
+  },
+  {
+    "offset": "0x55D9C",
+    "text": ".00cfg"
+  },
+  {
+    "offset": "0x55DAC",
+    "text": ".CRT$XCA"
+  },
+  {
+    "offset": "0x55DC0",
+    "text": ".CRT$XCAA"
+  },
+  {
+    "offset": "0x55DD4",
+    "text": ".CRT$XCL"
+  },
+  {
+    "offset": "0x55DE8",
+    "text": ".CRT$XCU"
+  },
+  {
+    "offset": "0x55DFC",
+    "text": ".CRT$XCZ"
+  },
+  {
+    "offset": "0x55E10",
+    "text": ".CRT$XIA"
+  },
+  {
+    "offset": "0x55E24",
+    "text": ".CRT$XIAA"
+  },
+  {
+    "offset": "0x55E38",
+    "text": ".CRT$XIAC"
+  },
+  {
+    "offset": "0x55E4C",
+    "text": ".CRT$XIC"
+  },
+  {
+    "offset": "0x55E60",
+    "text": ".CRT$XIZ"
+  },
+  {
+    "offset": "0x55E74",
+    "text": ".CRT$XLA"
+  },
+  {
+    "offset": "0x55E88",
+    "text": ".CRT$XLZ"
+  },
+  {
+    "offset": "0x55E9C",
+    "text": ".CRT$XPA"
+  },
+  {
+    "offset": "0x55EB0",
+    "text": ".CRT$XPZ"
+  },
+  {
+    "offset": "0x55EC4",
+    "text": ".CRT$XTA"
+  },
+  {
+    "offset": "0x55ED8",
+    "text": ".CRT$XTZ"
+  },
+  {
+    "offset": "0x55EEC",
+    "text": ".rdata"
+  },
+  {
+    "offset": "0x55EFC",
+    "text": ".rdata$T"
+  },
+  {
+    "offset": "0x55F10",
+    "text": ".rdata$r"
+  },
+  {
+    "offset": "0x55F24",
+    "text": ".rdata$sxdata"
+  },
+  {
+    "offset": "0x55F3C",
+    "text": ".rdata$voltmd"
+  },
+  {
+    "offset": "0x55F54",
+    "text": ".rdata$zzzdbg"
+  },
+  {
+    "offset": "0x55F6C",
+    "text": ".rtc$IAA"
+  },
+  {
+    "offset": "0x55F80",
+    "text": ".rtc$IZZ"
+  },
+  {
+    "offset": "0x55F94",
+    "text": ".rtc$TAA"
+  },
+  {
+    "offset": "0x55FA8",
+    "text": ".rtc$TZZ"
+  },
+  {
+    "offset": "0x55FCC",
+    "text": ".tls$"
+  },
+  {
+    "offset": "0x55FDC",
+    "text": ".tls$ZZZ"
+  },
+  {
+    "offset": "0x55FF0",
+    "text": ".xdata$x"
+  },
+  {
+    "offset": "0x56004",
+    "text": ".idata$2"
+  },
+  {
+    "offset": "0x56018",
+    "text": ".idata$3"
+  },
+  {
+    "offset": "0x5602C",
+    "text": ".idata$4"
+  },
+  {
+    "offset": "0x56040",
+    "text": ".idata$6"
+  },
+  {
+    "offset": "0x56054",
+    "text": ".data"
+  },
+  {
+    "offset": "0x56064",
+    "text": ".data$r"
+  },
+  {
+    "offset": "0x56074",
+    "text": ".data$rs"
+  },
+  {
+    "offset": "0x56098",
+    "text": ".rsrc$01"
+  },
+  {
+    "offset": "0x560AC",
+    "text": ".rsrc$02"
+  },
+  {
+    "offset": "0x58774",
+    "text": "mfc140u.dll"
+  },
+  {
+    "offset": "0x58782",
+    "text": "GetModuleFileNameW"
+  },
+  {
+    "offset": "0x58798",
+    "text": "WideCharToMultiByte"
+  },
+  {
+    "offset": "0x587AE",
+    "text": "WritePrivateProfileStringW"
+  },
+  {
+    "offset": "0x587CC",
+    "text": "LeaveCriticalSection"
+  },
+  {
+    "offset": "0x587E4",
+    "text": "EnterCriticalSection"
+  },
+  {
+    "offset": "0x587FC",
+    "text": "GetLastError"
+  },
+  {
+    "offset": "0x5880C",
+    "text": "InitializeCriticalSectionEx"
+  },
+  {
+    "offset": "0x5882A",
+    "text": "MultiByteToWideChar"
+  },
+  {
+    "offset": "0x58840",
+    "text": "GetPrivateProfileStringW"
+  },
+  {
+    "offset": "0x5885C",
+    "text": "DeleteCriticalSection"
+  },
+  {
+    "offset": "0x58874",
+    "text": "InitializeCriticalSectionAndSpinCount"
+  },
+  {
+    "offset": "0x5889C",
+    "text": "GetModuleHandleW"
+  },
+  {
+    "offset": "0x588B0",
+    "text": "GetProcAddress"
+  },
+  {
+    "offset": "0x588C2",
+    "text": "CloseHandle"
+  },
+  {
+    "offset": "0x588D0",
+    "text": "SetEvent"
+  },
+  {
+    "offset": "0x588DC",
+    "text": "ResetEvent"
+  },
+  {
+    "offset": "0x588EA",
+    "text": "WaitForSingleObjectEx"
+  },
+  {
+    "offset": "0x58902",
+    "text": "CreateEventW"
+  },
+  {
+    "offset": "0x58912",
+    "text": "UnhandledExceptionFilter"
+  },
+  {
+    "offset": "0x5892E",
+    "text": "SetUnhandledExceptionFilter"
+  },
+  {
+    "offset": "0x5894C",
+    "text": "GetCurrentProcess"
+  },
+  {
+    "offset": "0x58960",
+    "text": "TerminateProcess"
+  },
+  {
+    "offset": "0x58974",
+    "text": "IsProcessorFeaturePresent"
+  },
+  {
+    "offset": "0x58990",
+    "text": "QueryPerformanceCounter"
+  },
+  {
+    "offset": "0x589AA",
+    "text": "GetCurrentProcessId"
+  },
+  {
+    "offset": "0x589C0",
+    "text": "GetCurrentThreadId"
+  },
+  {
+    "offset": "0x589D6",
+    "text": "GetSystemTimeAsFileTime"
+  },
+  {
+    "offset": "0x589F0",
+    "text": "InitializeSListHead"
+  },
+  {
+    "offset": "0x58A06",
+    "text": "IsDebuggerPresent"
+  },
+  {
+    "offset": "0x58A1A",
+    "text": "GetStartupInfoW"
+  },
+  {
+    "offset": "0x58A2A",
+    "text": "KERNEL32.dll"
+  },
+  {
+    "offset": "0x58A3A",
+    "text": "EnableWindow"
+  },
+  {
+    "offset": "0x58A4A",
+    "text": "UpdateWindow"
+  },
+  {
+    "offset": "0x58A5A",
+    "text": "SendMessageW"
+  },
+  {
+    "offset": "0x58A6A",
+    "text": "GetCursorPos"
+  },
+  {
+    "offset": "0x58A7A",
+    "text": "ScreenToClient"
+  },
+  {
+    "offset": "0x58A8C",
+    "text": "MapWindowPoints"
+  },
+  {
+    "offset": "0x58A9E",
+    "text": "LoadMenuW"
+  },
+  {
+    "offset": "0x58AAA",
+    "text": "GetSubMenu"
+  },
+  {
+    "offset": "0x58AB8",
+    "text": "GetClientRect"
+  },
+  {
+    "offset": "0x58AC8",
+    "text": "FillRect"
+  },
+  {
+    "offset": "0x58AD4",
+    "text": "GetParent"
+  },
+  {
+    "offset": "0x58AE0",
+    "text": "SetRectEmpty"
+  },
+  {
+    "offset": "0x58AF0",
+    "text": "InvalidateRect"
+  },
+  {
+    "offset": "0x58B02",
+    "text": "GetWindowRect"
+  },
+  {
+    "offset": "0x58B12",
+    "text": "InflateRect"
+  },
+  {
+    "offset": "0x58B20",
+    "text": "GetSysColor"
+  },
+  {
+    "offset": "0x58B2E",
+    "text": "LoadBitmapW"
+  },
+  {
+    "offset": "0x58B3C",
+    "text": "IsChild"
+  },
+  {
+    "offset": "0x58B46",
+    "text": "GetFocus"
+  },
+  {
+    "offset": "0x58B52",
+    "text": "GetWindowLongW"
+  },
+  {
+    "offset": "0x58B64",
+    "text": "LoadImageW"
+  },
+  {
+    "offset": "0x58B72",
+    "text": "GetSystemMetrics"
+  },
+  {
+    "offset": "0x58B86",
+    "text": "RedrawWindow"
+  },
+  {
+    "offset": "0x58B96",
+    "text": "WindowFromPoint"
+  },
+  {
+    "offset": "0x58BA8",
+    "text": "IsIconic"
+  },
+  {
+    "offset": "0x58BB2",
+    "text": "USER32.dll"
+  },
+  {
+    "offset": "0x58BC0",
+    "text": "DeleteObject"
+  },
+  {
+    "offset": "0x58BD0",
+    "text": "GetStockObject"
+  },
+  {
+    "offset": "0x58BE2",
+    "text": "DeleteDC"
+  },
+  {
+    "offset": "0x58BEE",
+    "text": "SelectObject"
+  },
+  {
+    "offset": "0x58BFE",
+    "text": "BitBlt"
+  },
+  {
+    "offset": "0x58C08",
+    "text": "CreateCompatibleDC"
+  },
+  {
+    "offset": "0x58C1E",
+    "text": "CreateCompatibleBitmap"
+  },
+  {
+    "offset": "0x58C38",
+    "text": "CreateSolidBrush"
+  },
+  {
+    "offset": "0x58C4C",
+    "text": "GetObjectW"
+  },
+  {
+    "offset": "0x58C5A",
+    "text": "CreateFontIndirectW"
+  },
+  {
+    "offset": "0x58C6E",
+    "text": "GDI32.dll"
+  },
+  {
+    "offset": "0x58C7A",
+    "text": "DragQueryFileW"
+  },
+  {
+    "offset": "0x58C8A",
+    "text": "SHELL32.dll"
+  },
+  {
+    "offset": "0x58C98",
+    "text": "InitCommonControlsEx"
+  },
+  {
+    "offset": "0x58CB0",
+    "text": "ImageList_AddMasked"
+  },
+  {
+    "offset": "0x58CC4",
+    "text": "COMCTL32.dll"
+  },
+  {
+    "offset": "0x58CD2",
+    "text": "OLEAUT32.dll"
+  },
+  {
+    "offset": "0x58CE2",
+    "text": "GdiplusShutdown"
+  },
+  {
+    "offset": "0x58CF2",
+    "text": "gdiplus.dll"
+  },
+  {
+    "offset": "0x58D00",
+    "text": "?_Xlength_error@std@@YAXPBD@Z"
+  },
+  {
+    "offset": "0x58D1E",
+    "text": "MSVCP140.dll"
+  },
+  {
+    "offset": "0x58D2E",
+    "text": "GetFileVersionInfoSizeW"
+  },
+  {
+    "offset": "0x58D48",
+    "text": "GetFileVersionInfoW"
+  },
+  {
+    "offset": "0x58D5E",
+    "text": "VerQueryValueW"
+  },
+  {
+    "offset": "0x58D6E",
+    "text": "VERSION.dll"
+  },
+  {
+    "offset": "0x58D7C",
+    "text": "__CxxFrameHandler3"
+  },
+  {
+    "offset": "0x58D92",
+    "text": "__std_terminate"
+  },
+  {
+    "offset": "0x58DA4",
+    "text": "__std_exception_copy"
+  },
+  {
+    "offset": "0x58DBC",
+    "text": "__std_exception_destroy"
+  },
+  {
+    "offset": "0x58DD6",
+    "text": "_purecall"
+  },
+  {
+    "offset": "0x58DE2",
+    "text": "memset"
+  },
+  {
+    "offset": "0x58DEC",
+    "text": "__current_exception"
+  },
+  {
+    "offset": "0x58E02",
+    "text": "__current_exception_context"
+  },
+  {
+    "offset": "0x58E20",
+    "text": "_except_handler4_common"
+  },
+  {
+    "offset": "0x58E3A",
+    "text": "memmove"
+  },
+  {
+    "offset": "0x58E42",
+    "text": "VCRUNTIME140.dll"
+  },
+  {
+    "offset": "0x58E56",
+    "text": "_invalid_parameter_noinfo_noreturn"
+  },
+  {
+    "offset": "0x58E7C",
+    "text": "wcsnlen"
+  },
+  {
+    "offset": "0x58E86",
+    "text": "wcsncpy_s"
+  },
+  {
+    "offset": "0x58E92",
+    "text": "wcscpy_s"
+  },
+  {
+    "offset": "0x58E9E",
+    "text": "wcscat_s"
+  },
+  {
+    "offset": "0x58EAA",
+    "text": "strcpy_s"
+  },
+  {
+    "offset": "0x58EC6",
+    "text": "_seh_filter_exe"
+  },
+  {
+    "offset": "0x58ED8",
+    "text": "_set_app_type"
+  },
+  {
+    "offset": "0x58EE8",
+    "text": "__setusermatherr"
+  },
+  {
+    "offset": "0x58EFC",
+    "text": "_configure_wide_argv"
+  },
+  {
+    "offset": "0x58F14",
+    "text": "_initialize_wide_environment"
+  },
+  {
+    "offset": "0x58F34",
+    "text": "_get_wide_winmain_command_line"
+  },
+  {
+    "offset": "0x58F56",
+    "text": "_initterm"
+  },
+  {
+    "offset": "0x58F62",
+    "text": "_initterm_e"
+  },
+  {
+    "offset": "0x58F70",
+    "text": "_exit"
+  },
+  {
+    "offset": "0x58F78",
+    "text": "_set_fmode"
+  },
+  {
+    "offset": "0x58F86",
+    "text": "_cexit"
+  },
+  {
+    "offset": "0x58F90",
+    "text": "_c_exit"
+  },
+  {
+    "offset": "0x58F9A",
+    "text": "_register_thread_local_exe_atexit_callback"
+  },
+  {
+    "offset": "0x58FC8",
+    "text": "_configthreadlocale"
+  },
+  {
+    "offset": "0x58FDE",
+    "text": "_set_new_mode"
+  },
+  {
+    "offset": "0x58FEE",
+    "text": "__p__commode"
+  },
+  {
+    "offset": "0x58FFE",
+    "text": "terminate"
+  },
+  {
+    "offset": "0x5900A",
+    "text": "_initialize_onexit_table"
+  },
+  {
+    "offset": "0x59026",
+    "text": "_register_onexit_function"
+  },
+  {
+    "offset": "0x59042",
+    "text": "_crt_atexit"
+  },
+  {
+    "offset": "0x59050",
+    "text": "_controlfp_s"
+  },
+  {
+    "offset": "0x5905E",
+    "text": "api-ms-win-crt-runtime-l1-1-0.dll"
+  },
+  {
+    "offset": "0x59080",
+    "text": "api-ms-win-crt-string-l1-1-0.dll"
+  },
+  {
+    "offset": "0x590A2",
+    "text": "api-ms-win-crt-heap-l1-1-0.dll"
+  },
+  {
+    "offset": "0x590C2",
+    "text": "api-ms-win-crt-math-l1-1-0.dll"
+  },
+  {
+    "offset": "0x590E2",
+    "text": "api-ms-win-crt-stdio-l1-1-0.dll"
+  },
+  {
+    "offset": "0x59102",
+    "text": "api-ms-win-crt-locale-l1-1-0.dll"
+  },
+  {
+    "offset": "0x59126",
+    "text": "OutputDebugStringW"
+  },
+  {
+    "offset": "0x5913C",
+    "text": "_CxxThrowException"
+  },
+  {
+    "offset": "0x59152",
+    "text": "memcpy"
+  },
+  {
+    "offset": "0x594B8",
+    "text": ".PAVCException@@"
+  },
+  {
+    "offset": "0x594D4",
+    "text": ".?AVexception@std@@"
+  },
+  {
+    "offset": "0x594F0",
+    "text": ".?AVbad_alloc@std@@"
+  },
+  {
+    "offset": "0x5950C",
+    "text": ".?AVbad_array_new_length@std@@"
+  },
+  {
+    "offset": "0x59534",
+    "text": ".?AVtype_info@@"
+  },
+  {
+    "offset": "0x5954C",
+    "text": ".?AVCDialog@@"
+  },
+  {
+    "offset": "0x59564",
+    "text": ".?AVCAboutDlg@@"
+  },
+  {
+    "offset": "0x5957C",
+    "text": ".?AVCWinAppEx@@"
+  },
+  {
+    "offset": "0x59594",
+    "text": ".?AVCWinApp@@"
+  },
+  {
+    "offset": "0x595AC",
+    "text": ".?AVCWinThread@@"
+  },
+  {
+    "offset": "0x595C8",
+    "text": ".?AVCcczEditor2App@@"
+  },
+  {
+    "offset": "0x595E8",
+    "text": ".?AVCDialogEx@@"
+  },
+  {
+    "offset": "0x59600",
+    "text": ".?AVCFont@@"
+  },
+  {
+    "offset": "0x59614",
+    "text": ".?AVCBrush@@"
+  },
+  {
+    "offset": "0x5962C",
+    "text": ".?AVCGdiObject@@"
+  },
+  {
+    "offset": "0x59648",
+    "text": ".?AVCWnd@@"
+  },
+  {
+    "offset": "0x5965C",
+    "text": ".?AVCCmdTarget@@"
+  },
+  {
+    "offset": "0x59678",
+    "text": ".?AVCObject@@"
+  },
+  {
+    "offset": "0x59690",
+    "text": ".?AVDialog_Exit@@"
+  },
+  {
+    "offset": "0x596AC",
+    "text": ".?AVCDocument@@"
+  },
+  {
+    "offset": "0x596C4",
+    "text": ".?AVCcczEditor2Doc@@"
+  },
+  {
+    "offset": "0x596E4",
+    "text": ".?AVCDocumentAdapter@CDocument@@"
+  },
+  {
+    "offset": "0x59710",
+    "text": ".?AUIDocument@ATL@@"
+  },
+  {
+    "offset": "0x5972C",
+    "text": ".?AVCButton@@"
+  },
+  {
+    "offset": "0x59744",
+    "text": ".?AVDialog_Var@@"
+  },
+  {
+    "offset": "0x59760",
+    "text": ".?AVDialog_Edit@@"
+  },
+  {
+    "offset": "0x5977C",
+    "text": ".?AVDialog_Dup@@"
+  },
+  {
+    "offset": "0x59798",
+    "text": ".?AVDialog_121@@"
+  },
+  {
+    "offset": "0x597B4",
+    "text": ".?AVDialog_120@@"
+  },
+  {
+    "offset": "0x597D0",
+    "text": ".?AVDialog_119@@"
+  },
+  {
+    "offset": "0x597EC",
+    "text": ".?AVDialog_115@@"
+  },
+  {
+    "offset": "0x59808",
+    "text": ".?AVDialog_114@@"
+  },
+  {
+    "offset": "0x59824",
+    "text": ".?AVDialog_112@@"
+  },
+  {
+    "offset": "0x59840",
+    "text": ".?AVDialog_111@@"
+  },
+  {
+    "offset": "0x5985C",
+    "text": ".?AVDialog_109@@"
+  },
+  {
+    "offset": "0x59878",
+    "text": ".?AVDialog_107@@"
+  },
+  {
+    "offset": "0x59894",
+    "text": ".?AVDialog_104@@"
+  },
+  {
+    "offset": "0x598B0",
+    "text": ".?AVDialog_103@@"
+  },
+  {
+    "offset": "0x598CC",
+    "text": ".?AVDialog_102@@"
+  },
+  {
+    "offset": "0x598E8",
+    "text": ".?AVDialog_101@@"
+  },
+  {
+    "offset": "0x59904",
+    "text": ".?AVDialog_100@@"
+  },
+  {
+    "offset": "0x59920",
+    "text": ".?AVDialog_99@@"
+  },
+  {
+    "offset": "0x59938",
+    "text": ".?AVDialog_96@@"
+  },
+  {
+    "offset": "0x59950",
+    "text": ".?AVDialog_93@@"
+  },
+  {
+    "offset": "0x59968",
+    "text": ".?AVDialog_91@@"
+  },
+  {
+    "offset": "0x59980",
+    "text": ".?AVDialog_89@@"
+  },
+  {
+    "offset": "0x59998",
+    "text": ".?AVDialog_88@@"
+  },
+  {
+    "offset": "0x599B0",
+    "text": ".?AVDialog_86@@"
+  },
+  {
+    "offset": "0x599C8",
+    "text": ".?AVDialog_83@@"
+  },
+  {
+    "offset": "0x599E0",
+    "text": ".?AVDialog_82@@"
+  },
+  {
+    "offset": "0x599F8",
+    "text": ".?AVDialog_80@@"
+  },
+  {
+    "offset": "0x59A10",
+    "text": ".?AVDialog_79@@"
+  },
+  {
+    "offset": "0x59A28",
+    "text": ".?AVDialog_78@@"
+  },
+  {
+    "offset": "0x59A40",
+    "text": ".?AVDialog_77@@"
+  },
+  {
+    "offset": "0x59A58",
+    "text": ".?AVDialog_76@@"
+  },
+  {
+    "offset": "0x59A70",
+    "text": ".?AVDialog_75@@"
+  },
+  {
+    "offset": "0x59A88",
+    "text": ".?AVDialog_70@@"
+  },
+  {
+    "offset": "0x59AA0",
+    "text": ".?AVDialog_69@@"
+  },
+  {
+    "offset": "0x59AB8",
+    "text": ".?AVDialog_65@@"
+  },
+  {
+    "offset": "0x59AD0",
+    "text": ".?AVDialog_64@@"
+  },
+  {
+    "offset": "0x59AE8",
+    "text": ".?AVDialog_63@@"
+  },
+  {
+    "offset": "0x59B00",
+    "text": ".?AVDialog_62@@"
+  },
+  {
+    "offset": "0x59B18",
+    "text": ".?AVDialog_61@@"
+  },
+  {
+    "offset": "0x59B30",
+    "text": ".?AVDialog_60@@"
+  },
+  {
+    "offset": "0x59B48",
+    "text": ".?AVDialog_59@@"
+  },
+  {
+    "offset": "0x59B60",
+    "text": ".?AVDialog_58@@"
+  },
+  {
+    "offset": "0x59B78",
+    "text": ".?AVDialog_56@@"
+  },
+  {
+    "offset": "0x59B90",
+    "text": ".?AVDialog_55@@"
+  },
+  {
+    "offset": "0x59BA8",
+    "text": ".?AVDialog_54@@"
+  },
+  {
+    "offset": "0x59BC0",
+    "text": ".?AVDialog_53@@"
+  },
+  {
+    "offset": "0x59BD8",
+    "text": ".?AVDialog_52@@"
+  },
+  {
+    "offset": "0x59BF0",
+    "text": ".?AVDialog_51@@"
+  },
+  {
+    "offset": "0x59C08",
+    "text": ".?AVDialog_50@@"
+  },
+  {
+    "offset": "0x59C20",
+    "text": ".?AVDialog_49@@"
+  },
+  {
+    "offset": "0x59C38",
+    "text": ".?AVDialog_48@@"
+  },
+  {
+    "offset": "0x59C50",
+    "text": ".?AVDialog_46@@"
+  },
+  {
+    "offset": "0x59C68",
+    "text": ".?AVDialog_44@@"
+  },
+  {
+    "offset": "0x59C80",
+    "text": ".?AVDialog_43@@"
+  },
+  {
+    "offset": "0x59C98",
+    "text": ".?AVDialog_39@@"
+  },
+  {
+    "offset": "0x59CB0",
+    "text": ".?AVDialog_38@@"
+  },
+  {
+    "offset": "0x59CC8",
+    "text": ".?AVDialog_37@@"
+  },
+  {
+    "offset": "0x59CE0",
+    "text": ".?AVDialog_36@@"
+  },
+  {
+    "offset": "0x59CF8",
+    "text": ".?AVDialog_35@@"
+  },
+  {
+    "offset": "0x59D10",
+    "text": ".?AVDialog_34@@"
+  },
+  {
+    "offset": "0x59D28",
+    "text": ".?AVDialog_33@@"
+  },
+  {
+    "offset": "0x59D40",
+    "text": ".?AVDialog_32@@"
+  },
+  {
+    "offset": "0x59D58",
+    "text": ".?AVDialog_31@@"
+  },
+  {
+    "offset": "0x59D70",
+    "text": ".?AVDialog_27@@"
+  },
+  {
+    "offset": "0x59D88",
+    "text": ".?AVDialog_21@@"
+  },
+  {
+    "offset": "0x59DA0",
+    "text": ".?AVDialog_18@@"
+  },
+  {
+    "offset": "0x59DB8",
+    "text": ".?AVDialog_17@@"
+  },
+  {
+    "offset": "0x59DD0",
+    "text": ".?AVDialog_15@@"
+  },
+  {
+    "offset": "0x59DE8",
+    "text": ".?AVDialog_11@@"
+  },
+  {
+    "offset": "0x59E00",
+    "text": ".?AVDialog_9@@"
+  },
+  {
+    "offset": "0x59E18",
+    "text": ".?AVDialog_6@@"
+  },
+  {
+    "offset": "0x59E30",
+    "text": ".?AVDialog_5@@"
+  },
+  {
+    "offset": "0x59E48",
+    "text": ".?AVDialog_4@@"
+  },
+  {
+    "offset": "0x59E60",
+    "text": ".?AVDialog_2@@"
+  },
+  {
+    "offset": "0x59E78",
+    "text": ".?AVDialog_SelectCode@@"
+  },
+  {
+    "offset": "0x59E98",
+    "text": ".?AVmyDialog@@"
+  },
+  {
+    "offset": "0x59EB0",
+    "text": ".?AVCcczEditor2View@@"
+  },
+  {
+    "offset": "0x59ED0",
+    "text": ".?AVCMyEdit@@"
+  },
+  {
+    "offset": "0x59EE8",
+    "text": ".?AVCMyComboBox@@"
+  },
+  {
+    "offset": "0x59F04",
+    "text": ".?AVCBitmap@@"
+  },
+  {
+    "offset": "0x59F1C",
+    "text": ".?AVCMenu@@"
+  },
+  {
+    "offset": "0x59F30",
+    "text": ".?AVCImage@ATL@@"
+  },
+  {
+    "offset": "0x59F4C",
+    "text": ".?AVCTreeView@@"
+  },
+  {
+    "offset": "0x59F64",
+    "text": ".?AVCCtrlView@@"
+  },
+  {
+    "offset": "0x59F7C",
+    "text": ".?AVCView@@"
+  },
+  {
+    "offset": "0x59F90",
+    "text": ".?AVCStatic@@"
+  },
+  {
+    "offset": "0x59FA8",
+    "text": ".?AVCListBox@@"
+  },
+  {
+    "offset": "0x59FC0",
+    "text": ".?AVCEdit@@"
+  },
+  {
+    "offset": "0x59FD4",
+    "text": ".?AVCComboBox@@"
+  },
+  {
+    "offset": "0x59FEC",
+    "text": ".?AVCFrameWnd@@"
+  },
+  {
+    "offset": "0x5A004",
+    "text": ".?AVCMDIChildWndEx@@"
+  },
+  {
+    "offset": "0x5A024",
+    "text": ".?AVCMDIChildWnd@@"
+  },
+  {
+    "offset": "0x5A040",
+    "text": ".?AVCChildFrame@@"
+  },
+  {
+    "offset": "0x5A05C",
+    "text": ".?AVCMFCToolBar@@"
+  },
+  {
+    "offset": "0x5A078",
+    "text": ".?AVCMFCBaseToolBar@@"
+  },
+  {
+    "offset": "0x5A098",
+    "text": ".?AVCPane@@"
+  },
+  {
+    "offset": "0x5A0AC",
+    "text": ".?AVCBasePane@@"
+  },
+  {
+    "offset": "0x5A0C4",
+    "text": ".?AVCMFCToolBarMenuButton@@"
+  },
+  {
+    "offset": "0x5A0E8",
+    "text": ".?AVCMFCToolBarButton@@"
+  },
+  {
+    "offset": "0x5A108",
+    "text": ".?AVCClassViewMenuButton@@"
+  },
+  {
+    "offset": "0x5A12C",
+    "text": ".?AVCDockablePane@@"
+  },
+  {
+    "offset": "0x5A148",
+    "text": ".?AVCClassView@@"
+  },
+  {
+    "offset": "0x5A164",
+    "text": ".?AVCClassToolBar@@"
+  },
+  {
+    "offset": "0x5A180",
+    "text": ".?AV?$CMap@PAXPAXUColor_Font@@AAU1@@@"
+  },
+  {
+    "offset": "0x5A1B0",
+    "text": ".?AVCTreeCtrl@@"
+  },
+  {
+    "offset": "0x5A1C8",
+    "text": ".?AVCFileView@@"
+  },
+  {
+    "offset": "0x5A1E0",
+    "text": ".?AVCFileViewToolBar@@"
+  },
+  {
+    "offset": "0x5A200",
+    "text": ".?AVCMDIFrameWndEx@@"
+  },
+  {
+    "offset": "0x5A220",
+    "text": ".?AVCMDIFrameWnd@@"
+  },
+  {
+    "offset": "0x5A23C",
+    "text": ".?AVCMainFrame@@"
+  },
+  {
+    "offset": "0x5A258",
+    "text": ".?AV?$CList@II@@"
+  },
+  {
+    "offset": "0x5A274",
+    "text": ".?AVCOutputWnd@@"
+  },
+  {
+    "offset": "0x5A290",
+    "text": ".?AVCOutputList@@"
+  },
+  {
+    "offset": "0x5A2AC",
+    "text": ".?AVCPropertiesWnd@@"
+  },
+  {
+    "offset": "0x5A2CC",
+    "text": ".?AVCPropertiesToolBar@@"
+  },
+  {
+    "offset": "0x5A2F0",
+    "text": ".?AVCViewTree@@"
+  },
+  {
+    "offset": "0x61B3A",
+    "text": "wwwww"
+  },
+  {
+    "offset": "0x61FE8",
+    "text": "mCCCC"
+  },
+  {
+    "offset": "0x62DC9",
+    "text": "DDDDDD"
+  },
+  {
+    "offset": "0x62DD1",
+    "text": "DDDDDD"
+  },
+  {
+    "offset": "0x6357F",
+    "text": "LFFR8YxPI"
+  },
+  {
+    "offset": "0x63590",
+    "text": "MFFRy"
+  },
+  {
+    "offset": "0x635AC",
+    "text": "xWVXzSMFE"
+  },
+  {
+    "offset": "0x635BD",
+    "text": "xxYY8"
+  },
+  {
+    "offset": "0x63A80",
+    "text": "DDDDDDD@DDDDDDD@"
+  },
+  {
+    "offset": "0x63EB8",
+    "text": "DDDDDDD@DDDDDDD@"
+  },
+  {
+    "offset": "0x643B2",
+    "text": "RYz2*"
+  },
+  {
+    "offset": "0x643C3",
+    "text": "zzz2*"
+  },
+  {
+    "offset": "0x643D4",
+    "text": "zzz2*"
+  },
+  {
+    "offset": "0x64861",
+    "text": "DDDDDDD"
+  },
+  {
+    "offset": "0x64869",
+    "text": "DDDDDDD"
+  },
+  {
+    "offset": "0x64FFB",
+    "text": "fffffffffff"
+  },
+  {
+    "offset": "0x654F2",
+    "text": "pppwpD"
+  },
+  {
+    "offset": "0x65503",
+    "text": "pwwwD"
+  },
+  {
+    "offset": "0x65CB8",
+    "text": "Scccaaa_]XX"
+  },
+  {
+    "offset": "0x65CC8",
+    "text": "RcDDcDDDDDT"
+  },
+  {
+    "offset": "0x65CD8",
+    "text": "Rccbc``\\YVW"
+  },
+  {
+    "offset": "0x65CE8",
+    "text": "RcDDcDDDDDW"
+  },
+  {
+    "offset": "0x65CF8",
+    "text": "Hccbcca`^^Y"
+  },
+  {
+    "offset": "0x65D08",
+    "text": "RccbcccA"
+  },
+  {
+    "offset": "0x65D4B",
+    "text": "E?<!9"
+  },
+  {
+    "offset": "0x65D51",
+    "text": "852.- "
+  },
+  {
+    "offset": "0x65D5E",
+    "text": "9&:;854/("
+  },
+  {
+    "offset": "0x65D6F",
+    "text": ":::;70"
+  },
+  {
+    "offset": "0x65D7F",
+    "text": "@'%$#"
+  },
+  {
+    "offset": "0x6A0A8",
+    "text": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+  },
+  {
+    "offset": "0x6A100",
+    "text": "wwtGwwwwwwwwwwwwwwwtDDDDw"
+  },
+  {
+    "offset": "0x6A11F",
+    "text": "wwwwp"
+  },
+  {
+    "offset": "0x6A125",
+    "text": "wwwwp"
+  },
+  {
+    "offset": "0x6A140",
+    "text": "wwGtwDwwwwwtDDDDw"
+  },
+  {
+    "offset": "0x6A158",
+    "text": "pwwwwppwwww"
+  },
+  {
+    "offset": "0x6A180",
+    "text": "wwGttwGwwwwt"
+  },
+  {
+    "offset": "0x6A1B2",
+    "text": "33330wp3"
+  },
+  {
+    "offset": "0x6A1C0",
+    "text": "wwGttwGwwwwt"
+  },
+  {
+    "offset": "0x6A1E5",
+    "text": "wwwwp"
+  },
+  {
+    "offset": "0x6A200",
+    "text": "wwtDtwGwp"
+  },
+  {
+    "offset": "0x6A225",
+    "text": "wwwwp"
+  },
+  {
+    "offset": "0x6A233",
+    "text": "33330p333333"
+  },
+  {
+    "offset": "0x6A240",
+    "text": "wwwttDwwp"
+  },
+  {
+    "offset": "0x6A265",
+    "text": "wwwwp"
+  },
+  {
+    "offset": "0x6A299",
+    "text": "wwwwpppwww"
+  },
+  {
+    "offset": "0x6A2A5",
+    "text": "wwwwp"
+  },
+  {
+    "offset": "0x6A2B6",
+    "text": "wwp0wwww"
+  },
+  {
+    "offset": "0x6A2F6",
+    "text": "wwp0wwww"
+  },
+  {
+    "offset": "0x6A30E",
+    "text": "OGp888888"
+  },
+  {
+    "offset": "0x6A336",
+    "text": "wwp0wwww"
+  },
+  {
+    "offset": "0x6A340",
+    "text": "wwwppwwwp"
+  },
+  {
+    "offset": "0x6A378",
+    "text": "p0wwww"
+  },
+  {
+    "offset": "0x6A38C",
+    "text": "DDGwp8"
+  },
+  {
+    "offset": "0x6A3AF",
+    "text": "wwwwwwww"
+  },
+  {
+    "offset": "0x6A3B8",
+    "text": "p0wwww"
+  },
+  {
+    "offset": "0x6A3EE",
+    "text": "wwwwwwpwppp0wwww"
+  },
+  {
+    "offset": "0x6A40C",
+    "text": "wwwww"
+  },
+  {
+    "offset": "0x6A42E",
+    "text": "wwwwwww"
+  },
+  {
+    "offset": "0x6A44C",
+    "text": "wwwwwww"
+  },
+  {
+    "offset": "0x6A455",
+    "text": "wwwwwp"
+  },
+  {
+    "offset": "0x6A530",
+    "text": "T6]:("
+  },
+  {
+    "offset": "0x6A61C",
+    "text": "cI5cI5cI5cI5cI5cI5cI5cI5cI5cI5"
+  },
+  {
+    "offset": "0x6A649",
+    "text": "Wn{NboDVa9HR.:C%.5"
+  },
+  {
+    "offset": "0x6A68F",
+    "text": "AAx;<x;<r99n67"
+  },
+  {
+    "offset": "0x6A6B3",
+    "text": "P3W6'"
+  },
+  {
+    "offset": "0x6A6BE",
+    "text": "`;*X7'"
+  },
+  {
+    "offset": "0x6A713",
+    "text": "hP 0@ 0@ 0@ 0@ 0@ 0@ 0@ 0@ 0@"
+  },
+  {
+    "offset": "0x6A7FD",
+    "text": "D$G2!"
+  },
+  {
+    "offset": "0x6A818",
+    "text": "91r99"
+  },
+  {
+    "offset": "0x6A83F",
+    "text": "b>c<))"
+  },
+  {
+    "offset": "0x6A886",
+    "text": "P`p@P`0@P 0@"
+  },
+  {
+    "offset": "0x6A8B6",
+    "text": "p``PHPPPP"
+  },
+  {
+    "offset": "0x6A8CF",
+    "text": "p`PPPPHPp``ph`"
+  },
+  {
+    "offset": "0x6A97F",
+    "text": "q[KG<4"
+  },
+  {
+    "offset": "0x6A998",
+    "text": "=5x;<"
+  },
+  {
+    "offset": "0x6AA39",
+    "text": "@8@@8@"
+  },
+  {
+    "offset": "0x6AA4F",
+    "text": "p`@8@@8@"
+  },
+  {
+    "offset": "0x6AB18",
+    "text": "B<}>>"
+  },
+  {
+    "offset": "0x6AB53",
+    "text": "`H0`H0`H0`H0`H0"
+  },
+  {
+    "offset": "0x6ABB9",
+    "text": "@8@@8@"
+  },
+  {
+    "offset": "0x6ABCF",
+    "text": "p`@8@@8@"
+  },
+  {
+    "offset": "0x6AC7F",
+    "text": "q[Kq[Kq[Kq[KvbR}j["
+  },
+  {
+    "offset": "0x6AD24",
+    "text": "pXP`P@PH@@@@"
+  },
+  {
+    "offset": "0x6AD39",
+    "text": "pppppppppppppppppppppppppppppp"
+  },
+  {
+    "offset": "0x6AFB6",
+    "text": "n`q`V"
+  },
+  {
+    "offset": "0x6B137",
+    "text": "t~nci]URKF"
+  },
+  {
+    "offset": "0x6B492",
+    "text": "PhpPhpP`p@Xp p"
+  },
+  {
+    "offset": "0x6B531",
+    "text": "dJ6dJ6dJ6"
+  },
+  {
+    "offset": "0x6B639",
+    "text": "VVVphp"
+  },
+  {
+    "offset": "0x6B64F",
+    "text": "p`pppUUU"
+  },
+  {
+    "offset": "0x6B715",
+    "text": "R?g33"
+  },
+  {
+    "offset": "0x6B7CF",
+    "text": "p`PXP"
+  },
+  {
+    "offset": "0x6BC48",
+    "text": "www{w"
+  },
+  {
+    "offset": "0x6BC58",
+    "text": "wwwww"
+  },
+  {
+    "offset": "0x6BC68",
+    "text": "wwwww"
+  },
+  {
+    "offset": "0x6BCCE",
+    "text": "`ppP``@PP08@ (0"
+  },
+  {
+    "offset": "0x6C2C9",
+    "text": "wwwwwp"
+  },
+  {
+    "offset": "0x6C2D1",
+    "text": "wwwwwp"
+  },
+  {
+    "offset": "0x6C322",
+    "text": "{{{{p"
+  },
+  {
+    "offset": "0x6C382",
+    "text": "{{{{{"
+  },
+  {
+    "offset": "0x6C474",
+    "text": "cI5cI5cI5cI5cI5cI5cI5cI5cI5cI5cI5"
+  },
+  {
+    "offset": "0x6C4A1",
+    "text": "cI5cI5cI5cI5cI5cI5cI5cI5cI5cI5cI5"
+  },
+  {
+    "offset": "0x6C4D1",
+    "text": "Wn{NboDVa9HR.:C%.5"
+  },
+  {
+    "offset": "0x6CABC",
+    "text": "nVCiP<dJ6"
+  },
+  {
+    "offset": "0x6CAE9",
+    "text": "dJ6dJ6dJ6"
+  },
+  {
+    "offset": "0x6CE42",
+    "text": "{{{{p"
+  },
+  {
+    "offset": "0x6CF22",
+    "text": "{{{{{"
+  },
+  {
+    "offset": "0x6CFF1",
+    "text": "DDDDDDD"
+  },
+  {
+    "offset": "0x6D029",
+    "text": "DDDDDDD"
+  },
+  {
+    "offset": "0x6D091",
+    "text": "cI5cI5cI5cI5cI5cI5cI5"
+  },
+  {
+    "offset": "0x6D241",
+    "text": "Wn{NboDVa9HR.:C%.5"
+  },
+  {
+    "offset": "0x6D343",
+    "text": "cI5cI5cI5cI5cI5cI5cI5"
+  },
+  {
+    "offset": "0x6E4E9",
+    "text": "wwwwwxw"
+  },
+  {
+    "offset": "0x6E4F9",
+    "text": "wwwwwxw"
+  },
+  {
+    "offset": "0x6E509",
+    "text": "wwwwwxw"
+  },
+  {
+    "offset": "0x6E517",
+    "text": "wwwwwwwww("
+  },
+  {
+    "offset": "0x6E556",
+    "text": "wcI5cI5cI5cI5cI5cI5cI5cI5cI5cI5cI5"
+  },
+  {
+    "offset": "0x6E5BA",
+    "text": "K=3K=3"
+  },
+  {
+    "offset": "0x6E61A",
+    "text": "K=3K=3"
+  },
+  {
+    "offset": "0x6E88A",
+    "text": "DDDDH"
+  },
+  {
+    "offset": "0x6E893",
+    "text": "DDDDD"
+  },
+  {
+    "offset": "0x6E899",
+    "text": "DDDDDDH"
+  },
+  {
+    "offset": "0x6E992",
+    "text": "DDDDDD"
+  },
+  {
+    "offset": "0x6E999",
+    "text": "DDDDDDH"
+  },
+  {
+    "offset": "0x6E9CA",
+    "text": "HDDDH"
+  },
+  {
+    "offset": "0x6E9D3",
+    "text": "ODDDD"
+  },
+  {
+    "offset": "0x6E9D9",
+    "text": "ODDDDDH"
+  },
+  {
+    "offset": "0x6EA0A",
+    "text": "DDDDH"
+  },
+  {
+    "offset": "0x6EA13",
+    "text": "DDDDD"
+  },
+  {
+    "offset": "0x6EA19",
+    "text": "DDDDDDH"
+  },
+  {
+    "offset": "0x6EA91",
+    "text": "DDDDDH"
+  },
+  {
+    "offset": "0x6EB12",
+    "text": "DDDDH"
+  },
+  {
+    "offset": "0x6EB19",
+    "text": "DDDDDDHz"
+  },
+  {
+    "offset": "0x6EB59",
+    "text": "ODDDDDHz"
+  },
+  {
+    "offset": "0x6EB63",
+    "text": "wwr\"'"
+  },
+  {
+    "offset": "0x6EB91",
+    "text": "DDDDH"
+  },
+  {
+    "offset": "0x6EB99",
+    "text": "DDDDDDH"
+  },
+  {
+    "offset": "0x6EBC8",
+    "text": "HDDDH"
+  },
+  {
+    "offset": "0x6EC08",
+    "text": "DDDDH"
+  },
+  {
+    "offset": "0x6EC11",
+    "text": "DDDDH"
+  },
+  {
+    "offset": "0x6EC7F",
+    "text": "PPP`XP`PP`PP`P@PP@PH@`P@P@@"
+  },
+  {
+    "offset": "0x6ECB5",
+    "text": "PPP`XP`PP`PP`P@PP@PH@`P@P@@"
+  },
+  {
+    "offset": "0x6ED39",
+    "text": ")3{pz"
+  },
+  {
+    "offset": "0x6EDB5",
+    "text": "jW|cO"
+  },
+  {
+    "offset": "0x6EE52",
+    "text": "p`H0`H0`H0`H0`H0`H0`H0`H0`H0`H0`H0`H0`H0`H0"
+  },
+  {
+    "offset": "0x6F22B",
+    "text": "XKAXKAXKA"
+  },
+  {
+    "offset": "0x6F2AC",
+    "text": "PPP`XP"
+  },
+  {
+    "offset": "0x6F415",
+    "text": "h0PH@"
+  },
+  {
+    "offset": "0x6F5CB",
+    "text": "h0PH@"
+  },
+  {
+    "offset": "0x6F723",
+    "text": "PPP`XP"
+  },
+  {
+    "offset": "0x6F906",
+    "text": "```%w"
+  },
+  {
+    "offset": "0x6FA0C",
+    "text": "h0PH@"
+  },
+  {
+    "offset": "0x6FBC2",
+    "text": "h0PH@"
+  },
+  {
+    "offset": "0x6FD91",
+    "text": " kkkttt"
+  },
+  {
+    "offset": "0x70003",
+    "text": "h0PH@"
+  },
+  {
+    "offset": "0x70039",
+    "text": "h0PH@"
+  },
+  {
+    "offset": "0x705A1",
+    "text": ")3{pz"
+  },
+  {
+    "offset": "0x70691",
+    "text": "`H0`H0`H0`H0`H0`H0`H0`H0`H0`H0`H0"
+  },
+  {
+    "offset": "0x70700",
+    "text": "wwwfffUUUBBB"
+  },
+  {
+    "offset": "0x70E80",
+    "text": "wwwfffUUUBBB"
+  },
+  {
+    "offset": "0x79AEB",
+    "text": "^/fcknx"
+  },
+  {
+    "offset": "0x79AF3",
+    "text": "vHr,g"
+  },
+  {
+    "offset": "0x79CE7",
+    "text": "f9eSbpS:g"
+  },
+  {
+    "offset": "0x79CF5",
+    "text": "TSbpS"
+  },
+  {
+    "offset": "0x79D1F",
+    "text": "O(uS_MR"
+  },
+  {
+    "offset": "0x79D2A",
+    "text": "SbpS;m"
+  },
+  {
+    "offset": "0x79D42",
+    "text": ">f:yteu"
+  },
+  {
+    "offset": "0x79E8B",
+    "text": "Rbc0R"
+  },
+  {
+    "offset": "0x79EE9",
+    "text": "echSb"
+  },
+  {
+    "offset": "0x7A085",
+    "text": "fbcyr"
+  },
+  {
+    "offset": "0x7A09D",
+    "text": "[te*N"
+  },
+  {
+    "offset": "0x7A155",
+    "text": "S>e'Y0R"
+  },
+  {
+    "offset": "0x7A15D",
+    "text": "g'Y:\\"
+  },
+  {
+    "offset": "0x7A167",
+    "text": "Rbc0R"
+  },
+  {
+    "offset": "0x7A17D",
+    "text": "Rbc0R"
+  },
+  {
+    "offset": "0x7A1CF",
+    "text": "Y0Rck8^'Y"
+  },
+  {
+    "offset": "0x7A201",
+    "text": "o;mdk"
+  },
+  {
+    "offset": "0x7A32B",
+    "text": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
+  },
+  {
+    "offset": "0x7A364",
+    "text": "<assembly xmlns=\"urn:schemas-microsoft-com:asm.v1\" manifestVersion=\"1.0\"><dependency><dependentAssembly><assemblyIdentity type=\"win32\" name=\"Microsoft.Windows.Common-Controls\" version=\"6.0.0.0\" processorArchitecture=\"x86\" publicKeyToken=\"6595b64144ccf1df\" language=\"*\"></assemblyIdentity></dependentAssembly></dependency><trustInfo xmlns=\"urn:schemas-microsoft-com:asm.v3\"><security><requestedPrivileges><requestedExecutionLevel level=\"asInvoker\" uiAccess=\"false\"></requestedExecutionLevel></requestedPrivileges></security></trustInfo><application xmlns=\"urn:schemas-microsoft-com:asm.v3\"><windowsSettings><dpiAware xmlns=\"http://schemas.microsoft.com/SMI/2005/WindowsSettings\">true</dpiAware></windowsSettings></application></assembly>"
+  },
+  {
+    "offset": "0x7A80B",
+    "text": "0%02070<0B0F0L0V0`0j0n0t0~0"
+  },
+  {
+    "offset": "0x7A83D",
+    "text": "1?1P1d1{1"
+  },
+  {
+    "offset": "0x7A853",
+    "text": "20292_2p2y2"
+  },
+  {
+    "offset": "0x7A863",
+    "text": "2a3~3"
+  },
+  {
+    "offset": "0x7A877",
+    "text": "4*474<4D4N4V4^4f4m4"
+  },
+  {
+    "offset": "0x7A89B",
+    "text": "595D5"
+  },
+  {
+    "offset": "0x7A8AD",
+    "text": "5'606"
+  },
+  {
+    "offset": "0x7A8BB",
+    "text": "7S7_7g7w7"
+  },
+  {
+    "offset": "0x7A8D3",
+    "text": "8+878J8"
+  },
+  {
+    "offset": "0x7A8E7",
+    "text": "9&989t9~9"
+  },
+  {
+    "offset": "0x7A8FD",
+    "text": ":%:2:::H:X:`:i:"
+  },
+  {
+    "offset": "0x7A917",
+    "text": ";^;d;"
+  },
+  {
+    "offset": "0x7A92B",
+    "text": "=Y=e="
+  },
+  {
+    "offset": "0x7A945",
+    "text": ">'>,>5>:>?>D>J>V>"
+  },
+  {
+    "offset": "0x7A96B",
+    "text": "1H1_1"
+  },
+  {
+    "offset": "0x7A979",
+    "text": "2(2Y2^2i2p2|2"
+  },
+  {
+    "offset": "0x7A999",
+    "text": "3$363N3Z3f3r3"
+  },
+  {
+    "offset": "0x7A9B5",
+    "text": "4#4:4b4h4t4~4"
+  },
+  {
+    "offset": "0x7A9CF",
+    "text": "5E5V5k5"
+  },
+  {
+    "offset": "0x7A9DF",
+    "text": "5C6N6"
+  },
+  {
+    "offset": "0x7A9E7",
+    "text": "6'7H7v7"
+  },
+  {
+    "offset": "0x7A9F5",
+    "text": "7!8e8k8"
+  },
+  {
+    "offset": "0x7AA03",
+    "text": "9<9M9U9]9g9l9"
+  },
+  {
+    "offset": "0x7AA1B",
+    "text": ":R:Y:l:"
+  },
+  {
+    "offset": "0x7AA2F",
+    "text": ";h<p<u<"
+  },
+  {
+    "offset": "0x7AA39",
+    "text": "<G=O=T=Z="
+  },
+  {
+    "offset": "0x7AA59",
+    "text": ">e>{>"
+  },
+  {
+    "offset": "0x7AA69",
+    "text": "?(?-?3?F?X?"
+  },
+  {
+    "offset": "0x7AA80",
+    "text": "#000W0_0g0o0"
+  },
+  {
+    "offset": "0x7AAA3",
+    "text": "3#3J3"
+  },
+  {
+    "offset": "0x7AAAF",
+    "text": "494Y4"
+  },
+  {
+    "offset": "0x7AAC1",
+    "text": "5-5R5Z5j5z5"
+  },
+  {
+    "offset": "0x7AADB",
+    "text": "6*636<6H6v6"
+  },
+  {
+    "offset": "0x7AAF3",
+    "text": "767G7S7o7"
+  },
+  {
+    "offset": "0x7AB09",
+    "text": "8>8p8"
+  },
+  {
+    "offset": "0x7AB1B",
+    "text": "9!9)9_9"
+  },
+  {
+    "offset": "0x7AB2F",
+    "text": "<-<8<{<"
+  },
+  {
+    "offset": "0x7AB39",
+    "text": "<F>X>"
+  },
+  {
+    "offset": "0x7AB47",
+    "text": ">8?J?w?"
+  },
+  {
+    "offset": "0x7AB6B",
+    "text": "1(1:1t1"
+  },
+  {
+    "offset": "0x7AB7B",
+    "text": "2>2J2V2c2u2"
+  },
+  {
+    "offset": "0x7AB91",
+    "text": "243N3Z3f3s3"
+  },
+  {
+    "offset": "0x7ABA9",
+    "text": "4>4J4V4b4o4"
+  },
+  {
+    "offset": "0x7ABD5",
+    "text": "6&636E6"
+  },
+  {
+    "offset": "0x7ABEB",
+    "text": "7;7G7S7_7m7"
+  },
+  {
+    "offset": "0x7AC03",
+    "text": "8-8[8g8s8"
+  },
+  {
+    "offset": "0x7AC1F",
+    "text": "919k9w9"
+  },
+  {
+    "offset": "0x7AC2D",
+    "text": "99:c:"
+  },
+  {
+    "offset": "0x7AC41",
+    "text": ";*;6;B;O;a;"
+  },
+  {
+    "offset": "0x7AC57",
+    "text": ";><J<V<b<n<{<"
+  },
+  {
+    "offset": "0x7AC81",
+    "text": ">B>N>Z>i>"
+  },
+  {
+    "offset": "0x7AC99",
+    "text": "?;?G?S?_?m?"
+  },
+  {
+    "offset": "0x7ACB3",
+    "text": "0%020D0s0"
+  },
+  {
+    "offset": "0x7ACC5",
+    "text": "0.1:1F1R1^1k1}1"
+  },
+  {
+    "offset": "0x7ACF1",
+    "text": "3@3L3[3g3"
+  },
+  {
+    "offset": "0x7ACFB",
+    "text": "434\\4"
+  },
+  {
+    "offset": "0x7AD07",
+    "text": "495c5"
+  },
+  {
+    "offset": "0x7AD15",
+    "text": "5&6M6Y6f6x6"
+  },
+  {
+    "offset": "0x7AD29",
+    "text": "6_7e7"
+  },
+  {
+    "offset": "0x7AD3B",
+    "text": "8\"818G8"
+  },
+  {
+    "offset": "0x7AD51",
+    "text": "9'939?9K9Y9g9"
+  },
+  {
+    "offset": "0x7AD63",
+    "text": ":#:/:;:G:U:g:"
+  },
+  {
+    "offset": "0x7AD71",
+    "text": ":#;b;n;};"
+  },
+  {
+    "offset": "0x7AD7B",
+    "text": ";9<c<"
+  },
+  {
+    "offset": "0x7AD8F",
+    "text": "=\">>>J>Y>g>y?"
+  },
+  {
+    "offset": "0x7ADAB",
+    "text": "040P0\\0k0v0"
+  },
+  {
+    "offset": "0x7ADC5",
+    "text": "1(1i1"
+  },
+  {
+    "offset": "0x7ADD9",
+    "text": "272J2P2b2"
+  },
+  {
+    "offset": "0x7ADE7",
+    "text": "2&353W3j3p3"
+  },
+  {
+    "offset": "0x7ADFB",
+    "text": "4@4f4x4"
+  },
+  {
+    "offset": "0x7AE13",
+    "text": "5,585g5"
+  },
+  {
+    "offset": "0x7AE31",
+    "text": "8\"848F8X8~8"
+  },
+  {
+    "offset": "0x7AE43",
+    "text": "9(9:9L9^9j9"
+  },
+  {
+    "offset": "0x7AE55",
+    "text": ":*;N;Z;i;v;"
+  },
+  {
+    "offset": "0x7AE6D",
+    "text": "<D<V<b<"
+  },
+  {
+    "offset": "0x7AE77",
+    "text": "=C=d="
+  },
+  {
+    "offset": "0x7AE8D",
+    "text": ">8>^>j>"
+  },
+  {
+    "offset": "0x7AE99",
+    "text": "?+?7?D?V?"
+  },
+  {
+    "offset": "0x7AEB9",
+    "text": "0)0/0?0Y0c0"
+  },
+  {
+    "offset": "0x7AECF",
+    "text": "1(1N1t1"
+  },
+  {
+    "offset": "0x7AEEB",
+    "text": "3'363D3f3y3"
+  },
+  {
+    "offset": "0x7AF03",
+    "text": "4\"4H4n4"
+  },
+  {
+    "offset": "0x7AF1D",
+    "text": "6\"616F6U6w6"
+  },
+  {
+    "offset": "0x7AF35",
+    "text": "7$7J7V7"
+  },
+  {
+    "offset": "0x7AF3D",
+    "text": "7)8]8c8q8"
+  },
+  {
+    "offset": "0x7AF53",
+    "text": "9*909B9T9f9x9"
+  },
+  {
+    "offset": "0x7AF63",
+    "text": "9&:U:a:m:z:"
+  },
+  {
+    "offset": "0x7AF79",
+    "text": ";&;4;V;i;o;"
+  },
+  {
+    "offset": "0x7AF93",
+    "text": "<\"<4<@<"
+  },
+  {
+    "offset": "0x7AFA7",
+    "text": "=-=[=g=s="
+  },
+  {
+    "offset": "0x7AFC3",
+    "text": "> >G>"
+  },
+  {
+    "offset": "0x7AFD7",
+    "text": "?'?3???K?Y?f?t?"
+  },
+  {
+    "offset": "0x7AFFD",
+    "text": "0,0N0Z0f0r0"
+  },
+  {
+    "offset": "0x7B017",
+    "text": "1%1G1Z1`1r1"
+  },
+  {
+    "offset": "0x7B027",
+    "text": "1.2:2F2R2^2k2}2"
+  },
+  {
+    "offset": "0x7B045",
+    "text": "3'3:3@3R3d3p3"
+  },
+  {
+    "offset": "0x7B061",
+    "text": "4F4U4w4"
+  },
+  {
+    "offset": "0x7B073",
+    "text": "5f5u5"
+  },
+  {
+    "offset": "0x7B095",
+    "text": "7%767E7g7z7"
+  },
+  {
+    "offset": "0x7B0A9",
+    "text": "8*8<8N8Z8"
+  },
+  {
+    "offset": "0x7B0B3",
+    "text": "8)9\\9b9"
+  },
+  {
+    "offset": "0x7B0CB",
+    "text": ":):f:u:"
+  },
+  {
+    "offset": "0x7B0DD",
+    "text": ";6;E;g;z;"
+  },
+  {
+    "offset": "0x7B0FF",
+    "text": "= =,=;=F=U=w="
+  },
+  {
+    "offset": "0x7B119",
+    "text": ">$>6>B>g>"
+  },
+  {
+    "offset": "0x7B123",
+    "text": "?3?j?p?"
+  },
+  {
+    "offset": "0x7B143",
+    "text": "080^0"
+  },
+  {
+    "offset": "0x7B14D",
+    "text": "0&151W1j1p1"
+  },
+  {
+    "offset": "0x7B161",
+    "text": "2%2G2Z2`2r2"
+  },
+  {
+    "offset": "0x7B185",
+    "text": "4%474"
+  },
+  {
+    "offset": "0x7B195",
+    "text": "4#5<5X5d5s5"
+  },
+  {
+    "offset": "0x7B1AD",
+    "text": "6F6i6y6"
+  },
+  {
+    "offset": "0x7B1C3",
+    "text": "7&757`7m7r7"
+  },
+  {
+    "offset": "0x7B1F1",
+    "text": "8$8)868;8H8M8Z8_8l8q8~8"
+  },
+  {
+    "offset": "0x7B219",
+    "text": "9\":1:A:f:s:"
+  },
+  {
+    "offset": "0x7B22D",
+    "text": ";';E;d;q;~;"
+  },
+  {
+    "offset": "0x7B247",
+    "text": "<)<G<X<w<"
+  },
+  {
+    "offset": "0x7B25F",
+    "text": "=&=M=Z=g="
+  },
+  {
+    "offset": "0x7B275",
+    "text": ">&>6>C>a>s>"
+  },
+  {
+    "offset": "0x7B28F",
+    "text": "?<?L?Y?x?"
+  },
+  {
+    "offset": "0x7B2AD",
+    "text": "0+0;0a0p0"
+  },
+  {
+    "offset": "0x7B2C5",
+    "text": "1A1P1|1"
+  },
+  {
+    "offset": "0x7B2D7",
+    "text": "2 232C2^2m2}2"
+  },
+  {
+    "offset": "0x7B2EF",
+    "text": "3/3;3e3q3"
+  },
+  {
+    "offset": "0x7B303",
+    "text": "444G4h4"
+  },
+  {
+    "offset": "0x7B315",
+    "text": "5\"5H5W5g5t5"
+  },
+  {
+    "offset": "0x7B32B",
+    "text": "6'646k6~6"
+  },
+  {
+    "offset": "0x7B33D",
+    "text": "7!737M7]7"
+  },
+  {
+    "offset": "0x7B355",
+    "text": "8A8M8s8"
+  },
+  {
+    "offset": "0x7B367",
+    "text": "9.9:9`9l9"
+  },
+  {
+    "offset": "0x7B37B",
+    "text": ":(:4:Z:f:v:"
+  },
+  {
+    "offset": "0x7B38D",
+    "text": ":!;4;D;j;v;"
+  },
+  {
+    "offset": "0x7B3A5",
+    "text": "<5<A<i<w<"
+  },
+  {
+    "offset": "0x7B3B9",
+    "text": "=+=Q=]="
+  },
+  {
+    "offset": "0x7B3CD",
+    "text": ">5>B>_>~>"
+  },
+  {
+    "offset": "0x7B3E3",
+    "text": "?2?B?h?t?"
+  },
+  {
+    "offset": "0x7B400",
+    "text": "(0;0Y0i0y0"
+  },
+  {
+    "offset": "0x7B413",
+    "text": "0 101J1h1t1"
+  },
+  {
+    "offset": "0x7B429",
+    "text": "2(252B2`2r2"
+  },
+  {
+    "offset": "0x7B43D",
+    "text": "3 3-3H3U3b3"
+  },
+  {
+    "offset": "0x7B457",
+    "text": "4#4=4L4\\4"
+  },
+  {
+    "offset": "0x7B46D",
+    "text": "525>5k5~5"
+  },
+  {
+    "offset": "0x7B483",
+    "text": "6 6P6_6o6"
+  },
+  {
+    "offset": "0x7B49B",
+    "text": "7E7T7"
+  },
+  {
+    "offset": "0x7B4AF",
+    "text": "8#8I8V8c8}8"
+  },
+  {
+    "offset": "0x7B4C7",
+    "text": "9.9<9V9e9u9"
+  },
+  {
+    "offset": "0x7B4DF",
+    "text": "9\":2:Y:i:"
+  },
+  {
+    "offset": "0x7B4F3",
+    "text": ";\";I;Y;"
+  },
+  {
+    "offset": "0x7B509",
+    "text": "<(<K<X<{<"
+  },
+  {
+    "offset": "0x7B51D",
+    "text": "=+=N=[=~="
+  },
+  {
+    "offset": "0x7B52F",
+    "text": ">3>E>v>"
+  },
+  {
+    "offset": "0x7B53F",
+    "text": "?K?X?~?"
+  },
+  {
+    "offset": "0x7B557",
+    "text": "010>0d0v0"
+  },
+  {
+    "offset": "0x7B567",
+    "text": "0&131Y1k1"
+  },
+  {
+    "offset": "0x7B579",
+    "text": "202^2k2"
+  },
+  {
+    "offset": "0x7B589",
+    "text": "3!3D3Q3w3"
+  },
+  {
+    "offset": "0x7B599",
+    "text": "4)4L4Y4|4"
+  },
+  {
+    "offset": "0x7B5AD",
+    "text": "5&5M5_5"
+  },
+  {
+    "offset": "0x7B5BF",
+    "text": "6'646W6d6"
+  },
+  {
+    "offset": "0x7B5D3",
+    "text": "6!717U7b7"
+  },
+  {
+    "offset": "0x7B5E9",
+    "text": "8'8L8Y8|8"
+  },
+  {
+    "offset": "0x7B5FD",
+    "text": "9\"9E9R9u9"
+  },
+  {
+    "offset": "0x7B60B",
+    "text": "99:F:R:_:"
+  },
+  {
+    "offset": "0x7B61B",
+    "text": ";5;B;X;e;{;"
+  },
+  {
+    "offset": "0x7B633",
+    "text": "<2<?<w<"
+  },
+  {
+    "offset": "0x7B649",
+    "text": "=+=G=T=}="
+  },
+  {
+    "offset": "0x7B65D",
+    "text": ">->:>P>]>s>"
+  },
+  {
+    "offset": "0x7B675",
+    "text": "?-?9?_?k?"
+  },
+  {
+    "offset": "0x7B690",
+    "text": "$030N0]0|0"
+  },
+  {
+    "offset": "0x7B6A7",
+    "text": "141D1b1r1"
+  },
+  {
+    "offset": "0x7B6BB",
+    "text": "252B2i2v2"
+  },
+  {
+    "offset": "0x7B6CF",
+    "text": "393F3m3z3"
+  },
+  {
+    "offset": "0x7B6E3",
+    "text": "4=4J4q4~4"
+  },
+  {
+    "offset": "0x7B6F7",
+    "text": "5A5N5u5"
+  },
+  {
+    "offset": "0x7B70B",
+    "text": "6E6R6y6"
+  },
+  {
+    "offset": "0x7B71B",
+    "text": "6&737|7"
+  },
+  {
+    "offset": "0x7B72B",
+    "text": "7\"848e8w8"
+  },
+  {
+    "offset": "0x7B73B",
+    "text": "9:9G9m9"
+  },
+  {
+    "offset": "0x7B75B",
+    "text": ":+;8;^;p;"
+  },
+  {
+    "offset": "0x7B76B",
+    "text": ";'<9<s<"
+  },
+  {
+    "offset": "0x7B77D",
+    "text": "=8=H=s="
+  },
+  {
+    "offset": "0x7B78D",
+    "text": "=@>M>i>v>"
+  },
+  {
+    "offset": "0x7B7A5",
+    "text": "?9?F?b?o?"
+  },
+  {
+    "offset": "0x7B7C7",
+    "text": "020?0^0m0"
+  },
+  {
+    "offset": "0x7B7DD",
+    "text": "1#1B1O1j1w1"
+  },
+  {
+    "offset": "0x7B7F5",
+    "text": "2*2I2V2q2~2"
+  },
+  {
+    "offset": "0x7B80D",
+    "text": "323?3]3j3w3"
+  },
+  {
+    "offset": "0x7B825",
+    "text": "4'494S4e4"
+  },
+  {
+    "offset": "0x7B83D",
+    "text": "525G5"
+  },
+  {
+    "offset": "0x7B855",
+    "text": "8%979J9U9"
+  },
+  {
+    "offset": "0x7B861",
+    "text": ":+:=:~:"
+  },
+  {
+    "offset": "0x7B884",
+    "text": ".2:2z2"
+  },
+  {
+    "offset": "0x7B893",
+    "text": "3\"373<3A3]3}3"
+  },
+  {
+    "offset": "0x7B8B3",
+    "text": "4/4O4T4Y4u4"
+  },
+  {
+    "offset": "0x7B8C7",
+    "text": "505g5y5"
+  },
+  {
+    "offset": "0x7B8D5",
+    "text": "5B6G6l6"
+  },
+  {
+    "offset": "0x7B8EF",
+    "text": "8!8;8M8"
+  },
+  {
+    "offset": "0x7B8FD",
+    "text": "979I9"
+  },
+  {
+    "offset": "0x7B907",
+    "text": "9-:2:Z:"
+  },
+  {
+    "offset": "0x7B925",
+    "text": ";a<m<r<"
+  },
+  {
+    "offset": "0x7B931",
+    "text": "<%=K=P=x="
+  },
+  {
+    "offset": "0x7B969",
+    "text": "0*0n0t0"
+  },
+  {
+    "offset": "0x7B983",
+    "text": "1*1J1O1T1p1"
+  },
+  {
+    "offset": "0x7B99F",
+    "text": "2<2A2F2"
+  },
+  {
+    "offset": "0x7B9BF",
+    "text": "5`5y5"
+  },
+  {
+    "offset": "0x7B9CD",
+    "text": "6I7{7"
+  },
+  {
+    "offset": "0x7B9D5",
+    "text": "8?8a8"
+  },
+  {
+    "offset": "0x7B9DF",
+    "text": "9'9:9R9"
+  },
+  {
+    "offset": "0x7B9ED",
+    "text": ":#:<;W;s;"
+  },
+  {
+    "offset": "0x7B9FF",
+    "text": ";)<@<"
+  },
+  {
+    "offset": "0x7BA0B",
+    "text": "=,=_=q="
+  },
+  {
+    "offset": "0x7BA43",
+    "text": "3>3I4"
+  },
+  {
+    "offset": "0x7BA63",
+    "text": "9+9=9Y9"
+  },
+  {
+    "offset": "0x7BA71",
+    "text": "9D:I:"
+  },
+  {
+    "offset": "0x7BA79",
+    "text": ";I;`;"
+  },
+  {
+    "offset": "0x7BA81",
+    "text": "<Q<m<"
+  },
+  {
+    "offset": "0x7BA91",
+    "text": "?E?N?w?"
+  },
+  {
+    "offset": "0x7BAA0",
+    "text": ".050Y0"
+  },
+  {
+    "offset": "0x7BAA7",
+    "text": "0'1:1\\1"
+  },
+  {
+    "offset": "0x7BAC1",
+    "text": "3*3M3t3"
+  },
+  {
+    "offset": "0x7BAD7",
+    "text": "7G8q8v8"
+  },
+  {
+    "offset": "0x7BAE5",
+    "text": "8+9L9"
+  },
+  {
+    "offset": "0x7BAF3",
+    "text": ";Q<u<%="
+  },
+  {
+    "offset": "0x7BB13",
+    "text": "2-2N2o2"
+  },
+  {
+    "offset": "0x7BB21",
+    "text": "4/5B5e5"
+  },
+  {
+    "offset": "0x7BB2F",
+    "text": "6#6:6Y6p6"
+  },
+  {
+    "offset": "0x7BB39",
+    "text": "6C7g7"
+  },
+  {
+    "offset": "0x7BB55",
+    "text": "=0=*>"
+  },
+  {
+    "offset": "0x7BB85",
+    "text": "5?6K6R6p6"
+  },
+  {
+    "offset": "0x7BB97",
+    "text": "8J9y9"
+  },
+  {
+    "offset": "0x7BB9F",
+    "text": "99:P:U:"
+  },
+  {
+    "offset": "0x7BBAF",
+    "text": ";G<h<t<"
+  },
+  {
+    "offset": "0x7BBE3",
+    "text": "041K1P1|1"
+  },
+  {
+    "offset": "0x7BC21",
+    "text": ">b>s>"
+  },
+  {
+    "offset": "0x7BC29",
+    "text": ">.?i?"
+  },
+  {
+    "offset": "0x7BC41",
+    "text": "0<0g0"
+  },
+  {
+    "offset": "0x7BC5F",
+    "text": "2/3b3"
+  },
+  {
+    "offset": "0x7BC67",
+    "text": "3/4s4"
+  },
+  {
+    "offset": "0x7BC6F",
+    "text": "40555P5U5r5"
+  },
+  {
+    "offset": "0x7BC7F",
+    "text": "6\"6p6"
+  },
+  {
+    "offset": "0x7BC89",
+    "text": "687|7"
+  },
+  {
+    "offset": "0x7BC93",
+    "text": "8H8\\8a8"
+  },
+  {
+    "offset": "0x7BC9F",
+    "text": "979f9"
+  },
+  {
+    "offset": "0x7BCAB",
+    "text": ":\":':"
+  },
+  {
+    "offset": "0x7BCB7",
+    "text": ";5;:;`;"
+  },
+  {
+    "offset": "0x7BCC1",
+    "text": ";+<o<"
+  },
+  {
+    "offset": "0x7BCCD",
+    "text": "=$=;="
+  },
+  {
+    "offset": "0x7BCD7",
+    "text": "=5>:>b>g>~>"
+  },
+  {
+    "offset": "0x7BCE5",
+    "text": "?8?=?b?g?"
+  },
+  {
+    "offset": "0x7BD03",
+    "text": "0Y0^0"
+  },
+  {
+    "offset": "0x7BD1B",
+    "text": "203j3~3"
+  },
+  {
+    "offset": "0x7BD27",
+    "text": "3.4f4"
+  },
+  {
+    "offset": "0x7BD3F",
+    "text": "747L7s7"
+  },
+  {
+    "offset": "0x7BD4B",
+    "text": "7 8O8~8"
+  },
+  {
+    "offset": "0x7BD53",
+    "text": "829F9K9c9"
+  },
+  {
+    "offset": "0x7BD5F",
+    "text": ":[:s:x:"
+  },
+  {
+    "offset": "0x7BD69",
+    "text": ":0;H;M;"
+  },
+  {
+    "offset": "0x7BD75",
+    "text": "<a<t<"
+  },
+  {
+    "offset": "0x7BD7B",
+    "text": "<&=5=j=~="
+  },
+  {
+    "offset": "0x7BD87",
+    "text": "=6>H>"
+  },
+  {
+    "offset": "0x7BDA5",
+    "text": "0*1:1S1m1"
+  },
+  {
+    "offset": "0x7BDC7",
+    "text": "3?3M3_3e3k3"
+  },
+  {
+    "offset": "0x7BDD3",
+    "text": "3&454j4}4"
+  },
+  {
+    "offset": "0x7BDEF",
+    "text": "5+515u5"
+  },
+  {
+    "offset": "0x7BDFD",
+    "text": "5%6@6P6`6j6"
+  },
+  {
+    "offset": "0x7BE21",
+    "text": "8F8\\8|879K9"
+  },
+  {
+    "offset": "0x7BE39",
+    "text": ":T:h:t:"
+  },
+  {
+    "offset": "0x7BE4B",
+    "text": ";\";.;P;\\;h;x;"
+  },
+  {
+    "offset": "0x7BE61",
+    "text": "<9<_<q<}<"
+  },
+  {
+    "offset": "0x7BE6F",
+    "text": "<#=C=f="
+  },
+  {
+    "offset": "0x7BE81",
+    "text": ">&>8>D>t>"
+  },
+  {
+    "offset": "0x7BE95",
+    "text": ">!?5?A?c?o?"
+  },
+  {
+    "offset": "0x7BEB4",
+    "text": "$000<0L0]0"
+  },
+  {
+    "offset": "0x7BECB",
+    "text": "1K1_1k1"
+  },
+  {
+    "offset": "0x7BED9",
+    "text": "1?2S2e2w2"
+  },
+  {
+    "offset": "0x7BEED",
+    "text": "3A3U3g3"
+  },
+  {
+    "offset": "0x7BEFD",
+    "text": "3%494K4W4l4"
+  },
+  {
+    "offset": "0x7BF13",
+    "text": "505<5L5]5"
+  },
+  {
+    "offset": "0x7BF29",
+    "text": "6W6k6w6"
+  },
+  {
+    "offset": "0x7BF37",
+    "text": "7+777q7"
+  },
+  {
+    "offset": "0x7BF47",
+    "text": "8:8F8h8t8"
+  },
+  {
+    "offset": "0x7BF5D",
+    "text": "929D9V9b9w9"
+  },
+  {
+    "offset": "0x7BF71",
+    "text": ":\":4:T:o:{:"
+  },
+  {
+    "offset": "0x7BF87",
+    "text": ";@;L;\\;m;"
+  },
+  {
+    "offset": "0x7BF9D",
+    "text": "<5<A<Q<b<"
+  },
+  {
+    "offset": "0x7BFAF",
+    "text": "=8=D=P=\\=l=}="
+  },
+  {
+    "offset": "0x7BFC3",
+    "text": ">(>N>Z>o>"
+  },
+  {
+    "offset": "0x7BFD7",
+    "text": "?.?T?z?"
+  },
+  {
+    "offset": "0x7BFF0",
+    "text": "(0<0N0n0"
+  },
+  {
+    "offset": "0x7BFFF",
+    "text": "131?1K1[1l1"
+  },
+  {
+    "offset": "0x7C013",
+    "text": "272R2X2|2"
+  },
+  {
+    "offset": "0x7C025",
+    "text": "3'3G3b3h3"
+  },
+  {
+    "offset": "0x7C035",
+    "text": "4(4H4"
+  },
+  {
+    "offset": "0x7C043",
+    "text": "4>5R5d5"
+  },
+  {
+    "offset": "0x7C051",
+    "text": "6#6I6i6"
+  },
+  {
+    "offset": "0x7C061",
+    "text": "7:7U7[7o7"
+  },
+  {
+    "offset": "0x7C075",
+    "text": "838Y8"
+  },
+  {
+    "offset": "0x7C087",
+    "text": "9%919=9M9^9"
+  },
+  {
+    "offset": "0x7C09B",
+    "text": ":2:>:"
+  },
+  {
+    "offset": "0x7C0A9",
+    "text": ";);;;M;_;k;"
+  },
+  {
+    "offset": "0x7C0BD",
+    "text": "<3<Y<"
+  },
+  {
+    "offset": "0x7C0CB",
+    "text": "<F=Z=}="
+  },
+  {
+    "offset": "0x7C0DF",
+    "text": "=!>G>m>"
+  },
+  {
+    "offset": "0x7C10F",
+    "text": "9\"9(929S9_9k9{9"
+  },
+  {
+    "offset": "0x7C129",
+    "text": ":.:I:"
+  },
+  {
+    "offset": "0x7C143",
+    "text": "; ;F;X;~;"
+  },
+  {
+    "offset": "0x7C155",
+    "text": ">8?=?L?"
+  },
+  {
+    "offset": "0x7C175",
+    "text": "010K0d0l0y0~0"
+  },
+  {
+    "offset": "0x7C189",
+    "text": "1 191A1G1f1p1"
+  },
+  {
+    "offset": "0x7C1BB",
+    "text": "2_3l3s3x3"
+  },
+  {
+    "offset": "0x7C1CF",
+    "text": "5-5]5b5q5"
+  },
+  {
+    "offset": "0x7C1E7",
+    "text": "6&616;6K6x6"
+  },
+  {
+    "offset": "0x7C1FF",
+    "text": "7%7?7Y7n7"
+  },
+  {
+    "offset": "0x7C211",
+    "text": "7!878=8V8^8n8"
+  },
+  {
+    "offset": "0x7C22F",
+    "text": "929f9k9z9"
+  },
+  {
+    "offset": "0x7C245",
+    "text": ":-:;:@:O:U:"
+  },
+  {
+    "offset": "0x7C265",
+    "text": "<&<6<F<V<u<"
+  },
+  {
+    "offset": "0x7C27B",
+    "text": "=+=1=R=r="
+  },
+  {
+    "offset": "0x7C289",
+    "text": "=h>m>|>"
+  },
+  {
+    "offset": "0x7C29D",
+    "text": "?2?@?Z?b?~?"
+  },
+  {
+    "offset": "0x7C2B9",
+    "text": "010Q0"
+  },
+  {
+    "offset": "0x7C2BF",
+    "text": "242g2"
+  },
+  {
+    "offset": "0x7C2CD",
+    "text": "31393I3`3s3"
+  },
+  {
+    "offset": "0x7C2DB",
+    "text": "395>5M5f5r5"
+  },
+  {
+    "offset": "0x7C2F5",
+    "text": "6$656a6"
+  },
+  {
+    "offset": "0x7C307",
+    "text": "7#737A7[7k7"
+  },
+  {
+    "offset": "0x7C31F",
+    "text": "8)8/8H8P8q8"
+  },
+  {
+    "offset": "0x7C335",
+    "text": "9$9)9=9"
+  },
+  {
+    "offset": "0x7C34D",
+    "text": ":=:r:w:"
+  },
+  {
+    "offset": "0x7C363",
+    "text": ";/;=;C;J;^;r;"
+  },
+  {
+    "offset": "0x7C37B",
+    "text": "<6<;<J<c<"
+  },
+  {
+    "offset": "0x7C395",
+    "text": "=1=D=Q="
+  },
+  {
+    "offset": "0x7C3A1",
+    "text": "=<>U>a>v>"
+  },
+  {
+    "offset": "0x7C3B9",
+    "text": "?!?+?B?a?"
+  },
+  {
+    "offset": "0x7C3D7",
+    "text": "0#070K0e0"
+  },
+  {
+    "offset": "0x7C3E7",
+    "text": "041C1\\1h1"
+  },
+  {
+    "offset": "0x7C3FF",
+    "text": "2)2F2Q2[2r2"
+  },
+  {
+    "offset": "0x7C40D",
+    "text": "243f3x3"
+  },
+  {
+    "offset": "0x7C421",
+    "text": "4.4J4P4"
+  },
+  {
+    "offset": "0x7C42D",
+    "text": "5+575a5{5"
+  },
+  {
+    "offset": "0x7C451",
+    "text": "6$7_7d7s7"
+  },
+  {
+    "offset": "0x7C469",
+    "text": "7)848A8`8"
+  },
+  {
+    "offset": "0x7C477",
+    "text": "8)9f9x9"
+  },
+  {
+    "offset": "0x7C48B",
+    "text": ":5:r:w:"
+  },
+  {
+    "offset": "0x7C4A1",
+    "text": ";8;F;p;"
+  },
+  {
+    "offset": "0x7C4B5",
+    "text": "<+<8<s<x<"
+  },
+  {
+    "offset": "0x7C4CD",
+    "text": "=9=G=L=[=z="
+  },
+  {
+    "offset": "0x7C4DF",
+    "text": "=C>^>g>"
+  },
+  {
+    "offset": "0x7C4EF",
+    "text": "?)?7?P?c?"
+  },
+  {
+    "offset": "0x7C504",
+    "text": "/040C0`0l0"
+  },
+  {
+    "offset": "0x7C51B",
+    "text": "151Q1m1"
+  },
+  {
+    "offset": "0x7C53F",
+    "text": "2T3|3"
+  },
+  {
+    "offset": "0x7C54B",
+    "text": "3)4Q4"
+  },
+  {
+    "offset": "0x7C557",
+    "text": "535V5h5"
+  },
+  {
+    "offset": "0x7C569",
+    "text": "6)696v6{6"
+  },
+  {
+    "offset": "0x7C581",
+    "text": "7!7B7P7q7"
+  },
+  {
+    "offset": "0x7C591",
+    "text": "8+8W8p8"
+  },
+  {
+    "offset": "0x7C5A5",
+    "text": "9C9H9W9p9"
+  },
+  {
+    "offset": "0x7C5DB",
+    "text": "<#<@<p<"
+  },
+  {
+    "offset": "0x7C5EB",
+    "text": "=&=?=K=q="
+  },
+  {
+    "offset": "0x7C601",
+    "text": "= >`>f>o>"
+  },
+  {
+    "offset": "0x7C611",
+    "text": ">a?|?"
+  },
+  {
+    "offset": "0x7C637",
+    "text": "101`1s1"
+  },
+  {
+    "offset": "0x7C643",
+    "text": "1%2h2m2|2"
+  },
+  {
+    "offset": "0x7C659",
+    "text": "3.3<3V3"
+  },
+  {
+    "offset": "0x7C669",
+    "text": "4V4s4"
+  },
+  {
+    "offset": "0x7C67B",
+    "text": "5K5e5u5"
+  },
+  {
+    "offset": "0x7C68B",
+    "text": "5!696?6Z6b6"
+  },
+  {
+    "offset": "0x7C6A1",
+    "text": "737;7K7b7"
+  },
+  {
+    "offset": "0x7C6B5",
+    "text": "8%8?8E8^8f8w8"
+  },
+  {
+    "offset": "0x7C6CB",
+    "text": "859f9x9"
+  },
+  {
+    "offset": "0x7C6DF",
+    "text": ":.:J:[:"
+  },
+  {
+    "offset": "0x7C6EB",
+    "text": ";%;Q;m;s;"
+  },
+  {
+    "offset": "0x7C70B",
+    "text": "=&=g="
+  },
+  {
+    "offset": "0x7C719",
+    "text": ">!>=>Q>W>p>x>"
+  },
+  {
+    "offset": "0x7C72D",
+    "text": "?#?G?"
+  },
+  {
+    "offset": "0x7C74B",
+    "text": "1\"1;1C1S1p1"
+  },
+  {
+    "offset": "0x7C75D",
+    "text": "1(2T2"
+  },
+  {
+    "offset": "0x7C76F",
+    "text": "3%3+3D3L3q3"
+  },
+  {
+    "offset": "0x7C781",
+    "text": "4 4.4K4X4x4"
+  },
+  {
+    "offset": "0x7C793",
+    "text": "4K5l5q5~5"
+  },
+  {
+    "offset": "0x7C7BB",
+    "text": "7C8V8o8"
+  },
+  {
+    "offset": "0x7C7C7",
+    "text": "919f9k9z9"
+  },
+  {
+    "offset": "0x7C7DF",
+    "text": ":=:K:Q:"
+  },
+  {
+    "offset": "0x7C7E9",
+    "text": ";&;3;S;"
+  },
+  {
+    "offset": "0x7C7F7",
+    "text": ";&<A<F<S<"
+  },
+  {
+    "offset": "0x7C805",
+    "text": "<5=K=X=f=x="
+  },
+  {
+    "offset": "0x7C819",
+    "text": "=3>F>_>"
+  },
+  {
+    "offset": "0x7C825",
+    "text": ">.?3?B?[?g?"
+  },
+  {
+    "offset": "0x7C847",
+    "text": "0*1:1S1[1k1"
+  },
+  {
+    "offset": "0x7C857",
+    "text": "1/242C2\\2"
+  },
+  {
+    "offset": "0x7C879",
+    "text": "4&4e4"
+  },
+  {
+    "offset": "0x7C88D",
+    "text": "595A5h5v5"
+  },
+  {
+    "offset": "0x7C89D",
+    "text": "5*6e6"
+  },
+  {
+    "offset": "0x7C8B1",
+    "text": "7J7d7t7"
+  },
+  {
+    "offset": "0x7C8C3",
+    "text": "8*8:8@8Y8a8"
+  },
+  {
+    "offset": "0x7C8F7",
+    "text": "<*<6<a<z<"
+  },
+  {
+    "offset": "0x7C913",
+    "text": "=M=\\="
+  },
+  {
+    "offset": "0x7C91F",
+    "text": ">A>f>x>"
+  },
+  {
+    "offset": "0x7C933",
+    "text": "?#?}?"
+  },
+  {
+    "offset": "0x7C94F",
+    "text": "0)010X0f0l0"
+  },
+  {
+    "offset": "0x7C95F",
+    "text": "182U2v2"
+  },
+  {
+    "offset": "0x7C971",
+    "text": "2`3z3"
+  },
+  {
+    "offset": "0x7C981",
+    "text": "4!4:4H4N4i4q4"
+  },
+  {
+    "offset": "0x7C999",
+    "text": "405a5f5u5"
+  },
+  {
+    "offset": "0x7C9A9",
+    "text": "6(6H6a6i6y6"
+  },
+  {
+    "offset": "0x7C9BB",
+    "text": "6-727A7^7j7"
+  },
+  {
+    "offset": "0x7C9DF",
+    "text": "9.9r9"
+  },
+  {
+    "offset": "0x7C9EB",
+    "text": "9.:;:g:r:"
+  },
+  {
+    "offset": "0x7CA09",
+    "text": "<#<<<D<h<v<|<"
+  },
+  {
+    "offset": "0x7CA19",
+    "text": "=a=z="
+  },
+  {
+    "offset": "0x7CA2B",
+    "text": ">J>|>"
+  },
+  {
+    "offset": "0x7CA59",
+    "text": "091>1M1j1v1"
+  },
+  {
+    "offset": "0x7CA71",
+    "text": "2 2&2"
+  },
+  {
+    "offset": "0x7CA81",
+    "text": "3=4Q4q4}4"
+  },
+  {
+    "offset": "0x7CA8B",
+    "text": "4b5z5"
+  },
+  {
+    "offset": "0x7CAA7",
+    "text": "717J7Z7`7y7"
+  },
+  {
+    "offset": "0x7CACB",
+    "text": "9#939A9[9k9"
+  },
+  {
+    "offset": "0x7CAE1",
+    "text": "9&:,:E:M:n:|:"
+  },
+  {
+    "offset": "0x7CAFD",
+    "text": ";+;P;^;z;"
+  },
+  {
+    "offset": "0x7CB0D",
+    "text": "<0<F<y<"
+  },
+  {
+    "offset": "0x7CB29",
+    "text": ">,>1>>>"
+  },
+  {
+    "offset": "0x7CB35",
+    "text": ">&?,?f?x?"
+  },
+  {
+    "offset": "0x7CB5F",
+    "text": "1Z1_1n1"
+  },
+  {
+    "offset": "0x7CB75",
+    "text": "2=2K2Q2"
+  },
+  {
+    "offset": "0x7CB85",
+    "text": "313>3"
+  },
+  {
+    "offset": "0x7CB95",
+    "text": "485S5"
+  },
+  {
+    "offset": "0x7CB9F",
+    "text": "6@6[667H7b7{7"
+  },
+  {
+    "offset": "0x7CBB7",
+    "text": "8:8J8"
+  },
+  {
+    "offset": "0x7CBC3",
+    "text": "8a9f9u9"
+  },
+  {
+    "offset": "0x7CBD9",
+    "text": ":A:O:"
+  },
+  {
+    "offset": "0x7CBEF",
+    "text": "<A=Q=z="
+  },
+  {
+    "offset": "0x7CBF9",
+    "text": "=!>1>Z>"
+  },
+  {
+    "offset": "0x7CC03",
+    "text": ">g?z?"
+  },
+  {
+    "offset": "0x7CC20",
+    "text": "$0e0t0"
+  },
+  {
+    "offset": "0x7CC29",
+    "text": "1*121@1[1"
+  },
+  {
+    "offset": "0x7CC37",
+    "text": "1_2l2"
+  },
+  {
+    "offset": "0x7CC5D",
+    "text": "555E5q6"
+  },
+  {
+    "offset": "0x7CC73",
+    "text": "888=8L8"
+  },
+  {
+    "offset": "0x7CC83",
+    "text": ":&:.:@:"
+  },
+  {
+    "offset": "0x7CC95",
+    "text": ";!;';@;H;m;{;"
+  },
+  {
+    "offset": "0x7CCAD",
+    "text": "< <{<"
+  },
+  {
+    "offset": "0x7CCBB",
+    "text": "=A=X="
+  },
+  {
+    "offset": "0x7CCCB",
+    "text": ">'>@>S>"
+  },
+  {
+    "offset": "0x7CCD7",
+    "text": ">>?C?R?o?{?"
+  },
+  {
+    "offset": "0x7CCF9",
+    "text": "0,0J0p0"
+  },
+  {
+    "offset": "0x7CD07",
+    "text": "061U1t1"
+  },
+  {
+    "offset": "0x7CD19",
+    "text": "2+232C2I2"
+  },
+  {
+    "offset": "0x7CD2B",
+    "text": "3.3G3S3"
+  },
+  {
+    "offset": "0x7CD4D",
+    "text": "5 5-5Y5"
+  },
+  {
+    "offset": "0x7CD5D",
+    "text": "5 6;6@6M6y6"
+  },
+  {
+    "offset": "0x7CD71",
+    "text": "7@7[7q8"
+  },
+  {
+    "offset": "0x7CD8F",
+    "text": ":B:y:"
+  },
+  {
+    "offset": "0x7CD99",
+    "text": ":M;S;"
+  },
+  {
+    "offset": "0x7CDA7",
+    "text": "<-<3<"
+  },
+  {
+    "offset": "0x7CDB9",
+    "text": "=@=P=q="
+  },
+  {
+    "offset": "0x7CDC7",
+    "text": "?!?N?"
+  },
+  {
+    "offset": "0x7CDE1",
+    "text": "0%0+0D0L0q0"
+  },
+  {
+    "offset": "0x7CDEF",
+    "text": "0 1-1Y1"
+  },
+  {
+    "offset": "0x7CDFF",
+    "text": "1&2G2L2Y2"
+  },
+  {
+    "offset": "0x7CE13",
+    "text": "3R3s3*474W4"
+  },
+  {
+    "offset": "0x7CE25",
+    "text": "4$5?5V5"
+  },
+  {
+    "offset": "0x7CE2F",
+    "text": "5V6q667H7b7{7"
+  },
+  {
+    "offset": "0x7CE45",
+    "text": "8/8b8"
+  },
+  {
+    "offset": "0x7CE51",
+    "text": "939^9"
+  },
+  {
+    "offset": "0x7CE61",
+    "text": ":1:M:S:l:t:"
+  },
+  {
+    "offset": "0x7CE75",
+    "text": "<3<;<O<U<"
+  },
+  {
+    "offset": "0x7CE8F",
+    "text": ">8>F>U>:?J?c?k?{?"
+  },
+  {
+    "offset": "0x7CEAC",
+    "text": "e0j0y0"
+  },
+  {
+    "offset": "0x7CEC9",
+    "text": "2$2,2Q2_2{2"
+  },
+  {
+    "offset": "0x7CEDD",
+    "text": "3Z3{3"
+  },
+  {
+    "offset": "0x7CEF1",
+    "text": "5%5H5V5"
+  },
+  {
+    "offset": "0x7CF0B",
+    "text": "6S7f7"
+  },
+  {
+    "offset": "0x7CF27",
+    "text": "9,949U9c9i9"
+  },
+  {
+    "offset": "0x7CF35",
+    "text": ":!:':@:H:m:{:"
+  },
+  {
+    "offset": "0x7CF43",
+    "text": ":$;1;Q;"
+  },
+  {
+    "offset": "0x7CF53",
+    "text": "<9<><K<"
+  },
+  {
+    "offset": "0x7CF67",
+    "text": "=e=~="
+  },
+  {
+    "offset": "0x7CF6F",
+    "text": "=;>@>O>l>x>"
+  },
+  {
+    "offset": "0x7CF87",
+    "text": "?+?6?C?j?"
+  },
+  {
+    "offset": "0x7CFA1",
+    "text": "0$1?1d1"
+  },
+  {
+    "offset": "0x7CFAF",
+    "text": "2-2f2x2"
+  },
+  {
+    "offset": "0x7CFCB",
+    "text": "4%4L4\\4"
+  },
+  {
+    "offset": "0x7CFDB",
+    "text": "4!5=5Q5W5p5x5~5"
+  },
+  {
+    "offset": "0x7CFF1",
+    "text": "5!6=6J6"
+  },
+  {
+    "offset": "0x7CFFD",
+    "text": "617M7Z7"
+  },
+  {
+    "offset": "0x7D009",
+    "text": "8(8H8a8i8y8"
+  },
+  {
+    "offset": "0x7D01D",
+    "text": "9K9t9"
+  },
+  {
+    "offset": "0x7D02D",
+    "text": ":*:8:>:Y:a:"
+  },
+  {
+    "offset": "0x7D043",
+    "text": ";8;s;"
+  },
+  {
+    "offset": "0x7D055",
+    "text": "<*<;<U<e<"
+  },
+  {
+    "offset": "0x7D06B",
+    "text": "=%=?=E=^=f="
+  },
+  {
+    "offset": "0x7D085",
+    "text": ">%>H>Q>"
+  },
+  {
+    "offset": "0x7D099",
+    "text": "?%???Y?n?"
+  },
+  {
+    "offset": "0x7D0B7",
+    "text": "0A0V0e0"
+  },
+  {
+    "offset": "0x7D0CD",
+    "text": "161A1K1b1k1"
+  },
+  {
+    "offset": "0x7D0E5",
+    "text": "1D2^2y2"
+  },
+  {
+    "offset": "0x7D0F7",
+    "text": "3A3[3a3z3"
+  },
+  {
+    "offset": "0x7D10B",
+    "text": "4:4P4i4q4"
+  },
+  {
+    "offset": "0x7D11F",
+    "text": "5A5[5a5z5"
+  },
+  {
+    "offset": "0x7D133",
+    "text": "5J6`6y6"
+  },
+  {
+    "offset": "0x7D143",
+    "text": "7,7I7k7q7"
+  },
+  {
+    "offset": "0x7D159",
+    "text": "8Q8f8x8"
+  },
+  {
+    "offset": "0x7D16F",
+    "text": "919l9"
+  },
+  {
+    "offset": "0x7D17D",
+    "text": ":F:X:r:"
+  },
+  {
+    "offset": "0x7D18F",
+    "text": ":);>;Q;"
+  },
+  {
+    "offset": "0x7D1A5",
+    "text": "<9<A<b<p<"
+  },
+  {
+    "offset": "0x7D1B1",
+    "text": "<C=R="
+  },
+  {
+    "offset": "0x7D1BF",
+    "text": ">2>K>S>c>~>"
+  },
+  {
+    "offset": "0x7D1D1",
+    "text": "?Z?_?n?"
+  },
+  {
+    "offset": "0x7D1EF",
+    "text": "0=0K0Q0X0"
+  },
+  {
+    "offset": "0x7D1FF",
+    "text": "0M1h1"
+  },
+  {
+    "offset": "0x7D209",
+    "text": "2!2.2"
+  },
+  {
+    "offset": "0x7D213",
+    "text": "263H3b3{3"
+  },
+  {
+    "offset": "0x7D227",
+    "text": "4,4X4"
+  },
+  {
+    "offset": "0x7D239",
+    "text": "5!5'5@5H5m5{5"
+  },
+  {
+    "offset": "0x7D247",
+    "text": "5<6I6m6"
+  },
+  {
+    "offset": "0x7D255",
+    "text": "6@7[7`7m7"
+  },
+  {
+    "offset": "0x7D26F",
+    "text": "9+939G9M9"
+  },
+  {
+    "offset": "0x7D287",
+    "text": ";/;;;a;{;"
+  },
+  {
+    "offset": "0x7D29B",
+    "text": "; <:<J<c<k<{<"
+  },
+  {
+    "offset": "0x7D2B1",
+    "text": "=!=6=H=b=h="
+  },
+  {
+    "offset": "0x7D2E5",
+    "text": "0&0I0o0"
+  },
+  {
+    "offset": "0x7D2F5",
+    "text": "0d2m2y2"
+  },
+  {
+    "offset": "0x7D315",
+    "text": "3!3-393E3Q3]3i3u3"
+  },
+  {
+    "offset": "0x7D341",
+    "text": "4)454A4M4Y4e4q4}4"
+  },
+  {
+    "offset": "0x7D36B",
+    "text": "5%515=5I5U5a5m5y5"
+  },
+  {
+    "offset": "0x7D38D",
+    "text": "6&6,6"
+  },
+  {
+    "offset": "0x7D399",
+    "text": "727V7t7"
+  },
+  {
+    "offset": "0x7D3A1",
+    "text": "8(8B8[8c8s8y8"
+  },
+  {
+    "offset": "0x7D3BD",
+    "text": ":A:]:q:w:"
+  },
+  {
+    "offset": "0x7D3D3",
+    "text": ";7;D;p;"
+  },
+  {
+    "offset": "0x7D3DD",
+    "text": ";P<j<"
+  },
+  {
+    "offset": "0x7D3EB",
+    "text": "=6=H=h="
+  },
+  {
+    "offset": "0x7D40F",
+    "text": "?*?0?I?Q?x?"
+  },
+  {
+    "offset": "0x7D42D",
+    "text": "0%0.0"
+  },
+  {
+    "offset": "0x7D437",
+    "text": "1(1B1[1c1s1"
+  },
+  {
+    "offset": "0x7D44B",
+    "text": "1\"2W2\\2k2"
+  },
+  {
+    "offset": "0x7D463",
+    "text": "3'343`3z3"
+  },
+  {
+    "offset": "0x7D47F",
+    "text": "5T5o5"
+  },
+  {
+    "offset": "0x7D497",
+    "text": "666H6h6"
+  },
+  {
+    "offset": "0x7D4B1",
+    "text": "8=8N8"
+  },
+  {
+    "offset": "0x7D4B7",
+    "text": "80959D9a9m9"
+  },
+  {
+    "offset": "0x7D4D3",
+    "text": ":6:H:h:"
+  },
+  {
+    "offset": "0x7D4F7",
+    "text": "<*<q<~<"
+  },
+  {
+    "offset": "0x7D503",
+    "text": "<!=7=H=M="
+  },
+  {
+    "offset": "0x7D50D",
+    "text": ">'>6>C>O>^>"
+  },
+  {
+    "offset": "0x7D541",
+    "text": "2,2L2u2"
+  },
+  {
+    "offset": "0x7D557",
+    "text": "3D3v3"
+  },
+  {
+    "offset": "0x7D565",
+    "text": "394E4[4g4x4"
+  },
+  {
+    "offset": "0x7D577",
+    "text": "5J5Y5r5z5"
+  },
+  {
+    "offset": "0x7D589",
+    "text": "656X6"
+  },
+  {
+    "offset": "0x7D593",
+    "text": "697K7b7r7"
+  },
+  {
+    "offset": "0x7D5A1",
+    "text": "8$8,828@8E8T8c8h8t8|8"
+  },
+  {
+    "offset": "0x7D5D1",
+    "text": ":?:D:Z:{:"
+  },
+  {
+    "offset": "0x7D5E7",
+    "text": "<V<h<"
+  },
+  {
+    "offset": "0x7D5FB",
+    "text": "=#=T=Y=a="
+  },
+  {
+    "offset": "0x7D627",
+    "text": "3I3W3`3"
+  },
+  {
+    "offset": "0x7D65B",
+    "text": "708K8"
+  },
+  {
+    "offset": "0x7D669",
+    "text": "819O9v9"
+  },
+  {
+    "offset": "0x7D67D",
+    "text": ";2;>;T;`;"
+  },
+  {
+    "offset": "0x7D68B",
+    "text": "<C<k<"
+  },
+  {
+    "offset": "0x7D69D",
+    "text": "=6=>=P=\\=l=}="
+  },
+  {
+    "offset": "0x7D6B5",
+    "text": ">'>->M>"
+  },
+  {
+    "offset": "0x7D6C3",
+    "text": "?(?2?D?V?h?t?"
+  },
+  {
+    "offset": "0x7D6E5",
+    "text": "040r0"
+  },
+  {
+    "offset": "0x7D6F1",
+    "text": "0-1B1Z1"
+  },
+  {
+    "offset": "0x7D6FD",
+    "text": "242l2"
+  },
+  {
+    "offset": "0x7D705",
+    "text": "3G3a3f3w3"
+  },
+  {
+    "offset": "0x7D71D",
+    "text": "7E7J7S7X7`7"
+  },
+  {
+    "offset": "0x7D735",
+    "text": "868H8"
+  },
+  {
+    "offset": "0x7D743",
+    "text": ":;:@:I:N:V:"
+  },
+  {
+    "offset": "0x7D755",
+    "text": ";B;R;\\;n;"
+  },
+  {
+    "offset": "0x7D771",
+    "text": "<&<8<\\<a<"
+  },
+  {
+    "offset": "0x7D783",
+    "text": "<P=`=j=|="
+  },
+  {
+    "offset": "0x7D7A1",
+    "text": ">7>V>e>u>"
+  },
+  {
+    "offset": "0x7D7B1",
+    "text": ">^?e?"
+  },
+  {
+    "offset": "0x7D7C3",
+    "text": "0=1O1o1"
+  },
+  {
+    "offset": "0x7D801",
+    "text": "4 4$4"
+  },
+  {
+    "offset": "0x7D813",
+    "text": "5%5@5"
+  },
+  {
+    "offset": "0x7D82D",
+    "text": "8&81888B8O8_8h8w8"
+  },
+  {
+    "offset": "0x7D853",
+    "text": "969B9T9Z9"
+  },
+  {
+    "offset": "0x7D865",
+    "text": "9':;:U:"
+  },
+  {
+    "offset": "0x7D877",
+    "text": ":);6;D;P;V;`;j;t;~;"
+  },
+  {
+    "offset": "0x7D895",
+    "text": "<%<2<H<Z<"
+  },
+  {
+    "offset": "0x7D8A9",
+    "text": "=*=R=^=d="
+  },
+  {
+    "offset": "0x7D8D3",
+    "text": "?*?R?f?s?"
+  },
+  {
+    "offset": "0x7D8EF",
+    "text": "0$00060B0J0\\0"
+  },
+  {
+    "offset": "0x7D907",
+    "text": "1 181"
+  },
+  {
+    "offset": "0x7D91D",
+    "text": "2!2@2G2O2Y2"
+  },
+  {
+    "offset": "0x7D933",
+    "text": "3!3A3K3e3u3"
+  },
+  {
+    "offset": "0x7D94B",
+    "text": "3!4H4m4"
+  },
+  {
+    "offset": "0x7D95D",
+    "text": "5%5=5K5Z5i5"
+  },
+  {
+    "offset": "0x7D975",
+    "text": "6#6G6U6m6{6"
+  },
+  {
+    "offset": "0x7D98D",
+    "text": "7%7=7K7c7q7"
+  },
+  {
+    "offset": "0x7D9A5",
+    "text": "8B8j8"
+  },
+  {
+    "offset": "0x7D9C1",
+    "text": "9.9V9"
+  },
+  {
+    "offset": "0x7D9DB",
+    "text": ";$;,;F;R;"
+  },
+  {
+    "offset": "0x7D9F5",
+    "text": "<)</<F<O<{<"
+  },
+  {
+    "offset": "0x7DA09",
+    "text": "<>=H=P="
+  },
+  {
+    "offset": "0x7DA1D",
+    "text": "?1?x?"
+  },
+  {
+    "offset": "0x7DA39",
+    "text": "11171w1"
+  },
+  {
+    "offset": "0x7DA5B",
+    "text": "5A5r5"
+  },
+  {
+    "offset": "0x7DA65",
+    "text": "536J6b6u6}6"
+  },
+  {
+    "offset": "0x7DA79",
+    "text": "7!7'7_7"
+  },
+  {
+    "offset": "0x7DA89",
+    "text": "8Q8W8t8"
+  },
+  {
+    "offset": "0x7DAA7",
+    "text": "<#<A<L<m<"
+  },
+  {
+    "offset": "0x7DAB5",
+    "text": "=U=|="
+  },
+  {
+    "offset": "0x7DABF",
+    "text": ">:>N>T>`>l>r>z>"
+  },
+  {
+    "offset": "0x7DAD9",
+    "text": "?%?I?h?o?"
+  },
+  {
+    "offset": "0x7DAF9",
+    "text": "0&090?0_0s0"
+  },
+  {
+    "offset": "0x7DB09",
+    "text": "0:1_1"
+  },
+  {
+    "offset": "0x7DB19",
+    "text": "2>2`2"
+  },
+  {
+    "offset": "0x7DB27",
+    "text": "3.3P3t3"
+  },
+  {
+    "offset": "0x7DB3D",
+    "text": "4.4j4"
+  },
+  {
+    "offset": "0x7DB55",
+    "text": "5%6+666E6q6"
+  },
+  {
+    "offset": "0x7DB71",
+    "text": "7!797J7X7d7i7n7t7x7~7"
+  },
+  {
+    "offset": "0x7DBA9",
+    "text": "8(8,828<8F8P8Z8d8h8n8x8"
+  },
+  {
+    "offset": "0x7DBDB",
+    "text": "9-999?9K9W9c9x9~9"
+  },
+  {
+    "offset": "0x7DC01",
+    "text": ":<:H:N:^:j:"
+  },
+  {
+    "offset": "0x7DC1D",
+    "text": ";\";.;:;E;O;a;g;u;"
+  },
+  {
+    "offset": "0x7DC45",
+    "text": "<\"<.<:<F<N<`<"
+  },
+  {
+    "offset": "0x7DC5B",
+    "text": "=X=e="
+  },
+  {
+    "offset": "0x7DC6D",
+    "text": ">.>E>T>`>"
+  },
+  {
+    "offset": "0x7DC89",
+    "text": "?%?8?q?z?"
+  },
+  {
+    "offset": "0x7DCAD",
+    "text": "0-030P0f0k0"
+  },
+  {
+    "offset": "0x7DCC5",
+    "text": "1%171x1"
+  },
+  {
+    "offset": "0x7DCD7",
+    "text": "2F2U2q2"
+  },
+  {
+    "offset": "0x7DCEF",
+    "text": "3\"3)3/363A3H3R3^3e3m3u3}3"
+  },
+  {
+    "offset": "0x7DD21",
+    "text": "4 4$4(4,40444H4L4P4T4i4"
+  },
+  {
+    "offset": "0x7DD47",
+    "text": "5V5f5u5"
+  },
+  {
+    "offset": "0x7DD59",
+    "text": "6=6]6d6n6y6"
+  },
+  {
+    "offset": "0x7DD7F",
+    "text": "8#8K8"
+  },
+  {
+    "offset": "0x7DD9D",
+    "text": "9!9C9\\9"
+  },
+  {
+    "offset": "0x7DDB5",
+    "text": ";F;U;[;i;w;"
+  },
+  {
+    "offset": "0x7DDCD",
+    "text": "<-<H<"
+  },
+  {
+    "offset": "0x7DDD9",
+    "text": "=%=:=`="
+  },
+  {
+    "offset": "0x7DDEF",
+    "text": ">/>C>[>"
+  },
+  {
+    "offset": "0x7DDFF",
+    "text": ">!?6?E?g?"
+  },
+  {
+    "offset": "0x7DE25",
+    "text": "0=0b0j0{0"
+  },
+  {
+    "offset": "0x7DE43",
+    "text": "1$131R1g1q1"
+  },
+  {
+    "offset": "0x7DE65",
+    "text": "2,2J2i2v2"
+  },
+  {
+    "offset": "0x7DE7D",
+    "text": "3!3.3L3]3|3"
+  },
+  {
+    "offset": "0x7DE97",
+    "text": "4+4R4_4l4"
+  },
+  {
+    "offset": "0x7DEAD",
+    "text": "5.5;5H5f5x5"
+  },
+  {
+    "offset": "0x7DEC5",
+    "text": "6\"6A6Q6^6}6"
+  },
+  {
+    "offset": "0x7DEDD",
+    "text": "707@7f7u7"
+  },
+  {
+    "offset": "0x7DEF3",
+    "text": "8 8F8U8"
+  },
+  {
+    "offset": "0x7DF07",
+    "text": "9%989H9c9r9"
+  },
+  {
+    "offset": "0x7DF1F",
+    "text": ":4:@:j:v:"
+  },
+  {
+    "offset": "0x7DF33",
+    "text": ";9;L;m;"
+  },
+  {
+    "offset": "0x7DF45",
+    "text": "<'<M<\\<l<y<"
+  },
+  {
+    "offset": "0x7DF5B",
+    "text": "=,=9=p="
+  },
+  {
+    "offset": "0x7DF6D",
+    "text": ">&>8>R>b>"
+  },
+  {
+    "offset": "0x7DF83",
+    "text": "? ?F?R?x?"
+  },
+  {
+    "offset": "0x7DFA1",
+    "text": "030?0e0q0"
+  },
+  {
+    "offset": "0x7DFB5",
+    "text": "1-191_1k1{1"
+  },
+  {
+    "offset": "0x7DFC7",
+    "text": "1&292I2o2{2"
+  },
+  {
+    "offset": "0x7DFDF",
+    "text": "3:3F3l3x3"
+  },
+  {
+    "offset": "0x7DFF1",
+    "text": "4 404V4b4"
+  },
+  {
+    "offset": "0x7E007",
+    "text": "5:5G5d5"
+  },
+  {
+    "offset": "0x7E01D",
+    "text": "676G6m6y6"
+  },
+  {
+    "offset": "0x7E02F",
+    "text": "7-7@7^7n7~7"
+  },
+  {
+    "offset": "0x7E043",
+    "text": "7%858O8m8y8"
+  },
+  {
+    "offset": "0x7E055",
+    "text": "8.949@9L9X9e9w9"
+  },
+  {
+    "offset": "0x7E07F",
+    "text": ":):::a:"
+  },
+  {
+    "offset": "0x7E0A7",
+    "text": ">&>`>y>~>"
+  },
+  {
+    "offset": "0x7E0B9",
+    "text": "? ?N?v?"
+  },
+  {
+    "offset": "0x7E0CF",
+    "text": "0-050=0E0M0U0]0e0w0|0"
+  },
+  {
+    "offset": "0x7E0EF",
+    "text": "1(101C1H1M1_1q1v1{1"
+  },
+  {
+    "offset": "0x7E11D",
+    "text": "2-272A2M2X2"
+  },
+  {
+    "offset": "0x7E131",
+    "text": "3H3Q3_3"
+  },
+  {
+    "offset": "0x7E143",
+    "text": "3+444<4F4L4T4a4l4"
+  },
+  {
+    "offset": "0x7E161",
+    "text": "565?5G5Q5W5_5n5"
+  },
+  {
+    "offset": "0x7E17B",
+    "text": "6O6U6i6"
+  },
+  {
+    "offset": "0x7E187",
+    "text": "7E7K7T7w7"
+  },
+  {
+    "offset": "0x7E199",
+    "text": "8@8X8d8q8"
+  },
+  {
+    "offset": "0x7E1C5",
+    "text": ";,;?;G;{;"
+  },
+  {
+    "offset": "0x7E1DB",
+    "text": "</<5<C<P<V<]<b<h<n<"
+  },
+  {
+    "offset": "0x7E203",
+    "text": "=%=]=y="
+  },
+  {
+    "offset": "0x7E219",
+    "text": "=C>X>^>p>"
+  },
+  {
+    "offset": "0x7E22F",
+    "text": "?.?4?:?@?F?L?R?X?^?d?j?p?v?|?"
+  },
+  {
+    "offset": "0x7E28B",
+    "text": "0$0*00060<0B0H0N0T0Z0`0f0l0r0x0~0"
+  },
+  {
+    "offset": "0x7E2DF",
+    "text": "1 1&1,12181>1D1J1P1V1\\1b1h1n1t1z1"
+  },
+  {
+    "offset": "0x7E335",
+    "text": "2\"2(2.242:2@2F2L2R2X2^2d2j2p2v2|2"
+  },
+  {
+    "offset": "0x7E38B",
+    "text": "3$3*30363<3B3H3N3T3Z3`3f3l3r3x3~3"
+  },
+  {
+    "offset": "0x7E3DF",
+    "text": "4 4&4,42484>4D4J4P4V4\\4b4h4n4t4z4"
+  },
+  {
+    "offset": "0x7E435",
+    "text": "5\"5(5.545:5@5F5L5R5X5^5d5j5p5v5|5"
+  },
+  {
+    "offset": "0x7E48B",
+    "text": "6$6*60666<6B6H6N6T6Z6`6f6l6r6x6~6"
+  },
+  {
+    "offset": "0x7E4DF",
+    "text": "7 7&7,72787>7D7J7P7V7\\7b7h7n7t7z7"
+  },
+  {
+    "offset": "0x7E535",
+    "text": "8\"8(8.848:8@8F8L8R8X8^8d8j8p8v8|8"
+  },
+  {
+    "offset": "0x7E58B",
+    "text": "9$9*90969<9B9H9N9T9Z9`9f9l9r9x9~9"
+  },
+  {
+    "offset": "0x7E5DF",
+    "text": ": :&:,:2:8:>:D:J:P:V:\\:b:h:n:t:z:"
+  },
+  {
+    "offset": "0x7E635",
+    "text": ";\";(;.;4;:;@;F;L;R;X;^;d;j;p;v;|;"
+  },
+  {
+    "offset": "0x7E68B",
+    "text": "<$<*<0<6<<<B<H<N<T<Z<`<f<l<r<x<~<"
+  },
+  {
+    "offset": "0x7E6B1",
+    "text": "<P={="
+  },
+  {
+    "offset": "0x7E6E3",
+    "text": "1O1u1"
+  },
+  {
+    "offset": "0x7E70F",
+    "text": "3!3&3,373=3H3O3T3]3k3p3"
+  },
+  {
+    "offset": "0x7E743",
+    "text": "40484E4P4Y4a4k4q4w4}4"
+  },
+  {
+    "offset": "0x7E777",
+    "text": "5 5&5,52595@5G5N5U5\\5c5k5s5{5"
+  },
+  {
+    "offset": "0x7E7AB",
+    "text": "6 6&6,62686?6F6M6T6[6b6i6q6y6"
+  },
+  {
+    "offset": "0x7E7DB",
+    "text": "6;7@7c7r7{7"
+  },
+  {
+    "offset": "0x7E7F1",
+    "text": "7\"8(8N8W8]8p8<9\\9f9"
+  },
+  {
+    "offset": "0x7E80B",
+    "text": "9Z:c:h:{:"
+  },
+  {
+    "offset": "0x7E831",
+    "text": ";,<5<><L<U<w<~<"
+  },
+  {
+    "offset": "0x7E84F",
+    "text": "=@=F=L=R=X=^=d=j=p=v=|="
+  },
+  {
+    "offset": "0x7E899",
+    "text": "?4?A?_?k?w?"
+  },
+  {
+    "offset": "0x7E8B5",
+    "text": "080b0x0"
+  },
+  {
+    "offset": "0x7E8C5",
+    "text": "1!1*161`1"
+  },
+  {
+    "offset": "0x7E8D9",
+    "text": "242T2e2"
+  },
+  {
+    "offset": "0x7E901",
+    "text": "3@3h3"
+  },
+  {
+    "offset": "0x7E919",
+    "text": "5H5e5~5"
+  },
+  {
+    "offset": "0x7E927",
+    "text": "6!6S6"
+  },
+  {
+    "offset": "0x7E943",
+    "text": ";%;B;X;"
+  },
+  {
+    "offset": "0x7E955",
+    "text": "<<<X<"
+  },
+  {
+    "offset": "0x7E965",
+    "text": "=B=X="
+  },
+  {
+    "offset": "0x7E971",
+    "text": "=!>8>Z>}>"
+  },
+  {
+    "offset": "0x7E97F",
+    "text": ">1?q?"
+  },
+  {
+    "offset": "0x7E99B",
+    "text": "011a1u1~1"
+  },
+  {
+    "offset": "0x7E9AD",
+    "text": "2%2.272@2r2"
+  },
+  {
+    "offset": "0x7E9BF",
+    "text": "3%3L3"
+  },
+  {
+    "offset": "0x7E9CD",
+    "text": "4/4]4"
+  },
+  {
+    "offset": "0x7E9D9",
+    "text": "5!656>6G6P6w6"
+  },
+  {
+    "offset": "0x7EA05",
+    "text": "7\"7:7@7D7O7X7b7h7r7|7"
+  },
+  {
+    "offset": "0x7EA6F",
+    "text": "3 3$3(3,3034383<3@3D3H3L3P3T3X3\\3`3d3h3l3p3t3x3|3"
+  },
+  {
+    "offset": "0x7EAEF",
+    "text": "4 4$4(4,4044484<4@4D4H4L4P4T4X4\\4`4d4h4l4p4t4x4|4"
+  },
+  {
+    "offset": "0x7EB6F",
+    "text": "5 5$5(5,5054585<5@5D5H5L5P5T5X5\\5`5d5h5l5p5t5x5|5"
+  },
+  {
+    "offset": "0x7EBDB",
+    "text": "6$6<6T6l6"
+  },
+  {
+    "offset": "0x7EBFB",
+    "text": "6,8084888<8@8D8H8L84989<9@9D9H9L9P9T9X9\\9`9d9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x7EC61",
+    "text": ": :$:(:,:0:4:8:<:@:D:H:L:P:T:X:\\:`:d:h:l:p:t:x:|:"
+  },
+  {
+    "offset": "0x7ECDF",
+    "text": ";0;L;X;\\;h;l;p;t;x;|;"
+  },
+  {
+    "offset": "0x7ED43",
+    "text": "< <$<(<,<0<4<8<<<@<D<H<L<P<T<X<\\<`<d<h<l<p<t<x<|<"
+  },
+  {
+    "offset": "0x7EDC3",
+    "text": "= =$=(=,=0=4=8=<=@=D=H=L=P=T=X=\\=`=d=h=l=p=t=x=|="
+  },
+  {
+    "offset": "0x7EE43",
+    "text": "> >$>(>,>0>4>8><>@>D>H>L>P>T>X>\\>`>d>h>l>p>t>"
+  },
+  {
+    "offset": "0x7EE78",
+    "text": "0848L8d8|8"
+  },
+  {
+    "offset": "0x7EE8F",
+    "text": "9 9$9<9X9\\9t9"
+  },
+  {
+    "offset": "0x7EEAB",
+    "text": ":,:H:L:d:"
+  },
+  {
+    "offset": "0x7EEC5",
+    "text": ";$;@;D;\\;x;|;"
+  },
+  {
+    "offset": "0x7EEDF",
+    "text": "< <$<<<X<\\<t<"
+  },
+  {
+    "offset": "0x7EEFD",
+    "text": "=8=<=T=p=t="
+  },
+  {
+    "offset": "0x7EF17",
+    "text": ">0>4>L>h>l>"
+  },
+  {
+    "offset": "0x7EF2F",
+    "text": "? ?$?<?T?p?t?"
+  },
+  {
+    "offset": "0x7EF51",
+    "text": "0(0,0D0`0d0|0"
+  },
+  {
+    "offset": "0x7EF6B",
+    "text": "1 1$1<1X1\\1t1"
+  },
+  {
+    "offset": "0x7EF89",
+    "text": "282<2T2p2t2"
+  },
+  {
+    "offset": "0x7EFA5",
+    "text": "343L3h3l3"
+  },
+  {
+    "offset": "0x7EFBD",
+    "text": "4(4,4D4`4d4|4"
+  },
+  {
+    "offset": "0x7EFD7",
+    "text": "5 5$5<5X5\\5t5"
+  },
+  {
+    "offset": "0x7EFF5",
+    "text": "686<6T6p6t6"
+  },
+  {
+    "offset": "0x7F011",
+    "text": "747P7T7l7"
+  },
+  {
+    "offset": "0x7F029",
+    "text": "8(8,8D8`8d8|8"
+  },
+  {
+    "offset": "0x7F06F",
+    "text": "9 9$9(9,9094989<9@9D9H9L9P9T9X9\\9`9d9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x7F0EF",
+    "text": ": :$:(:,:0:4:8:<:@:D:H:L:P:T:X:\\:`:d:h:l:p:t:x:|:"
+  },
+  {
+    "offset": "0x7F141",
+    "text": ";4;L;d;|;"
+  },
+  {
+    "offset": "0x7F155",
+    "text": "<$<<<T<l<"
+  },
+  {
+    "offset": "0x7F16B",
+    "text": "=,=D=\\=t="
+  },
+  {
+    "offset": "0x7F187",
+    "text": "> >$>(>,>0>4>8><>@>D>H>L>P>T>X>\\>`>d>h>l>p>t>x>|>"
+  },
+  {
+    "offset": "0x7F207",
+    "text": "? ?$?(?,?0?4?8?<?@?D?H?L?P?T?X?\\?`?d?h?l?p?t?x?|?"
+  },
+  {
+    "offset": "0x7F28F",
+    "text": "0 0$0(0,0004080<0@0D0H0L0P0T0X0\\0`0d0h0l0p0t0x0|0"
+  },
+  {
+    "offset": "0x7F30F",
+    "text": "1 1$1(1,1014181<1@1D1H1L1P1T1X1\\1`1d1h1l1p1t1x1|1"
+  },
+  {
+    "offset": "0x7F38F",
+    "text": "2 2$2(2,2024282<2@2D2H2L2P2T2X2\\2`2d2h2l2p2t2x2|2"
+  },
+  {
+    "offset": "0x7F40F",
+    "text": "3 3$3(3,3034383<3@3D3H3L3P3T3X3\\3`3d3h3l3p3t3x3|3"
+  },
+  {
+    "offset": "0x7F48F",
+    "text": "4 4$4(4,4044484<4@4D4H4L4P4T4X4\\4`4d4h4l4p4t4x4|4"
+  },
+  {
+    "offset": "0x7F50F",
+    "text": "5 5$5(5,5054585<5@5D5H5L5P5T5X5\\5`5d5h5l5p5t5x5|5"
+  },
+  {
+    "offset": "0x7F58F",
+    "text": "6 6$6(6,6064686<6@6D6H6L6P6T6X6\\6`6d6h6l6p6t6x6|6"
+  },
+  {
+    "offset": "0x7F60F",
+    "text": "7 7$7(7,7074787<7@7D7H7L7P7T7X7\\7`7d7h7l7p7t7x7|7"
+  },
+  {
+    "offset": "0x7F68F",
+    "text": "8 8$8(8,8084888<8@8D8H8L8P8T8X8\\8`8d8h8l8p8t8x8|8"
+  },
+  {
+    "offset": "0x7F70F",
+    "text": "9 9$9(9,9094989<9@9D9H9L9P9T9X9\\9`9d9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x7F78F",
+    "text": ": :$:(:,:0:4:8:<:@:D:H:L:P:T:X:\\:`:d:h:l:p:t:x:|:"
+  },
+  {
+    "offset": "0x7F80F",
+    "text": "; ;$;(;,;0;4;8;<;@;D;H;L;P;T;X;\\;`;d;h;l;p;t;x;|;"
+  },
+  {
+    "offset": "0x7F88F",
+    "text": "< <$<(<,<0<4<8<<<@<D<H<L<P<T<X<\\<`<d<h<l<p<t<x<|<"
+  },
+  {
+    "offset": "0x7F90F",
+    "text": "= =$=(=,=0=4=8=<=@=D=H=L=P=T=X=\\=`=d=h=l=p=t=x=|="
+  },
+  {
+    "offset": "0x7F98F",
+    "text": "> >$>(>,>0>4>8><>@>D>H>L>P>T>X>\\>`>d>h>l>p>t>x>|>"
+  },
+  {
+    "offset": "0x7FA0F",
+    "text": "? ?$?(?,?0?4?8?<?@?D?H?L?P?T?X?\\?`?d?h?l?p?t?x?|?"
+  },
+  {
+    "offset": "0x7FA97",
+    "text": "0 0$0(0,0004080<0@0D0H0L0P0T0X0\\0`0d0h0l0p0t0x0|0"
+  },
+  {
+    "offset": "0x7FB17",
+    "text": "1 1$1(1,1014181<1@1D1H1L1P1T1X1\\1`1d1h1l1p1t1x1|1"
+  },
+  {
+    "offset": "0x7FB97",
+    "text": "2 2$2(2,2024282<2@2D2H2L2P2T2X2\\2`2d2h2l2p2t2x2|2"
+  },
+  {
+    "offset": "0x7FC17",
+    "text": "3 3$3(3,3034383<3@3D3H3L3P3T3X3\\3`3d3h3l3p3t3x3|3"
+  },
+  {
+    "offset": "0x7FC97",
+    "text": "4 4$4(4,4044484<4@4D4H4L4P4T4X4\\4`4d4h4l4p4t4x4|4"
+  },
+  {
+    "offset": "0x7FD17",
+    "text": "5 5$5(5,5054585<5@5D5H5L5P5T5X5\\5`5d5h5l5p5t5x5|5"
+  },
+  {
+    "offset": "0x7FD97",
+    "text": "6 6$6(6,6064686<6@6D6H6L6P6T6X6\\6`6d6h6l6p6t6x6|6"
+  },
+  {
+    "offset": "0x7FE17",
+    "text": "7 7$7(7,7074787<7@7D7H7L7P7T7X7\\7`7d7h7l7p7t7x7|7"
+  },
+  {
+    "offset": "0x7FE97",
+    "text": "8 8$8(8,8084888<8@8D8H8L8P8T8X8\\8`8d8h8l8p8t8x8|8"
+  },
+  {
+    "offset": "0x7FF17",
+    "text": "9 9$9(9,9094989<9@9D9H9L9P9T9X9\\9`9d9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x7FF97",
+    "text": ": :$:(:,:0:4:8:<:@:D:H:L:P:T:X:\\:`:d:h:l:p:t:x:|:"
+  },
+  {
+    "offset": "0x80017",
+    "text": "; ;$;(;,;0;4;8;<;@;D;H;L;P;T;X;\\;`;d;h;l;p;t;x;|;"
+  },
+  {
+    "offset": "0x80097",
+    "text": "< <$<(<,<0<4<8<<<@<D<H<L<P<T<X<\\<`<d<h<l<p<t<x<|<"
+  },
+  {
+    "offset": "0x80117",
+    "text": "= =$=(=,=0=4=8=<=@=D=H=L=P=T=X=\\=`=d=h=l=p=t=x=|="
+  },
+  {
+    "offset": "0x80197",
+    "text": "> >$>(>,>0>4>8><>@>D>H>L>P>T>X>\\>`>d>h>l>p>t>x>|>"
+  },
+  {
+    "offset": "0x80217",
+    "text": "? ?$?(?,?0?4?8?<?@?D?H?L?P?T?X?\\?`?d?h?l?p?t?x?|?"
+  },
+  {
+    "offset": "0x8029F",
+    "text": "0 0$0(0,0004080<0@0D0H0L0P0T0X0\\0`0d0h0l0p0t0x0|0"
+  },
+  {
+    "offset": "0x8031F",
+    "text": "1 1$1(1,1014181<1@1D1H1L1P1T1X1\\1`1d1h1l1p1t1x1|1"
+  },
+  {
+    "offset": "0x8039F",
+    "text": "2 2$2(2,2024282<2@2D2H2L2P2T2X2\\2`2d2h2l2p2t2x2|2"
+  },
+  {
+    "offset": "0x8041F",
+    "text": "3 3$3(3,3034383<3@3D3H3L3P3T3X3\\3`3d3h3l3p3t3x3|3"
+  },
+  {
+    "offset": "0x8049F",
+    "text": "4 4$4(4,4044484<4@4D4H4L4P4T4X4\\4`4d4h4l4p4t4x4|4"
+  },
+  {
+    "offset": "0x8051F",
+    "text": "5 5$5(5,5054585<5@5D5H5L5P5T5X5\\5`5d5h5l5p5t5x5|5"
+  },
+  {
+    "offset": "0x8059F",
+    "text": "6 6$6(6,6064686<6@6D6H6L6P6T6X6\\6`6d6h6l6p6t6x6|6"
+  },
+  {
+    "offset": "0x8061F",
+    "text": "7 7$7(7,7074787<7@7D7H7L7P7T7X7\\7`7d7h7l7p7t7x7|7"
+  },
+  {
+    "offset": "0x8069F",
+    "text": "8 8$8(8,8084888<8@8D8H8L8P8T8X8\\8`8d8h8l8p8t8x8|8"
+  },
+  {
+    "offset": "0x8071F",
+    "text": "9 9$9(9,9094989<9@9D9H9L9P9T9X9\\9`9d9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x8079F",
+    "text": ": :$:(:,:0:4:8:<:@:D:H:L:P:T:X:\\:`:d:h:l:p:t:x:|:"
+  },
+  {
+    "offset": "0x8081F",
+    "text": "; ;$;(;,;0;4;8;<;@;D;H;L;P;T;X;\\;`;d;h;l;p;t;x;|;"
+  },
+  {
+    "offset": "0x8089F",
+    "text": "< <$<(<,<0<4<8<<<@<D<H<L<P<T<X<\\<`<d<h<l<p<t<x<|<"
+  },
+  {
+    "offset": "0x8091F",
+    "text": "= =$=(=,=0=4=8=<=@=D=H=L=P=T=X=\\=`=d=h=l=p=t=x=|="
+  },
+  {
+    "offset": "0x8099F",
+    "text": "> >$>(>,>0>4>8><>@>D>H>L>P>T>X>\\>`>d>h>l>p>t>x>|>"
+  },
+  {
+    "offset": "0x80A1F",
+    "text": "? ?$?(?,?0?4?8?<?@?D?H?L?P?T?X?\\?`?d?h?l?p?t?x?|?"
+  },
+  {
+    "offset": "0x80AA7",
+    "text": "0 0$0(0,0004080<0@0D0H0L0P0T0X0\\0`0d0h0l0p0t0x0|0"
+  },
+  {
+    "offset": "0x80B27",
+    "text": "1 1$1(1,1014181<1@1D1H1L1P1T1X1\\1`1d1h1l1p1t1x1|1"
+  },
+  {
+    "offset": "0x80BA7",
+    "text": "2 2$2(2,2024282<2@2D2H2L2P2T2X2\\2`2d2h2l2p2t2x2|2"
+  },
+  {
+    "offset": "0x80C27",
+    "text": "3 3$3(3,3034383<3@3D3H3L3P3T3X3\\3`3d3h3l3p3t3x3|3"
+  },
+  {
+    "offset": "0x80CA7",
+    "text": "4 4$4(4,4044484<4@4D4H4L4P4T4X4\\4`4d4h4l4p4t4x4|4"
+  },
+  {
+    "offset": "0x80D27",
+    "text": "5 5$5(5,5054585<5@5D5H5L5P5T5X5\\5`5d5h5l5p5t5x5|5"
+  },
+  {
+    "offset": "0x80DA7",
+    "text": "6 6$6(6,6064686<6@6D6H6L6P6T6X6\\6`6d6h6l6p6t6x6|6"
+  },
+  {
+    "offset": "0x80E27",
+    "text": "7 7$7(7,7074787<7@7D7H7L7P7T7X7\\7`7d7h7l7p7t7x7|7"
+  },
+  {
+    "offset": "0x80EA7",
+    "text": "8 8$8(8,8084888<8@8D8H8L8P8T8X8\\8`8d8h8l8p8t8x8|8"
+  },
+  {
+    "offset": "0x80F27",
+    "text": "9 9$9(9,9094989<9@9D9H9L9P9T9X9\\9`9d9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x80FA7",
+    "text": ": :$:(:,:0:4:8:<:@:D:H:L:P:T:X:\\:`:d:h:l:p:t:x:|:"
+  },
+  {
+    "offset": "0x81027",
+    "text": "; ;$;(;,;0;4;8;<;@;D;H;L;P;T;X;\\;`;d;h;l;p;t;x;|;"
+  },
+  {
+    "offset": "0x810A7",
+    "text": "< <$<(<,<0<4<8<<<@<D<H<L<P<T<X<\\<`<d<h<l<p<t<x<|<"
+  },
+  {
+    "offset": "0x81127",
+    "text": "= =$=(=,=0=4=8=<=@=D=H=L=P=T=X=\\=`=d=h=l=p=t=x=|="
+  },
+  {
+    "offset": "0x811A7",
+    "text": "> >$>(>,>0>4>8><>@>D>H>L>P>T>X>\\>`>d>h>l>p>t>x>|>"
+  },
+  {
+    "offset": "0x81227",
+    "text": "? ?$?(?,?0?4?8?<?@?D?H?L?P?T?X?\\?`?d?h?l?p?t?x?|?"
+  },
+  {
+    "offset": "0x812AF",
+    "text": "0 0$0(0,0004080<0@0D0H0L0P0T0X0\\0`0d0h0l0p0t0x0|0"
+  },
+  {
+    "offset": "0x8132F",
+    "text": "1 1$1(1,1014181<1@1D1H1L1P1T1X1\\1`1d1h1l1p1t1x1|1"
+  },
+  {
+    "offset": "0x813AF",
+    "text": "2 2$2(2,2024282<2@2D2H2L2P2T2X2\\2`2d2h2l2p2t2x2|2"
+  },
+  {
+    "offset": "0x8142F",
+    "text": "3 3$3(3,3034383<3@3D3H3L3P3T3X3\\3`3d3h3l3p3t3x3|3"
+  },
+  {
+    "offset": "0x814AF",
+    "text": "4 4$4(4,4044484<4@4D4H4L4P4T4X4\\4`4d4h4l4p4t4x4|4"
+  },
+  {
+    "offset": "0x8152F",
+    "text": "5 5$5(5,5054585<5@5D5H5L5P5T5X5\\5`5d5h5l5p5t5x5|5"
+  },
+  {
+    "offset": "0x815AF",
+    "text": "6 6$6(6,6064686<6@6D6H6L6P6T6X6\\6`6d6h6l6p6t6x6|6"
+  },
+  {
+    "offset": "0x8162F",
+    "text": "7 7$7(7,7074787<7@7D7H7L7P7T7X7\\7`7d7h7l7p7t7x7|7"
+  },
+  {
+    "offset": "0x816AF",
+    "text": "8 8$8(8,8084888<8@8D8H8L8P8T8X8\\8`8d8h8l8p8t8x8|8"
+  },
+  {
+    "offset": "0x8172F",
+    "text": "9 9$9(9,9094989<9@9D9H9L9P9T9X9\\9`9d9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x817AF",
+    "text": ": :$:(:,:0:4:8:<:@:D:H:L:P:T:X:\\:`:d:h:l:p:t:x:|:"
+  },
+  {
+    "offset": "0x8182F",
+    "text": "; ;$;(;,;0;4;8;<;@;D;H;L;P;T;X;\\;`;d;h;l;p;t;x;|;"
+  },
+  {
+    "offset": "0x818AF",
+    "text": "< <$<(<,<0<4<8<<<@<D<H<L<P<T<X<\\<`<d<h<l<p<t<x<|<"
+  },
+  {
+    "offset": "0x8192F",
+    "text": "= =$=(=,=0=4=8=<=@=D=H=L=P=T=X=\\=`=d=h=l=p=t=x=|="
+  },
+  {
+    "offset": "0x819AF",
+    "text": "> >$>(>,>0>4>8><>@>D>H>L>P>T>X>\\>`>d>h>l>p>t>x>|>"
+  },
+  {
+    "offset": "0x81A2F",
+    "text": "? ?$?(?,?0?4?8?<?@?D?H?L?P?T?X?\\?`?d?h?l?p?t?x?|?"
+  },
+  {
+    "offset": "0x81AB7",
+    "text": "0 0$0(0,0004080<0@0D0H0L0P0T0X0\\0`0d0h0l0p0t0x0|0"
+  },
+  {
+    "offset": "0x81B37",
+    "text": "1 1$1(1,1014181<1@1D1H1L1P1T1X1\\1`1d1h1l1p1t1x1|1"
+  },
+  {
+    "offset": "0x81BB7",
+    "text": "2 2$2(2,2024282<2@2D2H2L2P2T2X2\\2`2d2h2l2p2t2x2|2"
+  },
+  {
+    "offset": "0x81C37",
+    "text": "3 3$3(3,3034383<3@3D3H3L3P3T3X3\\3`3d3h3l3p3t3x3|3"
+  },
+  {
+    "offset": "0x81CB7",
+    "text": "4 4$4(4,4044484<4@4D4H4L4P4T4X4\\4`4d4h4l4p4t4x4|4"
+  },
+  {
+    "offset": "0x81D37",
+    "text": "5 5$5(5,5054585<5@5D5H5L5P5T5X5\\5`5d5h5l5p5t5x5|5"
+  },
+  {
+    "offset": "0x81DB7",
+    "text": "6 6$6(6,6064686<6@6D6H6L6P6T6X6\\6`6d6h6l6p6t6x6|6"
+  },
+  {
+    "offset": "0x81E37",
+    "text": "7 7$7(7,7074787<7@7D7H7L7P7T7X7\\7`7d7h7l7p7t7x7|7"
+  },
+  {
+    "offset": "0x81EB7",
+    "text": "8 8$8(8,8084888<8@8D8H8L8P8T8X8\\8`8d8h8l8p8t8x8|8"
+  },
+  {
+    "offset": "0x81F37",
+    "text": "9 9$9(9,9094989<9@9D9H9L9P9T9X9\\9`9d9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x81FB7",
+    "text": ": :$:(:,:0:4:8:<:@:D:H:L:P:T:X:\\:`:d:h:l:p:t:x:|:"
+  },
+  {
+    "offset": "0x82037",
+    "text": "; ;$;(;,;0;4;8;<;@;D;H;L;P;T;X;\\;`;d;h;l;p;t;x;|;"
+  },
+  {
+    "offset": "0x820B7",
+    "text": "< <$<(<,<0<4<8<<<@<D<H<L<P<T<X<\\<`<d<h<l<p<t<x<|<"
+  },
+  {
+    "offset": "0x82137",
+    "text": "= =$=(=,=0=4=8=<=@=D=H=L=P=T=X=\\=`=d=h=l=p=t=x=|="
+  },
+  {
+    "offset": "0x821B7",
+    "text": "> >$>(>,>0>4>8><>@>D>H>L>P>T>X>\\>`>d>h>l>p>t>x>|>"
+  },
+  {
+    "offset": "0x82237",
+    "text": "? ?$?(?,?0?4?8?<?@?D?H?L?P?T?X?\\?`?d?h?l?p?t?x?|?"
+  },
+  {
+    "offset": "0x822BF",
+    "text": "0 0$0(0,0004080<0@0D0H0L0P0T0X0\\0`0d0h0l0p0t0x0|0"
+  },
+  {
+    "offset": "0x8233F",
+    "text": "1 1$1(1,1014181<1@1D1H1L1P1T1X1\\1`1d1h1l1p1t1x1|1"
+  },
+  {
+    "offset": "0x823BF",
+    "text": "2 2$2(2,2024282<2@2D2H2L2P2T2X2\\2`2d2h2l2p2t2x2|2"
+  },
+  {
+    "offset": "0x8243F",
+    "text": "3 3$3(3,3034383<3@3D3H3L3P3T3X3\\3`3d3h3l3p3t3x3|3"
+  },
+  {
+    "offset": "0x824BF",
+    "text": "4 4$4(4,4044484<4@4D4H4L4P4T4X4\\4`4d4h4l4p4t4x4|4"
+  },
+  {
+    "offset": "0x8253F",
+    "text": "5 5$5(5,5054585<5@5D5H5L5P5T5X5\\5`5d5h5l5p5t5x5|5"
+  },
+  {
+    "offset": "0x825BF",
+    "text": "6 6$6(6,6064686<6@6D6H6L6P6T6X6\\6`6d6h6l6p6t6x6|6"
+  },
+  {
+    "offset": "0x8263F",
+    "text": "7 7$7(7,7074787<7@7D7H7L7P7T7X7\\7`7d7h7l7p7t7x7|7"
+  },
+  {
+    "offset": "0x826BF",
+    "text": "8 8$8(8,8084888<8@8D8H8L8P8T8X8\\8`8d8h8l8p8t8x8|8"
+  },
+  {
+    "offset": "0x8273F",
+    "text": "9 9$9(9,9094989<9@9D9H9L9P9T9X9\\9`9d9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x827BF",
+    "text": ": :$:(:,:0:4:8:<:@:D:H:L:P:T:X:\\:`:d:h:l:p:t:x:|:"
+  },
+  {
+    "offset": "0x8283F",
+    "text": "; ;$;(;,;0;4;8;<;@;D;H;L;P;T;X;\\;`;d;h;l;p;t;x;|;"
+  },
+  {
+    "offset": "0x828BF",
+    "text": "< <$<(<,<0<4<8<<<@<D<H<L<P<T<X<\\<`<d<h<l<p<t<x<|<"
+  },
+  {
+    "offset": "0x8293F",
+    "text": "= =$=(=,=0=4=8=<=@=D=H=L=P=T=X=\\=`=d=h=l=p=t=x=|="
+  },
+  {
+    "offset": "0x829BF",
+    "text": "> >$>(>,>0>4>8><>@>D>H>L>P>T>X>\\>`>d>h>l>p>t>x>|>"
+  },
+  {
+    "offset": "0x82A3F",
+    "text": "? ?$?(?,?0?4?8?<?@?D?H?L?P?T?X?\\?`?d?h?l?p?t?x?|?"
+  },
+  {
+    "offset": "0x82AC7",
+    "text": "0 0$0(0,0004080<0@0D0H0L0P0T0X0\\0`0d0h0l0p0t0x0|0"
+  },
+  {
+    "offset": "0x82B47",
+    "text": "1 1$1(1,1014181<1@1D1H1L1P1T1X1\\1`1d1h1l1p1t1x1|1"
+  },
+  {
+    "offset": "0x82BC7",
+    "text": "2 2$2(2,2024282<2@2D2H2L2P2T2X2\\2`2d2h2l2p2t2x2|2"
+  },
+  {
+    "offset": "0x82C47",
+    "text": "3 3$3(3,3034383<3@3D3H3L3P3T3X3\\3`3d3h3l3p3t3x3|3"
+  },
+  {
+    "offset": "0x82CC7",
+    "text": "4 4$4(4,4044484<4@4D4H4L4P4T4X4\\4`4d4h4l4p4t4x4|4"
+  },
+  {
+    "offset": "0x82D47",
+    "text": "5 5$5(5,5054585<5@5D5H5L5P5T5X5\\5`5d5h5l5p5t5x5|5"
+  },
+  {
+    "offset": "0x82DC7",
+    "text": "6 6$6(6,6064686<6@6D6H6L6P6T6X6\\6`6d6h6l6p6t6x6|6"
+  },
+  {
+    "offset": "0x82E47",
+    "text": "7 7$7(7,7074787<7@7D7H7L7P7T7X7\\7`7d7h7l7p7t7x7|7"
+  },
+  {
+    "offset": "0x82EC7",
+    "text": "8 8$8(8,8084888<8@8D8H8L8P8T8X8\\8`8d8h8l8p8t8x8|8"
+  },
+  {
+    "offset": "0x82F47",
+    "text": "9 9$9(9,9094989<9@9D9H9L9P9T9X9\\9`9d9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x82FC7",
+    "text": ": :$:(:,:0:4:8:<:@:D:H:L:P:T:X:\\:`:d:h:l:p:t:x:|:"
+  },
+  {
+    "offset": "0x83047",
+    "text": "; ;$;(;,;0;4;8;<;@;D;H;L;P;T;X;\\;`;d;h;l;p;t;x;|;"
+  },
+  {
+    "offset": "0x830C7",
+    "text": "< <$<(<,<0<4<8<<<@<D<H<L<P<T<X<\\<`<d<h<l<p<t<x<|<"
+  },
+  {
+    "offset": "0x83147",
+    "text": "= =$=(=,=0=4=8=<=@=D=H=L=P=T=X=\\=`=d=h=l=p=t=x=|="
+  },
+  {
+    "offset": "0x831C7",
+    "text": "> >$>(>,>0>4>8><>@>D>H>L>P>T>X>\\>`>d>h>l>p>t>x>|>"
+  },
+  {
+    "offset": "0x83241",
+    "text": "? ?$?(?,?0?4?8?<?@?D?H?L?P?T?X?\\?`?d?h?l?p?t?x?|?"
+  },
+  {
+    "offset": "0x832CB",
+    "text": "0 0$0(0,0004080<0@0D0H0L0P0T0X0\\0`0d0h0l0p0t0x0|0"
+  },
+  {
+    "offset": "0x83333",
+    "text": "4,4D4\\4t4"
+  },
+  {
+    "offset": "0x83351",
+    "text": "5 5$5(5,5054585<5@5D5H5L5P5T5X5\\5`5d5h5l5p5t5x5|5"
+  },
+  {
+    "offset": "0x833D1",
+    "text": "6 6$6(6,6064686<6@6D6H6L6P6T6X6\\6`6d6h6l6p6t6x6|6"
+  },
+  {
+    "offset": "0x83451",
+    "text": "7 7$7(7,7074787<7@7D7H7L7P7T7X7\\7`7d7h7l7p7t7x7|7"
+  },
+  {
+    "offset": "0x834D1",
+    "text": "8 8$8(8,8084888<8@8D8H8L8P8T8X8\\8`8d8h8l8p8t8x8|8"
+  },
+  {
+    "offset": "0x83551",
+    "text": "9 9$9(9,9094989<9@9D9H9L9P9T9X9\\9`9d9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x835D1",
+    "text": ": :$:(:,:0:4:8:<:@:D:H:L:P:T:X:\\:`:d:h:l:p:t:x:|:"
+  },
+  {
+    "offset": "0x83651",
+    "text": "; ;$;(;,;0;4;8;<;@;D;H;L;P;T;X;\\;`;d;h;l;p;t;x;|;"
+  },
+  {
+    "offset": "0x836D1",
+    "text": "< <$<(<,<0<4<8<<<@<D<H<L<P<T<X<\\<`<d<h<l<p<t<x<|<"
+  },
+  {
+    "offset": "0x83751",
+    "text": "= =$=(=,=0=4=8=<=@=D=H=L=P=T=X=\\=`=d=h=l=p=t=x=|="
+  },
+  {
+    "offset": "0x837D7",
+    "text": "040L0d0|0"
+  },
+  {
+    "offset": "0x837EB",
+    "text": "1$1<1X1\\1`1d1h1l1p1t1x1|1"
+  },
+  {
+    "offset": "0x83853",
+    "text": "2 2$2(2,2024282<2@2D2H2L2P2T2X2\\2`2d2h2l2p2t2x2|2"
+  },
+  {
+    "offset": "0x838D3",
+    "text": "3 3$3(3,3034383<3@3D3H3L3P3T3X3\\3`3d3h3l3p3t3x3|3"
+  },
+  {
+    "offset": "0x83953",
+    "text": "4 4$4(4,4044484<4@4D4H4L4P4T4X4\\4`4d4h4l4p4t4x4|4"
+  },
+  {
+    "offset": "0x839D3",
+    "text": "5 5$5(5,5054585<5@5D5H5L5P5T5X5\\5`5d5h5l5p5t5x5|5"
+  },
+  {
+    "offset": "0x83A53",
+    "text": "6 6$6(6,6064686<6@6D6H6L6P6T6X6\\6`6d6h6l6p6t6x6|6"
+  },
+  {
+    "offset": "0x83AD3",
+    "text": "7 7$7(7,7074787<7@7D7H7L7P7T7X7\\7`7d7h7l7p7t7x7|7"
+  },
+  {
+    "offset": "0x83B53",
+    "text": "8 8$8(8,8084888<8@8D8H8L8P8T8X8\\8`8d8h8l8p8t8x8|8"
+  },
+  {
+    "offset": "0x83BD3",
+    "text": "9 9$9(9,9094989<9@9"
+  },
+  {
+    "offset": "0x83C35",
+    "text": "; ;$;(;,;0;4;8;<;@;D;H;L;P;T;X;\\;`;d;h;l;p;t;x;|;"
+  },
+  {
+    "offset": "0x83CB5",
+    "text": "< <$<(<,<0<4<8<<<@<D<H<L<P<T<X<\\<`<d<h<l<p<t<x<|<"
+  },
+  {
+    "offset": "0x83D25",
+    "text": ">8><>@>D>H>L>P>T>X>\\>`>d>h>l>p>t>x>|>"
+  },
+  {
+    "offset": "0x83D99",
+    "text": "? ?$?(?,?0?4?8?<?@?D?H?L?P?T?X?\\?`?d?h?l?p?t?x?|?"
+  },
+  {
+    "offset": "0x83DFF",
+    "text": "0 0$0(0,0004080<0@0D0H0L0P0T0X0\\0`0d0h0l0p0t0x0|0"
+  },
+  {
+    "offset": "0x83E7F",
+    "text": "1 1$1(1,1014181<1@1D1H1L1P1T1X1\\1`1d1h1l1p1t1x1|1"
+  },
+  {
+    "offset": "0x83EFF",
+    "text": "2 2$2(2,2024282<2@2D2H2L2P2T2X2\\2`2d2h2l2p2t2x2|2"
+  },
+  {
+    "offset": "0x83F7F",
+    "text": "3 3$3(3,3034383<3@3D3H3L3P3T3X3\\3`3d3h3l3p3t3x3|3"
+  },
+  {
+    "offset": "0x83FDB",
+    "text": "5 5$5(5,5054585<5@5D5H5L5P5T5X5\\5`5d5h5l5p5t5x5|5"
+  },
+  {
+    "offset": "0x8405B",
+    "text": "6 6$6(6,6064686<6@6D6H6L6P6T6X6\\6`6d6h6l6p6t6x6|6"
+  },
+  {
+    "offset": "0x840DB",
+    "text": "7 7$7(7,7074787<7@7D7H7L7P7T7X7\\7`7d7h7l7p7t7x7|7"
+  },
+  {
+    "offset": "0x8415B",
+    "text": "8 8$8(8,8084888<8@8D8H8L8P8T8X8\\8`8d8h8l8p8t8x8|8"
+  },
+  {
+    "offset": "0x841DB",
+    "text": "9 9$9(9,9094989<9@9D9H9L9P9T9X9\\9`9d9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x8425B",
+    "text": ": :$:(:,:0:4:8:<:@:D:H:L:P:T:X:\\:`:d:h:l:p:t:x:|:"
+  },
+  {
+    "offset": "0x842DB",
+    "text": "; ;$;(;,;0;4;8;<;@;D;H;L;P;T;X;\\;`;d;h;l;p;t;x;|;"
+  },
+  {
+    "offset": "0x8435B",
+    "text": "< <$<(<,<0<4<8<<<@<D<H<L<P<T<X<\\<`<d<h<l<p<t<x<|<"
+  },
+  {
+    "offset": "0x843DB",
+    "text": "= =$=(=,=0=4=8=<=@=D=H=L=P=T=X=\\=`=d=h=l=p=t=x=|="
+  },
+  {
+    "offset": "0x8445B",
+    "text": "> >$>(>,>0>4>8><>@>D>H>L>P>T>X>\\>`>d>h>l>p>t>|?"
+  },
+  {
+    "offset": "0x844A3",
+    "text": "0$0(080<0D0\\0`0d0h0l0p0t0|0"
+  },
+  {
+    "offset": "0x844F7",
+    "text": "1(1,1D1H1`1d1|1"
+  },
+  {
+    "offset": "0x84521",
+    "text": "2,202H2X2h2x2"
+  },
+  {
+    "offset": "0x84545",
+    "text": "3$3(383<3@3X3\\3`3d3x3"
+  },
+  {
+    "offset": "0x84577",
+    "text": "4$4(4,40444H4L4d4h4l4"
+  },
+  {
+    "offset": "0x845B5",
+    "text": "5,505H5L5d5t5"
+  },
+  {
+    "offset": "0x845DD",
+    "text": "6(686<6L6P6T6l6p6t6x6|6"
+  },
+  {
+    "offset": "0x8462F",
+    "text": "7 7(7,7074787<7@7H7L7P7T7X7\\7`7h7l7p7t7x7|7"
+  },
+  {
+    "offset": "0x8469F",
+    "text": "8 8(8,8084888<8@8H8L8P8T8X8\\8`8h8l8p8t8x8|8"
+  },
+  {
+    "offset": "0x8470F",
+    "text": "9 9(9,9094989<9@9H9L9P9T9X9\\9`9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x8477F",
+    "text": ": :(:,:0:4:8:<:@:H:L:P:T:X:\\:`:h:l:p:t:x:|:"
+  },
+  {
+    "offset": "0x847EF",
+    "text": "; ;(;,;0;4;8;<;@;H;L;P;T;X;\\;`;h;l;p;t;x;|;"
+  },
+  {
+    "offset": "0x8485F",
+    "text": "< <(<,<0<4<8<<<@<H<L<P<T<X<\\<`<h<l<p<t<x<|<"
+  },
+  {
+    "offset": "0x848CF",
+    "text": "= =(=,=0=4=8=<=@=H=L=P=T=X=\\=`=h=l=p=t=x=|="
+  },
+  {
+    "offset": "0x8493F",
+    "text": "> >(>,>0>4>8><>@>H>L>P>T>X>\\>`>h>l>p>t>x>|>"
+  },
+  {
+    "offset": "0x849AF",
+    "text": "? ?(?,?0?4?8?<?@?H?L?P?T?X?\\?`?h?l?p?t?x?|?"
+  },
+  {
+    "offset": "0x84A29",
+    "text": "0$0(0,0004080<0D0H0L0P0T0\\0`0d0h0l0t0"
+  },
+  {
+    "offset": "0x84A65",
+    "text": "14181P1T1l1p1"
+  },
+  {
+    "offset": "0x84A89",
+    "text": "20242L2P2h2l2"
+  },
+  {
+    "offset": "0x84AAD",
+    "text": "3,303H3L3d3h3"
+  },
+  {
+    "offset": "0x84AD1",
+    "text": "4(4,4D4H4`4d4|4"
+  },
+  {
+    "offset": "0x84AF5",
+    "text": "5$5(5@5D5\\5`5x5|5"
+  },
+  {
+    "offset": "0x84B19",
+    "text": "6 6$6<6@6X6\\6t6x6"
+  },
+  {
+    "offset": "0x84B3F",
+    "text": "7 787<7T7X7p7t7"
+  },
+  {
+    "offset": "0x84B65",
+    "text": "84888P8T8l8p8"
+  },
+  {
+    "offset": "0x84B87",
+    "text": "9$949D9T9d9t9"
+  },
+  {
+    "offset": "0x84BA7",
+    "text": ":$:4:D:T:d:t:"
+  },
+  {
+    "offset": "0x84BC7",
+    "text": ";$;4;D;T;d;t;"
+  },
+  {
+    "offset": "0x84BE7",
+    "text": "<$<4<D<T<d<t<"
+  },
+  {
+    "offset": "0x84C07",
+    "text": "=$=4=D=T=d=t="
+  },
+  {
+    "offset": "0x84C29",
+    "text": ">(>,><>@>P>T>d>h>x>|>"
+  },
+  {
+    "offset": "0x84C5D",
+    "text": "?,?0?@?D?T?X?h?l?|?"
+  },
+  {
+    "offset": "0x84C99",
+    "text": "0 00040D0H0X0\\0l0p0"
+  },
+  {
+    "offset": "0x84CCB",
+    "text": "1 1$14181H1L1\\1`1p1t1"
+  },
+  {
+    "offset": "0x84CFF",
+    "text": "2$2(282<2L2P2`2d2t2x2"
+  },
+  {
+    "offset": "0x84D33",
+    "text": "3(3,3<3@3P3T3d3h3x3|3"
+  },
+  {
+    "offset": "0x84D67",
+    "text": "4 484<4@4D4X4h4l4p4"
+  },
+  {
+    "offset": "0x84D95",
+    "text": "5 5$5(5,505D5H5`5d5h5l5p5"
+  },
+  {
+    "offset": "0x84DD1",
+    "text": "6 6$6<6@6D6H6L6`6p6t6x6"
+  },
+  {
+    "offset": "0x84E09",
+    "text": "7 7$7(7,7074787@7D7H7L7P7T7\\7`7d7h7l7t7"
+  },
+  {
+    "offset": "0x84E49",
+    "text": "8$848D8H8L8P8T8X8`8d8h8p8t8|8"
+  },
+  {
+    "offset": "0x84E97",
+    "text": "9,909H9L9d9h9l9p9t9x9|9"
+  },
+  {
+    "offset": "0x84ECF",
+    "text": ":0:4:8:<:@:D:H:L:`:d:|:"
+  },
+  {
+    "offset": "0x84EFB",
+    "text": "; ;0;4;8;<;D;\\;l;|;"
+  },
+  {
+    "offset": "0x84F3D",
+    "text": "< <$<<<L<\\<l<p<"
+  },
+  {
+    "offset": "0x84F7D",
+    "text": "=,=<=L=\\=l=p=t="
+  },
+  {
+    "offset": "0x84FB5",
+    "text": ">,><>L>\\>`>p>t>x>|>"
+  },
+  {
+    "offset": "0x84FED",
+    "text": "? ?$?4?8?<?@?D?H?L?T?l?|?"
+  },
+  {
+    "offset": "0x85019",
+    "text": "5,545@5`5h5p5x5"
+  },
+  {
+    "offset": "0x85039",
+    "text": "6@6T6\\6d6p6"
+  },
+  {
+    "offset": "0x85057",
+    "text": "747<7D7P7X7"
+  },
+  {
+    "offset": "0x85071",
+    "text": "8$8,848<8D8L8T8\\8d8l8t8|8"
+  },
+  {
+    "offset": "0x85099",
+    "text": "9 9(949T9\\9d9p9"
+  },
+  {
+    "offset": "0x850B7",
+    "text": ":$:0:P:X:d:"
+  },
+  {
+    "offset": "0x850E1",
+    "text": ";$;,;4;<;D;L;T;\\;d;l;t;|;"
+  },
+  {
+    "offset": "0x85121",
+    "text": "<$<,<4<<<D<L<T<\\<d<l<t<|<"
+  },
+  {
+    "offset": "0x85161",
+    "text": "=$=,=4=<=D=L=T=\\=d=l=t=|="
+  },
+  {
+    "offset": "0x851A1",
+    "text": ">$>,>4><>D>L>T>\\>d>l>t>|>"
+  },
+  {
+    "offset": "0x851E1",
+    "text": "?$?,?4?<?D?L?T?\\?d?l?t?|?"
+  },
+  {
+    "offset": "0x8521D",
+    "text": "0$0,040@0`0l0"
+  },
+  {
+    "offset": "0x85239",
+    "text": "1<1H1h1t1"
+  },
+  {
+    "offset": "0x8524F",
+    "text": "2$2D2P2p2|2"
+  },
+  {
+    "offset": "0x85267",
+    "text": "3 3,3L3T3\\3d3p3"
+  },
+  {
+    "offset": "0x8528B",
+    "text": "4$4D4L4T4`4"
+  },
+  {
+    "offset": "0x852AD",
+    "text": "5<5H5h5t5"
+  },
+  {
+    "offset": "0x852C7",
+    "text": "646<6D6L6T6\\6d6l6x6"
+  },
+  {
+    "offset": "0x852ED",
+    "text": "7$7,7T7h7p7x7"
+  },
+  {
+    "offset": "0x85309",
+    "text": "8$8,848<8D8L8T8\\8d8l8t8|8"
+  },
+  {
+    "offset": "0x85349",
+    "text": "9$9,989X9`9h9p9"
+  },
+  {
+    "offset": "0x8536B",
+    "text": ": :(:<:D:X:`:t:|:"
+  },
+  {
+    "offset": "0x85388",
+    "text": "$00040<0T0l0"
+  },
+  {
+    "offset": "0x85395",
+    "text": "0D1\\1t1"
+  },
+  {
+    "offset": "0x853A9",
+    "text": "242L2"
+  },
+  {
+    "offset": "0x853B7",
+    "text": "3,3D3\\3t3"
+  },
+  {
+    "offset": "0x853CB",
+    "text": "4$4@4T4p4"
+  },
+  {
+    "offset": "0x853DD",
+    "text": "5$5<5X5t5"
+  },
+  {
+    "offset": "0x853F1",
+    "text": "686T6p6"
+  },
+  {
+    "offset": "0x85403",
+    "text": "707H7`7x7"
+  },
+  {
+    "offset": "0x85417",
+    "text": "8 888P8h8"
+  },
+  {
+    "offset": "0x8542D",
+    "text": "9(9@9X9p9"
+  },
+  {
+    "offset": "0x85443",
+    "text": ":0:H:`:x:"
+  },
+  {
+    "offset": "0x85457",
+    "text": "; ;8;P;h;"
+  },
+  {
+    "offset": "0x8546D",
+    "text": "<(<@<X<p<"
+  },
+  {
+    "offset": "0x85481",
+    "text": "=(=D=\\=t="
+  },
+  {
+    "offset": "0x85497",
+    "text": ">8>T>p>"
+  },
+  {
+    "offset": "0x854A7",
+    "text": "?$?@?\\?x?"
+  },
+  {
+    "offset": "0x854C1",
+    "text": "040P0l0"
+  }
+]

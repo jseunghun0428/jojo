@@ -1,0 +1,140 @@
+{
+  "generatedAt": "2026-10-22T03:52:51.038Z",
+  "sourceSha256": "92c4287a02f7f77222da5d919a1bf5b99904821de8bc7f5e3c19e565cf81de2c",
+  "entryCount": 10,
+  "tableOffset": "0x110",
+  "tableEntryBytes": 12,
+  "byteOrder": "big-endian",
+  "tableTrailerBytes": 4,
+  "allEntriesContiguous": true,
+  "finalEntryEndsAtFileSize": true,
+  "entries": [
+    {
+      "index": 0,
+      "tableFileOffset": "0x110",
+      "sourceFileOffset": "0x18C",
+      "storedBytes": 32768,
+      "decodedBytes": 32768,
+      "compression": "none: storedBytes equals decodedBytes",
+      "sha256": "24c04dd3f284f205d094c767da4295fc8d2e8708190b4c1f5e77c53595bd7e55",
+      "extractedFile": "output/extracted/Data/entry-00.bin"
+    },
+    {
+      "index": 1,
+      "tableFileOffset": "0x11C",
+      "sourceFileOffset": "0x818C",
+      "storedBytes": 2600,
+      "decodedBytes": 2600,
+      "compression": "none: storedBytes equals decodedBytes",
+      "sha256": "69d0262c1aedcf2fdfa10670c607cbb64e1247b32473b5554ae1b92086ea5109",
+      "extractedFile": "output/extracted/Data/entry-01.bin"
+    },
+    {
+      "index": 2,
+      "tableFileOffset": "0x128",
+      "sourceFileOffset": "0x8BB4",
+      "storedBytes": 4608,
+      "decodedBytes": 4608,
+      "compression": "none: storedBytes equals decodedBytes",
+      "sha256": "9ffacbf26b29726f8e177d70c145102272a0a42a6d36c2a113af00dd23e8c203",
+      "extractedFile": "output/extracted/Data/entry-02.bin"
+    },
+    {
+      "index": 3,
+      "tableFileOffset": "0x134",
+      "sourceFileOffset": "0x9DB4",
+      "storedBytes": 2800,
+      "decodedBytes": 2800,
+      "compression": "none: storedBytes equals decodedBytes",
+      "sha256": "38d0fb37f69205839e2fbe9f2ee44668d184ec49fe0a1e5a58c93229b72a607f",
+      "extractedFile": "output/extracted/Data/entry-03.bin"
+    },
+    {
+      "index": 4,
+      "tableFileOffset": "0x140",
+      "sourceFileOffset": "0xA8A4",
+      "storedBytes": 2400,
+      "decodedBytes": 2400,
+      "compression": "none: storedBytes equals decodedBytes",
+      "sha256": "55dab8fb28258e2638fc039bc9d41b5f3c05b8211b8ab1c644150e6447e23415",
+      "extractedFile": "output/extracted/Data/entry-04.bin"
+    },
+    {
+      "index": 5,
+      "tableFileOffset": "0x14C",
+      "sourceFileOffset": "0xB204",
+      "storedBytes": 15520,
+      "decodedBytes": 15520,
+      "compression": "none: storedBytes equals decodedBytes",
+      "sha256": "72431eda3b3dcd13b268f73c8ee56b94cb862e68384aa881aee0d0b6d4a179e8",
+      "extractedFile": "output/extracted/Data/entry-05.bin"
+    },
+    {
+      "index": 6,
+      "tableFileOffset": "0x158",
+      "sourceFileOffset": "0xEEA4",
+      "storedBytes": 188,
+      "decodedBytes": 188,
+      "compression": "none: storedBytes equals decodedBytes",
+      "sha256": "548ce9f7f27b190b29b1e91bd58dd95a59a5baf02ecf679ee1956e1429f1f9a6",
+      "extractedFile": "output/extracted/Data/entry-06.bin"
+    },
+    {
+      "index": 7,
+      "tableFileOffset": "0x164",
+      "sourceFileOffset": "0xEF60",
+      "storedBytes": 32,
+      "decodedBytes": 32,
+      "compression": "none: storedBytes equals decodedBytes",
+      "sha256": "476994b5ba06e9d076bd13c51c4282c95fdc426a81379576f77adfb853fb7169",
+      "extractedFile": "output/extracted/Data/entry-07.bin"
+    },
+    {
+      "index": 8,
+      "tableFileOffset": "0x170",
+      "sourceFileOffset": "0xEF80",
+      "storedBytes": 32,
+      "decodedBytes": 32,
+      "compression": "none: storedBytes equals decodedBytes",
+      "sha256": "2e46b09451fe73a4b399fa7062896a9649a5708d1cd8d3b7ceec08cc8156011c",
+      "extractedFile": "output/extracted/Data/entry-08.bin"
+    },
+    {
+      "index": 9,
+      "tableFileOffset": "0x17C",
+      "sourceFileOffset": "0xEFA0",
+      "storedBytes": 35,
+      "decodedBytes": 35,
+      "compression": "none: storedBytes equals decodedBytes",
+      "sha256": "c5dfc90117e8593a1bab427982c4f14bbd0d8ac55d8b9648416386bd74577163",
+      "extractedFile": "output/extracted/Data/entry-09.bin"
+    }
+  ],
+  "evidence": [
+    {
+      "procedure": "0x41fc89",
+      "evidenceId": "ev_261fa38b774487b8d99ebf5b8d4da6a53c39dccd96713744c6333b4a531d0be6",
+      "claim": "12-byte big-endian entries from 0x110; equal lengths take direct read branch"
+    },
+    {
+      "procedure": "0x4010b0",
+      "evidenceId": "ev_ca1461546f6d3c36b103a40abb0db195255f912d717c4757ee90455cbc00c81f",
+      "claim": "Data.e5 entry1 to 0x4A1140, Star.e5 to 0x4A1B68; initialization loop covers IDs0..254"
+    },
+    {
+      "procedure": "0x4837c2",
+      "evidenceId": "ev_b5bbd800568893ceb7397d7f24da48ee7d2e77eb8d7ac738a6f4fab3c7e48039",
+      "claim": "Assembly computes item address as 0x4A1140 + index*25; pseudocode omits this register result"
+    },
+    {
+      "procedure": "0x451313",
+      "evidenceId": "ev_6e1092ece422a7e0d101c669ebdfce9274e4fef85c4960da61d36428824a39e9",
+      "claim": "Reads 0xED8=3800 bytes of Star.e5, corresponding to 152 records including separator"
+    }
+  ],
+  "limitations": [
+    "Extraction and layout are corroborated by static code and bytes; the game has not been run.",
+    "Item field gameplay meanings, runtime postprocessing, and every ID usage remain unverified.",
+    "Compressed containers are intentionally not supported by this extractor."
+  ]
+}

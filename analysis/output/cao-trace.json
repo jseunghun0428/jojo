@@ -1,0 +1,382 @@
+{
+  "generatedAt": "2026-10-22T04:08:09.319Z",
+  "method": "Static source-byte and REA/Ghidra code trace; values below are derived initial values, not a runtime capture.",
+  "targetExeSha256": "e6d864b6233585dca11d263444f1f1c29c55581c2416d53a61785aeeec7237e9",
+  "sourceDataSha256": "92c4287a02f7f77222da5d919a1bf5b99904821de8bc7f5e3c19e565cf81de2c",
+  "unit": {
+    "id": 0,
+    "name": "조조",
+    "sourceEntry": 0,
+    "entryByteCount": 32768,
+    "recordCount": 1024,
+    "recordBytes": 32,
+    "sourceFileOffset": "0x18C",
+    "rawHex": "c1b6c1b600000000000000000000000000ff29312e282a6e001e000100ffffff"
+  },
+  "loadPath": [
+    {
+      "stage": "Load Data.e5 entry0 into the pointer held at 0x496F60",
+      "evidence": {
+        "file": "output/rea-cao/data-caller-41b666.json",
+        "evidenceId": "ev_736c5ced6c221ecafb861ccc2c3a9a105014f9f464f96d89c0bd8425e59bb019",
+        "procedure": "0x41b666"
+      }
+    },
+    {
+      "stage": "For IDs0..1023, resolve the internal unit address as [0x4CEA00] + id*0x48",
+      "evidence": {
+        "file": "output/rea-cao/unit-runtime-address.json",
+        "evidenceId": "ev_e84ec1f84043a92cb01238aba4b34612b9417a034ae93172c59db94bb8d040b2",
+        "procedure": "0x4061e4"
+      }
+    },
+    {
+      "stage": "Initialize the 72-byte unit from one 32-byte source record and return source+0x20",
+      "evidence": {
+        "file": "output/rea-cao/unit-initialize.json",
+        "evidenceId": "ev_3e43b85a5270937f3dd62e859acd55fa9ab79bc2081b82f3936f8a102689d581",
+        "procedure": "0x408c0c"
+      }
+    },
+    {
+      "stage": "Single-unit reset also explicitly resolves sourceBase + id*0x20",
+      "evidence": {
+        "file": "output/rea-cao/unit-single-reset.json",
+        "evidenceId": "ev_195b1b5098dff8f658a6398ad3afa969b099a618dbb9cec3309d45d1599ad6ab",
+        "procedure": "0x41b617"
+      }
+    },
+    {
+      "stage": "Basic attribute UI uses getBasicAttribute(index,1), then controls0x7D1..0x7D5",
+      "evidence": {
+        "file": "output/rea-cao/unit-info-basic-attributes.json",
+        "evidenceId": "ev_11f31f7ac073542a8052a4e12c5e4a5d4710e2c80961f73df782f2fde4e4189b",
+        "procedure": "0x4784f6"
+      }
+    }
+  ],
+  "name": {
+    "sourceRelativeOffset": "0x0",
+    "copiedBytes": 12,
+    "runtimeOffset": "0x8",
+    "displayScratchOffset": "0x37",
+    "displayName": "조조",
+    "evidence": [
+      {
+        "file": "output/rea-cao/unit-initialize.json",
+        "evidenceId": "ev_3e43b85a5270937f3dd62e859acd55fa9ab79bc2081b82f3936f8a102689d581",
+        "procedure": "0x408c0c"
+      },
+      {
+        "file": "output/rea-cao/unit-get-name.json",
+        "evidenceId": "ev_bdc729fa44e1ad2adcbde0383efe2e429eea419259c0dcb34977b6bc3e66f74b",
+        "procedure": "0x407775"
+      },
+      {
+        "file": "output/rea-cao/unit-info-extra-values.json",
+        "evidenceId": "ev_8e1895b64e6c18de9def75c88e29d669a9b2d4bc9cb24ac9894e171bf5c34146",
+        "procedure": "0x478664"
+      }
+    ]
+  },
+  "attributes": [
+    {
+      "name": "무력",
+      "sourceRelativeOffset": "0x12",
+      "sourceFileOffset": "0x19E",
+      "sourceType": "uint8",
+      "raw": 41,
+      "runtimeBaseByteOffset": "0x21",
+      "runtimeWordCopyOffset": "0x11",
+      "runtimeWordType": "uint16 LE",
+      "infoDialogControlId": "0x7D1",
+      "displayRule": "raw << 1",
+      "initialDisplayValue": 82,
+      "evidence": [
+        {
+          "file": "output/rea-cao/unit-initialize.json",
+          "evidenceId": "ev_3e43b85a5270937f3dd62e859acd55fa9ab79bc2081b82f3936f8a102689d581",
+          "procedure": "0x408c0c"
+        },
+        {
+          "file": "output/rea-cao/unit-get-basic-attribute.json",
+          "evidenceId": "ev_81a3d449281a4fd4314a8ffba2cbf0df80167bcb732d156e0380c5c9465753f8",
+          "procedure": "0x4070e1"
+        },
+        {
+          "file": "output/rea-cao/unit-info-basic-attributes.json",
+          "evidenceId": "ev_11f31f7ac073542a8052a4e12c5e4a5d4710e2c80961f73df782f2fde4e4189b",
+          "procedure": "0x4784f6"
+        }
+      ]
+    },
+    {
+      "name": "통솔",
+      "sourceRelativeOffset": "0x13",
+      "sourceFileOffset": "0x19F",
+      "sourceType": "uint8",
+      "raw": 49,
+      "runtimeBaseByteOffset": "0x22",
+      "runtimeWordCopyOffset": "0x13",
+      "runtimeWordType": "uint16 LE",
+      "infoDialogControlId": "0x7D2",
+      "displayRule": "raw << 1",
+      "initialDisplayValue": 98,
+      "evidence": [
+        {
+          "file": "output/rea-cao/unit-initialize.json",
+          "evidenceId": "ev_3e43b85a5270937f3dd62e859acd55fa9ab79bc2081b82f3936f8a102689d581",
+          "procedure": "0x408c0c"
+        },
+        {
+          "file": "output/rea-cao/unit-get-basic-attribute.json",
+          "evidenceId": "ev_81a3d449281a4fd4314a8ffba2cbf0df80167bcb732d156e0380c5c9465753f8",
+          "procedure": "0x4070e1"
+        },
+        {
+          "file": "output/rea-cao/unit-info-basic-attributes.json",
+          "evidenceId": "ev_11f31f7ac073542a8052a4e12c5e4a5d4710e2c80961f73df782f2fde4e4189b",
+          "procedure": "0x4784f6"
+        }
+      ]
+    },
+    {
+      "name": "지력",
+      "sourceRelativeOffset": "0x14",
+      "sourceFileOffset": "0x1A0",
+      "sourceType": "uint8",
+      "raw": 46,
+      "runtimeBaseByteOffset": "0x23",
+      "runtimeWordCopyOffset": "0x15",
+      "runtimeWordType": "uint16 LE",
+      "infoDialogControlId": "0x7D3",
+      "displayRule": "raw << 1",
+      "initialDisplayValue": 92,
+      "evidence": [
+        {
+          "file": "output/rea-cao/unit-initialize.json",
+          "evidenceId": "ev_3e43b85a5270937f3dd62e859acd55fa9ab79bc2081b82f3936f8a102689d581",
+          "procedure": "0x408c0c"
+        },
+        {
+          "file": "output/rea-cao/unit-get-basic-attribute.json",
+          "evidenceId": "ev_81a3d449281a4fd4314a8ffba2cbf0df80167bcb732d156e0380c5c9465753f8",
+          "procedure": "0x4070e1"
+        },
+        {
+          "file": "output/rea-cao/unit-info-basic-attributes.json",
+          "evidenceId": "ev_11f31f7ac073542a8052a4e12c5e4a5d4710e2c80961f73df782f2fde4e4189b",
+          "procedure": "0x4784f6"
+        }
+      ]
+    },
+    {
+      "name": "민첩",
+      "sourceRelativeOffset": "0x15",
+      "sourceFileOffset": "0x1A1",
+      "sourceType": "uint8",
+      "raw": 40,
+      "runtimeBaseByteOffset": "0x24",
+      "runtimeWordCopyOffset": "0x17",
+      "runtimeWordType": "uint16 LE",
+      "infoDialogControlId": "0x7D4",
+      "displayRule": "raw << 1",
+      "initialDisplayValue": 80,
+      "evidence": [
+        {
+          "file": "output/rea-cao/unit-initialize.json",
+          "evidenceId": "ev_3e43b85a5270937f3dd62e859acd55fa9ab79bc2081b82f3936f8a102689d581",
+          "procedure": "0x408c0c"
+        },
+        {
+          "file": "output/rea-cao/unit-get-basic-attribute.json",
+          "evidenceId": "ev_81a3d449281a4fd4314a8ffba2cbf0df80167bcb732d156e0380c5c9465753f8",
+          "procedure": "0x4070e1"
+        },
+        {
+          "file": "output/rea-cao/unit-info-basic-attributes.json",
+          "evidenceId": "ev_11f31f7ac073542a8052a4e12c5e4a5d4710e2c80961f73df782f2fde4e4189b",
+          "procedure": "0x4784f6"
+        }
+      ]
+    },
+    {
+      "name": "행운",
+      "sourceRelativeOffset": "0x16",
+      "sourceFileOffset": "0x1A2",
+      "sourceType": "uint8",
+      "raw": 42,
+      "runtimeBaseByteOffset": "0x25",
+      "runtimeWordCopyOffset": "0x19",
+      "runtimeWordType": "uint16 LE",
+      "infoDialogControlId": "0x7D5",
+      "displayRule": "raw << 1",
+      "initialDisplayValue": 84,
+      "evidence": [
+        {
+          "file": "output/rea-cao/unit-initialize.json",
+          "evidenceId": "ev_3e43b85a5270937f3dd62e859acd55fa9ab79bc2081b82f3936f8a102689d581",
+          "procedure": "0x408c0c"
+        },
+        {
+          "file": "output/rea-cao/unit-get-basic-attribute.json",
+          "evidenceId": "ev_81a3d449281a4fd4314a8ffba2cbf0df80167bcb732d156e0380c5c9465753f8",
+          "procedure": "0x4070e1"
+        },
+        {
+          "file": "output/rea-cao/unit-info-basic-attributes.json",
+          "evidenceId": "ev_11f31f7ac073542a8052a4e12c5e4a5d4710e2c80961f73df782f2fde4e4189b",
+          "procedure": "0x4784f6"
+        }
+      ]
+    }
+  ],
+  "class": {
+    "sourceRelativeOffset": "0x1A",
+    "sourceType": "uint8",
+    "rawId": 0,
+    "runtimeOffset": "0x2B",
+    "name": "군웅",
+    "pointerTableVA": "0x48BEA8",
+    "nameStringVA": "0x5000D0",
+    "nameStringFileOffset": "0xD18D0",
+    "evidence": [
+      {
+        "file": "output/rea-cao/unit-initialize.json",
+        "evidenceId": "ev_3e43b85a5270937f3dd62e859acd55fa9ab79bc2081b82f3936f8a102689d581",
+        "procedure": "0x408c0c"
+      },
+      {
+        "file": "output/rea-cao/unit-get-class.json",
+        "evidenceId": "ev_90c634952b3fce6e464ff4d9422799a0d13561dc2ae9e9e4b487021dbbf1a3bf",
+        "procedure": "0x406610"
+      },
+      {
+        "file": "output/rea-cao/class-get-name.json",
+        "evidenceId": "ev_7fa152bcde5173df5a2bed1bda5dcb23fc6dd722b507e25e5841c80bf3cc212e",
+        "procedure": "0x40111a"
+      },
+      {
+        "file": "output/rea-cao/unit-select-basic-attributes.json",
+        "evidenceId": "ev_dbea090c612ec1854643e08425bba77a5ad958a3221d8344ea8530f8c88ac0f1",
+        "procedure": "0x45c697"
+      }
+    ]
+  },
+  "level": {
+    "sourceRelativeOffset": "0x1B",
+    "raw": 1,
+    "initial": 1,
+    "runtimeOffset": "0x2C",
+    "initializationRule": "0 becomes1",
+    "evidence": [
+      {
+        "file": "output/rea-cao/unit-initialize.json",
+        "evidenceId": "ev_3e43b85a5270937f3dd62e859acd55fa9ab79bc2081b82f3936f8a102689d581",
+        "procedure": "0x408c0c"
+      },
+      {
+        "file": "output/rea-cao/unit-get-level.json",
+        "evidenceId": "ev_56c8813d2137bd67a892c1a1e5fb4e2d7eab8f0f41541281bcbddb9b431f595a",
+        "procedure": "0x4065d0"
+      },
+      {
+        "file": "output/rea-cao/unit-info-extra-values.json",
+        "evidenceId": "ev_8e1895b64e6c18de9def75c88e29d669a9b2d4bc9cb24ac9894e171bf5c34146",
+        "procedure": "0x478664"
+      }
+    ]
+  },
+  "hpBase": {
+    "sourceRelativeOffset": "0x17",
+    "sourceType": "uint16 LE",
+    "raw": 110,
+    "initialClampedValue": 110,
+    "runtimeOffset": "0x1B",
+    "evidence": [
+      {
+        "file": "output/rea-cao/unit-initialize.json",
+        "evidenceId": "ev_3e43b85a5270937f3dd62e859acd55fa9ab79bc2081b82f3936f8a102689d581",
+        "procedure": "0x408c0c"
+      },
+      {
+        "file": "output/rea-cao/unit-get-hp.json",
+        "evidenceId": "ev_a1884841d00235a5cc42205608b42384289d05c68c5de6719ec93e2abd300517",
+        "procedure": "0x407263"
+      },
+      {
+        "file": "output/rea-cao/unit-select-basic-attributes.json",
+        "evidenceId": "ev_dbea090c612ec1854643e08425bba77a5ad958a3221d8344ea8530f8c88ac0f1",
+        "procedure": "0x45c697"
+      }
+    ],
+    "limitation": "The HP getter applies additional functions;110 is a base value, not every in-game final/current HP."
+  },
+  "mpBase": {
+    "sourceRelativeOffset": "0x19",
+    "sourceType": "uint8 in source",
+    "raw": 30,
+    "initialClampedValue": 30,
+    "runtimeOffset": "0x1F",
+    "evidence": [
+      {
+        "file": "output/rea-cao/unit-initialize.json",
+        "evidenceId": "ev_3e43b85a5270937f3dd62e859acd55fa9ab79bc2081b82f3936f8a102689d581",
+        "procedure": "0x408c0c"
+      },
+      {
+        "file": "output/rea-cao/unit-get-mp.json",
+        "evidenceId": "ev_eec7d5923b59480737671599bc8f7a9cff3b7f2400668fe69c1ab687f3097d01",
+        "procedure": "0x40728f"
+      },
+      {
+        "file": "output/rea-cao/unit-select-basic-attributes.json",
+        "evidenceId": "ev_dbea090c612ec1854643e08425bba77a5ad958a3221d8344ea8530f8c88ac0f1",
+        "procedure": "0x45c697"
+      }
+    ],
+    "limitation": "The MP getter applies additional functions;30 is a base value, not every in-game final/current MP."
+  },
+  "portraitSeed": {
+    "sourceRelativeOffset": "0xD",
+    "sourceType": "uint16 LE",
+    "raw": 0,
+    "runtimeOffset": "0x4",
+    "perUnitCacheBaseVA": "0x50F000",
+    "evidence": [
+      {
+        "file": "output/rea-cao/unit-initialize.json",
+        "evidenceId": "ev_3e43b85a5270937f3dd62e859acd55fa9ab79bc2081b82f3936f8a102689d581",
+        "procedure": "0x408c0c"
+      },
+      {
+        "file": "output/rea-cao/unit-portrait-setup.json",
+        "evidenceId": "ev_c174c48045c69d7affa3cb60a2b24b3bf15f5366d401183723b3f21653e69b59",
+        "procedure": "0x423e30"
+      },
+      {
+        "file": "output/rea-cao/unit-get-portrait.json",
+        "evidenceId": "ev_e1f9ba28350871d6bf7d1ab92645e1dee6682f7b47cab8fb915d13dda7866f52",
+        "procedure": "0x40765c"
+      }
+    ],
+    "limitation": "The getter uses the per-unit cache and adds7 for nonzero values; full image loading has not been reconstructed."
+  },
+  "unknownSourceFields": [
+    "0x0C",
+    "0x0F",
+    "0x10",
+    "0x11",
+    "0x1C",
+    "0x1D",
+    "0x1E",
+    "0x1F"
+  ],
+  "limitations": [
+    "No game code was executed.",
+    "Loaded saves, scenario changes, leveling, equipment and status effects may change values after initialization.",
+    "The five uint16 copies at runtime0x11..0x19 are observed, but their full combat use/formulas were not reconstructed in this trace.",
+    "Register-return helper pseudocode can omit behavior; unit address and class-name lookup were checked against assembly.",
+    "Results apply to the supplied 1.0.6.6 binary; this is not a claim about every original Cao Cao game version."
+  ]
+}

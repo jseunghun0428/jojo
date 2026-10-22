@@ -1,0 +1,1034 @@
+[
+  {
+    "offset": "0x4D",
+    "text": "!This program cannot be run in DOS mode."
+  },
+  {
+    "offset": "0xD7",
+    "text": "XRich"
+  },
+  {
+    "offset": "0x1F0",
+    "text": ".text"
+  },
+  {
+    "offset": "0x217",
+    "text": "`.rdata"
+  },
+  {
+    "offset": "0x23F",
+    "text": "@.data"
+  },
+  {
+    "offset": "0x268",
+    "text": ".rsrc"
+  },
+  {
+    "offset": "0x28F",
+    "text": "@.reloc"
+  },
+  {
+    "offset": "0x11E5",
+    "text": "_^][j"
+  },
+  {
+    "offset": "0x1480",
+    "text": "YYt,V"
+  },
+  {
+    "offset": "0x1676",
+    "text": "u,hJ\""
+  },
+  {
+    "offset": "0x16EC",
+    "text": "u79=H"
+  },
+  {
+    "offset": "0x17EF",
+    "text": "YYt-V"
+  },
+  {
+    "offset": "0x19BB",
+    "text": "VWh<r"
+  },
+  {
+    "offset": "0x1A60",
+    "text": "YYt+V"
+  },
+  {
+    "offset": "0x1EBA",
+    "text": "Y]_^["
+  },
+  {
+    "offset": "0x2045",
+    "text": "QQSVW3"
+  },
+  {
+    "offset": "0x2161",
+    "text": "@PVSS"
+  },
+  {
+    "offset": "0x217F",
+    "text": "t#SSUP"
+  },
+  {
+    "offset": "0x2186",
+    "text": "t$$VSS"
+  },
+  {
+    "offset": "0x21FF",
+    "text": "_^][YY"
+  },
+  {
+    "offset": "0x2588",
+    "text": "VC20XC00U"
+  },
+  {
+    "offset": "0x2ACF",
+    "text": "F,98uX"
+  },
+  {
+    "offset": "0x3D3C",
+    "text": "t$h<r"
+  },
+  {
+    "offset": "0x4343",
+    "text": "SVWUj"
+  },
+  {
+    "offset": "0x43AC",
+    "text": "t.;t$$t("
+  },
+  {
+    "offset": "0x4666",
+    "text": "VWumh"
+  },
+  {
+    "offset": "0x492E",
+    "text": "wLVWP"
+  },
+  {
+    "offset": "0x4DB6",
+    "text": "PPPPPPPP"
+  },
+  {
+    "offset": "0x5156",
+    "text": "PPPPPPPP"
+  },
+  {
+    "offset": "0x51A4",
+    "text": "u8SS3"
+  },
+  {
+    "offset": "0x53A2",
+    "text": "t!SS9]"
+  },
+  {
+    "offset": "0x5A93",
+    "text": "LSVWj"
+  },
+  {
+    "offset": "0x5B79",
+    "text": "xd;=<"
+  },
+  {
+    "offset": "0x5D8C",
+    "text": "WWWWVSW"
+  },
+  {
+    "offset": "0x5DB1",
+    "text": "t2WWVPVSW"
+  },
+  {
+    "offset": "0x713C",
+    "text": "AutoSave"
+  },
+  {
+    "offset": "0x7148",
+    "text": "AutoSaveSlot"
+  },
+  {
+    "offset": "0x7158",
+    "text": "EnableAutoSave"
+  },
+  {
+    "offset": "0x7168",
+    "text": "DelayTime"
+  },
+  {
+    "offset": "0x7174",
+    "text": "FastKey"
+  },
+  {
+    "offset": "0x717C",
+    "text": "HotKey"
+  },
+  {
+    "offset": "0x7184",
+    "text": "DEFAULT"
+  },
+  {
+    "offset": "0x718C",
+    "text": "EnableFastKey"
+  },
+  {
+    "offset": "0x719C",
+    "text": "\\AutoDLL.ini"
+  },
+  {
+    "offset": "0x71CC",
+    "text": "CorExitProcess"
+  },
+  {
+    "offset": "0x71DC",
+    "text": "mscoree.dll"
+  },
+  {
+    "offset": "0x7210",
+    "text": "FlsFree"
+  },
+  {
+    "offset": "0x7218",
+    "text": "FlsSetValue"
+  },
+  {
+    "offset": "0x7224",
+    "text": "FlsGetValue"
+  },
+  {
+    "offset": "0x7230",
+    "text": "FlsAlloc"
+  },
+  {
+    "offset": "0x723C",
+    "text": "kernel32.dll"
+  },
+  {
+    "offset": "0x728C",
+    "text": "runtime error "
+  },
+  {
+    "offset": "0x72A0",
+    "text": "TLOSS error"
+  },
+  {
+    "offset": "0x72B0",
+    "text": "SING error"
+  },
+  {
+    "offset": "0x72C0",
+    "text": "DOMAIN error"
+  },
+  {
+    "offset": "0x72D0",
+    "text": "R6029"
+  },
+  {
+    "offset": "0x72D7",
+    "text": "- This application cannot run using the active version of the Microsoft .NET Runtime"
+  },
+  {
+    "offset": "0x732C",
+    "text": "Please contact the application's support team for more information."
+  },
+  {
+    "offset": "0x7374",
+    "text": "R6028"
+  },
+  {
+    "offset": "0x737B",
+    "text": "- unable to initialize heap"
+  },
+  {
+    "offset": "0x739C",
+    "text": "R6027"
+  },
+  {
+    "offset": "0x73A3",
+    "text": "- not enough space for lowio initialization"
+  },
+  {
+    "offset": "0x73D4",
+    "text": "R6026"
+  },
+  {
+    "offset": "0x73DB",
+    "text": "- not enough space for stdio initialization"
+  },
+  {
+    "offset": "0x740C",
+    "text": "R6025"
+  },
+  {
+    "offset": "0x7413",
+    "text": "- pure virtual function call"
+  },
+  {
+    "offset": "0x7434",
+    "text": "R6024"
+  },
+  {
+    "offset": "0x743B",
+    "text": "- not enough space for _onexit/atexit table"
+  },
+  {
+    "offset": "0x746C",
+    "text": "R6019"
+  },
+  {
+    "offset": "0x7473",
+    "text": "- unable to open console device"
+  },
+  {
+    "offset": "0x7498",
+    "text": "R6018"
+  },
+  {
+    "offset": "0x749F",
+    "text": "- unexpected heap error"
+  },
+  {
+    "offset": "0x74BC",
+    "text": "R6017"
+  },
+  {
+    "offset": "0x74C3",
+    "text": "- unexpected multithread lock error"
+  },
+  {
+    "offset": "0x74EC",
+    "text": "R6016"
+  },
+  {
+    "offset": "0x74F3",
+    "text": "- not enough space for thread data"
+  },
+  {
+    "offset": "0x751A",
+    "text": "This application has requested the Runtime to terminate it in an unusual way."
+  },
+  {
+    "offset": "0x7568",
+    "text": "Please contact the application's support team for more information."
+  },
+  {
+    "offset": "0x75B0",
+    "text": "R6009"
+  },
+  {
+    "offset": "0x75B7",
+    "text": "- not enough space for environment"
+  },
+  {
+    "offset": "0x75DC",
+    "text": "R6008"
+  },
+  {
+    "offset": "0x75E3",
+    "text": "- not enough space for arguments"
+  },
+  {
+    "offset": "0x7608",
+    "text": "R6002"
+  },
+  {
+    "offset": "0x760F",
+    "text": "- floating point not loaded"
+  },
+  {
+    "offset": "0x7630",
+    "text": "Microsoft Visual C++ Runtime Library"
+  },
+  {
+    "offset": "0x765C",
+    "text": "Runtime Error!"
+  },
+  {
+    "offset": "0x766C",
+    "text": "Program: "
+  },
+  {
+    "offset": "0x767C",
+    "text": "<program name unknown>"
+  },
+  {
+    "offset": "0x77D7",
+    "text": " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+  },
+  {
+    "offset": "0x7854",
+    "text": "InitializeCriticalSectionAndSpinCount"
+  },
+  {
+    "offset": "0x789C",
+    "text": "GetProcessWindowStation"
+  },
+  {
+    "offset": "0x78B4",
+    "text": "GetUserObjectInformationA"
+  },
+  {
+    "offset": "0x78D0",
+    "text": "GetLastActivePopup"
+  },
+  {
+    "offset": "0x78E4",
+    "text": "GetActiveWindow"
+  },
+  {
+    "offset": "0x78F4",
+    "text": "MessageBoxA"
+  },
+  {
+    "offset": "0x7900",
+    "text": "user32.dll"
+  },
+  {
+    "offset": "0x793C",
+    "text": "HH:mm:ss"
+  },
+  {
+    "offset": "0x7948",
+    "text": "dddd, MMMM dd, yyyy"
+  },
+  {
+    "offset": "0x795C",
+    "text": "MM/dd/yy"
+  },
+  {
+    "offset": "0x7970",
+    "text": "December"
+  },
+  {
+    "offset": "0x797C",
+    "text": "November"
+  },
+  {
+    "offset": "0x7988",
+    "text": "October"
+  },
+  {
+    "offset": "0x7990",
+    "text": "September"
+  },
+  {
+    "offset": "0x799C",
+    "text": "August"
+  },
+  {
+    "offset": "0x79B4",
+    "text": "April"
+  },
+  {
+    "offset": "0x79BC",
+    "text": "March"
+  },
+  {
+    "offset": "0x79C4",
+    "text": "February"
+  },
+  {
+    "offset": "0x79D0",
+    "text": "January"
+  },
+  {
+    "offset": "0x7A08",
+    "text": "Saturday"
+  },
+  {
+    "offset": "0x7A14",
+    "text": "Friday"
+  },
+  {
+    "offset": "0x7A1C",
+    "text": "Thursday"
+  },
+  {
+    "offset": "0x7A28",
+    "text": "Wednesday"
+  },
+  {
+    "offset": "0x7A34",
+    "text": "Tuesday"
+  },
+  {
+    "offset": "0x7A3C",
+    "text": "Monday"
+  },
+  {
+    "offset": "0x7A44",
+    "text": "Sunday"
+  },
+  {
+    "offset": "0x7FA4",
+    "text": "Program: "
+  },
+  {
+    "offset": "0x7FB0",
+    "text": "A buffer overrun has been detected which has corrupted the program's"
+  },
+  {
+    "offset": "0x7FF5",
+    "text": "internal state.  The program cannot safely continue execution and must"
+  },
+  {
+    "offset": "0x803C",
+    "text": "now be terminated."
+  },
+  {
+    "offset": "0x8050",
+    "text": "Buffer overrun detected!"
+  },
+  {
+    "offset": "0x8070",
+    "text": "A security error of unknown cause has been detected which has"
+  },
+  {
+    "offset": "0x80AE",
+    "text": "corrupted the program's internal state.  The program cannot safely"
+  },
+  {
+    "offset": "0x80F1",
+    "text": "continue execution and must now be terminated."
+  },
+  {
+    "offset": "0x8124",
+    "text": "Unknown security failure detected!"
+  },
+  {
+    "offset": "0x8154",
+    "text": "SunMonTueWedThuFriSat"
+  },
+  {
+    "offset": "0x816C",
+    "text": "JanFebMarAprMayJunJulAugSepOctNovDec"
+  },
+  {
+    "offset": "0x81F0",
+    "text": "RSDSb"
+  },
+  {
+    "offset": "0x8208",
+    "text": "f:\\Work\\Vc\\AutoDLL\\Release\\AutoDLL.pdb"
+  },
+  {
+    "offset": "0x839A",
+    "text": "GetPrivateProfileIntA"
+  },
+  {
+    "offset": "0x83B2",
+    "text": "GetModuleFileNameA"
+  },
+  {
+    "offset": "0x83C8",
+    "text": "ExitThread"
+  },
+  {
+    "offset": "0x83D6",
+    "text": "Sleep"
+  },
+  {
+    "offset": "0x83DE",
+    "text": "CloseHandle"
+  },
+  {
+    "offset": "0x83EC",
+    "text": "CreateThread"
+  },
+  {
+    "offset": "0x83FC",
+    "text": "GetCurrentThreadId"
+  },
+  {
+    "offset": "0x8410",
+    "text": "KERNEL32.dll"
+  },
+  {
+    "offset": "0x8420",
+    "text": "CallNextHookEx"
+  },
+  {
+    "offset": "0x8432",
+    "text": "PostMessageA"
+  },
+  {
+    "offset": "0x8442",
+    "text": "FindWindowA"
+  },
+  {
+    "offset": "0x8450",
+    "text": "SetWindowsHookExA"
+  },
+  {
+    "offset": "0x8464",
+    "text": "UnhookWindowsHookEx"
+  },
+  {
+    "offset": "0x8478",
+    "text": "USER32.dll"
+  },
+  {
+    "offset": "0x8486",
+    "text": "GetCommandLineA"
+  },
+  {
+    "offset": "0x8498",
+    "text": "GetVersionExA"
+  },
+  {
+    "offset": "0x84A8",
+    "text": "ExitProcess"
+  },
+  {
+    "offset": "0x84B6",
+    "text": "GetProcAddress"
+  },
+  {
+    "offset": "0x84C8",
+    "text": "GetModuleHandleA"
+  },
+  {
+    "offset": "0x84DC",
+    "text": "TerminateProcess"
+  },
+  {
+    "offset": "0x84F0",
+    "text": "GetCurrentProcess"
+  },
+  {
+    "offset": "0x8504",
+    "text": "TlsAlloc"
+  },
+  {
+    "offset": "0x8510",
+    "text": "SetLastError"
+  },
+  {
+    "offset": "0x8520",
+    "text": "GetLastError"
+  },
+  {
+    "offset": "0x8530",
+    "text": "TlsFree"
+  },
+  {
+    "offset": "0x853A",
+    "text": "TlsSetValue"
+  },
+  {
+    "offset": "0x8548",
+    "text": "TlsGetValue"
+  },
+  {
+    "offset": "0x8556",
+    "text": "HeapFree"
+  },
+  {
+    "offset": "0x8562",
+    "text": "HeapAlloc"
+  },
+  {
+    "offset": "0x856E",
+    "text": "SetHandleCount"
+  },
+  {
+    "offset": "0x8580",
+    "text": "GetStdHandle"
+  },
+  {
+    "offset": "0x8590",
+    "text": "GetFileType"
+  },
+  {
+    "offset": "0x859E",
+    "text": "GetStartupInfoA"
+  },
+  {
+    "offset": "0x85B0",
+    "text": "DeleteCriticalSection"
+  },
+  {
+    "offset": "0x85C8",
+    "text": "FreeEnvironmentStringsA"
+  },
+  {
+    "offset": "0x85E2",
+    "text": "GetEnvironmentStrings"
+  },
+  {
+    "offset": "0x85FA",
+    "text": "FreeEnvironmentStringsW"
+  },
+  {
+    "offset": "0x8614",
+    "text": "WideCharToMultiByte"
+  },
+  {
+    "offset": "0x862A",
+    "text": "GetEnvironmentStringsW"
+  },
+  {
+    "offset": "0x8644",
+    "text": "HeapDestroy"
+  },
+  {
+    "offset": "0x8652",
+    "text": "HeapCreate"
+  },
+  {
+    "offset": "0x8660",
+    "text": "VirtualFree"
+  },
+  {
+    "offset": "0x866E",
+    "text": "UnhandledExceptionFilter"
+  },
+  {
+    "offset": "0x868A",
+    "text": "WriteFile"
+  },
+  {
+    "offset": "0x8696",
+    "text": "LeaveCriticalSection"
+  },
+  {
+    "offset": "0x86AE",
+    "text": "EnterCriticalSection"
+  },
+  {
+    "offset": "0x86C6",
+    "text": "GetACP"
+  },
+  {
+    "offset": "0x86D0",
+    "text": "GetOEMCP"
+  },
+  {
+    "offset": "0x86DC",
+    "text": "GetCPInfo"
+  },
+  {
+    "offset": "0x86E8",
+    "text": "VirtualAlloc"
+  },
+  {
+    "offset": "0x86F8",
+    "text": "HeapReAlloc"
+  },
+  {
+    "offset": "0x8706",
+    "text": "InitializeCriticalSection"
+  },
+  {
+    "offset": "0x8722",
+    "text": "RtlUnwind"
+  },
+  {
+    "offset": "0x872E",
+    "text": "InterlockedExchange"
+  },
+  {
+    "offset": "0x8744",
+    "text": "VirtualQuery"
+  },
+  {
+    "offset": "0x8754",
+    "text": "LoadLibraryA"
+  },
+  {
+    "offset": "0x8764",
+    "text": "HeapSize"
+  },
+  {
+    "offset": "0x8770",
+    "text": "GetLocaleInfoA"
+  },
+  {
+    "offset": "0x8782",
+    "text": "GetStringTypeA"
+  },
+  {
+    "offset": "0x8794",
+    "text": "MultiByteToWideChar"
+  },
+  {
+    "offset": "0x87AA",
+    "text": "GetStringTypeW"
+  },
+  {
+    "offset": "0x87BC",
+    "text": "LCMapStringA"
+  },
+  {
+    "offset": "0x87CC",
+    "text": "LCMapStringW"
+  },
+  {
+    "offset": "0x87DC",
+    "text": "QueryPerformanceCounter"
+  },
+  {
+    "offset": "0x87F6",
+    "text": "GetTickCount"
+  },
+  {
+    "offset": "0x8806",
+    "text": "GetCurrentProcessId"
+  },
+  {
+    "offset": "0x881C",
+    "text": "GetSystemTimeAsFileTime"
+  },
+  {
+    "offset": "0x8836",
+    "text": "VirtualProtect"
+  },
+  {
+    "offset": "0x8848",
+    "text": "GetSystemInfo"
+  },
+  {
+    "offset": "0x889C",
+    "text": "AutoDLL.dll"
+  },
+  {
+    "offset": "0x88A8",
+    "text": "ASave"
+  },
+  {
+    "offset": "0x88AE",
+    "text": "dummy"
+  },
+  {
+    "offset": "0xA113",
+    "text": "P1_zf"
+  },
+  {
+    "offset": "0xA11F",
+    "text": "v6R\\O"
+  },
+  {
+    "offset": "0xB00D",
+    "text": "0-020?0Q0i0o0u0{0"
+  },
+  {
+    "offset": "0xB049",
+    "text": "1B1M1W1f1o1"
+  },
+  {
+    "offset": "0xB06F",
+    "text": "2&232=2H2f2x2"
+  },
+  {
+    "offset": "0xB095",
+    "text": "3\"32393p3"
+  },
+  {
+    "offset": "0xB0AF",
+    "text": "3&4A4I4O4"
+  },
+  {
+    "offset": "0xB0D5",
+    "text": "6>6P6U6y6"
+  },
+  {
+    "offset": "0xB0F9",
+    "text": "7&7+7E7"
+  },
+  {
+    "offset": "0xB117",
+    "text": "8+878"
+  },
+  {
+    "offset": "0xB11F",
+    "text": "81989}9"
+  },
+  {
+    "offset": "0xB149",
+    "text": ":!:&:,:0:5:::@:H:g:m:x:"
+  },
+  {
+    "offset": "0xB16B",
+    "text": ";1;F;"
+  },
+  {
+    "offset": "0xB17B",
+    "text": "<$<Y<`<q<"
+  },
+  {
+    "offset": "0xB18B",
+    "text": "<!=O=]="
+  },
+  {
+    "offset": "0xB19D",
+    "text": ">#>Y>f>"
+  },
+  {
+    "offset": "0xB1BD",
+    "text": "0N0_0g0n0s0{0"
+  },
+  {
+    "offset": "0xB1D5",
+    "text": "1\"1)1U1"
+  },
+  {
+    "offset": "0xB1E7",
+    "text": "2M2Y2`2"
+  },
+  {
+    "offset": "0xB205",
+    "text": "3E3Q3[3c3m3s3"
+  },
+  {
+    "offset": "0xB213",
+    "text": "3C4H4b4h4"
+  },
+  {
+    "offset": "0xB22B",
+    "text": "7 7S7h7"
+  },
+  {
+    "offset": "0xB243",
+    "text": "8*8F8M8W8"
+  },
+  {
+    "offset": "0xB26D",
+    "text": ":#:(:4:<:S:a:f:p:"
+  },
+  {
+    "offset": "0xB283",
+    "text": ";2;[;"
+  },
+  {
+    "offset": "0xB297",
+    "text": "<6<K<"
+  },
+  {
+    "offset": "0xB2AB",
+    "text": "<a=m="
+  },
+  {
+    "offset": "0xB2BF",
+    "text": ">&>2>D>R>n>"
+  },
+  {
+    "offset": "0xB2D7",
+    "text": "?.?4?U?[?j?q?x?"
+  },
+  {
+    "offset": "0xB301",
+    "text": "0$0.0;0E0R0[0d0p0"
+  },
+  {
+    "offset": "0xB321",
+    "text": "1I1Z1n1t1{1"
+  },
+  {
+    "offset": "0xB33F",
+    "text": "4#4(474@4M4X4j4}4"
+  },
+  {
+    "offset": "0xB36F",
+    "text": "5'5-52585F5R5p5"
+  },
+  {
+    "offset": "0xB38B",
+    "text": "9(:c<n<v<"
+  },
+  {
+    "offset": "0xB397",
+    "text": "=#=-=7=?=E=N=U=Z=c=h="
+  },
+  {
+    "offset": "0xB3C4",
+    "text": "80P0W0_0d0h0l0"
+  },
+  {
+    "offset": "0xB3E7",
+    "text": "0F1L1P1T1X1"
+  },
+  {
+    "offset": "0xB401",
+    "text": "2C2u2|2"
+  },
+  {
+    "offset": "0xB42F",
+    "text": "4[5a5o5|5"
+  },
+  {
+    "offset": "0xB44B",
+    "text": "626D6b6k6q6"
+  },
+  {
+    "offset": "0xB475",
+    "text": "7.7G7w8"
+  },
+  {
+    "offset": "0xB48F",
+    "text": ":@:F:P:l:w:"
+  },
+  {
+    "offset": "0xB4B3",
+    "text": "=%=7=B=T=_=q=|="
+  },
+  {
+    "offset": "0xB4C5",
+    "text": "=K?X?g?n?x?"
+  },
+  {
+    "offset": "0xB4FD",
+    "text": "1.2R2"
+  },
+  {
+    "offset": "0xB527",
+    "text": "6)6064686<6@6D6H6L6"
+  },
+  {
+    "offset": "0xB547",
+    "text": "747;7@7D7H7i7"
+  },
+  {
+    "offset": "0xB567",
+    "text": "72888<8@8D8"
+  },
+  {
+    "offset": "0xB587",
+    "text": "9;9E9Q9[9v9"
+  },
+  {
+    "offset": "0xB5A3",
+    "text": ";?;D;e;};"
+  },
+  {
+    "offset": "0xB5AF",
+    "text": "<?<I<v<"
+  },
+  {
+    "offset": "0xB5B7",
+    "text": "<V=w="
+  },
+  {
+    "offset": "0xB5DD",
+    "text": "2X2h2t2x2"
+  },
+  {
+    "offset": "0xB5ED",
+    "text": "6@8P8"
+  },
+  {
+    "offset": "0xB5FB",
+    "text": "9(989t?x?"
+  },
+  {
+    "offset": "0xB631",
+    "text": "0d0,141<1D1L1T1\\1d1l1t1|1"
+  },
+  {
+    "offset": "0xB659",
+    "text": "1 30343<3"
+  },
+  {
+    "offset": "0xB677",
+    "text": "7 7$7(7,7074787<7@7D7H7L7P7T7X7\\7`7d7h7l7p7t7x7|7"
+  }
+]

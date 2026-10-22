@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+const root = path.resolve(import.meta.dirname, '../..');
+const source = path.join(root, 'analysis/input/tool');
+const modRoot = path.join(root, 'mods/lobby-loop-test');
+const destination = path.join(modRoot, 'game');
+if (fs.existsSync(destination)) throw new Error('Mod work copy already exists; refusing overwrite');
+fs.mkdirSync(modRoot, { recursive: true });
+fs.cpSync(source, destination, { recursive: true, force: false, errorOnExist: true });
+const hash = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+const baseline = JSON.parse(fs.readFileSync(path.join(root, 'analysis/output/snapshot-manifest.json'), 'utf8'));
+for (const entry of baseline.entries) if (hash(path.join(destination, entry.path)) !== entry.sha256) throw new Error(`Copy differs: ${entry.path}`);
+fs.writeFileSync(path.join(modRoot, 'baseline-manifest.json'), JSON.stringify({ createdAt: new Date().toISOString(), source, destination, entries: baseline.entries }, null, 2));
+console.log(JSON.stringify({ destination, files: baseline.fileCount, allHashesMatch: true }));

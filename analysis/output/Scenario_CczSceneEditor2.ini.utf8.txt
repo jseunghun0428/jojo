@@ -1,0 +1,7 @@
+[Config]
+ItemWeaponSum=70
+ItemDefenseSum=49
+ItemAssistSum=41
+CharLvMax=57
+RSMax=100
+ExePath=C:\조조전 모드\신조조전 6.6\

@@ -1,0 +1,19 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.6.2
+2 info using node@v24.12.0
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\project\jojo\.npmrc
+5 silly config load:file:C:\Users\jsh\.npmrc
+6 silly config load:file:C:\Users\jsh\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm view rea-agents version engines dist.unpackedSize
+8 verbose argv "view" "rea-agents" "version" "engines" "dist.unpackedSize" "--json" "--cache" "C:\\project\\jojo\\analysis\\tools\\npm-cache" "--fetch-retries" "0" "--fetch-timeout" "15000"
+9 verbose logfile logs-max:10 dir:C:\project\jojo\analysis\tools\npm-cache\_logs\2026-10-22T03_37_35_243Z-
+10 verbose logfile C:\project\jojo\analysis\tools\npm-cache\_logs\2026-10-22T03_37_35_243Z-debug-0.log
+11 silly logfile done cleaning log files
+12 http fetch GET 200 https://registry.npmjs.org/rea-agents 74ms (cache miss)
+13 verbose cwd C:\project\jojo
+14 verbose os Windows_NT 10.0.26200
+15 verbose node v24.12.0
+16 verbose npm  v11.6.2
+17 verbose exit 0
+18 info ok

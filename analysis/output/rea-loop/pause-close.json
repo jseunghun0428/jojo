@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"C:\\\\project\\\\jojo\\\\analysis\\\\output\\\\rea-loop\\\\paused.snapshot.json\",\"bytes\":16016382,\"primitive_entries\":51,\"workflow_entries\":0,\"evidence_records\":57}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "C:\\project\\jojo\\analysis\\output\\rea-loop\\paused.snapshot.json",
+      "bytes": 16016382,
+      "primitive_entries": 51,
+      "workflow_entries": 0,
+      "evidence_records": 57
+    }
+  }
+}

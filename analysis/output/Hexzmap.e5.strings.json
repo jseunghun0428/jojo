@@ -1,0 +1,26 @@
+[
+  {
+    "offset": "0x0",
+    "text": "Ls12            "
+  },
+  {
+    "offset": "0x31",
+    "text": "l\"#$%&'()*+,-./0123456789:;"
+  },
+  {
+    "offset": "0x4D",
+    "text": "=>?@ABCDEFG"
+  },
+  {
+    "offset": "0x59",
+    "text": "IJKLMNOPQRS"
+  },
+  {
+    "offset": "0x65",
+    "text": "UVWXYZ[\\]^_"
+  },
+  {
+    "offset": "0x71",
+    "text": "abcdefghijk mnopqrstuvw!yz{|}~"
+  }
+]

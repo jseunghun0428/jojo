@@ -1,0 +1,16 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"C:\\\\project\\\\jojo\\\\analysis\\\\output\\\\rea\\\\evidence-bundle.json\",\"bytes\":2125262,\"records\":15,\"unknowns\":0}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "C:\\project\\jojo\\analysis\\output\\rea\\evidence-bundle.json",
+      "bytes": 2125262,
+      "records": 15,
+      "unknowns": 0
+    }
+  }
+}

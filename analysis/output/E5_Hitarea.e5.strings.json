@@ -1,0 +1,4770 @@
+[
+  {
+    "offset": "0x0",
+    "text": "Ls12            "
+  },
+  {
+    "offset": "0x30",
+    "text": " !\"#$%"
+  },
+  {
+    "offset": "0x39",
+    "text": ")*+,-./0123456789"
+  },
+  {
+    "offset": "0x4B",
+    "text": ";<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+  },
+  {
+    "offset": "0x2D9",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x3B2",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x62D",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x728",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x786",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x830",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x875",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x8BF",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x924",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x93C",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x9EF",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0xA28",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0xAE0",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0xD42",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0xD6F",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0xD7A",
+    "text": "Gr}/2"
+  },
+  {
+    "offset": "0xDBD",
+    "text": "nNWUf<"
+  },
+  {
+    "offset": "0xEC4",
+    "text": "wqt||"
+  },
+  {
+    "offset": "0xEDA",
+    "text": "s'H[L"
+  },
+  {
+    "offset": "0xFE4",
+    "text": "D#1hR"
+  },
+  {
+    "offset": "0xFF5",
+    "text": ";&+9)/"
+  },
+  {
+    "offset": "0x100F",
+    "text": "o~=(w@0"
+  },
+  {
+    "offset": "0x1093",
+    "text": "+Y,v7"
+  },
+  {
+    "offset": "0x1147",
+    "text": "\".2]y"
+  },
+  {
+    "offset": "0x12B3",
+    "text": ".}|vz"
+  },
+  {
+    "offset": "0x141F",
+    "text": "rPb2a"
+  },
+  {
+    "offset": "0x1443",
+    "text": ">KV6/\\"
+  },
+  {
+    "offset": "0x14DD",
+    "text": "HqPL'"
+  },
+  {
+    "offset": "0x1500",
+    "text": "~9`;[o"
+  },
+  {
+    "offset": "0x15B5",
+    "text": "6ACcH+r"
+  },
+  {
+    "offset": "0x1608",
+    "text": "[O@h#"
+  },
+  {
+    "offset": "0x1685",
+    "text": "1DPu$j_"
+  },
+  {
+    "offset": "0x170A",
+    "text": "\\7UJX:"
+  },
+  {
+    "offset": "0x1758",
+    "text": "nm}r9j"
+  },
+  {
+    "offset": "0x189F",
+    "text": ":-D@\\'"
+  },
+  {
+    "offset": "0x18E6",
+    "text": "NIpI4a"
+  },
+  {
+    "offset": "0x193C",
+    "text": "Ns1,8,B"
+  },
+  {
+    "offset": "0x196E",
+    "text": "8[W(7j"
+  },
+  {
+    "offset": "0x19D0",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x1AA9",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x1D24",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x1E1F",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x1E7D",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x1F27",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x1F6C",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x1FB6",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x201B",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x2033",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x20E6",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x211F",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x21D7",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x2439",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x2465",
+    "text": "TIDATx"
+  },
+  {
+    "offset": "0x24B0",
+    "text": "{XDfuFd"
+  },
+  {
+    "offset": "0x2676",
+    "text": "x||LK"
+  },
+  {
+    "offset": "0x2693",
+    "text": "|>MimW"
+  },
+  {
+    "offset": "0x26D1",
+    "text": "&U)`5"
+  },
+  {
+    "offset": "0x27CD",
+    "text": "eIV65"
+  },
+  {
+    "offset": "0x282F",
+    "text": "@QbZ7"
+  },
+  {
+    "offset": "0x2880",
+    "text": "!EH9%"
+  },
+  {
+    "offset": "0x28A3",
+    "text": "HbQXN"
+  },
+  {
+    "offset": "0x2989",
+    "text": "*J:zp8t"
+  },
+  {
+    "offset": "0x29B6",
+    "text": "Gh)M//]"
+  },
+  {
+    "offset": "0x2A90",
+    "text": "O)[F&"
+  },
+  {
+    "offset": "0x2AA0",
+    "text": "efka["
+  },
+  {
+    "offset": "0x2D06",
+    "text": "$%I$s"
+  },
+  {
+    "offset": "0x2D1B",
+    "text": "4u]V;"
+  },
+  {
+    "offset": "0x2E61",
+    "text": "hnO_N"
+  },
+  {
+    "offset": "0x2FC3",
+    "text": "Yx5O1"
+  },
+  {
+    "offset": "0x2FEF",
+    "text": "zUsC)S"
+  },
+  {
+    "offset": "0x3012",
+    "text": " Z{2@"
+  },
+  {
+    "offset": "0x3107",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x31E0",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x345B",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x3556",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x35B4",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x365E",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x36A3",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x36ED",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x3752",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x376A",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x381D",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x3856",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x390E",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x3B70",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x3B9D",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x3D53",
+    "text": "itB-j?"
+  },
+  {
+    "offset": "0x3DBC",
+    "text": "Ekp-n"
+  },
+  {
+    "offset": "0x3E12",
+    "text": "|9V5+"
+  },
+  {
+    "offset": "0x3E76",
+    "text": "haaHL"
+  },
+  {
+    "offset": "0x3EBD",
+    "text": "1:mstz"
+  },
+  {
+    "offset": "0x3FDF",
+    "text": "2JJp_"
+  },
+  {
+    "offset": "0x4109",
+    "text": "reL{g"
+  },
+  {
+    "offset": "0x4154",
+    "text": "iqF7QI"
+  },
+  {
+    "offset": "0x41F7",
+    "text": "^It25>"
+  },
+  {
+    "offset": "0x45E6",
+    "text": "(VgWp"
+  },
+  {
+    "offset": "0x46D3",
+    "text": "]_/B5"
+  },
+  {
+    "offset": "0x474D",
+    "text": "|5/?,"
+  },
+  {
+    "offset": "0x47B2",
+    "text": "Nb7eEo"
+  },
+  {
+    "offset": "0x49AA",
+    "text": "Jq3Q]"
+  },
+  {
+    "offset": "0x4A5A",
+    "text": "gu*SX"
+  },
+  {
+    "offset": "0x4BA8",
+    "text": "z@xB(q/"
+  },
+  {
+    "offset": "0x4CB8",
+    "text": "h}4\"/"
+  },
+  {
+    "offset": "0x4DCF",
+    "text": "AZ4oGFR-"
+  },
+  {
+    "offset": "0x4DDC",
+    "text": "l+:,YJ."
+  },
+  {
+    "offset": "0x4DFD",
+    "text": "bNKmR"
+  },
+  {
+    "offset": "0x4E6F",
+    "text": "EQm[N"
+  },
+  {
+    "offset": "0x50FE",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x51D7",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x5452",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x554D",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x55AB",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x5655",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x569A",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x56E4",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x5749",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x5761",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x5814",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x584D",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x5905",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x5B67",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x5B94",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x5C6E",
+    "text": "D3;::"
+  },
+  {
+    "offset": "0x5E07",
+    "text": "I#F`%l"
+  },
+  {
+    "offset": "0x5E15",
+    "text": "5a5cG"
+  },
+  {
+    "offset": "0x5E1C",
+    "text": "MaV/2"
+  },
+  {
+    "offset": "0x5F39",
+    "text": "l$F}iK"
+  },
+  {
+    "offset": "0x5F60",
+    "text": "l}/im"
+  },
+  {
+    "offset": "0x5FE1",
+    "text": "uaoRHg"
+  },
+  {
+    "offset": "0x6054",
+    "text": "02]p B"
+  },
+  {
+    "offset": "0x607F",
+    "text": "1xVRF"
+  },
+  {
+    "offset": "0x60AA",
+    "text": "aZwoW"
+  },
+  {
+    "offset": "0x6100",
+    "text": "rK%E,r"
+  },
+  {
+    "offset": "0x6242",
+    "text": "M'^C8~"
+  },
+  {
+    "offset": "0x624A",
+    "text": "^agfF3"
+  },
+  {
+    "offset": "0x6326",
+    "text": "Ihr:k{"
+  },
+  {
+    "offset": "0x635A",
+    "text": ">r?!wE"
+  },
+  {
+    "offset": "0x64B8",
+    "text": "$3KS6"
+  },
+  {
+    "offset": "0x6529",
+    "text": "khfJ%%"
+  },
+  {
+    "offset": "0x6634",
+    "text": "7K)M\""
+  },
+  {
+    "offset": "0x66D4",
+    "text": "Sp2>k"
+  },
+  {
+    "offset": "0x6708",
+    "text": "RSEDJ"
+  },
+  {
+    "offset": "0x6819",
+    "text": "T\\^[*"
+  },
+  {
+    "offset": "0x6B41",
+    "text": "E`TRD"
+  },
+  {
+    "offset": "0x6B50",
+    "text": "lv0^{"
+  },
+  {
+    "offset": "0x6DB4",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x6E8D",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x7108",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x7203",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x7261",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x730B",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x7350",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x739A",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x73FF",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x7417",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x74CA",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x7503",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x75BB",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x781D",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x7849",
+    "text": "(IDATx"
+  },
+  {
+    "offset": "0x7867",
+    "text": "}UeAa"
+  },
+  {
+    "offset": "0x7922",
+    "text": "l4Iz2"
+  },
+  {
+    "offset": "0x7A4E",
+    "text": "ZJFX="
+  },
+  {
+    "offset": "0x7AB9",
+    "text": "^@/Dj"
+  },
+  {
+    "offset": "0x7B37",
+    "text": "0I888~uqYJ"
+  },
+  {
+    "offset": "0x7BE1",
+    "text": " 'sJ4"
+  },
+  {
+    "offset": "0x7C03",
+    "text": "wEF8I"
+  },
+  {
+    "offset": "0x7D71",
+    "text": "d2CB6R"
+  },
+  {
+    "offset": "0x7D88",
+    "text": "3JDubw)"
+  },
+  {
+    "offset": "0x7DB8",
+    "text": "q&9S="
+  },
+  {
+    "offset": "0x7E01",
+    "text": "LJNm;"
+  },
+  {
+    "offset": "0x7EDF",
+    "text": "4[,ONN~"
+  },
+  {
+    "offset": "0x7F4C",
+    "text": "wW;`_J0"
+  },
+  {
+    "offset": "0x7F84",
+    "text": " YNcV"
+  },
+  {
+    "offset": "0x8324",
+    "text": "f 4B3; "
+  },
+  {
+    "offset": "0x839B",
+    "text": "<&\\(z"
+  },
+  {
+    "offset": "0x86B7",
+    "text": "o7?lG"
+  },
+  {
+    "offset": "0x8815",
+    "text": "XVB$F"
+  },
+  {
+    "offset": "0x88FF",
+    "text": "_FH@W"
+  },
+  {
+    "offset": "0x89C9",
+    "text": "MTm-z"
+  },
+  {
+    "offset": "0x8A03",
+    "text": "#Ow4)"
+  },
+  {
+    "offset": "0x8A35",
+    "text": "M|k2Y"
+  },
+  {
+    "offset": "0x8A3D",
+    "text": "`:}c6="
+  },
+  {
+    "offset": "0x8AEE",
+    "text": "6v:k_"
+  },
+  {
+    "offset": "0x8B2A",
+    "text": "w5@HT"
+  },
+  {
+    "offset": "0x8B72",
+    "text": "E/L#<\\$"
+  },
+  {
+    "offset": "0x8C23",
+    "text": "?B_}v"
+  },
+  {
+    "offset": "0x8DBF",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x8E98",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x9113",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x920E",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x926C",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x9316",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x935B",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x93A5",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x940A",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x9422",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x94D5",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x950E",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x95C6",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x9828",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x9855",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x9860",
+    "text": "Gr}/2"
+  },
+  {
+    "offset": "0x98A3",
+    "text": "twUf<"
+  },
+  {
+    "offset": "0x9C10",
+    "text": "^\\6EQ?z"
+  },
+  {
+    "offset": "0x9C39",
+    "text": "M?=>bWi"
+  },
+  {
+    "offset": "0x9D3A",
+    "text": "X#wH9&"
+  },
+  {
+    "offset": "0x9E8E",
+    "text": "ll<vO9+w"
+  },
+  {
+    "offset": "0xA0CA",
+    "text": "'`^lFGJ"
+  },
+  {
+    "offset": "0xA104",
+    "text": "T9TKhV"
+  },
+  {
+    "offset": "0xA249",
+    "text": "l0=,$"
+  },
+  {
+    "offset": "0xA3FD",
+    "text": "<x8KE"
+  },
+  {
+    "offset": "0xA585",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0xA65E",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0xA8D9",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0xA9D4",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0xAA32",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0xAADC",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0xAB21",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0xAB6B",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0xABD0",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0xABE8",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0xAC9B",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0xACD4",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0xAD8C",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0xAFEE",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0xB01B",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0xB1E7",
+    "text": "\"%>pq"
+  },
+  {
+    "offset": "0xB20C",
+    "text": "sIJkH"
+  },
+  {
+    "offset": "0xB221",
+    "text": "~CHBD"
+  },
+  {
+    "offset": "0xB247",
+    "text": "#a\"Leg})x'Jz_?@"
+  },
+  {
+    "offset": "0xB352",
+    "text": "{x93Oe"
+  },
+  {
+    "offset": "0xB359",
+    "text": "|paM>"
+  },
+  {
+    "offset": "0xB5C1",
+    "text": "iv/V&"
+  },
+  {
+    "offset": "0xB94C",
+    "text": "8TfCv"
+  },
+  {
+    "offset": "0xB9CE",
+    "text": "2;uow"
+  },
+  {
+    "offset": "0xBA38",
+    "text": "%TIu3b"
+  },
+  {
+    "offset": "0xBC02",
+    "text": "}r|uS"
+  },
+  {
+    "offset": "0xBC0E",
+    "text": "SJC?d"
+  },
+  {
+    "offset": "0xBC18",
+    "text": "RJIUYS"
+  },
+  {
+    "offset": "0xBC85",
+    "text": "6Q-7yAs\""
+  },
+  {
+    "offset": "0xBDC3",
+    "text": ":V)*2#"
+  },
+  {
+    "offset": "0xBE1D",
+    "text": "xv<>9"
+  },
+  {
+    "offset": "0xBE71",
+    "text": "O'})'}"
+  },
+  {
+    "offset": "0xBF6E",
+    "text": "5uab\""
+  },
+  {
+    "offset": "0xC109",
+    "text": "!YZ}e"
+  },
+  {
+    "offset": "0xC14B",
+    "text": "z]j'z"
+  },
+  {
+    "offset": "0xC317",
+    "text": "L8] J"
+  },
+  {
+    "offset": "0xC533",
+    "text": "W~!]*"
+  },
+  {
+    "offset": "0xC670",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0xC749",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0xC9C4",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0xCABF",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0xCB1D",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0xCBC7",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0xCC0C",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0xCC56",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0xCCBB",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0xCCD3",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0xCD86",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0xCDBF",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0xCE77",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0xD0D9",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0xD105",
+    "text": " IDATx"
+  },
+  {
+    "offset": "0xD12F",
+    "text": "a,#d!"
+  },
+  {
+    "offset": "0xD1EB",
+    "text": "pDp6Sv]"
+  },
+  {
+    "offset": "0xD291",
+    "text": "py~af"
+  },
+  {
+    "offset": "0xD2E8",
+    "text": "Bp'hD"
+  },
+  {
+    "offset": "0xD426",
+    "text": "v&_\"#"
+  },
+  {
+    "offset": "0xD43B",
+    "text": "43#@n"
+  },
+  {
+    "offset": "0xD6E0",
+    "text": "Io>{;"
+  },
+  {
+    "offset": "0xDAAA",
+    "text": "'#_.!"
+  },
+  {
+    "offset": "0xDAE9",
+    "text": "|Ss:h"
+  },
+  {
+    "offset": "0xDB52",
+    "text": "|z:[$"
+  },
+  {
+    "offset": "0xDB71",
+    "text": ")IR$9"
+  },
+  {
+    "offset": "0xDBA0",
+    "text": "J}e4~q"
+  },
+  {
+    "offset": "0xDBF9",
+    "text": "OHFI!"
+  },
+  {
+    "offset": "0xDC9E",
+    "text": "VjS^Z"
+  },
+  {
+    "offset": "0xDD90",
+    "text": "=W ={Y"
+  },
+  {
+    "offset": "0xDDCF",
+    "text": "=]~tp"
+  },
+  {
+    "offset": "0xDF49",
+    "text": "h`}Vw"
+  },
+  {
+    "offset": "0xDFCE",
+    "text": "xr)OeA"
+  },
+  {
+    "offset": "0xE112",
+    "text": "Y7WIUY"
+  },
+  {
+    "offset": "0xE365",
+    "text": "32s{}"
+  },
+  {
+    "offset": "0xE3AA",
+    "text": "r9\\%z{"
+  },
+  {
+    "offset": "0xE673",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0xE74C",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0xE9C7",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0xEAC2",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0xEB20",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0xEBCA",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0xEC0F",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0xEC59",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0xECBE",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0xECD6",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0xED89",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0xEDC2",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0xEE7A",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0xF0DC",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0xF108",
+    "text": "yIDATx"
+  },
+  {
+    "offset": "0xF2BD",
+    "text": "p{qcf"
+  },
+  {
+    "offset": "0xF2FB",
+    "text": ",rRUf0"
+  },
+  {
+    "offset": "0xF436",
+    "text": "]\\]v."
+  },
+  {
+    "offset": "0xF442",
+    "text": "gg^U$"
+  },
+  {
+    "offset": "0xF532",
+    "text": "u?,S6"
+  },
+  {
+    "offset": "0xF6AE",
+    "text": ";DTR)"
+  },
+  {
+    "offset": "0xF6FA",
+    "text": "j[!@#4"
+  },
+  {
+    "offset": "0xF8B7",
+    "text": "=:i}3"
+  },
+  {
+    "offset": "0xF8E9",
+    "text": "9)A*x"
+  },
+  {
+    "offset": "0xF978",
+    "text": "\"LKM,"
+  },
+  {
+    "offset": "0xFA67",
+    "text": "pH]_\\"
+  },
+  {
+    "offset": "0xFB16",
+    "text": "$OJy`"
+  },
+  {
+    "offset": "0xFB7C",
+    "text": "fr9Yjx"
+  },
+  {
+    "offset": "0xFBFA",
+    "text": "Pk=ib^"
+  },
+  {
+    "offset": "0xFC02",
+    "text": "h~k}Q"
+  },
+  {
+    "offset": "0xFCD2",
+    "text": ">y}k!"
+  },
+  {
+    "offset": "0xFCF9",
+    "text": "X}}2{"
+  },
+  {
+    "offset": "0xFDDD",
+    "text": "@sjK1"
+  },
+  {
+    "offset": "0xFF5F",
+    "text": "mJ^U."
+  },
+  {
+    "offset": "0xFF66",
+    "text": "MHnR0"
+  },
+  {
+    "offset": "0xFFA3",
+    "text": "*@cu2N6"
+  },
+  {
+    "offset": "0xFFDF",
+    "text": "!Gytf"
+  },
+  {
+    "offset": "0x10020",
+    "text": "T`LIR$"
+  },
+  {
+    "offset": "0x101D3",
+    "text": "@FLPU"
+  },
+  {
+    "offset": "0x101D9",
+    "text": "HV3%F"
+  },
+  {
+    "offset": "0x10272",
+    "text": "va!K'"
+  },
+  {
+    "offset": "0x104F0",
+    "text": "|{Xmz"
+  },
+  {
+    "offset": "0x1060A",
+    "text": "}:M@rO"
+  },
+  {
+    "offset": "0x1069F",
+    "text": "W)@qG"
+  },
+  {
+    "offset": "0x10724",
+    "text": "M]w%+Q_"
+  },
+  {
+    "offset": "0x10818",
+    "text": "r`Yb6"
+  },
+  {
+    "offset": "0x108CF",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x109A8",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x10C23",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x10D1E",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x10D7C",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x10E26",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x10E6B",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x10EB5",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x10F1A",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x10F32",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x10FE5",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x1101E",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x110D6",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x11338",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x11364",
+    "text": "%IDATx"
+  },
+  {
+    "offset": "0x1136C",
+    "text": "ZMs$IR}"
+  },
+  {
+    "offset": "0x113E2",
+    "text": "/(\\^X"
+  },
+  {
+    "offset": "0x1142B",
+    "text": "(of2r"
+  },
+  {
+    "offset": "0x114BE",
+    "text": "*+wv|"
+  },
+  {
+    "offset": "0x114F6",
+    "text": "Bjg*A"
+  },
+  {
+    "offset": "0x1157D",
+    "text": "@I!\\G"
+  },
+  {
+    "offset": "0x115C0",
+    "text": "\\D`N<>"
+  },
+  {
+    "offset": "0x117AC",
+    "text": "=sgUm"
+  },
+  {
+    "offset": "0x11886",
+    "text": "TCxgw"
+  },
+  {
+    "offset": "0x118AF",
+    "text": ")ptth"
+  },
+  {
+    "offset": "0x11956",
+    "text": "?IggL"
+  },
+  {
+    "offset": "0x1197C",
+    "text": "hWN8;"
+  },
+  {
+    "offset": "0x11B15",
+    "text": "%a/gq"
+  },
+  {
+    "offset": "0x11B2D",
+    "text": "1z89yrz+"
+  },
+  {
+    "offset": "0x11B41",
+    "text": "G=C;u"
+  },
+  {
+    "offset": "0x11BB9",
+    "text": ":gYt%"
+  },
+  {
+    "offset": "0x11BE9",
+    "text": "f\\N g"
+  },
+  {
+    "offset": "0x11D96",
+    "text": "e,&lR"
+  },
+  {
+    "offset": "0x11E49",
+    "text": "+)oFz"
+  },
+  {
+    "offset": "0x11E63",
+    "text": "C#A'!"
+  },
+  {
+    "offset": "0x11EEE",
+    "text": "v'I8I"
+  },
+  {
+    "offset": "0x11F5B",
+    "text": "Tzs[%"
+  },
+  {
+    "offset": "0x11FD7",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x120B0",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x1232B",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x12426",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x12484",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x1252E",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x12573",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x125BD",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x12622",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x1263A",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x126ED",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x12726",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x127DE",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x12A40",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x12A6C",
+    "text": "oIDATx"
+  },
+  {
+    "offset": "0x12B6C",
+    "text": "Wy$26eY"
+  },
+  {
+    "offset": "0x12BDC",
+    "text": "1\\Vhj"
+  },
+  {
+    "offset": "0x12CA4",
+    "text": "y3/>|l}"
+  },
+  {
+    "offset": "0x12DA0",
+    "text": "Pt6Tv"
+  },
+  {
+    "offset": "0x12DCD",
+    "text": "mW(Hz+JKO"
+  },
+  {
+    "offset": "0x12E0A",
+    "text": "f`21F+"
+  },
+  {
+    "offset": "0x13087",
+    "text": "}jmc}"
+  },
+  {
+    "offset": "0x1309F",
+    "text": "Amu~TJ"
+  },
+  {
+    "offset": "0x130FB",
+    "text": "7m{j@^"
+  },
+  {
+    "offset": "0x1313E",
+    "text": "8<;&Q"
+  },
+  {
+    "offset": "0x13229",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x13302",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x1357D",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x13678",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x136D6",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x13780",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x137C5",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x1380F",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x13874",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x1388C",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x1393F",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x13978",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x13A30",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x13C92",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x13CBF",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x13D10",
+    "text": "!AYBY"
+  },
+  {
+    "offset": "0x13D1A",
+    "text": "U=]]U"
+  },
+  {
+    "offset": "0x13D8D",
+    "text": "l{{k4"
+  },
+  {
+    "offset": "0x13DA1",
+    "text": "_:e!l"
+  },
+  {
+    "offset": "0x13EC1",
+    "text": "[e7(Q"
+  },
+  {
+    "offset": "0x13ED0",
+    "text": "xpp@K"
+  },
+  {
+    "offset": "0x13EEF",
+    "text": "SZx+f"
+  },
+  {
+    "offset": "0x13F68",
+    "text": "ximZH"
+  },
+  {
+    "offset": "0x14002",
+    "text": "%/\"yq"
+  },
+  {
+    "offset": "0x140B0",
+    "text": "S\\`OF"
+  },
+  {
+    "offset": "0x140B6",
+    "text": "n|}wO"
+  },
+  {
+    "offset": "0x141AE",
+    "text": "43Iv<"
+  },
+  {
+    "offset": "0x142DE",
+    "text": "BL)(y"
+  },
+  {
+    "offset": "0x14410",
+    "text": "MQ)$^'"
+  },
+  {
+    "offset": "0x144F9",
+    "text": "2.D@\\F"
+  },
+  {
+    "offset": "0x14541",
+    "text": "NIpI4a"
+  },
+  {
+    "offset": "0x1462B",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x14704",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x1497F",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x14A7A",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x14AD8",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x14B82",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x14BC7",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x14C11",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x14C76",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x14C8E",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x14D41",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x14D7A",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x14E32",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x15094",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x150C1",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x150E0",
+    "text": "3 1 q"
+  },
+  {
+    "offset": "0x15111",
+    "text": "<\"3<\""
+  },
+  {
+    "offset": "0x1516A",
+    "text": "^2 s0x"
+  },
+  {
+    "offset": "0x15182",
+    "text": "ueIEy"
+  },
+  {
+    "offset": "0x15296",
+    "text": "JSbG$%"
+  },
+  {
+    "offset": "0x152BB",
+    "text": "yR,{B"
+  },
+  {
+    "offset": "0x152CD",
+    "text": "f;MdD"
+  },
+  {
+    "offset": "0x15352",
+    "text": "{'{EOS"
+  },
+  {
+    "offset": "0x154EA",
+    "text": "1 .!`"
+  },
+  {
+    "offset": "0x155B7",
+    "text": "@!x0["
+  },
+  {
+    "offset": "0x15675",
+    "text": "]64f%"
+  },
+  {
+    "offset": "0x1582D",
+    "text": "<Y,3\"Y"
+  },
+  {
+    "offset": "0x1589E",
+    "text": "P#k$w"
+  },
+  {
+    "offset": "0x15959",
+    "text": "XvWAJ"
+  },
+  {
+    "offset": "0x15B0C",
+    "text": "<;=;%"
+  },
+  {
+    "offset": "0x15C13",
+    "text": "BzJWQ"
+  },
+  {
+    "offset": "0x15D08",
+    "text": "\\VDDD"
+  },
+  {
+    "offset": "0x15D80",
+    "text": "]Z\"$0"
+  },
+  {
+    "offset": "0x15E4C",
+    "text": "*#H:IU1"
+  },
+  {
+    "offset": "0x15EAF",
+    "text": "t-B\"R$"
+  },
+  {
+    "offset": "0x15FC8",
+    "text": "H,r*b"
+  },
+  {
+    "offset": "0x15FD9",
+    "text": "iZz!@eZ{"
+  },
+  {
+    "offset": "0x160FE",
+    "text": "-LZ92v"
+  },
+  {
+    "offset": "0x16196",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x1626F",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x164EA",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x165E5",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x16643",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x166ED",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x16732",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x1677C",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x167E1",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x167F9",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x168AC",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x168E5",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x1699D",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x16BFF",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x16C2B",
+    "text": "?IDATx"
+  },
+  {
+    "offset": "0x16CC7",
+    "text": ")BfV?"
+  },
+  {
+    "offset": "0x16D08",
+    "text": "l4Iz2"
+  },
+  {
+    "offset": "0x16D34",
+    "text": " !}|4"
+  },
+  {
+    "offset": "0x16DE3",
+    "text": "jd9?7K"
+  },
+  {
+    "offset": "0x16E93",
+    "text": "Z5 4U"
+  },
+  {
+    "offset": "0x16FC2",
+    "text": "i$dAN"
+  },
+  {
+    "offset": "0x170AE",
+    "text": "_o4dE"
+  },
+  {
+    "offset": "0x171B6",
+    "text": ",*3t8"
+  },
+  {
+    "offset": "0x172B2",
+    "text": "<\"Hz)"
+  },
+  {
+    "offset": "0x17383",
+    "text": "dJIMC3S"
+  },
+  {
+    "offset": "0x173F7",
+    "text": "Y1wWW.<"
+  },
+  {
+    "offset": "0x174B3",
+    "text": "mP[%2"
+  },
+  {
+    "offset": "0x1760F",
+    "text": "7Fc-W"
+  },
+  {
+    "offset": "0x176B1",
+    "text": "CJCS`f"
+  },
+  {
+    "offset": "0x177B4",
+    "text": "}gcR@'Lr"
+  },
+  {
+    "offset": "0x17814",
+    "text": "u_~tzj)"
+  },
+  {
+    "offset": "0x17A7B",
+    "text": "s%b7QUF"
+  },
+  {
+    "offset": "0x17B89",
+    "text": ")0k!3KV"
+  },
+  {
+    "offset": "0x17CB7",
+    "text": "]Tu7'k"
+  },
+  {
+    "offset": "0x17D35",
+    "text": "u|w2Y"
+  },
+  {
+    "offset": "0x17D3E",
+    "text": ":}g6="
+  },
+  {
+    "offset": "0x17D90",
+    "text": "GRds8;"
+  },
+  {
+    "offset": "0x17DA0",
+    "text": ";ruFfa_\\"
+  },
+  {
+    "offset": "0x17DB3",
+    "text": "o/lh%x"
+  },
+  {
+    "offset": "0x17FCE",
+    "text": "eHy8<"
+  },
+  {
+    "offset": "0x180B8",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x18191",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x1840C",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x18507",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x18565",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x1860F",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x18654",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x1869E",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x18703",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x1871B",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x187CE",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x18807",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x188BF",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x18B21",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x18B4E",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x18B65",
+    "text": "n>fFC"
+  },
+  {
+    "offset": "0x19072",
+    "text": "*y2rS|"
+  },
+  {
+    "offset": "0x191AC",
+    "text": "IJ)Z0I]"
+  },
+  {
+    "offset": "0x192C4",
+    "text": "}v~VK"
+  },
+  {
+    "offset": "0x193F2",
+    "text": "[aPKH"
+  },
+  {
+    "offset": "0x19401",
+    "text": "kT27f"
+  },
+  {
+    "offset": "0x19410",
+    "text": "H9)yx"
+  },
+  {
+    "offset": "0x1946F",
+    "text": "juI&u"
+  },
+  {
+    "offset": "0x1952E",
+    "text": "%#5!Tw"
+  },
+  {
+    "offset": "0x1953C",
+    "text": ")|-lw"
+  },
+  {
+    "offset": "0x195C3",
+    "text": "0z.YK"
+  },
+  {
+    "offset": "0x1968F",
+    "text": "ldd_4"
+  },
+  {
+    "offset": "0x1971D",
+    "text": "D#>?>~"
+  },
+  {
+    "offset": "0x19751",
+    "text": "v@){Xj"
+  },
+  {
+    "offset": "0x19836",
+    "text": "m[J]wbw"
+  },
+  {
+    "offset": "0x198EF",
+    "text": "v%3_w"
+  },
+  {
+    "offset": "0x19965",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x19A3E",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x19CB9",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x19DB4",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x19E12",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x19EBC",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x19F01",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x19F4B",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x19FB0",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x19FC8",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x1A07B",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x1A0B4",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x1A16C",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x1A3CE",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x1A3FB",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x1A592",
+    "text": ">99GY"
+  },
+  {
+    "offset": "0x1A5BB",
+    "text": ">FnUh"
+  },
+  {
+    "offset": "0x1A662",
+    "text": "]Ky4Z"
+  },
+  {
+    "offset": "0x1A6A3",
+    "text": "fs k2"
+  },
+  {
+    "offset": "0x1A98B",
+    "text": "+zkfB"
+  },
+  {
+    "offset": "0x1AA0E",
+    "text": "~p}o|"
+  },
+  {
+    "offset": "0x1AB4B",
+    "text": "%{yr\\r"
+  },
+  {
+    "offset": "0x1AC5B",
+    "text": "UJIRwrR;\\Y"
+  },
+  {
+    "offset": "0x1AED0",
+    "text": ")=w3CU"
+  },
+  {
+    "offset": "0x1AF18",
+    "text": "p$-W.4m{"
+  },
+  {
+    "offset": "0x1AF3C",
+    "text": "htR4:"
+  },
+  {
+    "offset": "0x1B03A",
+    "text": ",HlE?n$"
+  },
+  {
+    "offset": "0x1B1F5",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x1B2CE",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x1B549",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x1B644",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x1B6A2",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x1B74C",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x1B791",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x1B7DB",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x1B840",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x1B858",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x1B90B",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x1B944",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x1B9FC",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x1BC5E",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x1BC8B",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x1BCE8",
+    "text": "#y$-R"
+  },
+  {
+    "offset": "0x1BCFE",
+    "text": "vw}LNd"
+  },
+  {
+    "offset": "0x1BD57",
+    "text": "v^Ey5"
+  },
+  {
+    "offset": "0x1BE70",
+    "text": "\"KVu-"
+  },
+  {
+    "offset": "0x1BEFB",
+    "text": "{?U7b"
+  },
+  {
+    "offset": "0x1BF3F",
+    "text": "Fqm,)("
+  },
+  {
+    "offset": "0x1BFF3",
+    "text": "(&QQQ"
+  },
+  {
+    "offset": "0x1C02B",
+    "text": "*:,[!"
+  },
+  {
+    "offset": "0x1C140",
+    "text": "pw48zs"
+  },
+  {
+    "offset": "0x1C1C2",
+    "text": "G?;~k"
+  },
+  {
+    "offset": "0x1C1F8",
+    "text": "MpMYv]D"
+  },
+  {
+    "offset": "0x1C256",
+    "text": "6fM>]"
+  },
+  {
+    "offset": "0x1C2D8",
+    "text": "k=}%I"
+  },
+  {
+    "offset": "0x1C302",
+    "text": "9wqV;"
+  },
+  {
+    "offset": "0x1C37B",
+    "text": "ZH}ug_."
+  },
+  {
+    "offset": "0x1C397",
+    "text": "*'nT$"
+  },
+  {
+    "offset": "0x1C412",
+    "text": "w+{{k"
+  },
+  {
+    "offset": "0x1C592",
+    "text": "<>?{3"
+  },
+  {
+    "offset": "0x1C667",
+    "text": "8z{5K:"
+  },
+  {
+    "offset": "0x1C6D5",
+    "text": "2Z`]w2"
+  },
+  {
+    "offset": "0x1C709",
+    "text": "@D71["
+  },
+  {
+    "offset": "0x1C7A9",
+    "text": "*#BWj"
+  },
+  {
+    "offset": "0x1C946",
+    "text": "c8/BT[7b"
+  },
+  {
+    "offset": "0x1CA38",
+    "text": ")y'\\i|"
+  },
+  {
+    "offset": "0x1CA6B",
+    "text": "w]6j7"
+  },
+  {
+    "offset": "0x1CBB2",
+    "text": "\"0qN%"
+  },
+  {
+    "offset": "0x1CCD7",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x1CDB0",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x1D02B",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x1D126",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x1D184",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x1D22E",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x1D273",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x1D2BD",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x1D322",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x1D33A",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x1D3ED",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x1D426",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x1D4DE",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x1D740",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x1D76D",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x1D954",
+    "text": "$c]@2"
+  },
+  {
+    "offset": "0x1DB48",
+    "text": "P6C&o`"
+  },
+  {
+    "offset": "0x1DC8D",
+    "text": "OZ2\"!"
+  },
+  {
+    "offset": "0x1DC9F",
+    "text": "#{*!*yF"
+  },
+  {
+    "offset": "0x1DD7C",
+    "text": "?jmy4If"
+  },
+  {
+    "offset": "0x1DE17",
+    "text": "x<=1\""
+  },
+  {
+    "offset": "0x1DE8C",
+    "text": "GNBHI"
+  },
+  {
+    "offset": "0x1DE95",
+    "text": "(!W0F"
+  },
+  {
+    "offset": "0x1DF61",
+    "text": "R7z<p"
+  },
+  {
+    "offset": "0x1E055",
+    "text": "\"B^yyD"
+  },
+  {
+    "offset": "0x1E0C8",
+    "text": "IcZ('A"
+  },
+  {
+    "offset": "0x1E194",
+    "text": "{_{8+}"
+  },
+  {
+    "offset": "0x1E22F",
+    "text": "y>z|g"
+  },
+  {
+    "offset": "0x1E26E",
+    "text": ",HfI)eOi$y4Z$"
+  },
+  {
+    "offset": "0x1E2B5",
+    "text": "9)`f&"
+  },
+  {
+    "offset": "0x1E2E2",
+    "text": "|=b^|"
+  },
+  {
+    "offset": "0x1E50A",
+    "text": "[g$P#P"
+  },
+  {
+    "offset": "0x1E5D4",
+    "text": ":],&fG"
+  },
+  {
+    "offset": "0x1E6FC",
+    "text": "jjg-G"
+  },
+  {
+    "offset": "0x1E783",
+    "text": "3XVB$F"
+  },
+  {
+    "offset": "0x1E7BA",
+    "text": "N r>7~"
+  },
+  {
+    "offset": "0x1E7C1",
+    "text": "R`Z[f"
+  },
+  {
+    "offset": "0x1E9AB",
+    "text": "F4WRtG"
+  },
+  {
+    "offset": "0x1E9D3",
+    "text": "0'cuz"
+  },
+  {
+    "offset": "0x1EA53",
+    "text": "}6J]c<:"
+  },
+  {
+    "offset": "0x1EA5B",
+    "text": "r6+f "
+  },
+  {
+    "offset": "0x1EA66",
+    "text": "?y>jh"
+  },
+  {
+    "offset": "0x1EB75",
+    "text": "nL3(h>"
+  },
+  {
+    "offset": "0x1EB9A",
+    "text": "!\\\\\\\\m"
+  },
+  {
+    "offset": "0x1EBA9",
+    "text": "?}m))"
+  },
+  {
+    "offset": "0x1ECCE",
+    "text": "(0%; "
+  },
+  {
+    "offset": "0x1ED3D",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x1EE16",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x1F091",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x1F18C",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x1F1EA",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x1F294",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x1F2D9",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x1F323",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x1F388",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x1F3A0",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x1F453",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x1F48C",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x1F544",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x1F7A6",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x1F7D2",
+    "text": "+IDATx"
+  },
+  {
+    "offset": "0x1F7F7",
+    "text": " dK!HA"
+  },
+  {
+    "offset": "0x1F8B2",
+    "text": "h4Iz4"
+  },
+  {
+    "offset": "0x1F984",
+    "text": "ayymf"
+  },
+  {
+    "offset": "0x1FA20",
+    "text": "Q2c)r"
+  },
+  {
+    "offset": "0x1FAF4",
+    "text": "<}ui!H"
+  },
+  {
+    "offset": "0x1FBCB",
+    "text": "`9ZH*!"
+  },
+  {
+    "offset": "0x1FBE4",
+    "text": "ah$DA"
+  },
+  {
+    "offset": "0x1FCCD",
+    "text": "J77p~"
+  },
+  {
+    "offset": "0x1FD90",
+    "text": "R$?$m@"
+  },
+  {
+    "offset": "0x1FE6F",
+    "text": "oZ[/&"
+  },
+  {
+    "offset": "0x1FE7D",
+    "text": "Bhc4&"
+  },
+  {
+    "offset": "0x1FF6E",
+    "text": "xs=5N"
+  },
+  {
+    "offset": "0x1FFF7",
+    "text": "[3B5Q"
+  },
+  {
+    "offset": "0x201C4",
+    "text": "~8FyX"
+  },
+  {
+    "offset": "0x20214",
+    "text": "fr9Ykx"
+  },
+  {
+    "offset": "0x20310",
+    "text": "{e;Fc"
+  },
+  {
+    "offset": "0x20379",
+    "text": "5J^a8"
+  },
+  {
+    "offset": "0x203D4",
+    "text": "#$We^o"
+  },
+  {
+    "offset": "0x20420",
+    "text": "-^DdK"
+  },
+  {
+    "offset": "0x20493",
+    "text": "]4M@PP"
+  },
+  {
+    "offset": "0x2052E",
+    "text": ",Z<[~"
+  },
+  {
+    "offset": "0x205A1",
+    "text": " {wHq"
+  },
+  {
+    "offset": "0x205EF",
+    "text": "dD{>5"
+  },
+  {
+    "offset": "0x2064F",
+    "text": "%DSm@"
+  },
+  {
+    "offset": "0x2067B",
+    "text": "D6}Dq"
+  },
+  {
+    "offset": "0x20699",
+    "text": "em69tDG"
+  },
+  {
+    "offset": "0x207C5",
+    "text": "Rszzj"
+  },
+  {
+    "offset": "0x207F2",
+    "text": "!lBXL"
+  },
+  {
+    "offset": "0x20863",
+    "text": "i?iE3K"
+  },
+  {
+    "offset": "0x20961",
+    "text": "R$(%^"
+  },
+  {
+    "offset": "0x209D4",
+    "text": "O:{ow"
+  },
+  {
+    "offset": "0x20BDB",
+    "text": "#Z>?oV"
+  },
+  {
+    "offset": "0x20EB3",
+    "text": "_oC-/"
+  },
+  {
+    "offset": "0x20EE2",
+    "text": "8uOk!"
+  },
+  {
+    "offset": "0x20F4B",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x21024",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x2129F",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x2139A",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x213F8",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x214A2",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x214E7",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x21531",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x21596",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x215AE",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x21661",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x2169A",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x21752",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x219B4",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x219E1",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x21A2C",
+    "text": "MVUf|>"
+  },
+  {
+    "offset": "0x21A98",
+    "text": "V@D;9"
+  },
+  {
+    "offset": "0x21C8E",
+    "text": ".<~19oO"
+  },
+  {
+    "offset": "0x21DD7",
+    "text": "Li<<<("
+  },
+  {
+    "offset": "0x21E96",
+    "text": ",js,v"
+  },
+  {
+    "offset": "0x21FBA",
+    "text": "W_Lj]VVDr4"
+  },
+  {
+    "offset": "0x220CF",
+    "text": "MK_\\,o"
+  },
+  {
+    "offset": "0x22353",
+    "text": "qhsOd"
+  },
+  {
+    "offset": "0x22427",
+    "text": ";c90D"
+  },
+  {
+    "offset": "0x22523",
+    "text": "Yx=M1"
+  },
+  {
+    "offset": "0x225C4",
+    "text": "h.uwP|~"
+  },
+  {
+    "offset": "0x225E2",
+    "text": ":,jed"
+  },
+  {
+    "offset": "0x2262C",
+    "text": "Ns5*K"
+  },
+  {
+    "offset": "0x226D5",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x227AE",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x22A29",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x22B24",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x22B82",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x22C2C",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x22C71",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x22CBB",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x22D20",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x22D38",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x22DEB",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x22E24",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x22EDC",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x2313E",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x2316B",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x23279",
+    "text": "9;u<{"
+  },
+  {
+    "offset": "0x232F6",
+    "text": "{0J6P%"
+  },
+  {
+    "offset": "0x23370",
+    "text": "g|+{IXI"
+  },
+  {
+    "offset": "0x2338A",
+    "text": "1F?99"
+  },
+  {
+    "offset": "0x23440",
+    "text": "_'4/^1F"
+  },
+  {
+    "offset": "0x23505",
+    "text": "Ptvxo&"
+  },
+  {
+    "offset": "0x23591",
+    "text": "{hfp_"
+  },
+  {
+    "offset": "0x23619",
+    "text": "_@A>>="
+  },
+  {
+    "offset": "0x236C5",
+    "text": "qI^Dr"
+  },
+  {
+    "offset": "0x23753",
+    "text": "_Jfhv"
+  },
+  {
+    "offset": "0x23977",
+    "text": "$7p}%"
+  },
+  {
+    "offset": "0x23A88",
+    "text": "]/TQ8"
+  },
+  {
+    "offset": "0x23AE6",
+    "text": "@&-K3"
+  },
+  {
+    "offset": "0x23B4F",
+    "text": "nfyu+,1"
+  },
+  {
+    "offset": "0x23B72",
+    "text": "6sfe_"
+  },
+  {
+    "offset": "0x23B9C",
+    "text": "*c[n)y"
+  },
+  {
+    "offset": "0x23D3B",
+    "text": "9a8)Cw"
+  },
+  {
+    "offset": "0x23E3A",
+    "text": "{; Bq"
+  },
+  {
+    "offset": "0x23E8D",
+    "text": "U&K0t"
+  },
+  {
+    "offset": "0x23F89",
+    "text": " Zwi@"
+  },
+  {
+    "offset": "0x2407C",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x24155",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x243D0",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x244CB",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x24529",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x245D3",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x24618",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x24662",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x246C7",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x246DF",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x24792",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x247CB",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x24883",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x24AE5",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x24B11",
+    "text": "UIDATx"
+  },
+  {
+    "offset": "0x24B92",
+    "text": "9t%Hpw3"
+  },
+  {
+    "offset": "0x24BFD",
+    "text": "4m'un"
+  },
+  {
+    "offset": "0x24DE5",
+    "text": "hNn/0"
+  },
+  {
+    "offset": "0x250DA",
+    "text": "rDr/F"
+  },
+  {
+    "offset": "0x25254",
+    "text": "Dv?;="
+  },
+  {
+    "offset": "0x254E5",
+    "text": "aA.iL"
+  },
+  {
+    "offset": "0x25521",
+    "text": "::*D*"
+  },
+  {
+    "offset": "0x258BE",
+    "text": "z5Msp"
+  },
+  {
+    "offset": "0x2594D",
+    "text": "w:t}J"
+  },
+  {
+    "offset": "0x259DF",
+    "text": ":pKhdemV"
+  },
+  {
+    "offset": "0x25ADD",
+    "text": "/vV}z"
+  },
+  {
+    "offset": "0x25C11",
+    "text": "\" 0o\"KI"
+  },
+  {
+    "offset": "0x25CE9",
+    "text": "rafm>7"
+  },
+  {
+    "offset": "0x25D9B",
+    "text": "D_Ue~"
+  },
+  {
+    "offset": "0x25E2C",
+    "text": ">9\"AU)p"
+  },
+  {
+    "offset": "0x25E45",
+    "text": "fDU}q"
+  },
+  {
+    "offset": "0x25E5E",
+    "text": "u}gX)"
+  },
+  {
+    "offset": "0x25E87",
+    "text": "X+@BVu"
+  },
+  {
+    "offset": "0x25E92",
+    "text": "6> $7"
+  },
+  {
+    "offset": "0x25F86",
+    "text": ",>1RJ"
+  },
+  {
+    "offset": "0x25FB2",
+    "text": "/K[Zq"
+  },
+  {
+    "offset": "0x25FBC",
+    "text": "R8RAM"
+  },
+  {
+    "offset": "0x25FF6",
+    "text": "J03Af"
+  },
+  {
+    "offset": "0x26036",
+    "text": "T{56@"
+  },
+  {
+    "offset": "0x260B4",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x2618D",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x26408",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x26503",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x26561",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x2660B",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x26650",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x2669A",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x266FF",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x26717",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x267CA",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x26803",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x268BB",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x26B1D",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x26B49",
+    "text": ",IDATx"
+  },
+  {
+    "offset": "0x26C4F",
+    "text": "f|vr|w"
+  },
+  {
+    "offset": "0x26EC6",
+    "text": "h}=n#'"
+  },
+  {
+    "offset": "0x26ED8",
+    "text": "eEH)YJug"
+  },
+  {
+    "offset": "0x26F57",
+    "text": "TO@2K"
+  },
+  {
+    "offset": "0x27071",
+    "text": "~.,}d"
+  },
+  {
+    "offset": "0x270C2",
+    "text": "y$#rNH"
+  },
+  {
+    "offset": "0x270F9",
+    "text": "3JDub/"
+  },
+  {
+    "offset": "0x27263",
+    "text": "UJ&([Z<{"
+  },
+  {
+    "offset": "0x2740D",
+    "text": "c9:>z"
+  },
+  {
+    "offset": "0x27420",
+    "text": "z5VZ'"
+  },
+  {
+    "offset": "0x2757D",
+    "text": "4S|4["
+  },
+  {
+    "offset": "0x275B7",
+    "text": "T|uzZ"
+  },
+  {
+    "offset": "0x276A4",
+    "text": "BstL2KJ){J"
+  },
+  {
+    "offset": "0x276C7",
+    "text": "NMJc44orVjbTabJ"
+  },
+  {
+    "offset": "0x277A1",
+    "text": ",YNv~zj"
+  },
+  {
+    "offset": "0x27888",
+    "text": "@2==;"
+  },
+  {
+    "offset": "0x278B3",
+    "text": "N^@j\""
+  },
+  {
+    "offset": "0x27956",
+    "text": "+mOx8&M"
+  },
+  {
+    "offset": "0x27A31",
+    "text": "(dsoI"
+  },
+  {
+    "offset": "0x27BC2",
+    "text": "OrSjMF"
+  },
+  {
+    "offset": "0x27C99",
+    "text": "X\"rJ5"
+  },
+  {
+    "offset": "0x27CA1",
+    "text": "6&dlB"
+  },
+  {
+    "offset": "0x27D5B",
+    "text": "@DT8Si"
+  },
+  {
+    "offset": "0x27D66",
+    "text": "~,uQJ"
+  },
+  {
+    "offset": "0x27E3C",
+    "text": "o#H:@w"
+  },
+  {
+    "offset": "0x2816C",
+    "text": "3|q$%"
+  },
+  {
+    "offset": "0x281C3",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x2829C",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x28517",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x28612",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x28670",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x2871A",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x2875F",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x287A9",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x2880E",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x28826",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x288D9",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x28912",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x289CA",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x28C2C",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x28C59",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x28C68",
+    "text": "FdVVW"
+  },
+  {
+    "offset": "0x28F9B",
+    "text": "]WemC"
+  },
+  {
+    "offset": "0x29041",
+    "text": "(s_Xc"
+  },
+  {
+    "offset": "0x290CB",
+    "text": "5\\YRDd"
+  },
+  {
+    "offset": "0x29163",
+    "text": ".v(#!:"
+  },
+  {
+    "offset": "0x2920C",
+    "text": "kCfF2J2"
+  },
+  {
+    "offset": "0x292B9",
+    "text": "||\"3`"
+  },
+  {
+    "offset": "0x2938D",
+    "text": "@>D=["
+  },
+  {
+    "offset": "0x294A2",
+    "text": "?B,\\~-Q"
+  },
+  {
+    "offset": "0x295BB",
+    "text": "P+fJp"
+  },
+  {
+    "offset": "0x2978B",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x29864",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x29ADF",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x29BDA",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x29C38",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x29CE2",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x29D27",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x29D71",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x29DD6",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x29DEE",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x29EA1",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x29EDA",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x29F92",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x2A1F4",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x2A220",
+    "text": "JIDATx"
+  },
+  {
+    "offset": "0x2A267",
+    "text": "EqI-E"
+  },
+  {
+    "offset": "0x2A348",
+    "text": "]NI$e"
+  },
+  {
+    "offset": "0x2A418",
+    "text": "ik\\ f"
+  },
+  {
+    "offset": "0x2A4DA",
+    "text": "l2c'["
+  },
+  {
+    "offset": "0x2A54D",
+    "text": ",A@UU"
+  },
+  {
+    "offset": "0x2A682",
+    "text": "eGm8|"
+  },
+  {
+    "offset": "0x2A768",
+    "text": "rfffZ"
+  },
+  {
+    "offset": "0x2A7A5",
+    "text": "tUTU4"
+  },
+  {
+    "offset": "0x2A82D",
+    "text": ":'<:<"
+  },
+  {
+    "offset": "0x2AB61",
+    "text": "R2B[i"
+  },
+  {
+    "offset": "0x2AC28",
+    "text": "HPix!"
+  },
+  {
+    "offset": "0x2AC94",
+    "text": "I*bk)U"
+  },
+  {
+    "offset": "0x2ACCC",
+    "text": "*TU?V="
+  },
+  {
+    "offset": "0x2ACE2",
+    "text": "CqZ+R"
+  },
+  {
+    "offset": "0x2ADD6",
+    "text": "a<-}Q*H"
+  },
+  {
+    "offset": "0x2AF59",
+    "text": "Ux/O_"
+  },
+  {
+    "offset": "0x2AFB8",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x2B091",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x2B30C",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x2B407",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x2B465",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x2B50F",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x2B554",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x2B59E",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x2B603",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x2B61B",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x2B6CE",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x2B707",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x2B7BF",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x2BA21",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x2BA4E",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x2BC93",
+    "text": "xt|R]6"
+  },
+  {
+    "offset": "0x2BE93",
+    "text": "K$!ET"
+  },
+  {
+    "offset": "0x2C103",
+    "text": "xrc7U"
+  },
+  {
+    "offset": "0x2C177",
+    "text": "HFIfo"
+  },
+  {
+    "offset": "0x2C1BD",
+    "text": "&(C1%#"
+  },
+  {
+    "offset": "0x2C2A9",
+    "text": "uJ=gW"
+  },
+  {
+    "offset": "0x2C3E4",
+    "text": "FO6.>,"
+  },
+  {
+    "offset": "0x2C4E8",
+    "text": "N}PB`"
+  },
+  {
+    "offset": "0x2C53D",
+    "text": "saZY}"
+  },
+  {
+    "offset": "0x2C562",
+    "text": "H zdF"
+  },
+  {
+    "offset": "0x2C5A2",
+    "text": "tsXl\\g"
+  },
+  {
+    "offset": "0x2C7E2",
+    "text": "4ys3-l"
+  },
+  {
+    "offset": "0x2C85F",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x2C938",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x2CBB3",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x2CCAE",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x2CD0C",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x2CDB6",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x2CDFB",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x2CE45",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x2CEAA",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x2CEC2",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x2CF75",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x2CFAE",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x2D066",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x2D2C8",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x2D2F5",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x2D4A8",
+    "text": "vN1\"h"
+  },
+  {
+    "offset": "0x2D51B",
+    "text": "wo^o:9"
+  },
+  {
+    "offset": "0x2D534",
+    "text": "o p^b"
+  },
+  {
+    "offset": "0x2D5D4",
+    "text": "iUU$I@"
+  },
+  {
+    "offset": "0x2D607",
+    "text": "l$f}iK"
+  },
+  {
+    "offset": "0x2D62F",
+    "text": "Oc5u5"
+  },
+  {
+    "offset": "0x2D699",
+    "text": "#iF3#s"
+  },
+  {
+    "offset": "0x2D6F3",
+    "text": "ifCo'`"
+  },
+  {
+    "offset": "0x2D749",
+    "text": "XqH$!e"
+  },
+  {
+    "offset": "0x2D857",
+    "text": "xI~WR"
+  },
+  {
+    "offset": "0x2D864",
+    "text": "m_@U|;"
+  },
+  {
+    "offset": "0x2D8D0",
+    "text": "vcdUW"
+  },
+  {
+    "offset": "0x2D8EB",
+    "text": "a^YHC?A!"
+  },
+  {
+    "offset": "0x2D989",
+    "text": "li=g!"
+  },
+  {
+    "offset": "0x2D9D2",
+    "text": "dfQTu"
+  },
+  {
+    "offset": "0x2D9D9",
+    "text": "1Ke%l2"
+  },
+  {
+    "offset": "0x2DA07",
+    "text": ";.>6c"
+  },
+  {
+    "offset": "0x2DACF",
+    "text": "5 yDD"
+  },
+  {
+    "offset": "0x2DAD7",
+    "text": "CuN;L"
+  },
+  {
+    "offset": "0x2DB7A",
+    "text": "iIE3I"
+  },
+  {
+    "offset": "0x2DF6F",
+    "text": "qgno,;"
+  },
+  {
+    "offset": "0x2E098",
+    "text": "h6kduL$"
+  },
+  {
+    "offset": "0x2E108",
+    "text": "!`E>\\,"
+  },
+  {
+    "offset": "0x2E12C",
+    "text": "yw8sb"
+  },
+  {
+    "offset": "0x2E19D",
+    "text": "?]nI5"
+  },
+  {
+    "offset": "0x2E243",
+    "text": "P4 0d"
+  },
+  {
+    "offset": "0x2E331",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x2E40A",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x2E685",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x2E780",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x2E7DE",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x2E888",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x2E8CD",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x2E917",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x2E97C",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x2E994",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x2EA47",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x2EA80",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x2EB38",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x2ED9A",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x2EDC7",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x2EE1F",
+    "text": "4-3pm$"
+  },
+  {
+    "offset": "0x2EEC4",
+    "text": "l2q'V"
+  },
+  {
+    "offset": "0x2EF2F",
+    "text": "WKqz,"
+  },
+  {
+    "offset": "0x2EFBA",
+    "text": "!hk\\ "
+  },
+  {
+    "offset": "0x2EFC6",
+    "text": "!:M$y."
+  },
+  {
+    "offset": "0x2EFCD",
+    "text": "\\(+JGP"
+  },
+  {
+    "offset": "0x2F04B",
+    "text": "l@!<:"
+  },
+  {
+    "offset": "0x2F16D",
+    "text": "DBh-$"
+  },
+  {
+    "offset": "0x2F2AB",
+    "text": "CD#'f"
+  },
+  {
+    "offset": "0x2F30E",
+    "text": "=4@NN"
+  },
+  {
+    "offset": "0x2F35F",
+    "text": "UU{tm"
+  },
+  {
+    "offset": "0x2F497",
+    "text": "5oUWD"
+  },
+  {
+    "offset": "0x2F4ED",
+    "text": "<~Q?}"
+  },
+  {
+    "offset": "0x2F507",
+    "text": "E5C3t)"
+  },
+  {
+    "offset": "0x2F539",
+    "text": "E}r}h"
+  },
+  {
+    "offset": "0x2F550",
+    "text": "`JKN'"
+  },
+  {
+    "offset": "0x2F58F",
+    "text": "EzJe]"
+  },
+  {
+    "offset": "0x2F628",
+    "text": "f;dao?{"
+  },
+  {
+    "offset": "0x2F7D2",
+    "text": "yJ)lBm"
+  },
+  {
+    "offset": "0x2F833",
+    "text": ")FJlZtJ"
+  },
+  {
+    "offset": "0x2F8A2",
+    "text": "JHQ'A"
+  },
+  {
+    "offset": "0x2F8AA",
+    "text": "v'I8IQb"
+  },
+  {
+    "offset": "0x2F900",
+    "text": ".RVdRd"
+  },
+  {
+    "offset": "0x2F995",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x2FA6E",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x2FCE9",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x2FDE4",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x2FE42",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x2FEEC",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x2FF31",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x2FF7B",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x2FFE0",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x2FFF8",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x300AB",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x300E4",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x3019C",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x303FE",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x3042A",
+    "text": "\\IDATx"
+  },
+  {
+    "offset": "0x30488",
+    "text": "YY_Efe"
+  },
+  {
+    "offset": "0x304AD",
+    "text": "]U [c$"
+  },
+  {
+    "offset": "0x30573",
+    "text": "}s{HX"
+  },
+  {
+    "offset": "0x30738",
+    "text": "\"b!h["
+  },
+  {
+    "offset": "0x3076B",
+    "text": "ks*3{"
+  },
+  {
+    "offset": "0x307F1",
+    "text": "%m/$@"
+  },
+  {
+    "offset": "0x3080A",
+    "text": "Q74B_"
+  },
+  {
+    "offset": "0x30864",
+    "text": "c.C^R"
+  },
+  {
+    "offset": "0x308A7",
+    "text": "ut28<b"
+  },
+  {
+    "offset": "0x30921",
+    "text": "*3$^L"
+  },
+  {
+    "offset": "0x3096E",
+    "text": "wUpCt"
+  },
+  {
+    "offset": "0x30A07",
+    "text": "ZJ* h "
+  },
+  {
+    "offset": "0x30A9D",
+    "text": "Y\"IDA"
+  },
+  {
+    "offset": "0x30AC1",
+    "text": "e]7dW"
+  },
+  {
+    "offset": "0x30AD1",
+    "text": "(45y9~"
+  },
+  {
+    "offset": "0x30B42",
+    "text": "s+9!!bo@"
+  },
+  {
+    "offset": "0x30BD9",
+    "text": "xa}[,P"
+  },
+  {
+    "offset": "0x30C35",
+    "text": "Mnr7)"
+  },
+  {
+    "offset": "0x30D9D",
+    "text": "p:ol@"
+  },
+  {
+    "offset": "0x30E42",
+    "text": "XF)ch"
+  },
+  {
+    "offset": "0x30ED4",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x30FAD",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x31228",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x31323",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x31381",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x3142B",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x31470",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x314BA",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x3151F",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x31537",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x315EA",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x31623",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x316DB",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x3193D",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x31969",
+    "text": "2IDATx"
+  },
+  {
+    "offset": "0x31971",
+    "text": "ZKodIV"
+  },
+  {
+    "offset": "0x319AD",
+    "text": "\\SUi;3"
+  },
+  {
+    "offset": "0x319D5",
+    "text": "OO}LN"
+  },
+  {
+    "offset": "0x31A35",
+    "text": "W+#'\""
+  },
+  {
+    "offset": "0x31BBB",
+    "text": "OEXbv\\e>{"
+  },
+  {
+    "offset": "0x31C02",
+    "text": "RLIF."
+  },
+  {
+    "offset": "0x31C12",
+    "text": "3@6^N"
+  },
+  {
+    "offset": "0x31C6A",
+    "text": "vG~| "
+  },
+  {
+    "offset": "0x31E1A",
+    "text": "E`f/..B"
+  },
+  {
+    "offset": "0x31F35",
+    "text": "(eA}fY*]j("
+  },
+  {
+    "offset": "0x320B1",
+    "text": "I$K;p"
+  },
+  {
+    "offset": "0x32118",
+    "text": "<v/^\"QDA"
+  },
+  {
+    "offset": "0x32176",
+    "text": "`]7!e\""
+  },
+  {
+    "offset": "0x3229B",
+    "text": "*RQ$7"
+  },
+  {
+    "offset": "0x322CD",
+    "text": "q<8aU"
+  },
+  {
+    "offset": "0x32351",
+    "text": "ZL2_m"
+  },
+  {
+    "offset": "0x32370",
+    "text": "#s1![O4"
+  },
+  {
+    "offset": "0x323B3",
+    "text": "5}\"Cr"
+  },
+  {
+    "offset": "0x3245D",
+    "text": "RLwQY"
+  },
+  {
+    "offset": "0x32509",
+    "text": "--UqWu"
+  },
+  {
+    "offset": "0x32532",
+    "text": "8?{=_"
+  },
+  {
+    "offset": "0x32654",
+    "text": ":ee&e6"
+  },
+  {
+    "offset": "0x326E9",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x327C2",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x32A3D",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x32B38",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x32B96",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x32C40",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x32C85",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x32CCF",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x32D34",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x32D4C",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x32DFF",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x32E38",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x32EF0",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x33152",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x3317F",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x331CC",
+    "text": "EdVeFd7r"
+  },
+  {
+    "offset": "0x33233",
+    "text": "&(@C "
+  },
+  {
+    "offset": "0x33251",
+    "text": "K';]T"
+  },
+  {
+    "offset": "0x332BF",
+    "text": "(;wp1>1"
+  },
+  {
+    "offset": "0x33342",
+    "text": "TD \"Au1"
+  },
+  {
+    "offset": "0x33353",
+    "text": "*&U]S"
+  },
+  {
+    "offset": "0x333F6",
+    "text": "*h*rT"
+  },
+  {
+    "offset": "0x334FD",
+    "text": "%\"nBB"
+  },
+  {
+    "offset": "0x33533",
+    "text": "rRD@FT"
+  },
+  {
+    "offset": "0x33585",
+    "text": "\"pkl:"
+  },
+  {
+    "offset": "0x337C6",
+    "text": "ljim2"
+  },
+  {
+    "offset": "0x337E0",
+    "text": "C6I)@"
+  },
+  {
+    "offset": "0x338C0",
+    "text": "q:zCU`Ch:9>}"
+  },
+  {
+    "offset": "0x338E4",
+    "text": "|Yd?m,"
+  },
+  {
+    "offset": "0x33923",
+    "text": "46=y4"
+  },
+  {
+    "offset": "0x339FA",
+    "text": "@TFs:"
+  },
+  {
+    "offset": "0x33BAF",
+    "text": "7{![_"
+  },
+  {
+    "offset": "0x33C1D",
+    "text": "(}ILS"
+  },
+  {
+    "offset": "0x33CEF",
+    "text": "cU,aod"
+  },
+  {
+    "offset": "0x33D08",
+    "text": "Ta (Co"
+  },
+  {
+    "offset": "0x33D88",
+    "text": "^i/k$"
+  },
+  {
+    "offset": "0x33DE4",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x33EBD",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x34138",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x34233",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x34291",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x3433B",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x34380",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x343CA",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x3442F",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x34447",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x344FA",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x34533",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x345EB",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x3484D",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x34879",
+    "text": "vIDATx"
+  },
+  {
+    "offset": "0x348B6",
+    "text": "]!.{Z"
+  },
+  {
+    "offset": "0x348FA",
+    "text": "/(\\<X"
+  },
+  {
+    "offset": "0x34952",
+    "text": "3#;KT"
+  },
+  {
+    "offset": "0x34A31",
+    "text": "e=-Jq"
+  },
+  {
+    "offset": "0x34A60",
+    "text": ",XVUc"
+  },
+  {
+    "offset": "0x34A8B",
+    "text": "4k$Ed"
+  },
+  {
+    "offset": "0x34A98",
+    "text": "Nx3]f&"
+  },
+  {
+    "offset": "0x34B27",
+    "text": ";~|#]"
+  },
+  {
+    "offset": "0x34B75",
+    "text": "eJ1%a"
+  },
+  {
+    "offset": "0x34C6C",
+    "text": "2RD@z"
+  },
+  {
+    "offset": "0x34C9B",
+    "text": "4Zo4x"
+  },
+  {
+    "offset": "0x34D26",
+    "text": "j~D^+%"
+  },
+  {
+    "offset": "0x34D5A",
+    "text": "Hy#:~"
+  },
+  {
+    "offset": "0x34E42",
+    "text": "ABUUk"
+  },
+  {
+    "offset": "0x34EC2",
+    "text": "r6)\",vH=Q"
+  },
+  {
+    "offset": "0x34F6F",
+    "text": "cQ\\}{r/"
+  },
+  {
+    "offset": "0x34F85",
+    "text": "R2iWN;"
+  },
+  {
+    "offset": "0x35188",
+    "text": "7+[Mr*\""
+  },
+  {
+    "offset": "0x352DE",
+    "text": "zZ_U?"
+  },
+  {
+    "offset": "0x352F5",
+    "text": "dH.Z7"
+  },
+  {
+    "offset": "0x353BA",
+    "text": "aq#]k.$\""
+  },
+  {
+    "offset": "0x353D1",
+    "text": ")y'l]F"
+  },
+  {
+    "offset": "0x35401",
+    "text": "l?;!|x8t"
+  },
+  {
+    "offset": "0x355F1",
+    "text": "{u[@9"
+  },
+  {
+    "offset": "0x3563D",
+    "text": "MiCCPPhotoshop ICC profile"
+  },
+  {
+    "offset": "0x35716",
+    "text": "ly|B\""
+  },
+  {
+    "offset": "0x35991",
+    "text": "GXLXC"
+  },
+  {
+    "offset": "0x35A8C",
+    "text": "TUsU?"
+  },
+  {
+    "offset": "0x35AEA",
+    "text": "v/{LSCs"
+  },
+  {
+    "offset": "0x35B94",
+    "text": "k<abi2"
+  },
+  {
+    "offset": "0x35BD9",
+    "text": "V>VyV"
+  },
+  {
+    "offset": "0x35C23",
+    "text": ";t;|rtu"
+  },
+  {
+    "offset": "0x35C88",
+    "text": "/^v^Y^"
+  },
+  {
+    "offset": "0x35CA0",
+    "text": "{`:>=e"
+  },
+  {
+    "offset": "0x35D53",
+    "text": "jlRlc"
+  },
+  {
+    "offset": "0x35D8C",
+    "text": "w<Y5Y"
+  },
+  {
+    "offset": "0x35E44",
+    "text": "w.1]R"
+  },
+  {
+    "offset": "0x360A6",
+    "text": " cHRM"
+  },
+  {
+    "offset": "0x360D3",
+    "text": "IDATx"
+  },
+  {
+    "offset": "0x3611C",
+    "text": "~Vuw="
+  },
+  {
+    "offset": "0x3619B",
+    "text": "(oV2r"
+  },
+  {
+    "offset": "0x36206",
+    "text": "um%Nd&w"
+  },
+  {
+    "offset": "0x36227",
+    "text": "qqy9O"
+  },
+  {
+    "offset": "0x3628C",
+    "text": "BqwQ]?"
+  },
+  {
+    "offset": "0x36322",
+    "text": "nf~||g"
+  },
+  {
+    "offset": "0x36334",
+    "text": "\\D`N<<"
+  },
+  {
+    "offset": "0x3636E",
+    "text": "=9{Q-"
+  },
+  {
+    "offset": "0x3639E",
+    "text": "cLh/3"
+  },
+  {
+    "offset": "0x36444",
+    "text": "a1.vwf1"
+  },
+  {
+    "offset": "0x3648C",
+    "text": "MD,Xf"
+  },
+  {
+    "offset": "0x364CA",
+    "text": "HLc*F"
+  },
+  {
+    "offset": "0x365C4",
+    "text": "wv*N|c"
+  },
+  {
+    "offset": "0x3666A",
+    "text": "eIEtk!6"
+  },
+  {
+    "offset": "0x36690",
+    "text": " =Doss$"
+  },
+  {
+    "offset": "0x366FB",
+    "text": "KAo8B"
+  },
+  {
+    "offset": "0x36777",
+    "text": "z|QWu"
+  },
+  {
+    "offset": "0x368C1",
+    "text": "\"eFPULTZ"
+  },
+  {
+    "offset": "0x36959",
+    "text": "T2O*<="
+  },
+  {
+    "offset": "0x36986",
+    "text": "&yvG2"
+  },
+  {
+    "offset": "0x369F7",
+    "text": "HHYJ1"
+  },
+  {
+    "offset": "0x36C00",
+    "text": "JG*cw"
+  },
+  {
+    "offset": "0x36C3C",
+    "text": "oeu}Z"
+  },
+  {
+    "offset": "0x36D64",
+    "text": "zS,B/"
+  },
+  {
+    "offset": "0x36E2F",
+    "text": "JHQ'A"
+  }
+]

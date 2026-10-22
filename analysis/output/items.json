@@ -1,0 +1,5155 @@
+{
+  "source": [
+    {
+      "procedure": "0x41fc89",
+      "evidenceId": "ev_261fa38b774487b8d99ebf5b8d4da6a53c39dccd96713744c6333b4a531d0be6",
+      "claim": "12-byte big-endian entries from 0x110; equal lengths take direct read branch"
+    },
+    {
+      "procedure": "0x4010b0",
+      "evidenceId": "ev_ca1461546f6d3c36b103a40abb0db195255f912d717c4757ee90455cbc00c81f",
+      "claim": "Data.e5 entry1 to 0x4A1140, Star.e5 to 0x4A1B68; initialization loop covers IDs0..254"
+    },
+    {
+      "procedure": "0x4837c2",
+      "evidenceId": "ev_b5bbd800568893ceb7397d7f24da48ee7d2e77eb8d7ac738a6f4fab3c7e48039",
+      "claim": "Assembly computes item address as 0x4A1140 + index*25; pseudocode omits this register result"
+    },
+    {
+      "procedure": "0x451313",
+      "evidenceId": "ev_6e1092ece422a7e0d101c669ebdfce9274e4fef85c4960da61d36428824a39e9",
+      "claim": "Reads 0xED8=3800 bytes of Star.e5, corresponding to 152 records including separator"
+    }
+  ],
+  "recordBytes": 25,
+  "baseCount": 104,
+  "starItemCount": 151,
+  "totalNamedRows": 255,
+  "separator": {
+    "id": 255,
+    "name": "절취선",
+    "sourceFile": "Star.e5",
+    "sourceFileOffset": "0xEBF",
+    "rawHex": "c0fdc3ebbcb100000000000000000000000000000000000000",
+    "parameters15to24": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+  },
+  "items": [
+    {
+      "id": 0,
+      "name": "단검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x818C",
+      "rawHex": "b4dcb0cb0000000000000000000000000000ff05000b000a00",
+      "parameters15to24": [
+        0,
+        0,
+        0,
+        255,
+        5,
+        0,
+        11,
+        0,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 1,
+      "name": "대검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x81A5",
+      "rawHex": "b4ebb0cb0000000000000000000000000000ff0a013c000c00",
+      "parameters15to24": [
+        0,
+        0,
+        0,
+        255,
+        10,
+        1,
+        60,
+        0,
+        12,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 2,
+      "name": "강검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x81BE",
+      "rawHex": "b0adb0cb0000000000000000000000000000ff1e0278000e00",
+      "parameters15to24": [
+        0,
+        0,
+        0,
+        255,
+        30,
+        2,
+        120,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 3,
+      "name": "단창",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x81D7",
+      "rawHex": "b4dcc3a20000000000000000000000000002ff05030c000a00",
+      "parameters15to24": [
+        0,
+        0,
+        2,
+        255,
+        5,
+        3,
+        12,
+        0,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 4,
+      "name": "장창",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x81F0",
+      "rawHex": "c0e5c3a20000000000000000000000000002ff0a0440000c00",
+      "parameters15to24": [
+        0,
+        0,
+        2,
+        255,
+        10,
+        4,
+        64,
+        0,
+        12,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 5,
+      "name": "강창",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8209",
+      "rawHex": "b0adc3a20000000000000000000000000002ff1e057c000e00",
+      "parameters15to24": [
+        0,
+        0,
+        2,
+        255,
+        30,
+        5,
+        124,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 6,
+      "name": "반궁",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8222",
+      "rawHex": "b9ddb1c30000000000000000000000000004ff050609000a00",
+      "parameters15to24": [
+        0,
+        0,
+        4,
+        255,
+        5,
+        6,
+        9,
+        0,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 7,
+      "name": "대궁",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x823B",
+      "rawHex": "b4ebb1c30000000000000000000000000004ff0a0738000c00",
+      "parameters15to24": [
+        0,
+        0,
+        4,
+        255,
+        10,
+        7,
+        56,
+        0,
+        12,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 8,
+      "name": "철궁",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8254",
+      "rawHex": "c3b6b1c30000000000000000000000000004ff1e0870000e00",
+      "parameters15to24": [
+        0,
+        0,
+        4,
+        255,
+        30,
+        8,
+        112,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 9,
+      "name": "나무곤봉",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x826D",
+      "rawHex": "b3aab9abb0efbac000000000000000000006ff05090a000a00",
+      "parameters15to24": [
+        0,
+        0,
+        6,
+        255,
+        5,
+        9,
+        10,
+        0,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 10,
+      "name": "구리곤봉",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8286",
+      "rawHex": "b1b8b8aeb0efbac000000000000000000006ff0a0a3a000c00",
+      "parameters15to24": [
+        0,
+        0,
+        6,
+        255,
+        10,
+        10,
+        58,
+        0,
+        12,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 11,
+      "name": "철곤봉",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x829F",
+      "rawHex": "c3b6b0efbac0000000000000000000000006ff1e0b74000e00",
+      "parameters15to24": [
+        0,
+        0,
+        6,
+        255,
+        30,
+        11,
+        116,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 12,
+      "name": "나무투석기",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x82B8",
+      "rawHex": "b3aab9abc5f5bcaeb1e20000000000000008ff050c08000a00",
+      "parameters15to24": [
+        0,
+        0,
+        8,
+        255,
+        5,
+        12,
+        8,
+        0,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 13,
+      "name": "구리투석기",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x82D1",
+      "rawHex": "b1b8b8aec5f5bcaeb1e20000000000000008ff0a0d34000c00",
+      "parameters15to24": [
+        0,
+        0,
+        8,
+        255,
+        10,
+        13,
+        52,
+        0,
+        12,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 14,
+      "name": "철투석기",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x82EA",
+      "rawHex": "c3b6c5f5bcaeb1e200000000000000000008ff1e0e6c000e00",
+      "parameters15to24": [
+        0,
+        0,
+        8,
+        255,
+        30,
+        14,
+        108,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 15,
+      "name": "단극",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8303",
+      "rawHex": "b4dcb1d8000000000000000000000000000aff050f0c000a00",
+      "parameters15to24": [
+        0,
+        0,
+        10,
+        255,
+        5,
+        15,
+        12,
+        0,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 16,
+      "name": "장극",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x831C",
+      "rawHex": "c0e5b1d8000000000000000000000000000aff0a1040000c00",
+      "parameters15to24": [
+        0,
+        0,
+        10,
+        255,
+        10,
+        16,
+        64,
+        0,
+        12,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 17,
+      "name": "강극",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8335",
+      "rawHex": "b0adb1d8000000000000000000000000000aff1e117c000e00",
+      "parameters15to24": [
+        0,
+        0,
+        10,
+        255,
+        30,
+        17,
+        124,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 18,
+      "name": "호신무기",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x834E",
+      "rawHex": "c8a3bdc5b9abb1e20000000000000000000cff05120a000a00",
+      "parameters15to24": [
+        0,
+        0,
+        12,
+        255,
+        5,
+        18,
+        10,
+        0,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 19,
+      "name": "실전무기",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8367",
+      "rawHex": "bdc7c0fcb9abb1e20000000000000000000cff0a133a000c00",
+      "parameters15to24": [
+        0,
+        0,
+        12,
+        255,
+        10,
+        19,
+        58,
+        0,
+        12,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 20,
+      "name": "최신무기",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8380",
+      "rawHex": "c3d6bdc5b9abb1e20000000000000000000cff1e1474000e00",
+      "parameters15to24": [
+        0,
+        0,
+        12,
+        255,
+        30,
+        20,
+        116,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 21,
+      "name": "죽선",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8399",
+      "rawHex": "c1d7bcb1000000000000000000000000000eff05150c000a00",
+      "parameters15to24": [
+        0,
+        0,
+        14,
+        255,
+        5,
+        21,
+        12,
+        0,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 22,
+      "name": "군선",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x83B2",
+      "rawHex": "b1babcb1000000000000000000000000000eff0a1640000c00",
+      "parameters15to24": [
+        0,
+        0,
+        14,
+        255,
+        10,
+        22,
+        64,
+        0,
+        12,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 23,
+      "name": "철선",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x83CB",
+      "rawHex": "c3b6bcb1000000000000000000000000000eff1e177c000e00",
+      "parameters15to24": [
+        0,
+        0,
+        14,
+        255,
+        30,
+        23,
+        124,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 24,
+      "name": "돌보검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x83E4",
+      "rawHex": "b5b9bab8b0cb000000000000000000000010ff05180a000a00",
+      "parameters15to24": [
+        0,
+        0,
+        16,
+        255,
+        5,
+        24,
+        10,
+        0,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 25,
+      "name": "구리보검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x83FD",
+      "rawHex": "b1b8b8aebab8b0cb00000000000000000010ff0a193a000c00",
+      "parameters15to24": [
+        0,
+        0,
+        16,
+        255,
+        10,
+        25,
+        58,
+        0,
+        12,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 26,
+      "name": "철보검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8416",
+      "rawHex": "c3b6bab8b0cb000000000000000000000010ff1e1a74000e00",
+      "parameters15to24": [
+        0,
+        0,
+        16,
+        255,
+        30,
+        26,
+        116,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 27,
+      "name": "제후검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x842F",
+      "rawHex": "c1a6c8c4b0cb000000000000000000000012ff0a1b0b000a00",
+      "parameters15to24": [
+        0,
+        0,
+        18,
+        255,
+        10,
+        27,
+        11,
+        0,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 28,
+      "name": "영걸검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8448",
+      "rawHex": "bfb5b0c9b0cb000000000000000000000012ff141c3c000c00",
+      "parameters15to24": [
+        0,
+        0,
+        18,
+        255,
+        20,
+        28,
+        60,
+        0,
+        12,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 29,
+      "name": "패자검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8461",
+      "rawHex": "c6d0c0dab0cb000000000000000000000012ff3c1d78000e00",
+      "parameters15to24": [
+        0,
+        0,
+        18,
+        255,
+        60,
+        29,
+        120,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 30,
+      "name": "자웅일대검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x847A",
+      "rawHex": "c0dabff5c0cfb4ebb0cb000000000000000130ff1e11001001",
+      "parameters15to24": [
+        0,
+        0,
+        1,
+        48,
+        255,
+        30,
+        17,
+        0,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 31,
+      "name": "청공검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8493",
+      "rawHex": "c3bbb0f8b0cb0000000000000000000000011fff1f00030001",
+      "parameters15to24": [
+        0,
+        0,
+        1,
+        31,
+        255,
+        31,
+        0,
+        3,
+        0,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 32,
+      "name": "고정도",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x84AC",
+      "rawHex": "b0edc1a4b5b500000000000000000000000123ff2012321001",
+      "parameters15to24": [
+        0,
+        0,
+        1,
+        35,
+        255,
+        32,
+        18,
+        50,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 33,
+      "name": "청룡언월도",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x84C5",
+      "rawHex": "c3bbb7e6bef0bff9b5b5000000000000000334ff2111001001",
+      "parameters15to24": [
+        0,
+        0,
+        3,
+        52,
+        255,
+        33,
+        17,
+        0,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 34,
+      "name": "사모",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x84DE",
+      "rawHex": "bbe7b8f0000000000000000000000000000333ff2210041001",
+      "parameters15to24": [
+        0,
+        0,
+        3,
+        51,
+        255,
+        34,
+        16,
+        4,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 35,
+      "name": "총통창",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x84F7",
+      "rawHex": "c3d1c5ebc3a20000000000000000000000035aff2311021001",
+      "parameters15to24": [
+        0,
+        0,
+        3,
+        90,
+        255,
+        35,
+        17,
+        2,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 36,
+      "name": "여포궁",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8510",
+      "rawHex": "bfa9c6f7b1c300000000000000000000000542ff240f001001",
+      "parameters15to24": [
+        0,
+        0,
+        5,
+        66,
+        255,
+        36,
+        15,
+        0,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 37,
+      "name": "이광궁",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8529",
+      "rawHex": "c0ccb1a4b1c300000000000000000000000533ff2510041001",
+      "parameters15to24": [
+        0,
+        0,
+        5,
+        51,
+        255,
+        37,
+        16,
+        4,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 38,
+      "name": "쌍편",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8542",
+      "rawHex": "bdd6c6ed000000000000000000000000000730ff2611001001",
+      "parameters15to24": [
+        0,
+        0,
+        7,
+        48,
+        255,
+        38,
+        17,
+        0,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 39,
+      "name": "금화관포",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x855B",
+      "rawHex": "b1ddc8adb0fcc6f7000000000000000000091dff270e000f01",
+      "parameters15to24": [
+        0,
+        0,
+        9,
+        29,
+        255,
+        39,
+        14,
+        0,
+        15,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 40,
+      "name": "방천화극",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8574",
+      "rawHex": "b9e6c3b5c8adb1d80000000000000000000b36ff280f001001",
+      "parameters15to24": [
+        0,
+        0,
+        11,
+        54,
+        255,
+        40,
+        15,
+        0,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 41,
+      "name": "기혈요부",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x858D",
+      "rawHex": "b1e2c7f7bfe4bace0000000000000000000b2cff2910321001",
+      "parameters15to24": [
+        0,
+        0,
+        11,
+        44,
+        255,
+        41,
+        16,
+        50,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 42,
+      "name": "유성추",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x85A6",
+      "rawHex": "c0afbcbac3df00000000000000000000000d2bff2a0f320f01",
+      "parameters15to24": [
+        0,
+        0,
+        13,
+        43,
+        255,
+        42,
+        15,
+        50,
+        15,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 43,
+      "name": "파초선",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x85BF",
+      "rawHex": "c6c4c3cabcb100000000000000000000000f38ff2b101e1001",
+      "parameters15to24": [
+        0,
+        0,
+        15,
+        56,
+        255,
+        43,
+        16,
+        30,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 44,
+      "name": "백우선",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x85D8",
+      "rawHex": "b9e9bfecbcb100000000000000000000000f39ff2c0f1e0f01",
+      "parameters15to24": [
+        0,
+        0,
+        15,
+        57,
+        255,
+        44,
+        15,
+        30,
+        15,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 45,
+      "name": "칠성검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x85F1",
+      "rawHex": "c4a5bcbab0cb00000000000000000000001137ff2d101e1001",
+      "parameters15to24": [
+        0,
+        0,
+        17,
+        55,
+        255,
+        45,
+        16,
+        30,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 46,
+      "name": "성자보검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x860A",
+      "rawHex": "bcbac0dabab8b0cb0000000000000000001121ff2e11321001",
+      "parameters15to24": [
+        0,
+        0,
+        17,
+        33,
+        255,
+        46,
+        17,
+        50,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 47,
+      "name": "의천검",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8623",
+      "rawHex": "c0c7c3b5b0cb0000000000000000000000133fff2f10101001",
+      "parameters15to24": [
+        0,
+        0,
+        19,
+        63,
+        255,
+        47,
+        16,
+        16,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 48,
+      "name": "무기공란1",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x863C",
+      "rawHex": "b9abb1e2b0f8b6f53100000000000000000f3cff300e141000",
+      "parameters15to24": [
+        0,
+        0,
+        15,
+        60,
+        255,
+        48,
+        14,
+        20,
+        16,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 49,
+      "name": "무기공란2",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8655",
+      "rawHex": "b9abb1e2b0f8b6f53200000000000000001337ff310c141000",
+      "parameters15to24": [
+        0,
+        0,
+        19,
+        55,
+        255,
+        49,
+        12,
+        20,
+        16,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 50,
+      "name": "무기공란3",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x866E",
+      "rawHex": "b9abb1e2b0f8b6f53300000000000000001339ff320b320f00",
+      "parameters15to24": [
+        0,
+        0,
+        19,
+        57,
+        255,
+        50,
+        11,
+        50,
+        15,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 51,
+      "name": "무기공란4",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8687",
+      "rawHex": "b9abb1e2b0f8b6f53400000000000000000144ff33010f0000",
+      "parameters15to24": [
+        0,
+        0,
+        1,
+        68,
+        255,
+        51,
+        1,
+        15,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 52,
+      "name": "무기공란5",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x86A0",
+      "rawHex": "b9abb1e2b0f8b6f5350000000000000000013dff34010f0000",
+      "parameters15to24": [
+        0,
+        0,
+        1,
+        61,
+        255,
+        52,
+        1,
+        15,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 53,
+      "name": "무기공란6",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x86B9",
+      "rawHex": "b9abb1e2b0f8b6f53600000000000000000143ff3501100000",
+      "parameters15to24": [
+        0,
+        0,
+        1,
+        67,
+        255,
+        53,
+        1,
+        16,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 54,
+      "name": "무기공란7",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x86D2",
+      "rawHex": "b9abb1e2b0f8b6f53700000000000000000134ff36010f0000",
+      "parameters15to24": [
+        0,
+        0,
+        1,
+        52,
+        255,
+        54,
+        1,
+        15,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 55,
+      "name": "무기공란8",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x86EB",
+      "rawHex": "b9abb1e2b0f8b6f53800000000000000000145ff3701120000",
+      "parameters15to24": [
+        0,
+        0,
+        1,
+        69,
+        255,
+        55,
+        1,
+        18,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 56,
+      "name": "무기공란9",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8704",
+      "rawHex": "b9abb1e2b0f8b6f53900000000000000000141ff38010e0000",
+      "parameters15to24": [
+        0,
+        0,
+        1,
+        65,
+        255,
+        56,
+        1,
+        14,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 57,
+      "name": "무기공란10",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x871D",
+      "rawHex": "b9abb1e2b0f8b6f5313000000000000000011b0539000a0000",
+      "parameters15to24": [
+        0,
+        0,
+        1,
+        27,
+        5,
+        57,
+        0,
+        10,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 58,
+      "name": "무기공란11",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8736",
+      "rawHex": "b9abb1e2b0f8b6f5313100000000000000137a0a3a013c0000",
+      "parameters15to24": [
+        0,
+        0,
+        19,
+        122,
+        10,
+        58,
+        1,
+        60,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 59,
+      "name": "무기공란12",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x874F",
+      "rawHex": "b9abb1e2b0f8b6f5313200000000000000137b1e3b016e0000",
+      "parameters15to24": [
+        0,
+        0,
+        19,
+        123,
+        30,
+        59,
+        1,
+        110,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 60,
+      "name": "무기공란13",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8768",
+      "rawHex": "b9abb1e2b0f8b6f5313300000000000000137c053c01080000",
+      "parameters15to24": [
+        0,
+        0,
+        19,
+        124,
+        5,
+        60,
+        1,
+        8,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 61,
+      "name": "무기공란14",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8781",
+      "rawHex": "b9abb1e2b0f8b6f5313400000000000000136f0a3d013a0000",
+      "parameters15to24": [
+        0,
+        0,
+        19,
+        111,
+        10,
+        61,
+        1,
+        58,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 62,
+      "name": "무기공란15",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x879A",
+      "rawHex": "b9abb1e2b0f8b6f531350000000000000003791e3e016c0000",
+      "parameters15to24": [
+        0,
+        0,
+        3,
+        121,
+        30,
+        62,
+        1,
+        108,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 63,
+      "name": "무기공란16",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x87B3",
+      "rawHex": "b9abb1e2b0f8b6f53136000000000000000374053f01080000",
+      "parameters15to24": [
+        0,
+        0,
+        3,
+        116,
+        5,
+        63,
+        1,
+        8,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 64,
+      "name": "무기공란17",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x87CC",
+      "rawHex": "b9abb1e2b0f8b6f5313700000000000000017f0a400b3a0000",
+      "parameters15to24": [
+        0,
+        0,
+        1,
+        127,
+        10,
+        64,
+        11,
+        58,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 65,
+      "name": "무기공란18",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x87E5",
+      "rawHex": "b9abb1e2b0f8b6f5313800000000000000017f1e41016c0000",
+      "parameters15to24": [
+        0,
+        0,
+        1,
+        127,
+        30,
+        65,
+        1,
+        108,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 66,
+      "name": "무기공란19",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x87FE",
+      "rawHex": "b9abb1e2b0f8b6f53139000000000000000523ff420b0f0000",
+      "parameters15to24": [
+        0,
+        0,
+        5,
+        35,
+        255,
+        66,
+        11,
+        15,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 67,
+      "name": "무기공란20",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8817",
+      "rawHex": "b9abb1e2b0f8b6f53230000000000000000760ff4301100000",
+      "parameters15to24": [
+        0,
+        0,
+        7,
+        96,
+        255,
+        67,
+        1,
+        16,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 68,
+      "name": "무기공란21",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8830",
+      "rawHex": "b9abb1e2b0f8b6f53231000000000000000765ff44010e0000",
+      "parameters15to24": [
+        0,
+        0,
+        7,
+        101,
+        255,
+        68,
+        1,
+        14,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 69,
+      "name": "무기공란22",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8849",
+      "rawHex": "b9abb1e2b0f8b6f53232000000000000000325ff45010f0100",
+      "parameters15to24": [
+        0,
+        0,
+        3,
+        37,
+        255,
+        69,
+        1,
+        15,
+        1,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 70,
+      "name": "가죽갑옷",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8862",
+      "rawHex": "b0a1c1d7b0a9bfca00000000000000000014ff05300a000a00",
+      "parameters15to24": [
+        0,
+        0,
+        20,
+        255,
+        5,
+        48,
+        10,
+        0,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 71,
+      "name": "구리갑옷",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x887B",
+      "rawHex": "b1b8b8aeb0a9bfca00000000000000000014ff0a313c000c00",
+      "parameters15to24": [
+        0,
+        0,
+        20,
+        255,
+        10,
+        49,
+        60,
+        0,
+        12,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 72,
+      "name": "철갑옷",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8894",
+      "rawHex": "c3b6b0a9bfca000000000000000000000014ff1e3278000e00",
+      "parameters15to24": [
+        0,
+        0,
+        20,
+        255,
+        30,
+        50,
+        120,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 73,
+      "name": "가죽방패",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x88AD",
+      "rawHex": "b0a1c1d7b9e6c6d000000000000000000016ff053309000a00",
+      "parameters15to24": [
+        0,
+        0,
+        22,
+        255,
+        5,
+        51,
+        9,
+        0,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 74,
+      "name": "구리방패",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x88C6",
+      "rawHex": "b1b8b8aeb9e6c6d000000000000000000016ff0a343a000c00",
+      "parameters15to24": [
+        0,
+        0,
+        22,
+        255,
+        10,
+        52,
+        58,
+        0,
+        12,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 75,
+      "name": "철방패",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x88DF",
+      "rawHex": "c3b6b9e6c6d0000000000000000000000016ff1e3574000e00",
+      "parameters15to24": [
+        0,
+        0,
+        22,
+        255,
+        30,
+        53,
+        116,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 76,
+      "name": "무명옷",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x88F8",
+      "rawHex": "b9abb8edbfca000000000000000000000018ff053609000a00",
+      "parameters15to24": [
+        0,
+        0,
+        24,
+        255,
+        5,
+        54,
+        9,
+        0,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 77,
+      "name": "가죽옷",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8911",
+      "rawHex": "b0a1c1d7bfca000000000000000000000018ff0a3738000c00",
+      "parameters15to24": [
+        0,
+        0,
+        24,
+        255,
+        10,
+        55,
+        56,
+        0,
+        12,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 78,
+      "name": "전투복",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x892A",
+      "rawHex": "c0fcc5f5bab9000000000000000000000018ff1e3872000e00",
+      "parameters15to24": [
+        0,
+        0,
+        24,
+        255,
+        30,
+        56,
+        114,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 79,
+      "name": "거울갑옷",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8943",
+      "rawHex": "b0c5bfefb0a9bfca0000000000000000001540ff390e1e0f01",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        64,
+        255,
+        57,
+        14,
+        30,
+        15,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 80,
+      "name": "황금갑옷",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x895C",
+      "rawHex": "c8b2b1ddb0a9bfca0000000000000000001535ff3a10001001",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        53,
+        255,
+        58,
+        16,
+        0,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 81,
+      "name": "연환갑옷",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8975",
+      "rawHex": "bfacc8afb0a9bfca0000000000000000001530ff3b0f001001",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        48,
+        255,
+        59,
+        15,
+        0,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 82,
+      "name": "백은갑옷",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x898E",
+      "rawHex": "b9e9c0bab0a9bfca0000000000000000001543ff3c10281001",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        67,
+        255,
+        60,
+        16,
+        40,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 83,
+      "name": "용린갑옷",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x89A7",
+      "rawHex": "bfebb8b0b0a9bfca0000000000000000001544ff3d0e060f01",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        68,
+        255,
+        61,
+        14,
+        6,
+        15,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 84,
+      "name": "항마방패",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x89C0",
+      "rawHex": "c7d7b8b6b9e6c6d0000000000000000000173eff3e0f1e1001",
+      "parameters15to24": [
+        0,
+        0,
+        23,
+        62,
+        255,
+        62,
+        15,
+        30,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 85,
+      "name": "황금방패",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x89D9",
+      "rawHex": "c8b2b1ddb9e6c6d0000000000000000000173dff3f0f141001",
+      "parameters15to24": [
+        0,
+        0,
+        23,
+        61,
+        255,
+        63,
+        15,
+        20,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 86,
+      "name": "백은방패",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x89F2",
+      "rawHex": "b9e9c0bab9e6c6d00000000000000000001743ff400f281001",
+      "parameters15to24": [
+        0,
+        0,
+        23,
+        67,
+        255,
+        64,
+        15,
+        40,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 87,
+      "name": "풍신방패",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8A0B",
+      "rawHex": "c7b3bdc5b9e6c6d0000000000000000000173fff410e100f01",
+      "parameters15to24": [
+        0,
+        0,
+        23,
+        63,
+        255,
+        65,
+        14,
+        16,
+        15,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 88,
+      "name": "비룡도복",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8A24",
+      "rawHex": "baf1b7e6b5b5bab90000000000000000001923ff4210321001",
+      "parameters15to24": [
+        0,
+        0,
+        25,
+        35,
+        255,
+        66,
+        16,
+        50,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 89,
+      "name": "학창",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8A3D",
+      "rawHex": "c7d0c3a2000000000000000000000000001922ff430f321001",
+      "parameters15to24": [
+        0,
+        0,
+        25,
+        34,
+        255,
+        67,
+        15,
+        50,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 90,
+      "name": "칠흑도복",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8A56",
+      "rawHex": "c4a5c8e6b5b5bab90000000000000000001944ff440e061001",
+      "parameters15to24": [
+        0,
+        0,
+        25,
+        68,
+        255,
+        68,
+        14,
+        6,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 91,
+      "name": "봉황깃옷",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8A6F",
+      "rawHex": "bac0c8b2b1eabfca0000000000000000001925ff450e961001",
+      "parameters15to24": [
+        0,
+        0,
+        25,
+        37,
+        255,
+        69,
+        14,
+        150,
+        16,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 92,
+      "name": "방어공란1",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8A88",
+      "rawHex": "b9e6beeeb0f8b6f53100000000000000001921ff5c0f321000",
+      "parameters15to24": [
+        0,
+        0,
+        25,
+        33,
+        255,
+        92,
+        15,
+        50,
+        16,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 93,
+      "name": "방어공란2",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8AA1",
+      "rawHex": "b9e6beeeb0f8b6f53200000000000000001544ff5d0f011000",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        68,
+        255,
+        93,
+        15,
+        1,
+        16,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 94,
+      "name": "방어공란3",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8ABA",
+      "rawHex": "b9e6beeeb0f8b6f5330000000000000000153dff5e0f191000",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        61,
+        255,
+        94,
+        15,
+        25,
+        16,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 95,
+      "name": "방어공란4",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8AD3",
+      "rawHex": "b9e6beeeb0f8b6f53400000000000000001543ff5f10320f00",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        67,
+        255,
+        95,
+        16,
+        50,
+        15,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 96,
+      "name": "방어공란4",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8AEC",
+      "rawHex": "b9e6beeeb0f8b6f53400000000000000001534ff600f1e1000",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        52,
+        255,
+        96,
+        15,
+        30,
+        16,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 97,
+      "name": "방어공란5",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8B05",
+      "rawHex": "b9e6beeeb0f8b6f53500000000000000001545ff6112000e00",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        69,
+        255,
+        97,
+        18,
+        0,
+        14,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 98,
+      "name": "방어공란6",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8B1E",
+      "rawHex": "b9e6beeeb0f8b6f53600000000000000001541ff620e001000",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        65,
+        255,
+        98,
+        14,
+        0,
+        16,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 99,
+      "name": "방어공란7",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8B37",
+      "rawHex": "b9e6beeeb0f8b6f53700000000000000001523ff630f321000",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        35,
+        255,
+        99,
+        15,
+        50,
+        16,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 100,
+      "name": "방어공란8",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8B50",
+      "rawHex": "b9e6beeeb0f8b6f53800000000000000001560ff6410321000",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        96,
+        255,
+        100,
+        16,
+        50,
+        16,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 101,
+      "name": "방어공란9",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8B69",
+      "rawHex": "b9e6beeeb0f8b6f53900000000000000001765ff650e321000",
+      "parameters15to24": [
+        0,
+        0,
+        23,
+        101,
+        255,
+        101,
+        14,
+        50,
+        16,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 102,
+      "name": "방어공란10",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8B82",
+      "rawHex": "b9e6beeeb0f8b6f53130000000000000001725ff660f501000",
+      "parameters15to24": [
+        0,
+        0,
+        23,
+        37,
+        255,
+        102,
+        15,
+        80,
+        16,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 103,
+      "name": "방어공란11",
+      "sourceFile": "Data.e5",
+      "sourceFileOffset": "0x8B9B",
+      "rawHex": "b9e6beeeb0f8b6f53131000000000000001723ff670f321000",
+      "parameters15to24": [
+        0,
+        0,
+        23,
+        35,
+        255,
+        103,
+        15,
+        50,
+        16,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 104,
+      "name": "방어공란12",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x0",
+      "rawHex": "b9e6beeeb0f8b6f53132000000000000001929ff690a050a00",
+      "parameters15to24": [
+        0,
+        0,
+        25,
+        41,
+        255,
+        105,
+        10,
+        5,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 105,
+      "name": "방어공란13",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x19",
+      "rawHex": "b9e6beeeb0f8b6f5313300000000000000197bff6a0a040a00",
+      "parameters15to24": [
+        0,
+        0,
+        25,
+        123,
+        255,
+        106,
+        10,
+        4,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 106,
+      "name": "방어공란14",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x32",
+      "rawHex": "b9e6beeeb0f8b6f53134000000000000001970ff6b0a060a00",
+      "parameters15to24": [
+        0,
+        0,
+        25,
+        112,
+        255,
+        107,
+        10,
+        6,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 107,
+      "name": "방어공란15",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x4B",
+      "rawHex": "b9e6beeeb0f8b6f5313500000000000000157aff6c0a020a00",
+      "parameters15to24": [
+        0,
+        0,
+        21,
+        122,
+        255,
+        108,
+        10,
+        2,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 108,
+      "name": "방어공란16",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x64",
+      "rawHex": "b9e6beeeb0f8b6f5313600000000000000175dff6d0a010a00",
+      "parameters15to24": [
+        0,
+        0,
+        23,
+        93,
+        255,
+        109,
+        10,
+        1,
+        10,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 109,
+      "name": "기마갑옷",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x7D",
+      "rawHex": "b1e2b8b6b0a9bfca0000000000000000004502ff463200ff01",
+      "parameters15to24": [
+        0,
+        0,
+        69,
+        2,
+        255,
+        70,
+        50,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 110,
+      "name": "신수장갑",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x96",
+      "rawHex": "bdc5bcf6c0e5b0a90000000000000000002f02ff471400ff01",
+      "parameters15to24": [
+        0,
+        0,
+        47,
+        2,
+        255,
+        71,
+        20,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 111,
+      "name": "수극",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xAF",
+      "rawHex": "bcf6b1d8000000000000000000000000002e02ff4800000101",
+      "parameters15to24": [
+        0,
+        0,
+        46,
+        2,
+        255,
+        72,
+        0,
+        0,
+        1,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 112,
+      "name": "몰우전",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xC8",
+      "rawHex": "b8f4bfecc0fc00000000000000000000003202ff490c000701",
+      "parameters15to24": [
+        0,
+        0,
+        50,
+        2,
+        255,
+        73,
+        12,
+        0,
+        7,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 113,
+      "name": "손자병법서",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xE1",
+      "rawHex": "bcd5c0dabab4b9fdbcad000000000000003102ff4a0300ff01",
+      "parameters15to24": [
+        0,
+        0,
+        49,
+        2,
+        255,
+        74,
+        3,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 114,
+      "name": "청낭서",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xFA",
+      "rawHex": "c3bbb3b6bcad00000000000000000000001a02ff4b1900ff01",
+      "parameters15to24": [
+        0,
+        0,
+        26,
+        2,
+        255,
+        75,
+        25,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 115,
+      "name": "태평청령서",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x113",
+      "rawHex": "c5c2c6f2c3bbb7c9bcad000000000000001c02ff4c0100ff01",
+      "parameters15to24": [
+        0,
+        0,
+        28,
+        2,
+        255,
+        76,
+        1,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 116,
+      "name": "태평요술서",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x12C",
+      "rawHex": "c5c2c6f2bfe4bcfabcad000000000000001b02ff4d0a00ff01",
+      "parameters15to24": [
+        0,
+        0,
+        27,
+        2,
+        255,
+        77,
+        10,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 117,
+      "name": "둔갑천서",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x145",
+      "rawHex": "b5d0b0a9c3b5bcad0000000000000000003b02ff4e1e00ff01",
+      "parameters15to24": [
+        0,
+        0,
+        59,
+        2,
+        255,
+        78,
+        30,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 118,
+      "name": "삼십육계",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x15E",
+      "rawHex": "bbefbdcac0b0b0e80000000000000000002702ff4f6400ff01",
+      "parameters15to24": [
+        0,
+        0,
+        39,
+        2,
+        255,
+        79,
+        100,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 119,
+      "name": "적토마",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x177",
+      "rawHex": "c0fbc5e4b8b600000000000000000000002902ff500000ff01",
+      "parameters15to24": [
+        0,
+        0,
+        41,
+        2,
+        255,
+        80,
+        0,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 120,
+      "name": "적로",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x190",
+      "rawHex": "c0fbb7ce000000000000000000000000002a02ff510000ff01",
+      "parameters15to24": [
+        0,
+        0,
+        42,
+        2,
+        255,
+        81,
+        0,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 121,
+      "name": "주역",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x1A9",
+      "rawHex": "c1d6bfaa000000000000000000000000002002ff522d00ff01",
+      "parameters15to24": [
+        0,
+        0,
+        32,
+        2,
+        255,
+        82,
+        45,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 122,
+      "name": "사기",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x1C2",
+      "rawHex": "bbe7b1e2000000000000000000000000002202ff532d00ff01",
+      "parameters15to24": [
+        0,
+        0,
+        34,
+        2,
+        255,
+        83,
+        45,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 123,
+      "name": "논어",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x1DB",
+      "rawHex": "b3edbeee000000000000000000000000003c02ff540a00ff01",
+      "parameters15to24": [
+        0,
+        0,
+        60,
+        2,
+        255,
+        84,
+        10,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 124,
+      "name": "맹독시",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x1F4",
+      "rawHex": "b8cdb5b6bdc300000000000000000000002d02ff550000ff01",
+      "parameters15to24": [
+        0,
+        0,
+        45,
+        2,
+        255,
+        85,
+        0,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 125,
+      "name": "천운시",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x20D",
+      "rawHex": "c3b5bfeebdc300000000000000000000002b02ff564b000201",
+      "parameters15to24": [
+        0,
+        0,
+        43,
+        2,
+        255,
+        86,
+        75,
+        0,
+        2,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 126,
+      "name": "콩주머니",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x226",
+      "rawHex": "c4e1c1d6b8d3b4cf0000000000000000004602ff77960aff01",
+      "parameters15to24": [
+        0,
+        0,
+        70,
+        2,
+        255,
+        119,
+        150,
+        10,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 127,
+      "name": "바람바퀴",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x23F",
+      "rawHex": "b9d9b6f7b9d9c4fb0000000000000000002802ff7803000501",
+      "parameters15to24": [
+        0,
+        0,
+        40,
+        2,
+        255,
+        120,
+        3,
+        0,
+        5,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 128,
+      "name": "제갈건",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x258",
+      "rawHex": "c1a6b0a5b0c700000000000000000000002602ff792d32ff01",
+      "parameters15to24": [
+        0,
+        0,
+        38,
+        2,
+        255,
+        121,
+        45,
+        50,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 129,
+      "name": "사자투구",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x271",
+      "rawHex": "bbe7c0dac5f5b1b80000000000000000004202ff7a01320301",
+      "parameters15to24": [
+        0,
+        0,
+        66,
+        2,
+        255,
+        122,
+        1,
+        50,
+        3,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 130,
+      "name": "조황비전",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x28A",
+      "rawHex": "c1b6c8b2baf1c0fc0000000000000000002802ff7b0205ff01",
+      "parameters15to24": [
+        0,
+        0,
+        40,
+        2,
+        255,
+        123,
+        2,
+        5,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 131,
+      "name": "절영",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x2A3",
+      "rawHex": "c0fdbfb5000000000000000000000000004102ff7c0500ff01",
+      "parameters15to24": [
+        0,
+        0,
+        65,
+        2,
+        255,
+        124,
+        5,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 132,
+      "name": "육도삼략",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x2BC",
+      "rawHex": "c0b0b5b5bbefb7ab0000000000000000001e02ff7d0701ff01",
+      "parameters15to24": [
+        0,
+        0,
+        30,
+        2,
+        255,
+        125,
+        7,
+        1,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 133,
+      "name": "맹덕신서",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x2D5",
+      "rawHex": "b8cdb4f6bdc5bcad0000000000000000003302ff7e0400ff01",
+      "parameters15to24": [
+        0,
+        0,
+        51,
+        2,
+        255,
+        126,
+        4,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 134,
+      "name": "옥새",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x2EE",
+      "rawHex": "bfc1bbf5000000000000000000000000003502ff7f3200ff01",
+      "parameters15to24": [
+        0,
+        0,
+        53,
+        2,
+        255,
+        127,
+        50,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 135,
+      "name": "재신통보",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x307",
+      "rawHex": "c0e7bdc5c5ebbab80000000000000000004702ff800000ff01",
+      "parameters15to24": [
+        0,
+        0,
+        71,
+        2,
+        255,
+        128,
+        0,
+        0,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 136,
+      "name": "질풍전",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x320",
+      "rawHex": "c1fac7b3c0fc00000000000000000000002402ff814b000401",
+      "parameters15to24": [
+        0,
+        0,
+        36,
+        2,
+        255,
+        129,
+        75,
+        0,
+        4,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 137,
+      "name": "사신보옥",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x339",
+      "rawHex": "bbe7bdc5bab8bfc10000000000000000003a02ff82000aff01",
+      "parameters15to24": [
+        0,
+        0,
+        58,
+        2,
+        255,
+        130,
+        0,
+        10,
+        255,
+        1
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 138,
+      "name": "보조공란1",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x352",
+      "rawHex": "bab8c1b6b0f8b6f53100000000000000004202ff8b0405ff00",
+      "parameters15to24": [
+        0,
+        0,
+        66,
+        2,
+        255,
+        139,
+        4,
+        5,
+        255,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 139,
+      "name": "보조공란2",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x36B",
+      "rawHex": "bab8c1b6b0f8b6f53200000000000000002902ff8c0500ff00",
+      "parameters15to24": [
+        0,
+        0,
+        41,
+        2,
+        255,
+        140,
+        5,
+        0,
+        255,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 140,
+      "name": "보조공란3",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x384",
+      "rawHex": "bab8c1b6b0f8b6f53300000000000000007b02ff8d0401ff00",
+      "parameters15to24": [
+        0,
+        0,
+        123,
+        2,
+        255,
+        141,
+        4,
+        1,
+        255,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 141,
+      "name": "보조공란4",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x39D",
+      "rawHex": "bab8c1b6b0f8b6f53400000000000000007002ff8e0600ff00",
+      "parameters15to24": [
+        0,
+        0,
+        112,
+        2,
+        255,
+        142,
+        6,
+        0,
+        255,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 142,
+      "name": "보조공란5",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x3B6",
+      "rawHex": "bab8c1b6b0f8b6f53500000000000000007a02ff8f0200ff00",
+      "parameters15to24": [
+        0,
+        0,
+        122,
+        2,
+        255,
+        143,
+        2,
+        0,
+        255,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 143,
+      "name": "보조공란6",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x3CF",
+      "rawHex": "bab8c1b6b0f8b6f53600000000000000005d02ff900100ff00",
+      "parameters15to24": [
+        0,
+        0,
+        93,
+        2,
+        255,
+        144,
+        1,
+        0,
+        255,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 144,
+      "name": "보조공란7",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x3E8",
+      "rawHex": "bab8c1b6b0f8b6f53700000000000000007502ff910300ff00",
+      "parameters15to24": [
+        0,
+        0,
+        117,
+        2,
+        255,
+        145,
+        3,
+        0,
+        255,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 145,
+      "name": "보조공란8",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x401",
+      "rawHex": "bab8c1b6b0f8b6f53800000000000000004602ff929600ff00",
+      "parameters15to24": [
+        0,
+        0,
+        70,
+        2,
+        255,
+        146,
+        150,
+        0,
+        255,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 146,
+      "name": "보조공란9",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x41A",
+      "rawHex": "bab8c1b6b0f8b6f53900000000000000004602ff936000ff00",
+      "parameters15to24": [
+        0,
+        0,
+        70,
+        2,
+        255,
+        147,
+        96,
+        0,
+        255,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 147,
+      "name": "보조공란10",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x433",
+      "rawHex": "bab8c1b6b0f8b6f5313000000000000000460200946000ff00",
+      "parameters15to24": [
+        0,
+        0,
+        70,
+        2,
+        0,
+        148,
+        96,
+        0,
+        255,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 148,
+      "name": "보조공란11",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x44C",
+      "rawHex": "bab8c1b6b0f8b6f5313100000000000000460200956000ff00",
+      "parameters15to24": [
+        0,
+        0,
+        70,
+        2,
+        0,
+        149,
+        96,
+        0,
+        255,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 149,
+      "name": "보조공란12",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x465",
+      "rawHex": "bab8c1b6b0f8b6f53132000000000000007f0200960600ff00",
+      "parameters15to24": [
+        0,
+        0,
+        127,
+        2,
+        0,
+        150,
+        6,
+        0,
+        255,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 150,
+      "name": "콩",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x47E",
+      "rawHex": "c4e10000000000000000000000000000001a03015732000000",
+      "parameters15to24": [
+        0,
+        0,
+        26,
+        3,
+        1,
+        87,
+        50,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 151,
+      "name": "쌀",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x497",
+      "rawHex": "bdd20000000000000000000000000000001a03035878000000",
+      "parameters15to24": [
+        0,
+        0,
+        26,
+        3,
+        3,
+        88,
+        120,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 152,
+      "name": "복숭아",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x4B0",
+      "rawHex": "bab9bcfebec600000000000000000000001a031459ff000000",
+      "parameters15to24": [
+        0,
+        0,
+        26,
+        3,
+        20,
+        89,
+        255,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 153,
+      "name": "신비의 물",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x4C9",
+      "rawHex": "bdc5baf1c0c720b9b000000000000000001b03055a28000000",
+      "parameters15to24": [
+        0,
+        0,
+        27,
+        3,
+        5,
+        90,
+        40,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 154,
+      "name": "신비의 술",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x4E2",
+      "rawHex": "bdc5baf1c0c720bcfa00000000000000001b03145b50000000",
+      "parameters15to24": [
+        0,
+        0,
+        27,
+        3,
+        20,
+        91,
+        80,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 155,
+      "name": "해독약",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x4FB",
+      "rawHex": "c7d8b5b6bee000000000000000000000001d03015c00000000",
+      "parameters15to24": [
+        0,
+        0,
+        29,
+        3,
+        1,
+        92,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 156,
+      "name": "각성약",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x514",
+      "rawHex": "b0a2bcbabee000000000000000000000001c03025d00000000",
+      "parameters15to24": [
+        0,
+        0,
+        28,
+        3,
+        2,
+        93,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 157,
+      "name": "도포제",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x52D",
+      "rawHex": "b5b5c6f7c1a600000000000000000000001e03015e00000000",
+      "parameters15to24": [
+        0,
+        0,
+        30,
+        3,
+        1,
+        94,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 158,
+      "name": "양치약",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x546",
+      "rawHex": "bee7c4a1bee000000000000000000000001f03015f00000000",
+      "parameters15to24": [
+        0,
+        0,
+        31,
+        3,
+        1,
+        95,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 159,
+      "name": "만능약",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x55F",
+      "rawHex": "b8b8b4c9bee000000000000000000000002003056000000000",
+      "parameters15to24": [
+        0,
+        0,
+        32,
+        3,
+        5,
+        96,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 160,
+      "name": "인수",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x578",
+      "rawHex": "c0cebcf60000000000000000000000000027030a6100000000",
+      "parameters15to24": [
+        0,
+        0,
+        39,
+        3,
+        10,
+        97,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 161,
+      "name": "무력의 열매",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x591",
+      "rawHex": "b9abb7c2c0c720bfadb8c50000000000002103ff6202000000",
+      "parameters15to24": [
+        0,
+        0,
+        33,
+        3,
+        255,
+        98,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 162,
+      "name": "지력의 열매",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x5AA",
+      "rawHex": "c1f6b7c2c0c720bfadb8c50000000000002303ff6302000000",
+      "parameters15to24": [
+        0,
+        0,
+        35,
+        3,
+        255,
+        99,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 163,
+      "name": "통솔의 열매",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x5C3",
+      "rawHex": "c5ebbcd6c0c720bfadb8c50000000000002203ff6402000000",
+      "parameters15to24": [
+        0,
+        0,
+        34,
+        3,
+        255,
+        100,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 164,
+      "name": "민첩의 열매",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x5DC",
+      "rawHex": "b9cec3b8c0c720bfadb8c50000000000002403ff6502000000",
+      "parameters15to24": [
+        0,
+        0,
+        36,
+        3,
+        255,
+        101,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 165,
+      "name": "행운의 열매",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x5F5",
+      "rawHex": "c7e0bfeec0c720bfadb8c50000000000002503ff6602000000",
+      "parameters15to24": [
+        0,
+        0,
+        37,
+        3,
+        255,
+        102,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 166,
+      "name": "경험의 열매",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x60E",
+      "rawHex": "b0e6c7e8c0c720bfadb8c50000000000002603ff6764000000",
+      "parameters15to24": [
+        0,
+        0,
+        38,
+        3,
+        255,
+        103,
+        100,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 167,
+      "name": "기력의 열매",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x627",
+      "rawHex": "b1e2b7c2c0c720bfadb8c50000000000002803056764000000",
+      "parameters15to24": [
+        0,
+        0,
+        40,
+        3,
+        5,
+        103,
+        100,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 168,
+      "name": "공훈의 열매",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x640",
+      "rawHex": "b0f8c8c6c0c720bfadb8c50000000000002903056364000000",
+      "parameters15to24": [
+        0,
+        0,
+        41,
+        3,
+        5,
+        99,
+        100,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 169,
+      "name": "체력의 열매",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x659",
+      "rawHex": "c3bcb7c2c0c720bfadb8c50000000000002a03ff620a000000",
+      "parameters15to24": [
+        0,
+        0,
+        42,
+        3,
+        255,
+        98,
+        10,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 170,
+      "name": "마력의 열매",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x672",
+      "rawHex": "b8b6b7c2c0c720bfadb8c50000000000002b03ff640a000000",
+      "parameters15to24": [
+        0,
+        0,
+        43,
+        3,
+        255,
+        100,
+        10,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 171,
+      "name": "결전 도전장",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x68B",
+      "rawHex": "b0e1c0fc20b5b5c0fcc0e50000000000003103ff5200000000",
+      "parameters15to24": [
+        0,
+        0,
+        49,
+        3,
+        255,
+        82,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 172,
+      "name": "설전 도전장",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x6A4",
+      "rawHex": "bcb3c0fc20b5b5c0fcc0e50000000000003103ff5201000000",
+      "parameters15to24": [
+        0,
+        0,
+        49,
+        3,
+        255,
+        82,
+        1,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 173,
+      "name": "결투 도전장",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x6BD",
+      "rawHex": "b0e1c5f520b5b5c0fcc0e50000000000003103ff5202000000",
+      "parameters15to24": [
+        0,
+        0,
+        49,
+        3,
+        255,
+        82,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 174,
+      "name": "장비 각성서",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x6D6",
+      "rawHex": "c0e5baf120b0a2bcbabcad0000000000003d03645301000000",
+      "parameters15to24": [
+        0,
+        0,
+        61,
+        3,
+        100,
+        83,
+        1,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 175,
+      "name": "소모공란5",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x6EF",
+      "rawHex": "bcd2b8f0b0f8b6f53500000000000000001b03145b50000000",
+      "parameters15to24": [
+        0,
+        0,
+        27,
+        3,
+        20,
+        91,
+        80,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 176,
+      "name": "소모공란6",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x708",
+      "rawHex": "bcd2b8f0b0f8b6f53600000000000000001d03015c00000000",
+      "parameters15to24": [
+        0,
+        0,
+        29,
+        3,
+        1,
+        92,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 177,
+      "name": "소모공란7",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x721",
+      "rawHex": "bcd2b8f0b0f8b6f53700000000000000001c03025d00000000",
+      "parameters15to24": [
+        0,
+        0,
+        28,
+        3,
+        2,
+        93,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 178,
+      "name": "소모공란8",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x73A",
+      "rawHex": "bcd2b8f0b0f8b6f53800000000000000001e03015e00000000",
+      "parameters15to24": [
+        0,
+        0,
+        30,
+        3,
+        1,
+        94,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 179,
+      "name": "소모공란9",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x753",
+      "rawHex": "bcd2b8f0b0f8b6f53900000000000000001f03015f00000000",
+      "parameters15to24": [
+        0,
+        0,
+        31,
+        3,
+        1,
+        95,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 180,
+      "name": "소모공란10",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x76C",
+      "rawHex": "bcd2b8f0b0f8b6f53130000000000000002003056000000000",
+      "parameters15to24": [
+        0,
+        0,
+        32,
+        3,
+        5,
+        96,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 181,
+      "name": "소모공란11",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x785",
+      "rawHex": "bcd2b8f0b0f8b6f531310000000000000027030a6100000000",
+      "parameters15to24": [
+        0,
+        0,
+        39,
+        3,
+        10,
+        97,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 182,
+      "name": "소모공란12",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x79E",
+      "rawHex": "bcd2b8f0b0f8b6f53132000000000000002103ff6202000000",
+      "parameters15to24": [
+        0,
+        0,
+        33,
+        3,
+        255,
+        98,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 183,
+      "name": "소모공란13",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x7B7",
+      "rawHex": "bcd2b8f0b0f8b6f53133000000000000002303ff6302000000",
+      "parameters15to24": [
+        0,
+        0,
+        35,
+        3,
+        255,
+        99,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 184,
+      "name": "소모공란14",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x7D0",
+      "rawHex": "bcd2b8f0b0f8b6f53134000000000000002203ff6402000000",
+      "parameters15to24": [
+        0,
+        0,
+        34,
+        3,
+        255,
+        100,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 185,
+      "name": "소모공란15",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x7E9",
+      "rawHex": "bcd2b8f0b0f8b6f53135000000000000002403ff6502000000",
+      "parameters15to24": [
+        0,
+        0,
+        36,
+        3,
+        255,
+        101,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 186,
+      "name": "소모공란16",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x802",
+      "rawHex": "bcd2b8f0b0f8b6f53136000000000000002503ff6602000000",
+      "parameters15to24": [
+        0,
+        0,
+        37,
+        3,
+        255,
+        102,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 187,
+      "name": "소모공란17",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x81B",
+      "rawHex": "bcd2b8f0b0f8b6f53137000000000000002603ff6764000000",
+      "parameters15to24": [
+        0,
+        0,
+        38,
+        3,
+        255,
+        103,
+        100,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 188,
+      "name": "소모공란18",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x834",
+      "rawHex": "bcd2b8f0b0f8b6f531380000000000000028030000a7000000",
+      "parameters15to24": [
+        0,
+        0,
+        40,
+        3,
+        0,
+        0,
+        167,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 189,
+      "name": "소모공란19",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x84D",
+      "rawHex": "bcd2b8f0b0f8b6f53139000000000000002903000009000000",
+      "parameters15to24": [
+        0,
+        0,
+        41,
+        3,
+        0,
+        0,
+        9,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 190,
+      "name": "소모공란20",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x866",
+      "rawHex": "bcd2b8f0b0f8b6f53230000000000000002a0300000a000000",
+      "parameters15to24": [
+        0,
+        0,
+        42,
+        3,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 191,
+      "name": "소모공란21",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x87F",
+      "rawHex": "bcd2b8f0b0f8b6f53231000000000000002b0300000b000000",
+      "parameters15to24": [
+        0,
+        0,
+        43,
+        3,
+        0,
+        0,
+        11,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 192,
+      "name": "소모공란22",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x898",
+      "rawHex": "bcd2b8f0b0f8b6f53232000000000000001b030000c0000000",
+      "parameters15to24": [
+        0,
+        0,
+        27,
+        3,
+        0,
+        0,
+        192,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 193,
+      "name": "소모공란23",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x8B1",
+      "rawHex": "bcd2b8f0b0f8b6f53233000000000000001a030000c1000000",
+      "parameters15to24": [
+        0,
+        0,
+        26,
+        3,
+        0,
+        0,
+        193,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 194,
+      "name": "소모공란24",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x8CA",
+      "rawHex": "bcd2b8f0b0f8b6f53234000000000000001b030000c2000000",
+      "parameters15to24": [
+        0,
+        0,
+        27,
+        3,
+        0,
+        0,
+        194,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 195,
+      "name": "소모공란25",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x8E3",
+      "rawHex": "bcd2b8f0b0f8b6f53235000000000000001a030000c3000000",
+      "parameters15to24": [
+        0,
+        0,
+        26,
+        3,
+        0,
+        0,
+        195,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 196,
+      "name": "소모공란26",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x8FC",
+      "rawHex": "bcd2b8f0b0f8b6f53236000000000000001b030000c4000000",
+      "parameters15to24": [
+        0,
+        0,
+        27,
+        3,
+        0,
+        0,
+        196,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 197,
+      "name": "소모공란27",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x915",
+      "rawHex": "bcd2b8f0b0f8b6f53237000000000000001a030000c5000000",
+      "parameters15to24": [
+        0,
+        0,
+        26,
+        3,
+        0,
+        0,
+        197,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 198,
+      "name": "소모공란28",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x92E",
+      "rawHex": "bcd2b8f0b0f8b6f53238000000000000001b030000c6000000",
+      "parameters15to24": [
+        0,
+        0,
+        27,
+        3,
+        0,
+        0,
+        198,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 199,
+      "name": "소모공란29",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x947",
+      "rawHex": "bcd2b8f0b0f8b6f53239000000000000002703ff67c7000000",
+      "parameters15to24": [
+        0,
+        0,
+        39,
+        3,
+        255,
+        103,
+        199,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 200,
+      "name": "수류탄",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x960",
+      "rawHex": "bcf6b7f9c5ba000000000000000000001d410302693c000000",
+      "parameters15to24": [
+        0,
+        29,
+        65,
+        3,
+        2,
+        105,
+        60,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 201,
+      "name": "세열탄",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x979",
+      "rawHex": "bcbcbfadc5ba00000000000000000000194103046a64000000",
+      "parameters15to24": [
+        0,
+        25,
+        65,
+        3,
+        4,
+        106,
+        100,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 202,
+      "name": "소이탄",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x992",
+      "rawHex": "bcd2c0ccc5ba000000000000000000001941030a6b46000100",
+      "parameters15to24": [
+        0,
+        25,
+        65,
+        3,
+        10,
+        107,
+        70,
+        0,
+        1,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 203,
+      "name": "작약탄",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x9AB",
+      "rawHex": "c0dbbee0c5ba000000000000000000000941030f6c78000700",
+      "parameters15to24": [
+        0,
+        9,
+        65,
+        3,
+        15,
+        108,
+        120,
+        0,
+        7,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 204,
+      "name": "원자탄",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x9C4",
+      "rawHex": "bff8c0dac5ba000000000000000000000a4103ff6dc8000800",
+      "parameters15to24": [
+        0,
+        10,
+        65,
+        3,
+        255,
+        109,
+        200,
+        0,
+        8,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 205,
+      "name": "탐지기",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x9DD",
+      "rawHex": "c5bdc1f6b1e200000000000000000001004203036e00000600",
+      "parameters15to24": [
+        1,
+        0,
+        66,
+        3,
+        3,
+        110,
+        0,
+        0,
+        6,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 206,
+      "name": "야전삽",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0x9F6",
+      "rawHex": "bedfc0fcbbf000000000000000000001003e03036e00000000",
+      "parameters15to24": [
+        1,
+        0,
+        62,
+        3,
+        3,
+        110,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 207,
+      "name": "조종기",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xA0F",
+      "rawHex": "c1b6c1beb1e200000000000000000001003f03036f00000000",
+      "parameters15to24": [
+        1,
+        0,
+        63,
+        3,
+        3,
+        111,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 208,
+      "name": "돌지뢰(보)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xA28",
+      "rawHex": "b5b9c1f6b7da28bab829000000000000004003017032000000",
+      "parameters15to24": [
+        0,
+        0,
+        64,
+        3,
+        1,
+        112,
+        50,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 209,
+      "name": "동지뢰(보)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xA41",
+      "rawHex": "b5bfc1f6b7da28bab829000000000000004003027150000100",
+      "parameters15to24": [
+        0,
+        0,
+        64,
+        3,
+        2,
+        113,
+        80,
+        0,
+        1,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 210,
+      "name": "철지뢰(보)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xA5A",
+      "rawHex": "c3b6c1f6b7da28bab82900000000000000400303727d000200",
+      "parameters15to24": [
+        0,
+        0,
+        64,
+        3,
+        3,
+        114,
+        125,
+        0,
+        2,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 211,
+      "name": "진천뢰(보)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xA73",
+      "rawHex": "c1f8c3b5b7da28bab8290000000000000040030a734b000200",
+      "parameters15to24": [
+        0,
+        0,
+        64,
+        3,
+        10,
+        115,
+        75,
+        0,
+        2,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 212,
+      "name": "경천뢰(보)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xA8C",
+      "rawHex": "b0e6c3b5b7da28bab82900000000000000400314747d000300",
+      "parameters15to24": [
+        0,
+        0,
+        64,
+        3,
+        20,
+        116,
+        125,
+        0,
+        3,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 213,
+      "name": "굉천뢰(보)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xAA5",
+      "rawHex": "b1b2c3b5b7da28bab8290000000000000040032875c8000800",
+      "parameters15to24": [
+        0,
+        0,
+        64,
+        3,
+        40,
+        117,
+        200,
+        0,
+        8,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 214,
+      "name": "돌지뢰(인)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xABE",
+      "rawHex": "b5b9c1f6b7da28c0ce2900000000000001400302713c000200",
+      "parameters15to24": [
+        0,
+        1,
+        64,
+        3,
+        2,
+        113,
+        60,
+        0,
+        2,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 215,
+      "name": "동지뢰(인)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xAD7",
+      "rawHex": "b5bfc1f6b7da28c0ce29000000000000014003047264000200",
+      "parameters15to24": [
+        0,
+        1,
+        64,
+        3,
+        4,
+        114,
+        100,
+        0,
+        2,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 216,
+      "name": "철지뢰(인)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xAF0",
+      "rawHex": "c3b6c1f6b7da28c0ce2900000000000001400306738c000200",
+      "parameters15to24": [
+        0,
+        1,
+        64,
+        3,
+        6,
+        115,
+        140,
+        0,
+        2,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 217,
+      "name": "진천뢰(인)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xB09",
+      "rawHex": "c1f8c3b5b7da28c0ce290000000000000140030f7478000300",
+      "parameters15to24": [
+        0,
+        1,
+        64,
+        3,
+        15,
+        116,
+        120,
+        0,
+        3,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 218,
+      "name": "경천뢰(인)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xB22",
+      "rawHex": "b0e6c3b5b7da28c0ce290000000000000140031e7596000800",
+      "parameters15to24": [
+        0,
+        1,
+        64,
+        3,
+        30,
+        117,
+        150,
+        0,
+        8,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 219,
+      "name": "굉천뢰(인)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xB3B",
+      "rawHex": "b1b2c3b5b7da28c0ce290000000000000140033271fa000600",
+      "parameters15to24": [
+        0,
+        1,
+        64,
+        3,
+        50,
+        113,
+        250,
+        0,
+        6,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 220,
+      "name": "돌지뢰(공)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xB54",
+      "rawHex": "b5b9c1f6b7da28b0f829000000000000024003017028000000",
+      "parameters15to24": [
+        0,
+        2,
+        64,
+        3,
+        1,
+        112,
+        40,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 221,
+      "name": "동지뢰(공)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xB6D",
+      "rawHex": "b5bfc1f6b7da28b0f829000000000000024003027141000000",
+      "parameters15to24": [
+        0,
+        2,
+        64,
+        3,
+        2,
+        113,
+        65,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 222,
+      "name": "철지뢰(공)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xB86",
+      "rawHex": "c3b6c1f6b7da28b0f82900000000000002400303725a000000",
+      "parameters15to24": [
+        0,
+        2,
+        64,
+        3,
+        3,
+        114,
+        90,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 223,
+      "name": "진천뢰(공)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xB9F",
+      "rawHex": "c1f8c3b5b7da28b0f8290000000000000240030a7346000100",
+      "parameters15to24": [
+        0,
+        2,
+        64,
+        3,
+        10,
+        115,
+        70,
+        0,
+        1,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 224,
+      "name": "경천뢰(공)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xBB8",
+      "rawHex": "b0e6c3b5b7da28b0f82900000000000002400314746e000200",
+      "parameters15to24": [
+        0,
+        2,
+        64,
+        3,
+        20,
+        116,
+        110,
+        0,
+        2,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 225,
+      "name": "굉천뢰(공)",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xBD1",
+      "rawHex": "b1b2c3b5b7da28b0f8290000000000000240032875af000300",
+      "parameters15to24": [
+        0,
+        2,
+        64,
+        3,
+        40,
+        117,
+        175,
+        0,
+        3,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 226,
+      "name": "폭탄공란1",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xBEA",
+      "rawHex": "c6f8c5bab0f8b6f53100000000000000014303020000000000",
+      "parameters15to24": [
+        0,
+        1,
+        67,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 227,
+      "name": "폭탄공란2",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xC03",
+      "rawHex": "c6f8c5bab0f8b6f53200000000000000004403010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        68,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 228,
+      "name": "폭탄공란3",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xC1C",
+      "rawHex": "c6f8c5bab0f8b6f53300000000000000014503020000000000",
+      "parameters15to24": [
+        0,
+        1,
+        69,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 229,
+      "name": "폭탄공란4",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xC35",
+      "rawHex": "c6f8c5bab0f8b6f53400000000000000004603010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        70,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 230,
+      "name": "폭탄공란5",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xC4E",
+      "rawHex": "c6f8c5bab0f8b6f53500000000000000004703020000000000",
+      "parameters15to24": [
+        0,
+        0,
+        71,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 231,
+      "name": "폭탄공란6",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xC67",
+      "rawHex": "c6f8c5bab0f8b6f53600000000000000004803010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        72,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 232,
+      "name": "폭탄공란7",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xC80",
+      "rawHex": "c6f8c5bab0f8b6f53700000000000000004903020000000000",
+      "parameters15to24": [
+        0,
+        0,
+        73,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 233,
+      "name": "폭탄공란8",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xC99",
+      "rawHex": "c6f8c5bab0f8b6f53800000000000000004a03010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        74,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 234,
+      "name": "폭탄공란9",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xCB2",
+      "rawHex": "c6f8c5bab0f8b6f53900000000000000004b03020000000000",
+      "parameters15to24": [
+        0,
+        0,
+        75,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 235,
+      "name": "폭탄공란10",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xCCB",
+      "rawHex": "c6f8c5bab0f8b6f53130000000000000004c03010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        76,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 236,
+      "name": "폭탄공란11",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xCE4",
+      "rawHex": "c6f8c5bab0f8b6f53131000000000000004d03020000000000",
+      "parameters15to24": [
+        0,
+        0,
+        77,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 237,
+      "name": "폭탄공란12",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xCFD",
+      "rawHex": "c6f8c5bab0f8b6f53132000000000000004e03010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        78,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 238,
+      "name": "폭탄공란13",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xD16",
+      "rawHex": "c6f8c5bab0f8b6f53133000000000000004f03020000000000",
+      "parameters15to24": [
+        0,
+        0,
+        79,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 239,
+      "name": "폭탄공란14",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xD2F",
+      "rawHex": "c6f8c5bab0f8b6f53134000000000000005003010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        80,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 240,
+      "name": "폭탄공란15",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xD48",
+      "rawHex": "c6f8c5bab0f8b6f53135000000000000005103020000000000",
+      "parameters15to24": [
+        0,
+        0,
+        81,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 241,
+      "name": "폭탄공란16",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xD61",
+      "rawHex": "c6f8c5bab0f8b6f53136000000000000005203010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        82,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 242,
+      "name": "폭탄공란17",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xD7A",
+      "rawHex": "c6f8c5bab0f8b6f53137000000000000005303020000000000",
+      "parameters15to24": [
+        0,
+        0,
+        83,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 243,
+      "name": "폭탄공란18",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xD93",
+      "rawHex": "c6f8c5bab0f8b6f53138000000000000002803010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        40,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 244,
+      "name": "폭탄공란19",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xDAC",
+      "rawHex": "c6f8c5bab0f8b6f53139000000000000002803020000000000",
+      "parameters15to24": [
+        0,
+        0,
+        40,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 245,
+      "name": "폭탄공란20",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xDC5",
+      "rawHex": "c6f8c5bab0f8b6f53230000000000000002803010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        40,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 246,
+      "name": "폭탄공란21",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xDDE",
+      "rawHex": "c6f8c5bab0f8b6f53231000000000000002803020000000000",
+      "parameters15to24": [
+        0,
+        0,
+        40,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 247,
+      "name": "폭탄공란22",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xDF7",
+      "rawHex": "c6f8c5bab0f8b6f53232000000000000002803010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        40,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 248,
+      "name": "폭탄공란23",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xE10",
+      "rawHex": "c6f8c5bab0f8b6f53233000000000000002803020000000000",
+      "parameters15to24": [
+        0,
+        0,
+        40,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 249,
+      "name": "폭탄공란24",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xE29",
+      "rawHex": "c6f8c5bab0f8b6f53234000000000000003e03010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        62,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 250,
+      "name": "폭탄공란25",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xE42",
+      "rawHex": "c6f8c5bab0f8b6f53235000000000000003e03020000000000",
+      "parameters15to24": [
+        0,
+        0,
+        62,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 251,
+      "name": "폭탄공란26",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xE5B",
+      "rawHex": "c6f8c5bab0f8b6f53236000000000000003e03010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        62,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 252,
+      "name": "폭탄공란27",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xE74",
+      "rawHex": "c6f8c5bab0f8b6f53237000000000000003e03020000000000",
+      "parameters15to24": [
+        0,
+        0,
+        62,
+        3,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 253,
+      "name": "폭탄공란28",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xE8D",
+      "rawHex": "c6f8c5bab0f8b6f53238000000000000003e03010000000000",
+      "parameters15to24": [
+        0,
+        0,
+        62,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    },
+    {
+      "id": 254,
+      "name": "폭탄공란29",
+      "sourceFile": "Star.e5",
+      "sourceFileOffset": "0xEA6",
+      "rawHex": "c6f8c5bab0f8b6f53239000000000000003e0381033c000000",
+      "parameters15to24": [
+        0,
+        0,
+        62,
+        3,
+        129,
+        3,
+        60,
+        0,
+        0,
+        0
+      ],
+      "fieldSemantics": "unverified; byte 15..24 retained without assigning gameplay meanings"
+    }
+  ],
+  "limitations": [
+    "Extraction and layout are corroborated by static code and bytes; the game has not been run.",
+    "Item field gameplay meanings, runtime postprocessing, and every ID usage remain unverified.",
+    "Compressed containers are intentionally not supported by this extractor."
+  ]
+}

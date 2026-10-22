@@ -1,0 +1,1004 @@
+{
+  "generatedAt": "2026-10-22T03:46:22.180Z",
+  "method": "Static byte inspection only; no target executable or DLL was executed or loaded.",
+  "pe": [
+    {
+      "file": "Ekd5.exe",
+      "size": 1129472,
+      "machine": "0x14C",
+      "imageBase": "0x400000",
+      "entryPointVA": "0x4817E0",
+      "clrDirectoryRva": "0x0",
+      "imports": [
+        {
+          "dll": "WINMM.dll",
+          "count": 2
+        },
+        {
+          "dll": "COMCTL32.dll",
+          "count": 9
+        },
+        {
+          "dll": "KERNEL32.dll",
+          "count": 74
+        },
+        {
+          "dll": "USER32.dll",
+          "count": 112
+        },
+        {
+          "dll": "GDI32.dll",
+          "count": 43
+        },
+        {
+          "dll": "koeicda.dll",
+          "count": 12
+        },
+        {
+          "dll": "USER32.dll",
+          "count": 2
+        },
+        {
+          "dll": "KERNEL32.dll",
+          "count": 2
+        },
+        {
+          "dll": "Msimg32.dll",
+          "count": 2
+        },
+        {
+          "dll": "GDI32.dll",
+          "count": 2
+        },
+        {
+          "dll": "Jpg.dll",
+          "count": 4
+        },
+        {
+          "dll": "GDIPLUS.dll",
+          "count": 10
+        }
+      ],
+      "version": [
+        {
+          "path": [
+            16,
+            1,
+            2052
+          ],
+          "rva": "0x142078",
+          "offset": "0x113878",
+          "size": 840,
+          "versionInfo": {
+            "values": {
+              "Comments": "원작 : Star175, Puluo. 한글화 : 레가시.",
+              "CompanyName": "Koei Co. Ltd",
+              "FileDescription": "조조전 모드 카페",
+              "FileVersion": "1, 0, 6, 6",
+              "InternalName": "Ekd5",
+              "LegalCopyright": "Copyright (C) 2025 Koei Co. Ltd",
+              "OriginalFilename": "Ekd5.exe",
+              "ProductName": "三國新曹操傳",
+              "ProductVersion": "1, 0, 6, 6"
+            },
+            "warnings": [
+              "Comments: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "CompanyName: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "FileDescription: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "FileVersion: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "InternalName: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "LegalCopyright: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "OriginalFilename: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "ProductName: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "ProductVersion: nonstandard wValueLength appears to count bytes instead of UTF-16 code units"
+            ]
+          }
+        }
+      ],
+      "interestingStrings": [
+        {
+          "offset": "0x86D58",
+          "text": "user32.dll"
+        },
+        {
+          "offset": "0x888CE",
+          "text": "WINMM.dll"
+        },
+        {
+          "offset": "0x88974",
+          "text": "COMCTL32.dll"
+        },
+        {
+          "offset": "0x88B4C",
+          "text": "KERNEL32.dll"
+        },
+        {
+          "offset": "0x8924A",
+          "text": "USER32.dll"
+        },
+        {
+          "offset": "0x894A4",
+          "text": "GDI32.dll"
+        },
+        {
+          "offset": "0x89596",
+          "text": "koeicda.dll"
+        },
+        {
+          "offset": "0x89BD7",
+          "text": "MgcIcon.dll"
+        },
+        {
+          "offset": "0x89BE3",
+          "text": "ItemIcon.dll"
+        },
+        {
+          "offset": "0x89BF0",
+          "text": "CmdIcon.dll"
+        },
+        {
+          "offset": "0x8A1EF",
+          "text": "AutoDll.ini"
+        },
+        {
+          "offset": "0x8A283",
+          "text": "E5\\MCALL%02u.E5"
+        },
+        {
+          "offset": "0x8A4F0",
+          "text": "LOGO.E5"
+        },
+        {
+          "offset": "0x8A4F8",
+          "text": "MMAP.E5"
+        },
+        {
+          "offset": "0x8A500",
+          "text": "GATE.E5"
+        },
+        {
+          "offset": "0x8A508",
+          "text": "PMAP.E5"
+        },
+        {
+          "offset": "0x8A510",
+          "text": "ITEM.E5"
+        },
+        {
+          "offset": "0x8A518",
+          "text": "MEFF.E5"
+        },
+        {
+          "offset": "0x8A520",
+          "text": "MARK.E5"
+        },
+        {
+          "offset": "0x8A528",
+          "text": "FACE.E5"
+        },
+        {
+          "offset": "0x8A530",
+          "text": "HEXZMAP.E5"
+        },
+        {
+          "offset": "0x8A53B",
+          "text": "HITAREA.E5"
+        },
+        {
+          "offset": "0x8A546",
+          "text": "EFFAREA.E5"
+        },
+        {
+          "offset": "0x8A560",
+          "text": "DATA.E5"
+        },
+        {
+          "offset": "0x8A568",
+          "text": "IMSG.E5"
+        },
+        {
+          "offset": "0x8A570",
+          "text": "PMAPOBJ.E5"
+        },
+        {
+          "offset": "0x8A57B",
+          "text": "TR.E5"
+        },
+        {
+          "offset": "0x8A5A0",
+          "text": "U_SELECT.E5"
+        },
+        {
+          "offset": "0x8A5B0",
+          "text": "UNIT_ATK.E5"
+        },
+        {
+          "offset": "0x8A5C0",
+          "text": "UNIT_SPC.E5"
+        },
+        {
+          "offset": "0x8A5D0",
+          "text": "UNIT_MOV.E5"
+        },
+        {
+          "offset": "0x8A5E0",
+          "text": "WEATHER.E5"
+        },
+        {
+          "offset": "0x8A5FA",
+          "text": "DT.E5"
+        },
+        {
+          "offset": "0x8AF30",
+          "text": "star.e5"
+        },
+        {
+          "offset": "0x8D148",
+          "text": "MapAtr.dll"
+        },
+        {
+          "offset": "0x90200",
+          "text": "USER32.dll"
+        },
+        {
+          "offset": "0x9020B",
+          "text": "KERNEL32.dll"
+        },
+        {
+          "offset": "0x90218",
+          "text": "Msimg32.dll"
+        },
+        {
+          "offset": "0x90224",
+          "text": "GDI32.dll"
+        },
+        {
+          "offset": "0x9022E",
+          "text": "Jpg.dll"
+        },
+        {
+          "offset": "0x90236",
+          "text": "GDIPLUS.dll"
+        },
+        {
+          "offset": "0xD1C9A",
+          "text": "FB.E5"
+        }
+      ]
+    },
+    {
+      "file": "형상편집기 6.6.exe",
+      "size": 1486848,
+      "machine": "0x14C",
+      "imageBase": "0x400000",
+      "entryPointVA": "0x406958",
+      "clrDirectoryRva": "0x0",
+      "imports": [
+        {
+          "dll": "MSVBVM60.DLL",
+          "count": 204
+        }
+      ],
+      "version": [
+        {
+          "path": [
+            16,
+            1,
+            2052
+          ],
+          "rva": "0x1730F0",
+          "offset": "0x16A0F0",
+          "size": 676,
+          "versionInfo": {
+            "values": {
+              "Comments": "2025-10-01编译               6.6판 ",
+              "CompanyName": "Star175",
+              "LegalCopyright": "Star175",
+              "ProductName": "형상편집기",
+              "FileVersion": "1.00.0066",
+              "ProductVersion": "1.00.0066",
+              "InternalName": "형상편집기66",
+              "OriginalFilename": "형상편집기66.exe"
+            },
+            "warnings": [
+              "Comments: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "CompanyName: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "LegalCopyright: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "ProductName: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "FileVersion: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "ProductVersion: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "InternalName: nonstandard wValueLength appears to count bytes instead of UTF-16 code units",
+              "OriginalFilename: nonstandard wValueLength appears to count bytes instead of UTF-16 code units"
+            ]
+          }
+        }
+      ],
+      "interestingStrings": [
+        {
+          "offset": "0x238",
+          "text": "MSVBVM60.DLL"
+        },
+        {
+          "offset": "0x47B7C",
+          "text": "VB5!6&vb6chs.dll"
+        },
+        {
+          "offset": "0x58090",
+          "text": "gdi32.dll"
+        },
+        {
+          "offset": "0x58698",
+          "text": "comdlg32.dll"
+        },
+        {
+          "offset": "0x5A2DC",
+          "text": "psapi.dll"
+        },
+        {
+          "offset": "0x5A9C4",
+          "text": "C:\\Windows\\SysWow64\\msvbvm60.dll\\3"
+        },
+        {
+          "offset": "0x5AA28",
+          "text": "zlib.dll"
+        },
+        {
+          "offset": "0x5AAC0",
+          "text": "kernel32.dll"
+        },
+        {
+          "offset": "0x5AB1C",
+          "text": "user32.dll"
+        },
+        {
+          "offset": "0x5ABFC",
+          "text": "msvbvm60.dll"
+        },
+        {
+          "offset": "0x5AFC4",
+          "text": "VBA6.DLL"
+        },
+        {
+          "offset": "0x5E150",
+          "text": "MSIMG32.dll"
+        },
+        {
+          "offset": "0x5E400",
+          "text": "gdi32.dll   "
+        },
+        {
+          "offset": "0x167F20",
+          "text": "MSVBVM60.DLL"
+        }
+      ]
+    },
+    {
+      "file": "Scenario/CczSceneEditor2.exe",
+      "size": 546304,
+      "machine": "0x14C",
+      "imageBase": "0x400000",
+      "entryPointVA": "0x43EEC9",
+      "clrDirectoryRva": "0x0",
+      "imports": [
+        {
+          "dll": "mfc140u.dll",
+          "count": 860
+        },
+        {
+          "dll": "KERNEL32.dll",
+          "count": 31
+        },
+        {
+          "dll": "USER32.dll",
+          "count": 25
+        },
+        {
+          "dll": "GDI32.dll",
+          "count": 10
+        },
+        {
+          "dll": "SHELL32.dll",
+          "count": 1
+        },
+        {
+          "dll": "COMCTL32.dll",
+          "count": 2
+        },
+        {
+          "dll": "OLEAUT32.dll",
+          "count": 1
+        },
+        {
+          "dll": "gdiplus.dll",
+          "count": 1
+        },
+        {
+          "dll": "MSVCP140.dll",
+          "count": 1
+        },
+        {
+          "dll": "VERSION.dll",
+          "count": 3
+        },
+        {
+          "dll": "VCRUNTIME140.dll",
+          "count": 12
+        },
+        {
+          "dll": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "count": 18
+        },
+        {
+          "dll": "api-ms-win-crt-string-l1-1-0.dll",
+          "count": 5
+        },
+        {
+          "dll": "api-ms-win-crt-heap-l1-1-0.dll",
+          "count": 2
+        },
+        {
+          "dll": "api-ms-win-crt-math-l1-1-0.dll",
+          "count": 1
+        },
+        {
+          "dll": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "count": 2
+        },
+        {
+          "dll": "api-ms-win-crt-locale-l1-1-0.dll",
+          "count": 1
+        }
+      ],
+      "version": [
+        {
+          "path": [
+            16,
+            1,
+            2052
+          ],
+          "rva": "0x7CEC8",
+          "offset": "0x792C8",
+          "size": 732,
+          "versionInfo": {
+            "values": {
+              "CompanyName": "TODO:  <제작자>",
+              "FileDescription": "cczEditor2",
+              "FileVersion": "1.0.2.3",
+              "InternalName": "cczEditor2.exe",
+              "LegalCopyright": "TODO:  (C) <제작자>.  소유권리보유.",
+              "OriginalFilename": "cczEditor2.exe",
+              "ProductName": "TODO:  <제품명>",
+              "ProductVersion": "1.0.2.3"
+            },
+            "warnings": []
+          }
+        }
+      ],
+      "interestingStrings": [
+        {
+          "offset": "0x55CE4",
+          "text": "G:\\Users\\52708\\source\\repos\\cczEditor2\\Release\\s.pdb"
+        },
+        {
+          "offset": "0x58774",
+          "text": "mfc140u.dll"
+        },
+        {
+          "offset": "0x58A2A",
+          "text": "KERNEL32.dll"
+        },
+        {
+          "offset": "0x58BB2",
+          "text": "USER32.dll"
+        },
+        {
+          "offset": "0x58C6E",
+          "text": "GDI32.dll"
+        },
+        {
+          "offset": "0x58C8A",
+          "text": "SHELL32.dll"
+        },
+        {
+          "offset": "0x58CC4",
+          "text": "COMCTL32.dll"
+        },
+        {
+          "offset": "0x58CD2",
+          "text": "OLEAUT32.dll"
+        },
+        {
+          "offset": "0x58CF2",
+          "text": "gdiplus.dll"
+        },
+        {
+          "offset": "0x58D1E",
+          "text": "MSVCP140.dll"
+        },
+        {
+          "offset": "0x58D6E",
+          "text": "VERSION.dll"
+        },
+        {
+          "offset": "0x58E42",
+          "text": "VCRUNTIME140.dll"
+        },
+        {
+          "offset": "0x5905E",
+          "text": "api-ms-win-crt-runtime-l1-1-0.dll"
+        },
+        {
+          "offset": "0x59080",
+          "text": "api-ms-win-crt-string-l1-1-0.dll"
+        },
+        {
+          "offset": "0x590A2",
+          "text": "api-ms-win-crt-heap-l1-1-0.dll"
+        },
+        {
+          "offset": "0x590C2",
+          "text": "api-ms-win-crt-math-l1-1-0.dll"
+        },
+        {
+          "offset": "0x590E2",
+          "text": "api-ms-win-crt-stdio-l1-1-0.dll"
+        },
+        {
+          "offset": "0x59102",
+          "text": "api-ms-win-crt-locale-l1-1-0.dll"
+        }
+      ]
+    },
+    {
+      "file": "AutoDLL.dll",
+      "size": 49152,
+      "machine": "0x14C",
+      "imageBase": "0x10000000",
+      "entryPointVA": "0x100014CC",
+      "clrDirectoryRva": "0x0",
+      "imports": [
+        {
+          "dll": "KERNEL32.dll",
+          "count": 62
+        },
+        {
+          "dll": "USER32.dll",
+          "count": 5
+        }
+      ],
+      "version": [
+        {
+          "path": [
+            16,
+            1,
+            2052
+          ],
+          "rva": "0xB060",
+          "offset": "0xA060",
+          "size": 764,
+          "versionInfo": {
+            "values": {
+              "Comments": "打倒弱智的盗版盘制作者们！",
+              "CompanyName": "k??@SMTH",
+              "FileDescription": "曹操传辅助patch",
+              "FileVersion": "1, 0, 0, 1",
+              "InternalName": "AutoDLL",
+              "LegalCopyright": "Copyright (C) k??@SMTH 2003",
+              "OriginalFilename": "AutoDLL.dll",
+              "ProductName": "曹操传辅助patch",
+              "ProductVersion": "1, 0, 0, 1"
+            },
+            "warnings": []
+          }
+        }
+      ],
+      "interestingStrings": [
+        {
+          "offset": "0x719C",
+          "text": "\\AutoDLL.ini"
+        },
+        {
+          "offset": "0x71DC",
+          "text": "mscoree.dll"
+        },
+        {
+          "offset": "0x723C",
+          "text": "kernel32.dll"
+        },
+        {
+          "offset": "0x7900",
+          "text": "user32.dll"
+        },
+        {
+          "offset": "0x8208",
+          "text": "f:\\Work\\Vc\\AutoDLL\\Release\\AutoDLL.pdb"
+        },
+        {
+          "offset": "0x8410",
+          "text": "KERNEL32.dll"
+        },
+        {
+          "offset": "0x8478",
+          "text": "USER32.dll"
+        },
+        {
+          "offset": "0x889C",
+          "text": "AutoDLL.dll"
+        }
+      ]
+    },
+    {
+      "file": "zlib.dll",
+      "size": 53248,
+      "machine": "0x14C",
+      "imageBase": "0x10000000",
+      "entryPointVA": "0x10006B21",
+      "clrDirectoryRva": "0x0",
+      "imports": [
+        {
+          "dll": "MSVCRT.dll",
+          "count": 24
+        },
+        {
+          "dll": "KERNEL32.dll",
+          "count": 1
+        }
+      ],
+      "version": [
+        {
+          "path": [
+            16,
+            1,
+            1033
+          ],
+          "rva": "0xB060",
+          "offset": "0xB060",
+          "size": 776,
+          "versionInfo": {
+            "values": {
+              "FileDescription": "zlib data compression library",
+              "FileVersion": "1.1.3",
+              "InternalName": "zlib",
+              "OriginalFilename": "zlib.dll",
+              "ProductName": "ZLib.DLL",
+              "Comments": "DLL support by Alessandro Iacopetti & Gilles Vollant",
+              "LegalCopyright": "(C) 1995-1998 Jean-loup Gailly & Mark Adler"
+            },
+            "warnings": []
+          }
+        }
+      ],
+      "interestingStrings": [
+        {
+          "offset": "0x8332",
+          "text": "MSVCRT.dll"
+        },
+        {
+          "offset": "0x8376",
+          "text": "KERNEL32.dll"
+        },
+        {
+          "offset": "0x8552",
+          "text": "zlib.dll"
+        }
+      ]
+    }
+  ],
+  "data": [
+    {
+      "file": "Data.e5",
+      "size": 61379,
+      "sha256": "92c4287a02f7f77222da5d919a1bf5b99904821de8bc7f5e3c19e565cf81de2c",
+      "entropy": 4.1323,
+      "headerHex": [
+        "4c733132202020202020202020202020",
+        "00ff011ecbb6d6d50a142802230309b4",
+        "645a050bb10c3108f804320fc1c6aa06",
+        "07b9bd6e29bbca2726be34c5b2155036",
+        "0dad3018bcef12571b22b5b8ba5c2a11",
+        "b7ed1335d0c8cd5e1fd31a25c4ce39a3",
+        "5d2bbf33c0581d611020d10eb047175f",
+        "a6602d41d4c2fc212e1ccc3adcae19c3"
+      ],
+      "firstDwordsLE": [
+        842101580,
+        538976288,
+        538976288,
+        538976288,
+        503447296,
+        3587618507,
+        36181002,
+        3020489507,
+        184900196,
+        137432241,
+        254936312,
+        111855297,
+        1857927431,
+        667597609,
+        3308568102,
+        911218098
+      ],
+      "interestingStrings": []
+    },
+    {
+      "file": "Font.e5",
+      "size": 1602,
+      "sha256": "66bb756f72ffdfbdf05fc61b206df2d46a6a8886884054eee5b950008a67dc5a",
+      "entropy": 6.0608,
+      "headerHex": [
+        "029403df7ca413df118c12d514a67dfe",
+        "110211fe110215fe190271fe00440183",
+        "1ffc100410041ffc100410041ffc0080",
+        "00803ffe08080410041002207fff0000",
+        "0044004200407fff004000443e482232",
+        "22e43e39007206941819602900c50303",
+        "04000e3e0a221122112420a420a85f24",
+        "00223fa120a120a120a120ae3fa00020"
+      ],
+      "firstDwordsLE": [
+        3741553666,
+        3742606460,
+        3574762513,
+        4269647380,
+        4262527505,
+        4262789649,
+        4268818969,
+        2197898240,
+        68221983,
+        4229891088,
+        68158480,
+        2147548191,
+        4265574400,
+        268699656,
+        537006084,
+        65407
+      ],
+      "interestingStrings": []
+    },
+    {
+      "file": "Star.e5",
+      "size": 6359,
+      "sha256": "8d46da52fe62bfd87f2f1f29e19a0bad177054ac2f910dd335ade0f0be5e1bfd",
+      "entropy": 3.6055,
+      "headerHex": [
+        "b9e6beeeb0f8b6f53132000000000000",
+        "001929ff690a050a00b9e6beeeb0f8b6",
+        "f5313300000000000000197bff6a0a04",
+        "0a00b9e6beeeb0f8b6f5313400000000",
+        "0000001970ff6b0a060a00b9e6beeeb0",
+        "f8b6f5313500000000000000157aff6c",
+        "0a020a00b9e6beeeb0f8b6f531360000",
+        "0000000000175dff6d0a010a00b1e2b8"
+      ],
+      "firstDwordsLE": [
+        4005488313,
+        4122409136,
+        12849,
+        0,
+        4280883456,
+        168102505,
+        3202791680,
+        3069751534,
+        3355125,
+        0,
+        2065235968,
+        67791615,
+        3870883850,
+        4172345022,
+        875689398,
+        0
+      ],
+      "interestingStrings": []
+    },
+    {
+      "file": "Hexzmap.e5",
+      "size": 45264,
+      "sha256": "b5aa275b9f07372ac4bfcec5ecd12067199190c9d9554dafb3138e42240b64ab",
+      "entropy": 3.6328,
+      "headerHex": [
+        "4c733132202020202020202020202020",
+        "00040d1002010f050317070e1d0c0a06",
+        "090b1619081411123c48186078541513",
+        "1c6c22232425262728292a2b2c2d2e2f",
+        "303132333435363738393a3b1a3d3e3f",
+        "40414243444546471b494a4b4c4d4e4f",
+        "505152531e55565758595a5b5c5d5e5f",
+        "1f6162636465666768696a6b206d6e6f"
+      ],
+      "firstDwordsLE": [
+        842101580,
+        538976288,
+        538976288,
+        538976288,
+        269288448,
+        84869378,
+        235345667,
+        101321757,
+        420875017,
+        303109128,
+        1612204092,
+        320164984,
+        589458460,
+        656811300,
+        724183336,
+        791555372
+      ],
+      "interestingStrings": []
+    },
+    {
+      "file": "imsg.e5",
+      "size": 450000,
+      "sha256": "f9a13fef255d79f74c4c77c03013f468dafa276bf745f4fa57c4f6b7dcb70214",
+      "entropy": 1.6532,
+      "headerHex": [
+        "c0fbb1ba20c7d120baceb4ebbfa120ba",
+        "d2c0bb20bad9bfa920c7c7c7d8b8a620",
+        "c1d8b4d92e20bec7c3b5c8c4c0cf20b0",
+        "e6bfecbfa1b4c220beb520bcf620bef8",
+        "b4d92e20b6c720c8b2b9abc1f62c20bb",
+        "eac1f62c20bcf6bbf3bfa120c0d6b4c2",
+        "20baceb4ebbfa1b5b520bbe7bfebc7d2",
+        "20bcf620bef8b4d92e00000000000000"
+      ],
+      "firstDwordsLE": [
+        3132226496,
+        550618912,
+        3954495162,
+        3122700735,
+        549175506,
+        2847922618,
+        3351758624,
+        547797208,
+        3652507841,
+        3351126062,
+        3301488067,
+        2954940352,
+        3219963878,
+        549631137,
+        3156260286,
+        4173209846
+      ],
+      "interestingStrings": []
+    },
+    {
+      "file": "source/AddPmap.e5",
+      "size": 20016,
+      "sha256": "ae06d242051efa39a2b1b6154553f59c1f816ce812bd78d43069a7a505dfb25d",
+      "entropy": 0.0105,
+      "headerHex": [
+        "1700640064000100c8006400010041ff",
+        "ffffffffffffffffffffffffffffffff",
+        "ffffffffffffffffffffffffffffffff",
+        "ffffffffffffffffffffffffffffffff",
+        "ffffffffffffffffffffffffffffffff",
+        "ffffffffffffffffffffffffffffffff",
+        "ffffffffffffffffffffffffffffffff",
+        "ffffffffffffffffffffffffffffffff"
+      ],
+      "firstDwordsLE": [
+        6553623,
+        65636,
+        6553800,
+        4282449921,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967295
+      ],
+      "interestingStrings": []
+    },
+    {
+      "file": "E5/Dt.e5",
+      "size": 785378,
+      "sha256": "0672e556a90f1424cd2dd85de7ef17702216df908fb162e98c3d1ad482a16826",
+      "entropy": 5.8739,
+      "headerHex": [
+        "4c733132202020202020202020202020",
+        "003a4c391a37761b3d19754a2e363b95",
+        "262d3e2f4e74941c4d35774b0a3f0c1d",
+        "474f9333962a385d1e4840730e6a4918",
+        "8a431730270d3c34608823295a315b46",
+        "899241422551242b32450f579f8b2c59",
+        "16159d9e728cff8d501091a858212812",
+        "5e9c9aa75f7b659b70971199f8c2b255"
+      ],
+      "firstDwordsLE": [
+        842101580,
+        538976288,
+        538976288,
+        538976288,
+        961296896,
+        460732186,
+        1249188157,
+        2503685678,
+        792603942,
+        479491150,
+        1266103629,
+        487341834,
+        865292103,
+        1563962006,
+        1933592606,
+        407464462
+      ],
+      "interestingStrings": []
+    },
+    {
+      "file": "E5/Hitarea.e5",
+      "size": 225001,
+      "sha256": "8e65b24037a9f99c5be62b03ddf1c188b957a495ed2c66f7ad8f8588babedf97",
+      "entropy": 7.9557,
+      "headerHex": [
+        "4c733132202020202020202020202020",
+        "1d281f263a05060708090a0b0c0d0e0f",
+        "101112131415161718191a1b1c001e01",
+        "202122232425022703292a2b2c2d2e2f",
+        "30313233343536373839043b3c3d3e3f",
+        "404142434445464748494a4b4c4d4e4f",
+        "505152535455565758595a5b5c5d5e5f",
+        "606162636465666768696a6b6c6d6e6f"
+      ],
+      "firstDwordsLE": [
+        842101580,
+        538976288,
+        538976288,
+        538976288,
+        639576093,
+        117835066,
+        185207048,
+        252579084,
+        319951120,
+        387323156,
+        454695192,
+        18743324,
+        589439264,
+        654452004,
+        724183299,
+        791555372
+      ],
+      "interestingStrings": []
+    },
+    {
+      "file": "E5/Effarea.e5",
+      "size": 74325,
+      "sha256": "0a26dc3b7d068ee044b2a958992bdc36648a5984adf8dccb823b3d895a905cf2",
+      "entropy": 7.9653,
+      "headerHex": [
+        "4c733132202020202020202020202020",
+        "1d1f57532b05060708090a0b0c0d0e0f",
+        "101112131415161718191a1b1c001e01",
+        "202122232425262728292a022c2d2e2f",
+        "303132333435363738393a3b3c3d3e3f",
+        "404142434445464748494a4b4c4d4e4f",
+        "505152035455560458595a5b5c5d5e5f",
+        "606162636465666768696a6b6c6d6e6f"
+      ],
+      "firstDwordsLE": [
+        842101580,
+        538976288,
+        538976288,
+        538976288,
+        1398218525,
+        117835051,
+        185207048,
+        252579084,
+        319951120,
+        387323156,
+        454695192,
+        18743324,
+        589439264,
+        656811300,
+        36317480,
+        791555372
+      ],
+      "interestingStrings": []
+    }
+  ]
+}

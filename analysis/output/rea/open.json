@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"C:\\\\project\\\\jojo\\\\analysis\\\\input\\\\tool\\\\Ekd5.exe\",\"format\":\"pe\",\"kind\":\"executable\",\"sha256\":\"e6d864b6233585dca11d263444f1f1c29c55581c2416d53a61785aeeec7237e9\",\"architecture\":\"x86\"}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "C:\\project\\jojo\\analysis\\input\\tool\\Ekd5.exe",
+      "format": "pe",
+      "kind": "executable",
+      "sha256": "e6d864b6233585dca11d263444f1f1c29c55581c2416d53a61785aeeec7237e9",
+      "architecture": "x86"
+    }
+  }
+}

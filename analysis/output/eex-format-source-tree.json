@@ -1,0 +1,645 @@
+{
+  "sha": "e75b2e131dc98fea7383f9c2ce2e97c3e420a9b0",
+  "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/trees/e75b2e131dc98fea7383f9c2ce2e97c3e420a9b0",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c9eb629d0d72174776d48f4f777afe35d1ed84f",
+      "size": 203,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/4c9eb629d0d72174776d48f4f777afe35d1ed84f"
+    },
+    {
+      "path": ".mcp.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "769150b78d37815d7b0aa31c76ff7518cd2d79ec",
+      "size": 182,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/769150b78d37815d7b0aa31c76ff7518cd2d79ec"
+    },
+    {
+      "path": "CLAUDE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed779c8ffd524e1c5d3977ec9a9369c1e9933bd4",
+      "size": 3288,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/ed779c8ffd524e1c5d3977ec9a9369c1e9933bd4"
+    },
+    {
+      "path": "HTTP_API_使用说明.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "762cb7028074137ba226b797469bf2ee45a1c9fb",
+      "size": 22013,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/762cb7028074137ba226b797469bf2ee45a1c9fb"
+    },
+    {
+      "path": "cczEditor2.sln",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4121cf3d4933f13c9ff2da9308d12d101dd81abe",
+      "size": 1451,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/4121cf3d4933f13c9ff2da9308d12d101dd81abe"
+    },
+    {
+      "path": "cczEditor2",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2b9b1db3f9eecc5b0ad28625550350d1ba7232c4",
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/trees/2b9b1db3f9eecc5b0ad28625550350d1ba7232c4"
+    },
+    {
+      "path": "cczEditor2/CMyComboBox.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "11ad303193648c4c0bc8e718eaf28bfd45ec53b9",
+      "size": 3834,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/11ad303193648c4c0bc8e718eaf28bfd45ec53b9"
+    },
+    {
+      "path": "cczEditor2/CMyComboBox.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45f8f7df909cd85863e9053f699ce855c7a069f1",
+      "size": 373,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/45f8f7df909cd85863e9053f699ce855c7a069f1"
+    },
+    {
+      "path": "cczEditor2/CMyTreeCtrl.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4436633aca49e83550c49b541eff8ec9e94b1f70",
+      "size": 3225,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/4436633aca49e83550c49b541eff8ec9e94b1f70"
+    },
+    {
+      "path": "cczEditor2/CMyTreeCtrl.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b357f5655e963d39350bc433b171c91deb892b9",
+      "size": 284,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/0b357f5655e963d39350bc433b171c91deb892b9"
+    },
+    {
+      "path": "cczEditor2/ChildFrm.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a578c4b5e6e33b62fa2085cba7c132a3f945882",
+      "size": 969,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/7a578c4b5e6e33b62fa2085cba7c132a3f945882"
+    },
+    {
+      "path": "cczEditor2/ChildFrm.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4f8b9c376ba167f0ddbd5616057a774ad199bbf",
+      "size": 559,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/a4f8b9c376ba167f0ddbd5616057a774ad199bbf"
+    },
+    {
+      "path": "cczEditor2/ClassView.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a387bc2ef79691cd60832ab8b801913bfafcb9b3",
+      "size": 9260,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/a387bc2ef79691cd60832ab8b801913bfafcb9b3"
+    },
+    {
+      "path": "cczEditor2/ClassView.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a5059c78f08302aef0bb8c589893837fd5096dd8",
+      "size": 1289,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/a5059c78f08302aef0bb8c589893837fd5096dd8"
+    },
+    {
+      "path": "cczEditor2/Cn-core-win32k-fulluser-l1-1-0",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a42d0a5b8b27fd2cbfbccb0f8b1f5f265d9271e",
+      "size": 29,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/1a42d0a5b8b27fd2cbfbccb0f8b1f5f265d9271e"
+    },
+    {
+      "path": "cczEditor2/C췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍췍",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a42d0a5b8b27fd2cbfbccb0f8b1f5f265d9271e",
+      "size": 29,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/1a42d0a5b8b27fd2cbfbccb0f8b1f5f265d9271e"
+    },
+    {
+      "path": "cczEditor2/FileView.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5cff3047c1caf0322467911c406456096190d95d",
+      "size": 6917,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/5cff3047c1caf0322467911c406456096190d95d"
+    },
+    {
+      "path": "cczEditor2/FileView.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c5407f82aab9f87e74c1337804dbc7069c3d121",
+      "size": 1153,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/5c5407f82aab9f87e74c1337804dbc7069c3d121"
+    },
+    {
+      "path": "cczEditor2/Instructions.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f153855faf2fb724ccfe62711d64157f70c863e",
+      "size": 33192,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/3f153855faf2fb724ccfe62711d64157f70c863e"
+    },
+    {
+      "path": "cczEditor2/MainFrm.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b73f4975de600ede6fa9f730fb23e1a7a3de4c8",
+      "size": 15789,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/7b73f4975de600ede6fa9f730fb23e1a7a3de4c8"
+    },
+    {
+      "path": "cczEditor2/MainFrm.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce1acb0ccb904a593a4bc666321d0c05cd364794",
+      "size": 1730,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/ce1acb0ccb904a593a4bc666321d0c05cd364794"
+    },
+    {
+      "path": "cczEditor2/OutputWnd.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc21674ab4bd0d9255ce490c1c2241b2c7090683",
+      "size": 5241,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/cc21674ab4bd0d9255ce490c1c2241b2c7090683"
+    },
+    {
+      "path": "cczEditor2/OutputWnd.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8645f8e551262a654472a6caf9a70813844ed043",
+      "size": 1050,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/8645f8e551262a654472a6caf9a70813844ed043"
+    },
+    {
+      "path": "cczEditor2/PropertiesWnd.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cead3fdd1eb94f4686f71b6c00b1f13b5726c7bb",
+      "size": 16161,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/cead3fdd1eb94f4686f71b6c00b1f13b5726c7bb"
+    },
+    {
+      "path": "cczEditor2/PropertiesWnd.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d92e977273a7837e93571416ad43d9c2ff4dbaef",
+      "size": 4255,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/d92e977273a7837e93571416ad43d9c2ff4dbaef"
+    },
+    {
+      "path": "cczEditor2/ScenePreviewWnd.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b77ea7283cacf8402a547940c30d339889a275ec",
+      "size": 51330,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/b77ea7283cacf8402a547940c30d339889a275ec"
+    },
+    {
+      "path": "cczEditor2/ScenePreviewWnd.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2e078ef66546f3af409b50a6ff6ddba4177c7ec",
+      "size": 3818,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/a2e078ef66546f3af409b50a6ff6ddba4177c7ec"
+    },
+    {
+      "path": "cczEditor2/ViewTree.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aab8804abb2827399f7803a91e297e87f3feaeda",
+      "size": 956,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/aab8804abb2827399f7803a91e297e87f3feaeda"
+    },
+    {
+      "path": "cczEditor2/ViewTree.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5017c2500b1be8a4f3c09131dc78dc0ebd793e2c",
+      "size": 392,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/5017c2500b1be8a4f3c09131dc78dc0ebd793e2c"
+    },
+    {
+      "path": "cczEditor2/cczEditor2.aps",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "110dcbc17043162978ebbefb69a42010ae80b032",
+      "size": 230532,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/110dcbc17043162978ebbefb69a42010ae80b032"
+    },
+    {
+      "path": "cczEditor2/cczEditor2.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4ab0b31be1504ae5d596f1463b952560ce7176e",
+      "size": 8603,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/a4ab0b31be1504ae5d596f1463b952560ce7176e"
+    },
+    {
+      "path": "cczEditor2/cczEditor2.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3051e3cbb69d84b6ab45afb2e9fb6ca8e17ec867",
+      "size": 1180,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/3051e3cbb69d84b6ab45afb2e9fb6ca8e17ec867"
+    },
+    {
+      "path": "cczEditor2/cczEditor2.rc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b0e28eadb8ebf2c91118dc487f228d7f399eb2e",
+      "size": 187204,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/8b0e28eadb8ebf2c91118dc487f228d7f399eb2e"
+    },
+    {
+      "path": "cczEditor2/cczEditor2.vcxproj",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "92e93f2196c85fd2a34f7b5a750fa50bf6996d63",
+      "size": 13086,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/92e93f2196c85fd2a34f7b5a750fa50bf6996d63"
+    },
+    {
+      "path": "cczEditor2/cczEditor2.vcxproj.filters",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c194ba4508e17fba412bc3b82b2c8b767beaf3b",
+      "size": 8860,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/6c194ba4508e17fba412bc3b82b2c8b767beaf3b"
+    },
+    {
+      "path": "cczEditor2/cczEditor2.vcxproj.user",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "947d8b15df3130de19dfd11edce52af677d0f8fa",
+      "size": 236,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/947d8b15df3130de19dfd11edce52af677d0f8fa"
+    },
+    {
+      "path": "cczEditor2/cczEditor2Doc.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b078c3ee45d8a7b961f045ea8cc96cbc8c9c3525",
+      "size": 72012,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/b078c3ee45d8a7b961f045ea8cc96cbc8c9c3525"
+    },
+    {
+      "path": "cczEditor2/cczEditor2Doc.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b46c52af1269155a6df5ac604f911a7c9688c870",
+      "size": 5034,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/b46c52af1269155a6df5ac604f911a7c9688c870"
+    },
+    {
+      "path": "cczEditor2/cczEditor2View.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1fccc35cee36ff19c345c43c9bdd43e104d7504",
+      "size": 244169,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/c1fccc35cee36ff19c345c43c9bdd43e104d7504"
+    },
+    {
+      "path": "cczEditor2/cczEditor2View.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1126616ec2f1ade2708ba8fcc3012237e03d3f0",
+      "size": 66100,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/a1126616ec2f1ade2708ba8fcc3012237e03d3f0"
+    },
+    {
+      "path": "cczEditor2/framework.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1dd194118238bfb3ad0bfc17cee9152a4a48a49",
+      "size": 1582,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/c1dd194118238bfb3ad0bfc17cee9152a4a48a49"
+    },
+    {
+      "path": "cczEditor2/httplib.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d86ad7fd67b8f9a0d401f93736df55933eb38a90",
+      "size": 675757,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/d86ad7fd67b8f9a0d401f93736df55933eb38a90"
+    },
+    {
+      "path": "cczEditor2/json.hpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2bb8517b6d49d36d2873ff2c4e1cba6aa4047b4",
+      "size": 967314,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/e2bb8517b6d49d36d2873ff2c4e1cba6aa4047b4"
+    },
+    {
+      "path": "cczEditor2/myTool.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aaf211b6908e2789410d4f6bd97528f04d5abc80",
+      "size": 3826,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/aaf211b6908e2789410d4f6bd97528f04d5abc80"
+    },
+    {
+      "path": "cczEditor2/pch.cpp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db1a479bcc09ba261e1e7c558d03b6d82c3a54f7",
+      "size": 158,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/db1a479bcc09ba261e1e7c558d03b6d82c3a54f7"
+    },
+    {
+      "path": "cczEditor2/pch.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa4549e4cf39b1d837ea13b18328ba8af9eaa4a1",
+      "size": 544,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/aa4549e4cf39b1d837ea13b18328ba8af9eaa4a1"
+    },
+    {
+      "path": "cczEditor2/res",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "90fa9f507a19874cc0254f7f6ecd9e4c74a022a1",
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/trees/90fa9f507a19874cc0254f7f6ecd9e4c74a022a1"
+    },
+    {
+      "path": "cczEditor2/res/Toolbar.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d501723c1ceb781cccf04bc42408a2bee6b0eab4",
+      "size": 1078,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/d501723c1ceb781cccf04bc42408a2bee6b0eab4"
+    },
+    {
+      "path": "cczEditor2/res/Toolbar256.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "91a2553037e79916922307b86e41461d2b4add14",
+      "size": 5816,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/91a2553037e79916922307b86e41461d2b4add14"
+    },
+    {
+      "path": "cczEditor2/res/bird.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d381897ae9bc48202d68c7f07b763fc2a6393831",
+      "size": 16958,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/d381897ae9bc48202d68c7f07b763fc2a6393831"
+    },
+    {
+      "path": "cczEditor2/res/bird.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3be4edfab40d2d465bcfa198a987fc4e1a492a4a",
+      "size": 4281,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/3be4edfab40d2d465bcfa198a987fc4e1a492a4a"
+    },
+    {
+      "path": "cczEditor2/res/cczEditor2.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d381897ae9bc48202d68c7f07b763fc2a6393831",
+      "size": 16958,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/d381897ae9bc48202d68c7f07b763fc2a6393831"
+    },
+    {
+      "path": "cczEditor2/res/cczEditor2.rc2",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7decea7fbc513ad5b4c4c70a5ff8ead1ead47659",
+      "size": 676,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/7decea7fbc513ad5b4c4c70a5ff8ead1ead47659"
+    },
+    {
+      "path": "cczEditor2/res/cczEditor2Doc.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96365d434ce66a0721e4b81a6a511a7982cb42dc",
+      "size": 4710,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/96365d434ce66a0721e4b81a6a511a7982cb42dc"
+    },
+    {
+      "path": "cczEditor2/res/class_view.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf6b0ddcfc446d92c0f3a2732effbec9ef3f2415",
+      "size": 1078,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/bf6b0ddcfc446d92c0f3a2732effbec9ef3f2415"
+    },
+    {
+      "path": "cczEditor2/res/class_view_hc.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3112bf258700b9bae569b614a807e507acd33318",
+      "size": 2478,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/3112bf258700b9bae569b614a807e507acd33318"
+    },
+    {
+      "path": "cczEditor2/res/classview.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e02aa1aed9c499b6ea7b79b04371725fb62e7cf",
+      "size": 958,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/1e02aa1aed9c499b6ea7b79b04371725fb62e7cf"
+    },
+    {
+      "path": "cczEditor2/res/classview_hc.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b22e786bcd9fabb948e7bc6a05a6f81bdb993f2",
+      "size": 5096,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/6b22e786bcd9fabb948e7bc6a05a6f81bdb993f2"
+    },
+    {
+      "path": "cczEditor2/res/explorer.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01298bac300aad208847ae87cbf073acc0dc5dad",
+      "size": 238,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/01298bac300aad208847ae87cbf073acc0dc5dad"
+    },
+    {
+      "path": "cczEditor2/res/explorer_hc.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "697199df6294014e70dd69b5b0684c69ea96b2d4",
+      "size": 776,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/697199df6294014e70dd69b5b0684c69ea96b2d4"
+    },
+    {
+      "path": "cczEditor2/res/file_view.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f93f52ab018501ccb5a69bc9ecf61a9a7650a2f",
+      "size": 1078,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/0f93f52ab018501ccb5a69bc9ecf61a9a7650a2f"
+    },
+    {
+      "path": "cczEditor2/res/file_view_hc.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42ec43574f3251102f8afce3dbf246e9355717e5",
+      "size": 2166,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/42ec43574f3251102f8afce3dbf246e9355717e5"
+    },
+    {
+      "path": "cczEditor2/res/fileview.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2d62d0cb7f2363a89c70891f234160ca7e5ddb0",
+      "size": 478,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/a2d62d0cb7f2363a89c70891f234160ca7e5ddb0"
+    },
+    {
+      "path": "cczEditor2/res/fileview_hc.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b60f48381c6875f87a042ddea6805e8472b0a016",
+      "size": 2216,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/b60f48381c6875f87a042ddea6805e8472b0a016"
+    },
+    {
+      "path": "cczEditor2/res/icon1.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d06b9f2857b39f0b5d3395e3e7999ba6bcc3a38",
+      "size": 45451,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/5d06b9f2857b39f0b5d3395e3e7999ba6bcc3a38"
+    },
+    {
+      "path": "cczEditor2/res/menuimages.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "777184138812bf02ddb1c2d3b3e40a9bc016b93b",
+      "size": 1078,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/777184138812bf02ddb1c2d3b3e40a9bc016b93b"
+    },
+    {
+      "path": "cczEditor2/res/menuimages_hc.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "577926e4ebef824efbac8a3489212decbbd2f5fe",
+      "size": 5816,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/577926e4ebef824efbac8a3489212decbbd2f5fe"
+    },
+    {
+      "path": "cczEditor2/res/output_wnd.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d14f99150a44bf91fcf7cd6515faa024f419fb0c",
+      "size": 1078,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/d14f99150a44bf91fcf7cd6515faa024f419fb0c"
+    },
+    {
+      "path": "cczEditor2/res/output_wnd_hc.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fdd27e85abee63b55cc208018e772307a1f6eca9",
+      "size": 2166,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/fdd27e85abee63b55cc208018e772307a1f6eca9"
+    },
+    {
+      "path": "cczEditor2/res/properties.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72e2b298687e5e7aac2f870b0e99a8f04871246d",
+      "size": 598,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/72e2b298687e5e7aac2f870b0e99a8f04871246d"
+    },
+    {
+      "path": "cczEditor2/res/properties_hc.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d18a7ca4940d757b291f94a51943544078a2f794",
+      "size": 2936,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/d18a7ca4940d757b291f94a51943544078a2f794"
+    },
+    {
+      "path": "cczEditor2/res/properties_wnd.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "361176643ba208fed66b34bd7ea9a995e740330f",
+      "size": 1078,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/361176643ba208fed66b34bd7ea9a995e740330f"
+    },
+    {
+      "path": "cczEditor2/res/properties_wnd_hc.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e06b64a79cc625586deadc1cd0b17e2688e56be",
+      "size": 2166,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/1e06b64a79cc625586deadc1cd0b17e2688e56be"
+    },
+    {
+      "path": "cczEditor2/res/sort.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "030730174d079ebd7a89e287aa96bac3d1aabe1f",
+      "size": 358,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/030730174d079ebd7a89e287aa96bac3d1aabe1f"
+    },
+    {
+      "path": "cczEditor2/res/sort_hc.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "720e7425f2bc96ce0e056c1758b45a86eb396d9b",
+      "size": 1496,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/720e7425f2bc96ce0e056c1758b45a86eb396d9b"
+    },
+    {
+      "path": "cczEditor2/res/userimages.bmp",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "affe657025e47679f501e959df84b108ec017b51",
+      "size": 7976,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/affe657025e47679f501e959df84b108ec017b51"
+    },
+    {
+      "path": "cczEditor2/resource.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "43a6b26be4804d003e2f83277f4b5f819017bb05",
+      "size": 13451,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/43a6b26be4804d003e2f83277f4b5f819017bb05"
+    },
+    {
+      "path": "cczEditor2/targetver.h",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47ab241862666dbf041ca6beec155b9d9b48d680",
+      "size": 295,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/47ab241862666dbf041ca6beec155b9d9b48d680"
+    },
+    {
+      "path": "mcp-bridge.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "43a34a5940cb5252ab92630ffa5f9687e8861db9",
+      "size": 2426,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/43a34a5940cb5252ab92630ffa5f9687e8861db9"
+    },
+    {
+      "path": "test_http_api.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e06d2bbd0d7eecace581d96469a0ed3a579ee367",
+      "size": 3783,
+      "url": "https://api.github.com/repos/Puluomiyuhun/ccz-SceneEditor/git/blobs/e06d2bbd0d7eecace581d96469a0ed3a579ee367"
+    }
+  ],
+  "truncated": false
+}
