@@ -3,14 +3,19 @@ import type { CSSProperties, Dispatch } from 'react'
 import BattleMap from './BattleMap.tsx'
 import { LocalGraphicsContext, useLocalGraphics } from './local-graphics.ts'
 import { officerAttributes, officerStatLabels } from './officer-attributes.ts'
+import { roles } from './unit-classes.ts'
+import type { Role } from './unit-classes.ts'
 import { campaignReducer, draftCost, loadCampaign, saveCampaign } from './campaign.ts'
 import type { Action, Campaign } from './campaign.ts'
-import { FIRE_COST, attackCells, canAttack, forecastAttack, key, movementPath, movesFor, terrainAt, terrainNames, unitAt } from './combat.ts'
+import { FIRE_COST, attackCells, canAttack, forecastAttack, key, movementPath, movesFor, physicalStats, terrainAt, unitAt } from './combat.ts'
 import type { Battle, BattleAction, Unit } from './combat.ts'
-import { DRAFT_LIMIT, FIELD_LIMIT, HEIGHT, STAGE_COUNT, WIDTH, items, officerById, roles, stages, starterIds, statLabels, treasureById } from './data.ts'
-import type { ItemId, Point, Role } from './data.ts'
+import { DRAFT_LIMIT, FIELD_LIMIT, HEIGHT, STAGE_COUNT, WIDTH, items, officerById, stages, starterIds, statLabels, terrains, treasureById } from './data.ts'
+import type { ItemId, Point } from './data.ts'
 
 type ScreenProps = { state: Campaign; dispatch: Dispatch<Action> }
+function ClassLabel({ role }: { role: Role }) {
+  return <>{roles[role].group} · {roles[role].name}</>
+}
 const itemIds = Object.keys(items) as ItemId[]
 const stageNumber = (stage: number) => String(stage).padStart(2, '0')
 
@@ -20,7 +25,7 @@ function RoleIcon({ role, name }: { role: Role; name: string }) {
   if (portrait && portrait !== failed) {
     return <img className="role-icon officer-portrait" src={portrait} alt="" onError={() => setFailed(portrait)} />
   }
-  return <span aria-hidden="true" className={`role-icon ${role}`}>{roles[role].symbol}</span>
+  return <span aria-hidden="true" className={`role-icon ${roles[role].sprite}`}>{roles[role].symbol}</span>
 }
 
 function OfficerAttributes({ name }: { name: string }) {
@@ -49,7 +54,7 @@ function Draft({ state, dispatch }: ScreenProps) {
             <button className="officer-select" aria-pressed={active} disabled={!active && cost + officer.cost > DRAFT_LIMIT}
               onClick={() => dispatch({ type: 'draft', id })}>
               <RoleIcon role={officer.role} name={officer.name} />
-              <span><strong>{officer.name}</strong><small>{roles[officer.role].name}</small><OfficerAttributes name={officer.name} /></span>
+              <span><strong>{officer.name}</strong><small><ClassLabel role={officer.role} /></small><OfficerAttributes name={officer.name} /></span>
               <span className="officer-cost" aria-label={`코스트 ${officer.cost}`}>{officer.cost}</span>
             </button>
             {active && <button className="captain-choice" disabled={captain} onClick={() => dispatch({ type: 'captain', id })}>
@@ -75,12 +80,15 @@ function Draft({ state, dispatch }: ScreenProps) {
 }
 
 function UnitDetails({ unit, map }: { unit: Unit; map: readonly string[] }) {
+  const { level, attack, defense, agility, terrainPercent } = physicalStats(map, unit)
+  const terrain = terrainAt(map, unit)
   return <div className="unit-details">
-    <div className="unit-header"><RoleIcon role={unit.role} name={unit.name} /><div><strong>{unit.name}</strong><small>{unit.captain ? '총대장 · ' : ''}{roles[unit.role].name} · {terrainNames[terrainAt(map, unit)!]}</small></div></div>
+    <div className="unit-header"><RoleIcon role={unit.role} name={unit.name} /><div><strong>{unit.name}</strong><small>{unit.captain ? '총대장 · ' : ''}<ClassLabel role={unit.role} />{terrain && ` · ${terrains[terrain].name}`}</small></div></div>
     <div className="meter"><span>HP</span><meter min={0} max={unit.hp} value={unit.currentHP} /><b>{unit.currentHP}/{unit.hp}</b></div>
     {unit.mp > 0 && <div className="meter mp"><span>MP</span><meter min={0} max={unit.mp} value={unit.currentMP} /><b>{unit.currentMP}/{unit.mp}</b></div>}
     <OfficerAttributes name={unit.name} />
-    <p className="unit-stats">공격 {unit.attack} · 방어 {unit.defense} · 이동 {unit.move} · 사거리 {unit.range}</p>
+    <p className="unit-stats">레벨 {level} · 공격 {attack} · 방어 {defense} · 순발 {agility} · 지형 {terrainPercent}%</p>
+    <p className="unit-stats">이동 {unit.move} · 사거리 {unit.range}</p>
   </div>
 }
 
@@ -113,7 +121,8 @@ function BattleScreen({ state, dispatch }: ScreenProps) {
   const targets = new Set((mode === 'fire' ? spells : attacks).map(({ id }) => id))
   const ownedItems = itemIds.filter((id) => state.inventory[id] > 0)
   const tile = hovered ?? inspected ?? selected
-  const terrain = tile && terrainAt(battle.map, tile)
+  const terrainCode = tile && terrainAt(battle.map, tile)
+  const terrain = terrainCode ? terrains[terrainCode] : undefined
   const ready = allies.filter(({ done }) => !done).length
   const targeting = mode === 'attack' || mode === 'fire'
   const target = targeting && tile ? unitAt(battle, tile) : undefined
@@ -233,7 +242,7 @@ function BattleScreen({ state, dispatch }: ScreenProps) {
           <button onClick={cancel}>돌아가기</button>
         </> : <>
           <button disabled={!attacks.length} onClick={() => setMode('attack')}>공격</button>
-          <button disabled={active.role !== 'sage'} onClick={() => setMode('tactics')}>책략</button>
+          <button disabled={roles[active.role].group !== '문관계'} onClick={() => setMode('tactics')}>책략</button>
           <button onClick={() => setMode('items')}>도구</button>
           <button onClick={() => dispatch({ type: 'battle', action: { type: 'wait', unit: active.id } })}>대기</button>
           {pendingMove && <button onClick={() => cancelMove()}>이동 취소</button>}
@@ -253,11 +262,9 @@ function BattleScreen({ state, dispatch }: ScreenProps) {
     <div className="battle-status">
       {selected ? <UnitDetails unit={selected} map={battle.map} /> : <div className="battle-objective"><strong>승리 조건</strong><span>적군 전멸</span><strong>패배 조건</strong><span>총대장 전사</span></div>}
       <div className="terrain-status">
-        <strong>지형 {terrain ? terrainNames[terrain] : '—'}</strong>
+        <strong>지형 {terrain?.name ?? '—'}</strong>
         {forecast && target && <span>{target.name} · 예상 피해 {forecast.damage} · 명중 {forecast.hit}%{forecast.counter ? ' · 반격 가능' : ''}</span>}
-        {terrain === 'f' && <span>이동 비용 2 · 방어 +2</span>}
-        {(terrain === 'w' || terrain === 'm') && <span>통과 불가</span>}
-        {(terrain === '.' || terrain === '=') && <span>이동 비용 1</span>}
+        {terrain && <span>{terrain.moveCost === null ? '통과 불가' : `이동 비용 ${terrain.moveCost}`}</span>}
       </div>
     </div>
     <footer className="battle-footer">
@@ -293,7 +300,7 @@ function Camp({ state, dispatch }: ScreenProps) {
         {state.offers.officers.map((id) => {
           const officer = officerById[id]
           return <div className="shop-row" key={id}><RoleIcon role={officer.role} name={officer.name} />
-            <div><strong>{officer.name}</strong><small>{roles[officer.role].name}{officer.bonus > 0 && ` · 공격 +${officer.bonus}`}</small><OfficerAttributes name={officer.name} /></div>
+            <div><strong>{officer.name}</strong><small><ClassLabel role={officer.role} />{officer.bonus > 0 && ` · 공격 +${officer.bonus}`}</small><OfficerAttributes name={officer.name} /></div>
             <button className="secondary" aria-label={`${officer.name} 영입 ${officer.price} G`} disabled={state.gold < officer.price} onClick={() => dispatch({ type: 'buy', kind: 'officers', id })}>{officer.price} G</button>
           </div>
         })}
@@ -327,7 +334,7 @@ function Camp({ state, dispatch }: ScreenProps) {
         const deployed = state.lineup.includes(id)
         const available = state.treasures.filter((treasure) => state.equipment[id] === treasure || !Object.values(state.equipment).includes(treasure))
         return <div className="lineup-row" key={id}>
-          <div className="unit-header"><RoleIcon role={officer.role} name={officer.name} /><div><strong>{officer.name}</strong><small>{roles[officer.role].name}</small><OfficerAttributes name={officer.name} /></div></div>
+          <div className="unit-header"><RoleIcon role={officer.role} name={officer.name} /><div><strong>{officer.name}</strong><small><ClassLabel role={officer.role} /></small><OfficerAttributes name={officer.name} /></div></div>
           <label><input type="checkbox" checked={deployed} disabled={captain || (!deployed && state.lineup.length >= FIELD_LIMIT)} onChange={() => dispatch({ type: 'lineup', id })} /> 출전</label>
           <button className="secondary" disabled={captain || (!deployed && state.lineup.length >= FIELD_LIMIT)} onClick={() => dispatch({ type: 'captain', id })}>{captain ? '◆ 총대장' : '총대장 지정'}</button>
           <select aria-label={`${officer.name} 보물 장착`} value={state.equipment[id] ?? ''} onChange={(event) => dispatch({ type: 'equip', officer: id, treasure: event.target.value })}>

@@ -1,5 +1,7 @@
-import { HEIGHT, WIDTH, officerById, roles, treasureById } from './data.ts'
-import type { ItemId, Point, Role, Stage, Stats, Terrain } from './data.ts'
+import { roles } from './unit-classes.ts'
+import type { Role } from './unit-classes.ts'
+import { HEIGHT, WIDTH, isTerrain, officerById, terrains, treasureById } from './data.ts'
+import type { ItemId, Point, Stage, Stats } from './data.ts'
 import { officerAttributes } from './officer-attributes.ts'
 
 export type Facing = 'down' | 'up' | 'left' | 'right'
@@ -13,6 +15,7 @@ export type BattleEvent = { move: UnitMovement } | { impact: BattleImpact }
 export type Unit = Point & Stats & {
   id: string; name: string; role: Role; side: 'ally' | 'enemy'; captain: boolean;
   currentHP: number; currentMP: number; moved: boolean; done: boolean
+  level?: number
   facing?: Facing
 }
 export type Battle = {
@@ -30,7 +33,6 @@ export type BattleAction =
 
 export const FIRE_COST = 4
 export const FIRE_RANGE = 3
-export const terrainNames: Record<Terrain, string> = { '.': '평지', f: '수풀', m: '바위', w: '물', '=': '길' }
 const deployment: Point[] = [
   { x: 2, y: 3 }, { x: 2, y: 4 }, { x: 1, y: 2 }, { x: 1, y: 5 },
   { x: 2, y: 2 }, { x: 2, y: 5 }, { x: 1, y: 3 }, { x: 1, y: 4 },
@@ -44,28 +46,35 @@ export function facingBetween(from: Point, to: Point): Facing {
   if (from.x !== to.x) return from.x < to.x ? 'right' : 'left'
   return from.y < to.y ? 'down' : 'up'
 }
-export const terrainAt = (map: readonly string[], { x, y }: Point) => map[y]?.[x] as Terrain | undefined
+export function terrainAt(map: readonly string[], { x, y }: Point) {
+  const tile = map[y]?.[x]
+  return isTerrain(tile) ? tile : undefined
+}
 export const unitAt = (battle: Battle, point: Point) => battle.units.find((unit) => unit.currentHP > 0 && distance(unit, point) === 0)
 
-function makeUnit(id: string, name: string, role: Role, side: Unit['side'], position: Point, stats: Stats, captain = false): Unit {
-  return { ...position, ...stats, id, name, role, side, captain, currentHP: stats.hp, currentMP: stats.mp, moved: false, done: false }
+function makeUnit(id: string, name: string, role: Role, side: Unit['side'], position: Point, stats: Stats, level: number, captain = false): Unit {
+  return { ...position, ...stats, id, name, role, side, captain, level, currentHP: stats.hp, currentMP: stats.mp, moved: false, done: false }
+}
+
+export function unitStats(role: Role, tier: number, officer?: { bonus: number; treasure?: string }): Stats {
+  const { hp, mp, attack, defense, move, range } = roles[role]
+  if (!officer) return { hp: Math.floor(hp * 0.65) + tier * 4, mp, attack: attack - 5 + tier, defense: Math.max(0, defense - 2 + tier), move, range }
+  const stats: Stats = { hp: hp + officer.bonus * 4, mp, attack: attack + officer.bonus, defense, move, range }
+  const treasure = officer.treasure ? treasureById[officer.treasure] : undefined
+  if (treasure) stats[treasure.stat] += treasure.amount
+  return stats
 }
 
 export function newBattle(stage: Stage, lineup: string[], captain: string, equipment: Record<string, string>): Battle {
   const ordered = [captain, ...lineup.filter((id) => id !== captain)]
   const allies = ordered.map((id, i) => {
-    const officer = officerById[id]
-    const { hp, mp, attack, defense, move, range } = roles[officer.role]
-    const stats = { hp: hp + officer.bonus * 4, mp, attack: attack + officer.bonus, defense, move, range }
-    const treasure = treasureById[equipment[id]]
-    if (treasure) stats[treasure.stat] += treasure.amount
-    return makeUnit(id, officer.name, officer.role, 'ally', deployment[i], stats, id === captain)
+    const { name, role, bonus } = officerById[id]
+    const stats = unitStats(role, stage.tier, { bonus, treasure: equipment[id] })
+    return makeUnit(id, name, role, 'ally', deployment[i], stats, 1, id === captain)
   })
   const enemies = stage.enemies.map(({ x, y, role, name }, i) => {
-    const { hp, mp, attack, defense, move, range } = roles[role]
-    const tier = stage.tier
-    const stats = { hp: Math.floor(hp * 0.65) + tier * 4, mp, attack: attack - 5 + tier, defense: Math.max(0, defense - 2 + tier), move, range }
-    return makeUnit(`enemy-${i}`, name, role, 'enemy', { x, y }, stats)
+    const stats = unitStats(role, stage.tier)
+    return makeUnit(`enemy-${i}`, name, role, 'enemy', { x, y }, stats, 1 + stage.tier)
   })
   return { map: stage.map, units: [...allies, ...enemies], round: 1, result: null, log: [`${stage.name} 전투 시작. 아군이 먼저 행동합니다.`] }
 }
@@ -82,8 +91,9 @@ function reachable(battle: Battle, unit: Unit, limit: number) {
     for (const step of directions) {
       const point = { x: cell.x + step.x, y: cell.y + step.y }
       const terrain = terrainAt(battle.map, point)
-      if (!terrain || terrain === 'm' || terrain === 'w' || blocked.has(key(point))) continue
-      const cost = cell.cost + (terrain === 'f' ? 2 : 1)
+      const moveCost = terrain && terrains[terrain].moveCost
+      if (moveCost == null || blocked.has(key(point))) continue
+      const cost = cell.cost + moveCost
       if (cost > limit || cost >= (cells.get(key(point))?.cost ?? Infinity)) continue
       const next = { ...point, cost, from: key(cell) }
       cells.set(key(point), next)
@@ -116,7 +126,7 @@ export function attackCells(unit: Unit, fire = false) {
 
 export function canAttack(attacker: Unit, target: Unit, fire = false) {
   if (attacker.currentHP <= 0 || target.currentHP <= 0 || attacker.side === target.side || attacker.done) return false
-  if (fire && (attacker.role !== 'sage' || attacker.currentMP < FIRE_COST)) return false
+  if (fire && (roles[attacker.role].group !== '문관계' || attacker.currentMP < FIRE_COST)) return false
   return withinRange(attacker, target, fire)
 }
 
@@ -148,12 +158,51 @@ function updateResult(battle: Battle) {
 const defaultAttributes = [75, 70, 75, 75, 75] as const
 const attributesOf = (unit: Unit) => officerAttributes[unit.name] ?? defaultAttributes
 
-// The 7.0 manual describes modifiers. The original game's published rates are
-// a provisional baseline until the supplied 7.0 engine is verified directly.
+export function physicalStats(map: readonly string[], unit: Unit) {
+  const [force, , leadership, agility] = attributesOf(unit)
+  const { growth } = roles[unit.role]
+  const level = unit.level ?? 1
+  const terrain = terrainAt(map, unit)
+  const terrainFactor = unit.role === 'shieldInfantry' && (terrain === 'f' || terrain === 'w') ? 11 : 10
+  const effective = (attribute: number, classGrowth: number, bonus = 0) => {
+    // The source stores attributes on a 0–50 scale and averages both growth ranks.
+    const base = Math.floor(attribute / 2)
+    const aptitude = base >= 50 ? 5 : base >= 45 ? 4 : base >= 35 ? 3 : base >= 25 ? 2 : 1
+    const stat = base + level * Math.floor((classGrowth + aptitude) / 2) + bonus
+    return Math.max(1, Math.floor(stat * terrainFactor / 10))
+  }
+  return {
+    level,
+    terrainPercent: terrainFactor * 10,
+    attack: effective(force, growth[0], unit.attack),
+    defense: effective(leadership, growth[1], unit.defense),
+    agility: effective(agility, growth[2]),
+  }
+}
+
+export function basicPhysicalDamage(level: number, attack: number, defense: number) {
+  return Math.max(1, level + 25 + Math.trunc((attack - defense) / 2))
+}
+
+// Provisional for tactics until the supplied 7.0 tactic formula is verified.
 function hitRate(ratio: number) {
   if (ratio >= 1) return Math.min(100, Math.floor(80 + 10 * ratio))
   if (ratio >= 0.5) return Math.floor(30 + 60 * ratio)
   return Math.max(30, Math.floor(90 * ratio))
+}
+
+// Base physical accuracy in the supplied 7.0 executable (0x43b5e0–0x43b675).
+// The engine truncates half and one-third thresholds before using them.
+export function physicalHitRate(attackAgility: number, defenseAgility: number) {
+  if (attackAgility >= defenseAgility * 2) return 100
+  if (attackAgility >= defenseAgility) {
+    return 90 + Math.floor(10 * (attackAgility - defenseAgility) / defenseAgility)
+  }
+  const half = Math.floor(defenseAgility / 2)
+  if (attackAgility >= half) return 60 + Math.floor(30 * (attackAgility - half) / half)
+  const third = Math.floor(defenseAgility / 3)
+  if (attackAgility <= third) return 30
+  return 30 + Math.floor(30 * (attackAgility - third) / third)
 }
 
 function followUpRate(ratio: number) {
@@ -167,8 +216,8 @@ function canCounter(defender: Unit, attacker: Unit) {
 }
 
 export function forecastAttack(battle: Battle, attacker: Unit, target: Unit, kind: BattleImpact['kind'] = 'attack') {
-  const [force, intelligence, , agility, morale] = attributesOf(attacker)
-  const [, resistance, leadership, targetAgility, targetMorale] = attributesOf(target)
+  const [, intelligence, , , morale] = attributesOf(attacker)
+  const [, resistance, , , targetMorale] = attributesOf(target)
   if (kind === 'fire') {
     return {
       hit: hitRate((intelligence + morale) / (resistance + targetMorale)),
@@ -176,13 +225,15 @@ export function forecastAttack(battle: Battle, attacker: Unit, target: Unit, kin
       critical: 0, followUp: 0, counter: false,
     }
   }
-  const cover = terrainAt(battle.map, target) === 'f' ? 2 : 0
-  const base = Math.max(3, attacker.attack - target.defense - cover + Math.trunc((force - leadership) / 10))
+  const source = physicalStats(battle.map, attacker)
+  const recipient = physicalStats(battle.map, target)
+  const base = basicPhysicalDamage(source.level, source.attack, recipient.defense)
   return {
-    hit: hitRate(agility / targetAgility),
+    hit: physicalHitRate(source.agility, recipient.agility),
+    // 7.0 applies this reduction before additional effects and damage variance.
     damage: kind === 'counter' ? Math.max(1, Math.floor(base * 0.75)) : base,
     critical: followUpRate(morale / targetMorale),
-    followUp: kind === 'attack' ? followUpRate(agility / targetAgility) : 0,
+    followUp: kind === 'attack' ? followUpRate(source.agility / recipient.agility) : 0,
     counter: kind === 'attack' && canCounter(target, attacker),
   }
 }

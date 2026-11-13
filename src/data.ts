@@ -1,20 +1,50 @@
+import { roleFor } from './unit-classes.ts'
+import type { Role } from './unit-classes.ts'
+
 export const WIDTH = 12
 export const HEIGHT = 8
 export const STAGE_COUNT = 50
 export const FIELD_LIMIT = 12
 export const DRAFT_LIMIT = 10
 
-export type Role = 'guard' | 'blade' | 'bow' | 'sage'
-export type Terrain = '.' | 'f' | 'm' | 'w' | '='
+export const terrains = {
+  '.': { name: '평지', moveCost: 1, appearance: 'plain' },
+  g: { name: '초원', moveCost: 1, appearance: 'plain' },
+  f: { name: '숲(일반)', moveCost: 2, appearance: 'forest' },
+  p: { name: '숲(복숭아)', moveCost: 2, appearance: 'peach' },
+  M: { name: '산지', moveCost: 1, appearance: 'rock' },
+  a: { name: '황무지', moveCost: 1, appearance: 'earth' },
+  d: { name: '사막', moveCost: 1, appearance: 'sand' },
+  s: { name: '설원', moveCost: 1, appearance: 'snow' },
+  i: { name: '빙판', moveCost: 1, appearance: 'ice' },
+  r: { name: '완류', moveCost: 1, appearance: 'water' },
+  e: { name: '습지', moveCost: 1, appearance: 'marsh' },
+  b: { name: '다리', moveCost: 1, appearance: 'road' },
+  h: { name: '가옥', moveCost: 1, appearance: 'building' },
+  j: { name: '얕은 여울', moveCost: 1, appearance: 'water' },
+  l: { name: '늪지', moveCost: 1, appearance: 'marsh' },
+  x: { name: '독천(아천)', moveCost: 1, appearance: 'marsh' },
+  u: { name: '지하', moveCost: 1, appearance: 'earth' },
+  z: { name: '잔도', moveCost: 1, appearance: 'road' },
+  n: { name: '내성', moveCost: 1, appearance: 'building' },
+  c: { name: '성내', moveCost: 1, appearance: 'building' },
+  k: { name: '팔괘석', moveCost: 1, appearance: 'rock' },
+  v: { name: '마을', moveCost: 1, appearance: 'building' },
+  B: { name: '병영', moveCost: 1, appearance: 'building' },
+  C: { name: '성채', moveCost: 1, appearance: 'building' },
+  G: { name: '관문', moveCost: 1, appearance: 'building' },
+  F: { name: '요새', moveCost: 1, appearance: 'building' },
+  // Original map symbols also occur in saved battles.
+  '=': { name: '길', moveCost: 1, appearance: 'road' },
+  m: { name: '바위', moveCost: null, appearance: 'rock' },
+  w: { name: '물', moveCost: null, appearance: 'water' },
+} as const
+
+export type Terrain = keyof typeof terrains
+export const isTerrain = (symbol: string | undefined): symbol is Terrain =>
+  symbol !== undefined && Object.hasOwn(terrains, symbol)
 export type Point = { x: number; y: number }
 export type Stats = { hp: number; mp: number; attack: number; defense: number; move: number; range: number }
-
-export const roles: Record<Role, Stats & { name: string; symbol: string; description: string }> = {
-  guard: { name: '중갑병', symbol: '◆', description: '높은 방어력으로 전선을 지킵니다.', hp: 45, mp: 0, attack: 13, defense: 7, move: 3, range: 1 },
-  blade: { name: '검병', symbol: '✦', description: '빠르게 접근해 적을 베어냅니다.', hp: 36, mp: 0, attack: 17, defense: 3, move: 4, range: 1 },
-  bow: { name: '궁병', symbol: '➶', description: '최대 3칸 거리에서 공격합니다.', hp: 30, mp: 0, attack: 15, defense: 2, move: 3, range: 3 },
-  sage: { name: '책사', symbol: '✷', description: '기본 공격과 화계를 사용합니다.', hp: 28, mp: 12, attack: 13, defense: 2, move: 3, range: 2 },
-}
 
 export const items = {
   salve: { name: '상처약', detail: 'HP 20 회복', price: 35 },
@@ -24,43 +54,44 @@ export type ItemId = keyof typeof items
 
 export type Officer = { id: string; name: string; role: Role; cost: number; price: number; bonus: number }
 export const officers: Officer[] = [
-  { id: 'yeon', name: '조조', role: 'guard', cost: 3, price: 80, bonus: 0 },
-  { id: 'ha', name: '관우', role: 'blade', cost: 3, price: 80, bonus: 0 },
-  { id: 'jin', name: '하후연', role: 'bow', cost: 2, price: 70, bonus: 0 },
-  { id: 'seo', name: '곽가', role: 'sage', cost: 2, price: 70, bonus: 0 },
-  { id: 'baek', name: '조인', role: 'guard', cost: 2, price: 65, bonus: -1 },
-  { id: 'dan', name: '장료', role: 'blade', cost: 2, price: 65, bonus: -1 },
-  { id: 'yul', name: '우금', role: 'bow', cost: 2, price: 65, bonus: -1 },
-  { id: 'ryeo', name: '순욱', role: 'sage', cost: 3, price: 90, bonus: 1 },
+  { id: 'yeon', name: '조조', role: roleFor('조조'), cost: 3, price: 80, bonus: 0 },
+  { id: 'ha', name: '관우', role: roleFor('관우'), cost: 3, price: 80, bonus: 0 },
+  { id: 'jin', name: '하후연', role: roleFor('하후연'), cost: 2, price: 70, bonus: 0 },
+  { id: 'seo', name: '곽가', role: roleFor('곽가'), cost: 2, price: 70, bonus: 0 },
+  { id: 'baek', name: '조인', role: roleFor('조인'), cost: 2, price: 65, bonus: -1 },
+  { id: 'dan', name: '장료', role: roleFor('장료'), cost: 2, price: 65, bonus: -1 },
+  { id: 'yul', name: '우금', role: roleFor('우금'), cost: 2, price: 65, bonus: -1 },
+  { id: 'ryeo', name: '순욱', role: roleFor('순욱'), cost: 3, price: 90, bonus: 1 },
 ]
 
-const reserveNames: Record<Role, string[]> = {
+// Keep these prefixes for existing roster and equipment IDs.
+const reserveNames = {
   guard: ['전위', '허저', '서황', '장합', '등애', '문빙', '만총', '조홍'],
   blade: ['하후돈', '조운', '장비', '마초', '감녕', '주태', '능통', '손책'],
   bow: ['황충', '태사자', '한당', '정봉', '서성', '장임', '장익', '엄안'],
   sage: ['제갈량', '사마의', '주유', '육손', '가후', '방통', '노숙', '서서'],
 }
 
-for (const [role, names] of Object.entries(reserveNames) as [Role, string[]][]) {
+for (const [prefix, names] of Object.entries(reserveNames)) {
   names.forEach((name, index) => {
     const bonus = index % 4 + 1
-    officers.push({ id: `${role}-${index + 1}`, name, role, cost: 0, price: 85 + bonus * 20, bonus })
+    officers.push({ id: `${prefix}-${index + 1}`, name, role: roleFor(name), cost: 0, price: 85 + bonus * 20, bonus })
   })
 }
 
 officers.push(
-  { id: 'cao-zhang', name: '조창', role: 'blade', cost: 0, price: 145, bonus: 3 },
-  { id: 'cao-pi', name: '조비', role: 'bow', cost: 0, price: 125, bonus: 2 },
-  { id: 'yue-jin', name: '악진', role: 'blade', cost: 0, price: 125, bonus: 2 },
-  { id: 'li-dian', name: '이전', role: 'guard', cost: 0, price: 105, bonus: 1 },
-  { id: 'xun-you', name: '순유', role: 'sage', cost: 0, price: 145, bonus: 3 },
-  { id: 'cheng-yu', name: '정욱', role: 'sage', cost: 0, price: 145, bonus: 3 },
-  { id: 'liu-ye', name: '유엽', role: 'bow', cost: 0, price: 125, bonus: 2 },
-  { id: 'liu-bei', name: '유비', role: 'guard', cost: 0, price: 165, bonus: 4 },
-  { id: 'wei-yan', name: '위연', role: 'blade', cost: 0, price: 145, bonus: 3 },
-  { id: 'fa-zheng', name: '법정', role: 'sage', cost: 0, price: 145, bonus: 3 },
-  { id: 'diao-chan', name: '초선', role: 'sage', cost: 0, price: 125, bonus: 2 },
-  { id: 'jiang-wei', name: '강유', role: 'blade', cost: 0, price: 165, bonus: 4 },
+  { id: 'cao-zhang', name: '조창', role: roleFor('조창'), cost: 0, price: 145, bonus: 3 },
+  { id: 'cao-pi', name: '조비', role: roleFor('조비'), cost: 0, price: 125, bonus: 2 },
+  { id: 'yue-jin', name: '악진', role: roleFor('악진'), cost: 0, price: 125, bonus: 2 },
+  { id: 'li-dian', name: '이전', role: roleFor('이전'), cost: 0, price: 105, bonus: 1 },
+  { id: 'xun-you', name: '순유', role: roleFor('순유'), cost: 0, price: 145, bonus: 3 },
+  { id: 'cheng-yu', name: '정욱', role: roleFor('정욱'), cost: 0, price: 145, bonus: 3 },
+  { id: 'liu-ye', name: '유엽', role: roleFor('유엽'), cost: 0, price: 125, bonus: 2 },
+  { id: 'liu-bei', name: '유비', role: roleFor('유비'), cost: 0, price: 165, bonus: 4 },
+  { id: 'wei-yan', name: '위연', role: roleFor('위연'), cost: 0, price: 145, bonus: 3 },
+  { id: 'fa-zheng', name: '법정', role: roleFor('법정'), cost: 0, price: 145, bonus: 3 },
+  { id: 'diao-chan', name: '초선', role: roleFor('초선'), cost: 0, price: 125, bonus: 2 },
+  { id: 'jiang-wei', name: '강유', role: roleFor('강유'), cost: 0, price: 165, bonus: 4 },
 )
 
 export const starterIds = officers.slice(0, 8).map(({ id }) => id)
@@ -118,7 +149,8 @@ const stageNames = [
   '용틀임 하천', '바위의 장벽', '철령의 습지', '철령 대로', '철령 관문',
 ]
 
-const enemyNames: Record<Role, string[]> = {
+// Formation slots preserve each stage’s named enemies and positions.
+const enemyNames = {
   guard: ['황보숭', '고순', '안량', '문추', '이각'],
   blade: ['화웅', '여포', '방덕', '기령', '곽사'],
   bow: ['장수', '장연', '공손찬', '진무', '황개'],
@@ -131,17 +163,18 @@ export const stages: Stage[] = stageNames.map((name, index) => {
   const layout = index % maps.length
   const map: string[] = chapter % 2 ? [...maps[layout]].reverse() : [...maps[layout]]
   const formation = Math.min(7, Math.floor((index + 4) / 7))
-  const roleCounts: Record<Role, number> = { guard: 0, blade: 0, bow: 0, sage: 0 }
+  const roleCounts: Record<keyof typeof enemyNames, number> = { guard: 0, blade: 0, bow: 0, sage: 0 }
   const enemies = fronts[formation].map((entry) => {
-    const [location, role] = entry.split(':') as [string, Role]
+    const [location, slot] = entry.split(':') as [string, keyof typeof enemyNames]
     const [x, y] = location.split(',').map(Number)
     const row = (y + chapter * 2) % HEIGHT
-    if (map[row][x] === 'w' || map[row][x] === 'm') {
+    const tile = map[row][x]
+    if (isTerrain(tile) && terrains[tile].moveCost === null) {
       map[row] = map[row].slice(0, x) + '.' + map[row].slice(x + 1)
     }
-    const names = enemyNames[role]
-    const name = names[(chapter + roleCounts[role]++) % names.length]
-    return { x, y: row, role, name }
+    const names = enemyNames[slot]
+    const name = names[(chapter + roleCounts[slot]++) % names.length]
+    return { x, y: row, role: roleFor(name), name }
   })
   return { number: index + 1, name, map, enemies, reward: 230 + index * 5, tier: Math.floor(index / 10) }
 })

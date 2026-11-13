@@ -1,7 +1,8 @@
 import { DRAFT_LIMIT, FIELD_LIMIT, STAGE_COUNT, items, officerById, officers, recommendedIds, stages, starterIds, treasureById, treasures } from './data.ts'
 import type { ItemId } from './data.ts'
-import { newBattle, playBattle } from './combat.ts'
+import { newBattle, playBattle, unitStats } from './combat.ts'
 import type { Battle, BattleAction } from './combat.ts'
+import { roles } from './unit-classes.ts'
 
 export type Campaign = {
   phase: 'draft' | 'battle' | 'camp' | 'complete'
@@ -139,24 +140,33 @@ export function campaignReducer(state: Campaign, action: Action): Campaign {
   }
 }
 
-function restoreBattleNames(save: Campaign): Campaign {
-  if (!save.battle) return save
+function restoreBattleUnits(save: Campaign): Campaign {
+  const battle = save.battle
+  if (!battle) return save
   const stage = stages[save.stage - 1]
   const renamed = new Map<string, string>()
-  const units = save.battle.units.map((unit) => {
-    const name = unit.side === 'ally'
-      ? officerById[unit.id]?.name
-      : stage.enemies[Number(unit.id.slice('enemy-'.length))]?.name
-    if (!name || unit.name === name) return unit
-    renamed.set(unit.name, name)
-    return { ...unit, name }
+  const units = battle.units.map((unit) => {
+    const officer = unit.side === 'ally' ? officerById[unit.id] : undefined
+    const profile = unit.side === 'ally' ? officer : stage.enemies[Number(unit.id.slice('enemy-'.length))]
+    const name = profile?.name
+    if (name && unit.name !== name) renamed.set(unit.name, name)
+    const level = unit.level ?? (unit.side === 'ally' ? 1 : 1 + stage.tier)
+    const role = profile?.role ?? (Object.hasOwn(roles, unit.role) ? unit.role : 'lightInfantry')
+    if (role !== unit.role) {
+      const stats = unitStats(role, stage.tier, officer && { bonus: officer.bonus, treasure: save.equipment[unit.id] })
+      const currentHP = unit.currentHP > 0 ? Math.max(1, Math.min(unit.currentHP, stats.hp)) : 0
+      const currentMP = Math.min(unit.currentMP, stats.mp)
+      return { ...unit, ...stats, name: name ?? unit.name, role, level, currentHP, currentMP }
+    }
+    if ((!name || unit.name === name) && unit.level === level) return unit
+    return { ...unit, name: name ?? unit.name, level }
   })
-  if (!renamed.size) return save
-  const log = save.battle.log.map((line) => {
+  if (units.every((unit, index) => unit === battle.units[index])) return save
+  const log = battle.log.map((line) => {
     for (const [before, after] of renamed) line = line.replaceAll(before, after)
     return line
   })
-  return { ...save, battle: { ...save.battle, units, log } }
+  return { ...save, battle: { ...battle, units, log } }
 }
 
 const SAVE_KEY = 'iron-pass.v1'
@@ -169,7 +179,7 @@ export function loadCampaign(): Campaign {
           && Number.isInteger(save.stage) && save.stage >= 1 && save.stage <= STAGE_COUNT
           && Array.isArray(save.roster) && Array.isArray(save.lineup)
           && save.inventory && save.equipment && save.offers
-          && (save.phase !== 'battle' || save.battle?.units)) return restoreBattleNames(save)
+          && (save.phase !== 'battle' || save.battle?.units)) return restoreBattleUnits(save)
     }
   } catch {
     // Storage can be disabled in private or restricted browsing.

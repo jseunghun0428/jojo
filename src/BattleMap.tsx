@@ -1,10 +1,11 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import Phaser from 'phaser'
 import { LocalGraphicsContext } from './local-graphics.ts'
-import { HEIGHT, WIDTH, roles } from './data.ts'
+import { HEIGHT, WIDTH, isTerrain, terrains } from './data.ts'
 import type { Point, Terrain } from './data.ts'
 import { facingBetween, key, validCell } from './combat.ts'
 import type { BattleEvent, BattleImpact, Facing, Unit } from './combat.ts'
+import { roles } from './unit-classes.ts'
 
 const TILE = 64
 const STEP_MS = 200
@@ -19,9 +20,11 @@ const WALK_FRAMES: Record<Facing, readonly number[]> = {
 }
 const ATTACK_START: Record<Facing, number> = { down: 0, up: 4, left: 8, right: 8 }
 const eventDuration = (event: BattleEvent) => 'move' in event ? (event.move.path.length - 1) * STEP_MS : IMPACT_MS
-const terrainColors: Record<Terrain, [number, number]> = {
-  '.': [0x596342, 0x5f6946], f: [0x394f37, 0x40583c], m: [0x575951, 0x60625a],
-  w: [0x36545a, 0x3e6064], '=': [0x8b7654, 0x917b58],
+const terrainColors: Record<(typeof terrains)[Terrain]['appearance'], [number, number]> = {
+  plain: [0x596342, 0x5f6946], forest: [0x394f37, 0x40583c], rock: [0x575951, 0x60625a],
+  water: [0x36545a, 0x3e6064], road: [0x8b7654, 0x917b58], peach: [0x624756, 0x6d4f60],
+  earth: [0x6b5141, 0x765b48], sand: [0xa78d5e, 0xb19663], snow: [0xb0baba, 0xc0c9c7],
+  ice: [0x789ba7, 0x87a9b3], marsh: [0x435a48, 0x4a6250], building: [0x645d53, 0x726859],
 }
 
 type MapProps = {
@@ -40,27 +43,32 @@ type MapProps = {
 }
 
 function drawTerrain(g: Phaser.GameObjects.Graphics, terrain: Terrain, x: number, y: number, seed: number) {
-  const palette = terrainColors[terrain]
+  const { appearance } = terrains[terrain]
+  const palette = terrainColors[appearance]
   g.fillStyle(palette[seed % 2]).fillRect(x, y, TILE, TILE)
-  if (terrain === 'f') {
+  if (appearance === 'forest' || appearance === 'peach') {
     for (let i = 0; i < 3; i++) {
       const px = x + 10 + i * 16
       const py = y + 11 + (seed + i * 21) % 22
       g.fillStyle(0x24392b).fillRect(px + 5, py + 17, 4, 14)
       g.fillStyle(0x29402e).fillTriangle(px, py + 20, px + 7, py, px + 14, py + 20)
-      g.fillStyle(0x66754c).fillTriangle(px, py + 15, px + 7, py, px + 7, py + 18)
+      g.fillStyle(appearance === 'peach' ? 0xd28a9a : 0x66754c).fillTriangle(px, py + 15, px + 7, py, px + 7, py + 18)
     }
-  } else if (terrain === 'm') {
+  } else if (appearance === 'rock') {
     g.fillStyle(0x383c37).fillTriangle(x + 7, y + 49, x + 34, y + 10, x + 56, y + 50)
     g.fillStyle(0x86877a).fillTriangle(x + 11, y + 47, x + 34, y + 10, x + 31, y + 44)
     g.fillStyle(0x646658).fillTriangle(x + 7, y + 50, x + 24, y + 28, x + 37, y + 50)
+  } else if (appearance === 'building') {
+    g.fillStyle(0x9d8a70).fillRect(x + 16, y + 28, 32, 24)
+    g.fillStyle(0x4b3a33).fillTriangle(x + 10, y + 30, x + 32, y + 12, x + 54, y + 30)
+    g.fillRect(x + 28, y + 39, 8, 13)
   } else {
     for (let i = 0; i < 5; i++) {
       const px = x + 5 + (seed + i * 19) % 45
       const py = y + 7 + (seed * 3 + i * 13) % 48
-      const color = terrain === 'w' ? 0x659296 : terrain === '=' ? 0xa39065 : 0x85905f
-      g.fillStyle(color, 0.45).fillRect(px, py, terrain === 'w' ? 11 : 4, 2)
-      if (terrain === '.') g.fillRect(px + 2, py - 3, 2, 3)
+      const color = appearance === 'water' ? 0x659296 : appearance === 'road' ? 0xa39065 : 0x85905f
+      g.fillStyle(color, 0.45).fillRect(px, py, appearance === 'water' ? 11 : 4, 2)
+      if (appearance === 'plain') g.fillRect(px + 2, py - 3, 2, 3)
     }
   }
   g.lineStyle(1, 0x20271a, 0.5).strokeRect(x + 0.5, y + 0.5, TILE - 1, TILE - 1)
@@ -81,14 +89,14 @@ function drawUnit(g: Phaser.GameObjects.Graphics, unit: Unit, x: number, y: numb
     g.fillStyle(facing === 'up' ? dark : 0xd9a981, opacity).fillRect(x + 26 + faceOffset, y + 15, 14, 10)
     g.fillStyle(dark, opacity).fillRect(x + 23, y + 11, 19, 7)
     g.fillStyle(base, opacity).fillRect(x + 26, y + 9, 13, 5)
-    if (unit.role === 'guard') {
+    if (roles[unit.role].sprite === 'guard') {
       g.fillStyle(0x252720, opacity).fillRect(x + 14, y + 29, 13, 16)
       g.fillStyle(base, opacity).fillRect(x + 16, y + 30, 9, 11)
-    } else if (unit.role === 'bow') {
+    } else if (roles[unit.role].sprite === 'bow') {
       g.lineStyle(2, 0xf2ce8a, opacity).strokeCircle(x + 46, y + 29, 7)
       g.lineBetween(x + 46, y + 21, x + 46, y + 37)
     } else {
-      g.fillStyle(unit.role === 'sage' ? 0xffd78c : 0xe1d9c5, opacity).fillRect(x + 45, y + 19, 3, 23)
+      g.fillStyle(roles[unit.role].sprite === 'sage' ? 0xffd78c : 0xe1d9c5, opacity).fillRect(x + 45, y + 19, 3, 23)
       g.fillRect(x + 42, y + 37, 9, 2)
     }
   }
@@ -197,7 +205,7 @@ export default function BattleMap(props: MapProps) {
               for (const sprite of unitImages.values()) sprite.setVisible(false)
               for (const label of labels.values()) label.setVisible(false)
               map.forEach((row, y) => [...row].forEach((cell, x) => {
-                drawTerrain(graphics, cell as Terrain, x * TILE, y * TILE, x * 17 + y * 29)
+                if (isTerrain(cell)) drawTerrain(graphics, cell, x * TILE, y * TILE, x * 17 + y * 29)
                 if (range?.has(key({ x, y }))) {
                   graphics.fillStyle(0xf18767, 0.24).fillRect(x * TILE + 1, y * TILE + 1, TILE - 2, TILE - 2)
                   graphics.lineStyle(1, 0xf79d80, 0.65).strokeRect(x * TILE + 3, y * TILE + 3, TILE - 6, TILE - 6)
@@ -235,7 +243,7 @@ export default function BattleMap(props: MapProps) {
                 const y = position.y * TILE
                 const graphicsPack = sprites.current
                 const personalKey = graphicsPack?.officerSprites[unit.name]
-                const spriteKey = personalKey && graphicsPack?.units[personalKey] ? personalKey : `${unit.side}-${unit.role}`
+                const spriteKey = personalKey && graphicsPack?.units[personalKey] ? personalKey : `${unit.side}-${roles[unit.role].sprite}`
                 const poseType = attacking ? (impact.kind === 'fire' ? 'special' : 'attack')
                   : receiving && !impact.blocked ? 'special' : 'units'
                 const guardFrame = receiving && impact.blocked && impact.kind !== 'fire' ? 1 : step

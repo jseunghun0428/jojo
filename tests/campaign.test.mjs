@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { officerAttributes } from '../src/officer-attributes.ts'
+import { roles } from '../src/unit-classes.ts'
 import { campaignReducer as reduce, createCampaign, draftCost, loadCampaign, saveCampaign } from '../src/campaign.ts'
-import { attackCells, canAttack, distance, forecastAttack, key, movementPath, movesFor, newBattle, playBattle, terrainAt } from '../src/combat.ts'
+import { attackCells, basicPhysicalDamage, canAttack, distance, forecastAttack, key, movementPath, movesFor, newBattle, physicalHitRate, physicalStats, playBattle, terrainAt } from '../src/combat.ts'
 import { DRAFT_LIMIT, FIELD_LIMIT, HEIGHT, WIDTH, items, officerById, officers, recommendedIds, stages, treasureById } from '../src/data.ts'
 
 const dispatchBattle = (state, action) => reduce(state, { type: 'battle', action })
@@ -18,7 +19,7 @@ function winFirstBattle() {
       const unit = state.battle.units.find((unit) => unit.id === id)
       const enemies = state.battle.units.filter((unit) => unit.side === 'enemy' && unit.currentHP > 0)
       const aim = (point) => Math.min(...enemies.map((enemy) => distance(point, enemy)))
-      const usesFire = unit.role === 'sage' && unit.currentMP >= 4
+      const usesFire = roles[unit.role].group === '문관계' && unit.currentMP >= 4
       if (!enemies.some((enemy) => canAttack(unit, enemy, usesFire))) {
         const best = movesFor(state.battle, unit).sort((a, b) => aim(a) - aim(b))[0]
         if (best && aim(best) < aim(unit)) state = dispatchBattle(state, { type: 'move', unit: id, to: best })
@@ -94,6 +95,22 @@ test('a move must be committed or cancelled before another ally acts or the turn
   assert.equal(dispatchBattle(committed, { type: 'cancel-move', unit: captain.id }), committed)
 })
 
+test('new terrains resolve by map symbol and use provisional movement costs', () => {
+  const state = deploy()
+  const unit = state.battle.units[0]
+  const map = state.battle.map.map((row, y) => y === unit.y ? row.slice(0, unit.x + 1) + 'Mpm' + row.slice(unit.x + 4) : row)
+  const moves = movesFor({ ...state.battle, map }, unit)
+  const byPoint = new Map(moves.map((point) => [key(point), point]))
+  const mountain = { x: unit.x + 1, y: unit.y }
+  const peachForest = { x: unit.x + 2, y: unit.y }
+  const rock = { x: unit.x + 3, y: unit.y }
+  assert.equal(terrainAt(map, mountain), 'M')
+  assert.equal(byPoint.get(key(mountain)).cost, 1)
+  assert.equal(byPoint.get(key(peachForest)).cost, 3)
+  assert.equal(byPoint.has(key(rock)), false)
+  assert.equal(physicalStats(map, { ...unit, ...mountain }).terrainPercent, 100)
+})
+
 test('all 50 stages deploy deterministically with valid tiles and distinct units', () => {
   assert.equal(stages.length, 50)
   const lineup = officers.slice(0, FIELD_LIMIT).map(({ id }) => id)
@@ -117,10 +134,46 @@ test('all 50 stages deploy deterministically with valid tiles and distinct units
   }
 })
 
+test('7.0 base physical accuracy truncates the defender agility thresholds before division', () => {
+  const defender = 77
+  assert.deepEqual(
+    [24, 25, 26, 37, 38, 75, 76, 77, 153, 154].map((attacker) => physicalHitRate(attacker, defender)),
+    [30, 30, 31, 44, 60, 89, 90, 90, 99, 100],
+  )
+})
+
+test('physical damage uses level and truncates odd attack-defense differences toward zero', () => {
+  assert.equal(basicPhysicalDamage(3, 51, 48), 29)
+  assert.equal(basicPhysicalDamage(3, 48, 51), 27)
+  assert.equal(basicPhysicalDamage(3, 10, 100), 1)
+})
+
+test('physical forecasts use the class terrain factor and the equipped attack bonus', () => {
+  const stage = stages[0]
+  const lineup = recommendedIds
+  const weapon = Object.values(treasureById).find(({ stat }) => stat === 'attack')
+  const battle = newBattle(stage, lineup, lineup[0], { [lineup[0]]: weapon.id })
+  const [captain, , , , target] = battle.units
+  Object.assign(captain, { x: 4, y: 2 })
+  Object.assign(target, { x: 5, y: 2 })
+  const road = physicalStats(battle.map, captain)
+  assert.equal(road.attack, 52 + weapon.amount)
+  const forest = { ...battle, map: battle.map.map((row, y) => y === 2 ? row.slice(0, 4) + 'f' + row.slice(5) : row) }
+  const stats = physicalStats(forest.map, captain)
+  assert.equal(stats.terrainPercent, 110)
+  assert.equal(stats.attack, Math.floor(road.attack * 1.1))
+  assert.equal(stats.defense, Math.floor(road.defense * 1.1))
+  assert.equal(stats.agility, Math.floor(road.agility * 1.1))
+  const enemy = physicalStats(forest.map, target)
+  const forecast = forecastAttack(forest, captain, target)
+  assert.equal(forecast.damage, basicPhysicalDamage(stats.level, stats.attack, enemy.defense))
+  assert.equal(forecast.hit, physicalHitRate(stats.agility, enemy.agility))
+})
+
 test('physical hits, guards and counters resolve in order without consuming the defender’s turn', () => {
   const battle = deploy().battle
   const [attacker, , , , defender] = battle.units
-  Object.assign(defender, { x: attacker.x + 1, y: attacker.y, done: true })
+  Object.assign(defender, { x: attacker.x + 1, y: attacker.y, hp: 100, currentHP: 100, done: true })
   const stock = { salve: 1, tonic: 1 }
   const attack = { type: 'attack', unit: attacker.id, target: defender.id }
   const prediction = forecastAttack(battle, attacker, defender)
@@ -129,10 +182,15 @@ test('physical hits, guards and counters resolve in order without consuming the 
   assert.deepEqual(first, exchange(1))
   assert.deepEqual(first.events.map(({ impact }) => impact.kind), ['attack', 'counter'])
   assert.equal(first.events[0].impact.damage, prediction.damage)
+  const normalReturn = forecastAttack(battle, defender, attacker)
+  assert.equal(first.events[1].impact.damage, Math.max(1, Math.floor(normalReturn.damage * 0.75)))
+  assert.equal(first.events[1].impact.remainingHP, attacker.currentHP - first.events[1].impact.damage)
   assert.equal(first.units.find(({ id }) => id === defender.id).done, true)
   defender.done = false
   assert.equal(exchange(1).units.find(({ id }) => id === defender.id).done, false)
-  const guarded = exchange(1850).events[0].impact
+  const guardedExchange = exchange(1850)
+  assert.deepEqual(guardedExchange.events.map(({ impact }) => impact.kind), ['attack', 'counter'])
+  const guarded = guardedExchange.events[0].impact
   assert.equal(guarded.blocked, true)
   assert.equal(guarded.damage, 0)
   assert.equal(guarded.remainingHP, defender.currentHP)
@@ -184,14 +242,17 @@ test('play a real first victory, buy all three categories, equip and begin the n
   assert.equal(next.battle.units.find((unit) => unit.captain)[relic.stat], deploy().battle.units[0][relic.stat] + relic.amount)
 })
 
-test('additional officers have five attributes and can join through the regular shop', () => {
+test('all recruitable officers have politics and additional officers can join through the regular shop', () => {
   assert.equal(new Set(officers.map(({ id }) => id)).size, officers.length)
   assert.equal(new Set(officers.map(({ name }) => name)).size, officers.length)
   for (const { name } of officers) {
     const attributes = officerAttributes[name]
-    assert.equal(attributes?.length, 5, name)
+    assert.equal(attributes?.length, 6, name)
     assert.ok(attributes.every((value) => Number.isInteger(value) && value >= 1 && value <= 100), name)
   }
+  assert.equal(officerAttributes.조조[5], 94)
+  assert.equal(officerAttributes.등애[5], 81)
+  assert.equal(officerAttributes.문빙[5], 69)
 
   const id = 'cao-zhang'
   const won = winFirstBattle()
@@ -247,7 +308,7 @@ test('items consume an action, defeat retries the same stage, and the last win c
   assert.equal(finished.stage, 50)
 })
 
-test('restores saved camp and updates legacy battle names without resetting progress', () => {
+test('restores saved camp and backfills legacy battle names and levels without resetting progress', () => {
   const descriptors = Object.getOwnPropertyDescriptor(globalThis, 'localStorage')
   const store = new Map()
   Object.defineProperty(globalThis, 'localStorage', { configurable: true, value: {
@@ -259,11 +320,11 @@ test('restores saved camp and updates legacy battle names without resetting prog
     assert.deepEqual(loadCampaign(), camp)
 
     const active = deploy()
-    const legacy = { ...active, battle: {
+    const legacy = { ...active, stage: 11, battle: {
       ...active.battle,
-      units: active.battle.units.map((unit) => {
-        if (unit.id === 'yeon') return { ...unit, name: '연무', currentHP: 31 }
-        if (unit.id === 'enemy-0') return { ...unit, name: '적 검병 1' }
+      units: active.battle.units.map(({ level, ...unit }) => {
+        if (unit.id === 'yeon') return { ...unit, name: '연무', role: 'guard', currentHP: 31 }
+        if (unit.id === 'enemy-0') return { ...unit, name: '적 검병 1', role: 'blade' }
         return unit
       }),
       log: ['연무 → 적 검병 1 · 공격 12 피해'],
@@ -272,8 +333,14 @@ test('restores saved camp and updates legacy battle names without resetting prog
     const restored = loadCampaign()
     assert.equal(restored.battle.units.find((unit) => unit.captain).name, '조조')
     assert.equal(restored.battle.units.find((unit) => unit.captain).currentHP, 31)
-    assert.equal(restored.battle.units.find((unit) => unit.id === 'enemy-0').name, '화웅')
-    assert.deepEqual(restored.battle.log, ['조조 → 화웅 · 공격 12 피해'])
+    assert.equal(restored.battle.units.find((unit) => unit.captain).level, 1)
+    assert.equal(restored.battle.units.find((unit) => unit.captain).role, 'shieldInfantry')
+    const enemy = restored.battle.units.find((unit) => unit.id === 'enemy-0')
+    assert.equal(enemy.name, stages[10].enemies[0].name)
+    assert.equal(enemy.level, 2)
+    assert.equal(enemy.role, stages[10].enemies[0].role)
+    assert.equal(enemy.move, roles[enemy.role].move)
+    assert.deepEqual(restored.battle.log, [`조조 → ${enemy.name} · 공격 12 피해`])
   } finally {
     if (descriptors) Object.defineProperty(globalThis, 'localStorage', descriptors)
     else delete globalThis.localStorage
