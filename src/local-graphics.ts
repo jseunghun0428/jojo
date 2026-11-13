@@ -1,0 +1,59 @@
+import { createContext, useEffect, useState } from 'react'
+
+type Graphics = {
+  portraits: Partial<Record<string, string>>
+  units: Partial<Record<string, HTMLImageElement>>
+  attack: Partial<Record<string, HTMLImageElement>>
+  special: Partial<Record<string, HTMLImageElement>>
+  officerSprites: Partial<Record<string, string>>
+}
+
+const assetRoot = '/jo-assets/'
+export const LocalGraphicsContext = createContext<Graphics | null>(null)
+
+async function loadLocalGraphics(): Promise<Graphics | null> {
+  const response = await fetch(assetRoot + 'manifest.json')
+  if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) return null
+  const { portraits, units, attack = {}, special = {}, officerSprites = {} } = await response.json() as {
+    portraits: Record<string, string>
+    units: Record<string, string>
+    attack?: Record<string, string>
+    special?: Record<string, string>
+    officerSprites?: Record<string, string>
+  }
+  async function loadImages(files: Record<string, string>): Promise<Graphics['units']> {
+    const images: Graphics['units'] = {}
+    await Promise.all(Object.entries(files).map(async ([key, url]) => {
+      const image = new Image()
+      image.src = assetRoot + url
+      try {
+        await image.decode()
+        images[key] = image
+      } catch {
+        // A missing local frame leaves the normal battle marker available.
+      }
+    }))
+    return images
+  }
+  const [unitImages, attackImages, specialImages] = await Promise.all([loadImages(units), loadImages(attack), loadImages(special)])
+  return {
+    portraits: Object.fromEntries(Object.entries(portraits).map(([name, url]) => [name, assetRoot + url])),
+    units: unitImages,
+    attack: attackImages,
+    special: specialImages,
+    officerSprites,
+  }
+}
+
+export function useLocalGraphics() {
+  const [graphics, setGraphics] = useState<Graphics | null>(null)
+  useEffect(() => {
+    if (!import.meta.env.DEV) return
+    let mounted = true
+    void loadLocalGraphics().then((value) => {
+      if (mounted) setGraphics(value)
+    }).catch(() => {})
+    return () => { mounted = false }
+  }, [])
+  return graphics
+}
