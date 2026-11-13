@@ -1,5 +1,7 @@
 import { roleFor } from './unit-classes.ts'
 import type { Role } from './unit-classes.ts'
+import type { Facing } from './combat.ts'
+import type { JoProfile, JoStageDetails } from './jo-game.ts'
 
 export const WIDTH = 12
 export const HEIGHT = 8
@@ -157,7 +159,11 @@ const enemyNames = {
   sage: ['진궁', '이유', '전풍', '저수', '심배'],
 }
 
-export type Stage = { number: number; name: string; map: readonly string[]; enemies: (Point & { role: Role; name: string })[]; reward: number; tier: number }
+export type Stage = {
+  number: number; name: string; map: readonly string[]; reward: number; tier: number
+  enemies: (Point & { role: Role; name: string; jo?: JoProfile; facing?: Facing; levelOffset?: number; behavior?: number })[]
+  jo?: JoStageDetails
+}
 export const stages: Stage[] = stageNames.map((name, index) => {
   const chapter = Math.floor(index / maps.length)
   const layout = index % maps.length

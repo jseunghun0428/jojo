@@ -3,6 +3,8 @@ import type { Role } from './unit-classes.ts'
 import { HEIGHT, WIDTH, isTerrain, officerById, terrains, treasureById } from './data.ts'
 import type { ItemId, Point, Stage, Stats } from './data.ts'
 import { officerAttributes } from './officer-attributes.ts'
+import { joTerrainId } from './jo-game.ts'
+import type { JoProfile } from './jo-game.ts'
 
 export type Facing = 'down' | 'up' | 'left' | 'right'
 export type UnitMovement = { unit: string; path: Point[] }
@@ -17,11 +19,16 @@ export type Unit = Point & Stats & {
   currentHP: number; currentMP: number; moved: boolean; done: boolean
   level?: number
   facing?: Facing
+  jo?: JoProfile
+  guest?: boolean
+  behavior?: number
 }
 export type Battle = {
   map: readonly string[]; units: Unit[]; round: number; result: 'win' | 'loss' | null; log: string[]
   events?: BattleEvent[]
   pendingMove?: { unit: string; origin: Point; facing?: Facing }
+  reinforcements?: Unit[]
+  objectives?: string[]
 }
 export type BattleAction =
   | { type: 'move'; unit: string; to: Point }
@@ -65,18 +72,51 @@ export function unitStats(role: Role, tier: number, officer?: { bonus: number; t
   return stats
 }
 
-export function newBattle(stage: Stage, lineup: string[], captain: string, equipment: Record<string, string>): Battle {
-  const ordered = [captain, ...lineup.filter((id) => id !== captain)]
+function joUnitStats(profile: JoProfile, level: number, treasureId?: string): Stats {
+  const { hp, mp, move, pattern, growth } = profile
+  const range = pattern === 'all' ? 0 : Math.max(0, ...pattern.map(({ x, y }) => Math.abs(x) + Math.abs(y)))
+  const stats: Stats = { hp: hp + growth[5] * (level - 1), mp: mp + growth[6] * (level - 1), attack: 0, defense: 0, move, range }
+  const treasure = treasureId ? treasureById[treasureId] : undefined
+  if (treasure) stats[treasure.stat] += treasure.amount
+  return stats
+}
+
+export function newBattle(stage: Stage, lineup: string[], captain: string, equipment: Record<string, string>, profiles: Record<string, JoProfile> = {}): Battle {
+  const slots = stage.jo?.deployment ?? deployment
+  const ordered = [captain, ...lineup.filter((id) => id !== captain)].slice(0, slots.length)
   const allies = ordered.map((id, i) => {
     const { name, role, bonus } = officerById[id]
-    const stats = unitStats(role, stage.tier, { bonus, treasure: equipment[id] })
-    return makeUnit(id, name, role, 'ally', deployment[i], stats, 1, id === captain)
+    const jo = profiles[id]
+    const level = jo?.level ?? 1
+    const stats = jo ? joUnitStats(jo, level, equipment[id]) : unitStats(role, stage.tier, { bonus, treasure: equipment[id] })
+    return { ...makeUnit(id, name, role, 'ally', slots[i], stats, level, id === captain), jo }
   })
-  const enemies = stage.enemies.map(({ x, y, role, name }, i) => {
-    const stats = unitStats(role, stage.tier)
-    return makeUnit(`enemy-${i}`, name, role, 'enemy', { x, y }, stats, 1 + stage.tier)
+  const enemies = stage.enemies.map(({ x, y, role, name, jo, facing, levelOffset, behavior }, i) => {
+    const modifier = levelOffset === undefined || levelOffset === 0xffff ? 0 : levelOffset < 50 ? levelOffset : 50 - levelOffset
+    const level = Math.max(1, (jo?.level ?? 1) + stage.tier + modifier)
+    const stats = jo ? joUnitStats(jo, level) : unitStats(role, stage.tier)
+    return { ...makeUnit(`enemy-${i}`, name, role, 'enemy', { x, y }, stats, level), jo, facing, behavior }
   })
-  return { map: stage.map, units: [...allies, ...enemies], round: 1, result: null, log: [`${stage.name} 전투 시작. 아군이 먼저 행동합니다.`] }
+  const makeGuest = ({ x, y, role, name, jo, facing, levelOffset, behavior }: NonNullable<Stage['jo']>['guests'][number]) => {
+    const level = Math.max(1, jo.level + (levelOffset < 50 ? levelOffset : levelOffset === 0xffff ? 0 : 50 - levelOffset))
+    return { ...makeUnit(`guest-${jo.id}`, name, role, 'ally', { x, y }, joUnitStats(jo, level), level), jo, facing, guest: true, behavior }
+  }
+  const guests = stage.jo?.guests.map(makeGuest) ?? []
+  const reinforcements = stage.jo?.reinforcements.map(makeGuest)
+  return {
+    map: stage.map, units: [...allies, ...guests, ...enemies], round: 1, result: null,
+    reinforcements, objectives: stage.jo?.objectives, log: [`${stage.name} 전투 시작. 아군이 먼저 행동합니다.`],
+  }
+}
+
+export function movementCost(map: readonly string[], point: Point, unit?: Unit) {
+  const original = joTerrainId(map, point)
+  if (original !== undefined) {
+    const cost = unit?.jo?.terrain[30 + original] ?? 1
+    return cost === 255 ? null : cost
+  }
+  const terrain = terrainAt(map, point)
+  return terrain ? terrains[terrain].moveCost : null
 }
 
 function reachable(battle: Battle, unit: Unit, limit: number) {
@@ -90,8 +130,7 @@ function reachable(battle: Battle, unit: Unit, limit: number) {
     if (cells.get(key(cell)) !== cell) continue
     for (const step of directions) {
       const point = { x: cell.x + step.x, y: cell.y + step.y }
-      const terrain = terrainAt(battle.map, point)
-      const moveCost = terrain && terrains[terrain].moveCost
+      const moveCost = movementCost(battle.map, point, unit)
       if (moveCost == null || blocked.has(key(point))) continue
       const cost = cell.cost + moveCost
       if (cost > limit || cost >= (cells.get(key(point))?.cost ?? Infinity)) continue
@@ -104,19 +143,23 @@ function reachable(battle: Battle, unit: Unit, limit: number) {
 }
 
 export function movesFor(battle: Battle, unit: Unit) {
-  return battle.result || unit.side !== 'ally' || unit.moved || unit.done || unit.currentHP <= 0
+  return battle.result || unit.side !== 'ally' || unit.guest || unit.moved || unit.done || unit.currentHP <= 0
     ? [] : reachable(battle, unit, unit.move).filter(({ cost }) => cost > 0)
 }
 
-function withinRange(unit: Unit, point: Point, fire: boolean) {
-  const steps = distance(unit, point)
+function withinRange(unit: Unit, point: Point, fire: boolean, origin: Point = unit) {
+  const steps = distance(origin, point)
+  if (!fire && unit.jo) {
+    const pattern = unit.jo.pattern
+    return steps > 0 && (pattern === 'all' || pattern.some(({ x, y }) => x === point.x - origin.x && y === point.y - origin.y))
+  }
   return steps > 0 && steps <= (fire ? FIRE_RANGE : unit.range)
 }
 
-export function attackCells(unit: Unit, fire = false) {
+export function attackCells(unit: Unit, fire = false, map?: readonly string[]) {
   const cells: Point[] = []
-  for (let y = 0; y < HEIGHT; y++) {
-    for (let x = 0; x < WIDTH; x++) {
+  for (let y = 0; y < (map?.length ?? HEIGHT); y++) {
+    for (let x = 0; x < (map?.[y].length ?? WIDTH); x++) {
       const point = { x, y }
       if (withinRange(unit, point, fire)) cells.push(point)
     }
@@ -124,9 +167,11 @@ export function attackCells(unit: Unit, fire = false) {
   return cells
 }
 
+export const hasTactics = (unit: Unit) => unit.jo?.hasTactics ?? roles[unit.role].group === '문관계'
+
 export function canAttack(attacker: Unit, target: Unit, fire = false) {
   if (attacker.currentHP <= 0 || target.currentHP <= 0 || attacker.side === target.side || attacker.done) return false
-  if (fire && (roles[attacker.role].group !== '문관계' || attacker.currentMP < FIRE_COST)) return false
+  if (fire && (!hasTactics(attacker) || attacker.currentMP < FIRE_COST)) return false
   return withinRange(attacker, target, fire)
 }
 
@@ -149,21 +194,28 @@ function updateResult(battle: Battle) {
   if (!battle.units.some((unit) => unit.captain && unit.currentHP > 0)) {
     battle.result = 'loss'
     note(battle, '총대장이 쓰러졌습니다.')
-  } else if (!battle.units.some((unit) => unit.side === 'enemy' && unit.currentHP > 0)) {
+  } else if (!battle.units.some((unit) => unit.side === 'enemy' && unit.currentHP > 0
+    && (!battle.objectives || battle.objectives.includes(unit.name)))) {
     battle.result = 'win'
-    note(battle, '적군을 모두 격파했습니다.')
+    note(battle, battle.objectives ? `${battle.objectives.join('·')}을 격파했습니다.` : '적군을 모두 격파했습니다.')
   }
 }
 
 const defaultAttributes = [75, 70, 75, 75, 75] as const
-const attributesOf = (unit: Unit) => officerAttributes[unit.name] ?? defaultAttributes
+const attributesOf = (unit: Unit) => {
+  const attrs = unit.jo?.attributes
+  return attrs ? [attrs[0], attrs[2], attrs[1], attrs[3], attrs[4]].map((value) => value * 2)
+    : officerAttributes[unit.name] ?? defaultAttributes
+}
 
 export function physicalStats(map: readonly string[], unit: Unit) {
   const [force, , leadership, agility] = attributesOf(unit)
-  const { growth } = roles[unit.role]
+  const original = joTerrainId(map, unit)
+  const growth = unit.jo ? [unit.jo.growth[0], unit.jo.growth[1], unit.jo.growth[3]] : roles[unit.role].growth
   const level = unit.level ?? 1
   const terrain = terrainAt(map, unit)
-  const terrainFactor = unit.role === 'shieldInfantry' && (terrain === 'f' || terrain === 'w') ? 11 : 10
+  const terrainFactor = original !== undefined && unit.jo ? unit.jo.terrain[original]
+    : unit.role === 'shieldInfantry' && (terrain === 'f' || terrain === 'w') ? 11 : 10
   const effective = (attribute: number, classGrowth: number, bonus = 0) => {
     // The source stores attributes on a 0–50 scale and averages both growth ranks.
     const base = Math.floor(attribute / 2)
@@ -279,25 +331,43 @@ function followPath(battle: Battle, unit: Unit, path: Point[]) {
   battle.events!.push({ move: { unit: unit.id, path: [start, ...path] } })
 }
 
-function enemyTurn(battle: Battle, roll: () => number) {
-  note(battle, `${battle.round}턴 · 적군 행동`)
-  for (const enemy of battle.units.filter((unit) => unit.side === 'enemy' && unit.currentHP > 0)) {
-    const allies = battle.units.filter((unit) => unit.side === 'ally' && unit.currentHP > 0)
-    enemy.done = false
-    const positions = reachable(battle, enemy, Infinity)
-    const targets = allies.flatMap((target) => positions
-      .filter((position) => distance(position, target) <= enemy.range)
-      .map((position) => ({ position, target })))
-      .sort((a, b) => a.position.cost - b.position.cost || a.target.currentHP - b.target.currentHP)
-    const plan = targets[0]
+function automatedTurn(battle: Battle, units: Unit[], roll: () => number) {
+  for (const unit of units) {
+    if (unit.currentHP <= 0) continue
+    const opponents = battle.units.filter((target) => target.side !== unit.side && target.currentHP > 0)
+    unit.done = false
+    const limit = unit.behavior === 2 ? 0 : unit.behavior === 0 ? unit.move : Infinity
+    const positions = reachable(battle, unit, limit)
+    let plan: { position: typeof positions[number]; target: Unit } | undefined
+    for (const position of positions) {
+      if (plan && plan.position.cost < position.cost) continue
+      for (const target of opponents) {
+        if (plan && plan.position.cost === position.cost && plan.target.currentHP <= target.currentHP) continue
+        if (withinRange(unit, target, false, position)) plan = { position, target }
+      }
+    }
     if (!plan) continue
     const path = movementPath(positions.filter(({ cost }) => cost > 0), plan.position)
-    const reachableCells = new Set(positions.filter(({ cost }) => cost <= enemy.move).map(key))
-    followPath(battle, enemy, path.filter((point) => reachableCells.has(key(point))))
-    if (canAttack(enemy, plan.target)) strike(battle, enemy, plan.target, false, roll)
+    const reachableCells = new Set(positions.filter(({ cost }) => cost <= unit.move).map(key))
+    followPath(battle, unit, path.filter((point) => reachableCells.has(key(point))))
+    if (canAttack(unit, plan.target)) strike(battle, unit, plan.target, false, roll)
     if (battle.result) return
   }
+}
+
+function enemyTurn(battle: Battle, roll: () => number) {
+  automatedTurn(battle, battle.units.filter((unit) => unit.guest), roll)
+  if (battle.result) return
+  note(battle, `${battle.round}턴 · 적군 행동`)
+  automatedTurn(battle, battle.units.filter((unit) => unit.side === 'enemy'), roll)
+  if (battle.result) return
   battle.round++
+  if (battle.reinforcements?.length) {
+    const available = battle.reinforcements.filter((unit) => !unitAt(battle, unit))
+    battle.units.push(...available.map((unit) => ({ ...unit })))
+    battle.reinforcements = battle.reinforcements.filter((unit) => !available.includes(unit))
+    if (available.length) note(battle, `우군 증원 · ${available.map(({ name }) => name).join('·')}`)
+  }
   for (const unit of battle.units) {
     unit.moved = false
     unit.done = false
@@ -322,7 +392,7 @@ export function playBattle(previous: Battle, stock: Record<ItemId, number>, acti
     return { battle, inventory }
   }
   const unit = battle.units.find(({ id }) => id === action.unit)
-  if (!unit || unit.side !== 'ally' || unit.done || unit.currentHP <= 0) return unchanged
+  if (!unit || unit.side !== 'ally' || unit.guest || unit.done || unit.currentHP <= 0) return unchanged
   switch (action.type) {
     case 'move': {
       if (unit.moved) return unchanged
@@ -369,6 +439,6 @@ export function playBattle(previous: Battle, stock: Record<ItemId, number>, acti
   return { battle, inventory }
 }
 
-export function validCell({ x, y }: Point) {
-  return x >= 0 && y >= 0 && x < WIDTH && y < HEIGHT
+export function validCell({ x, y }: Point, map: readonly string[]) {
+  return x >= 0 && y >= 0 && x < (map[y]?.length ?? 0)
 }

@@ -1,8 +1,10 @@
-import { DRAFT_LIMIT, FIELD_LIMIT, STAGE_COUNT, items, officerById, officers, recommendedIds, stages, starterIds, treasureById, treasures } from './data.ts'
+import { DRAFT_LIMIT, FIELD_LIMIT, STAGE_COUNT, items, officerById, officers, recommendedIds, starterIds, treasureById, treasures } from './data.ts'
 import type { ItemId } from './data.ts'
 import { newBattle, playBattle, unitStats } from './combat.ts'
 import type { Battle, BattleAction } from './combat.ts'
 import { roles } from './unit-classes.ts'
+import { webCampaign } from './jo-game.ts'
+import type { CampaignData } from './jo-game.ts'
 
 export type Campaign = {
   phase: 'draft' | 'battle' | 'camp' | 'complete'
@@ -53,13 +55,13 @@ function sample(available: string[], rolls: number[]) {
   return result
 }
 
-function deploy(state: Campaign, stage: number): Campaign {
+function deploy(state: Campaign, stage: number, data: CampaignData): Campaign {
   if (!state.captain || !state.lineup.includes(state.captain)) return state
-  const battle = newBattle(stages[stage - 1], state.lineup, state.captain, state.equipment)
+  const battle = newBattle(data.stages[stage - 1], state.lineup, state.captain, state.equipment, data.officers)
   return { ...state, stage, phase: 'battle', battle }
 }
 
-export function campaignReducer(state: Campaign, action: Action): Campaign {
+export function campaignReducer(state: Campaign, action: Action, data: CampaignData = webCampaign): Campaign {
   switch (action.type) {
     case 'reset':
       return createCampaign()
@@ -88,9 +90,9 @@ export function campaignReducer(state: Campaign, action: Action): Campaign {
       return state.lineup.length < FIELD_LIMIT ? { ...state, lineup: [...state.lineup, action.id] } : state
     }
     case 'deploy':
-      if (state.phase === 'draft') return deploy(state, 1)
+      if (state.phase === 'draft') return deploy(state, 1, data)
       if (state.phase !== 'camp') return state
-      return state.stage === STAGE_COUNT ? { ...state, phase: 'complete' } : deploy(state, state.stage + 1)
+      return state.stage === STAGE_COUNT ? { ...state, phase: 'complete' } : deploy(state, state.stage + 1, data)
     case 'battle': {
       if (state.phase !== 'battle' || !state.battle) return state
       const { battle, inventory } = playBattle(state.battle, state.inventory, action.action, action.seed)
@@ -99,15 +101,16 @@ export function campaignReducer(state: Campaign, action: Action): Campaign {
     case 'collect': {
       if (state.phase !== 'battle' || state.battle?.result !== 'win' || action.rolls.length < 10) return state
       return {
-        ...state, phase: 'camp', battle: null, gold: state.gold + stages[state.stage - 1].reward,
+        ...state, phase: 'camp', battle: null, gold: state.gold + data.stages[state.stage - 1].reward,
         offers: {
-          officers: sample(officers.filter(({ id }) => !state.roster.includes(id)).map(({ id }) => id), action.rolls.slice(0, 5)),
+          officers: sample(officers.filter(({ id }) => !state.roster.includes(id) && (data.source === 'web' || data.officers[id]))
+            .map(({ id }) => id), action.rolls.slice(0, 5)),
           treasures: sample(treasures.filter(({ id }) => !state.treasures.includes(id)).map(({ id }) => id), action.rolls.slice(5, 10)),
         },
       }
     }
     case 'retry':
-      return state.phase === 'battle' && state.battle?.result === 'loss' ? deploy(state, state.stage) : state
+      return state.phase === 'battle' && state.battle?.result === 'loss' ? deploy(state, state.stage, data) : state
     case 'buy': {
       if (state.phase !== 'camp') return state
       if (action.kind === 'items') {
@@ -143,7 +146,7 @@ export function campaignReducer(state: Campaign, action: Action): Campaign {
 function restoreBattleUnits(save: Campaign): Campaign {
   const battle = save.battle
   if (!battle) return save
-  const stage = stages[save.stage - 1]
+  const stage = webCampaign.stages[save.stage - 1]
   const renamed = new Map<string, string>()
   const units = battle.units.map((unit) => {
     const officer = unit.side === 'ally' ? officerById[unit.id] : undefined
@@ -170,16 +173,16 @@ function restoreBattleUnits(save: Campaign): Campaign {
 }
 
 const SAVE_KEY = 'iron-pass.v1'
-export function loadCampaign(): Campaign {
+export function loadCampaign(source: CampaignData['source'] = 'web'): Campaign {
   try {
-    const raw = localStorage.getItem(SAVE_KEY)
+    const raw = localStorage.getItem(source === 'jo' ? 'iron-pass.jo.v1' : SAVE_KEY)
     if (raw) {
       const save = JSON.parse(raw) as Campaign
       if (['draft', 'battle', 'camp', 'complete'].includes(save.phase)
           && Number.isInteger(save.stage) && save.stage >= 1 && save.stage <= STAGE_COUNT
           && Array.isArray(save.roster) && Array.isArray(save.lineup)
           && save.inventory && save.equipment && save.offers
-          && (save.phase !== 'battle' || save.battle?.units)) return restoreBattleUnits(save)
+          && (save.phase !== 'battle' || save.battle?.units)) return source === 'jo' ? save : restoreBattleUnits(save)
     }
   } catch {
     // Storage can be disabled in private or restricted browsing.
@@ -187,9 +190,9 @@ export function loadCampaign(): Campaign {
   return createCampaign()
 }
 
-export function saveCampaign(state: Campaign) {
+export function saveCampaign(state: Campaign, source: CampaignData['source'] = 'web') {
   try {
-    localStorage.setItem(SAVE_KEY, JSON.stringify(state))
+    localStorage.setItem(source === 'jo' ? 'iron-pass.jo.v1' : SAVE_KEY, JSON.stringify(state))
   } catch {
     // The running campaign still works when browser storage is unavailable.
   }

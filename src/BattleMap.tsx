@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import Phaser from 'phaser'
 import { LocalGraphicsContext } from './local-graphics.ts'
-import { HEIGHT, WIDTH, isTerrain, terrains } from './data.ts'
+import { isTerrain, terrains } from './data.ts'
 import type { Point, Terrain } from './data.ts'
 import { facingBetween, key, validCell } from './combat.ts'
 import type { BattleEvent, BattleImpact, Facing, Unit } from './combat.ts'
@@ -29,6 +29,7 @@ const terrainColors: Record<(typeof terrains)[Terrain]['appearance'], [number, n
 
 type MapProps = {
   map: readonly string[]
+  image?: string
   units?: Unit[]
   selected?: string
   moves?: Set<string>
@@ -106,6 +107,9 @@ function drawUnit(g: Phaser.GameObjects.Graphics, unit: Unit, x: number, y: numb
 }
 
 export default function BattleMap(props: MapProps) {
+  const width = props.map[0].length
+  const height = props.map.length
+  const image = props.image
   const localGraphics = useContext(LocalGraphicsContext)
   const sprites = useRef(localGraphics)
   const host = useRef<HTMLDivElement>(null)
@@ -137,8 +141,9 @@ export default function BattleMap(props: MapProps) {
       game = new Phaser.Game({
         type: Phaser.CANVAS,
         parent,
-        width: WIDTH * TILE,
-        height: HEIGHT * TILE,
+        width: width * TILE,
+        height: height * TILE,
+        transparent: !!image,
         pixelArt: true,
         banner: false,
         audio: { noAudio: true },
@@ -299,11 +304,11 @@ export default function BattleMap(props: MapProps) {
             redraw.current()
             this.input.on('pointermove', (pointer: Phaser.Input.Pointer) => {
               const point = { x: Math.floor(pointer.x / TILE), y: Math.floor(pointer.y / TILE) }
-              current.current.onHover?.(validCell(point) ? point : null)
+              current.current.onHover?.(validCell(point, current.current.map) ? point : null)
             })
             this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
               const point = { x: Math.floor(pointer.x / TILE), y: Math.floor(pointer.y / TILE) }
-              if (validCell(point)) current.current.onCell?.(point)
+              if (validCell(point, current.current.map)) current.current.onCell?.(point)
             })
           },
         },
@@ -315,12 +320,13 @@ export default function BattleMap(props: MapProps) {
       redraw.current = () => {}
       game?.destroy(true)
     }
-  }, [])
+  }, [width, height, image])
 
   return <div className="board-frame">
     <div
       ref={host}
       className="board"
+      style={{ aspectRatio: `${width} / ${height}`, backgroundImage: image ? `url("${image}")` : undefined, backgroundSize: '100% 100%' }}
       role={props.onCell ? 'group' : 'img'}
       aria-label={props.onCell ? '전장 지도. 방향키로 칸을 고르고 Enter로 선택합니다.' : '수풀과 바위가 놓인 전장 지도'}
       tabIndex={props.onCell ? 0 : undefined}
@@ -341,13 +347,13 @@ export default function BattleMap(props: MapProps) {
         if (!step) return
         event.preventDefault()
         const next = { x: active.x + step.x, y: active.y + step.y }
-        cursor.current = validCell(next) ? next : { x: active.x, y: active.y }
+        cursor.current = validCell(next, props.map) ? next : { x: active.x, y: active.y }
         props.onHover?.(cursor.current)
         redraw.current()
       }}
     />
     {boardError && <p role="alert">전장을 표시할 수 없습니다. 브라우저를 새로고침해 주세요.</p>}
     <span className="sr-only">{props.units?.filter(({ currentHP }) => currentHP > 0).map((unit) =>
-      `${unit.name} ${roles[unit.role].name} ${unit.x + 1}열 ${unit.y + 1}행`).join(', ')}</span>
+      `${unit.name} ${unit.jo?.className ?? roles[unit.role].name} ${unit.x + 1}열 ${unit.y + 1}행`).join(', ')}</span>
   </div>
 }

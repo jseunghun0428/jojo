@@ -8,6 +8,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "import:jo": "node --experimental-strip-types tools/jo-assets/import.mjs",
+    "import:jo-game": "node tools/jo-assets/game.mjs",
     "test": "node --experimental-strip-types --test tests/*.test.mjs"
   },
   "engines": { "node": "^22.12.0 || >=24" },
