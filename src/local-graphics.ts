@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from 'react'
 
 type Graphics = {
   portraits: Partial<Record<string, string>>
+  portraitImages: Partial<Record<string, HTMLImageElement>>
   units: Partial<Record<string, HTMLImageElement>>
   attack: Partial<Record<string, HTMLImageElement>>
   special: Partial<Record<string, HTMLImageElement>>
@@ -35,9 +36,12 @@ async function loadLocalGraphics(): Promise<Graphics | null> {
     }))
     return images
   }
-  const [unitImages, attackImages, specialImages] = await Promise.all([loadImages(units), loadImages(attack), loadImages(special)])
+  const [unitImages, attackImages, specialImages, portraitImages] = await Promise.all([
+    loadImages(units), loadImages(attack), loadImages(special), loadImages(portraits),
+  ])
   return {
     portraits: Object.fromEntries(Object.entries(portraits).map(([name, url]) => [name, assetRoot + url])),
+    portraitImages,
     units: unitImages,
     attack: attackImages,
     special: specialImages,

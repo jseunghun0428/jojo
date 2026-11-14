@@ -3,8 +3,8 @@ import test from 'node:test'
 import { officerAttributes } from '../src/officer-attributes.ts'
 import { roles } from '../src/unit-classes.ts'
 import { campaignReducer as reduce, createCampaign, draftCost, loadCampaign, saveCampaign } from '../src/campaign.ts'
-import { attackCells, basicPhysicalDamage, canAttack, distance, forecastAttack, key, movementPath, movesFor, newBattle, physicalHitRate, physicalStats, playBattle, terrainAt } from '../src/combat.ts'
-import { DRAFT_LIMIT, FIELD_LIMIT, HEIGHT, WIDTH, items, officerById, officers, recommendedIds, stages, treasureById } from '../src/data.ts'
+import { attackCells, basicPhysicalDamage, canAttack, distance, forecastAttack, key, movementLimit, movementPath, movesFor, newBattle, physicalStats, playBattle, terrainAt, warArtsFor } from '../src/combat.ts'
+import { DRAFT_LIMIT, FIELD_LIMIT, HEIGHT, TROOP_SCALE, WIDTH, items, officerById, officers, recommendedIds, stages, treasureById } from '../src/data.ts'
 
 const dispatchBattle = (state, action) => reduce(state, { type: 'battle', action })
 const deploy = () => reduce(reduce(createCampaign(), { type: 'recommended' }), { type: 'deploy' })
@@ -56,7 +56,7 @@ test('previews a traversable move and the resulting attack range; staying commit
   const path = movementPath(moves, destination)
   assert.deepEqual(path.at(-1), destination)
   assert.ok(path.every((point, i) => distance(point, path[i - 1] ?? captain) === 1))
-  assert.ok(path.reduce((cost, point) => cost + (terrainAt(state.battle.map, point) === 'f' ? 2 : 1), 0) <= captain.move)
+  assert.ok(path.reduce((cost, point) => cost + (terrainAt(state.battle.map, point) === 'f' ? 2 : 1), 0) <= movementLimit(captain))
   assert.deepEqual(movementPath(moves, { x: 10, y: 7 }), [])
 
   const moved = dispatchBattle(state, { type: 'move', unit: captain.id, to: destination })
@@ -129,17 +129,9 @@ test('all 50 stages deploy deterministically with valid tiles and distinct units
       assert.equal(key(path[0]), key(start))
       assert.equal(key(path.at(-1)), key(end))
       assert.ok(path.slice(1).every((point, i) => distance(point, path[i]) === 1))
-      assert.ok(path.slice(1).reduce((cost, point) => cost + (terrainAt(battle.map, point) === 'f' ? 2 : 1), 0) <= start.move)
+      assert.ok(path.slice(1).reduce((cost, point) => cost + (terrainAt(battle.map, point) === 'f' ? 2 : 1), 0) <= movementLimit(start))
     }
   }
-})
-
-test('7.0 base physical accuracy truncates the defender agility thresholds before division', () => {
-  const defender = 77
-  assert.deepEqual(
-    [24, 25, 26, 37, 38, 75, 76, 77, 153, 154].map((attacker) => physicalHitRate(attacker, defender)),
-    [30, 30, 31, 44, 60, 89, 90, 90, 99, 100],
-  )
 })
 
 test('physical damage uses level and truncates odd attack-defense differences toward zero', () => {
@@ -157,23 +149,22 @@ test('physical forecasts use the class terrain factor and the equipped attack bo
   Object.assign(captain, { x: 4, y: 2 })
   Object.assign(target, { x: 5, y: 2 })
   const road = physicalStats(battle.map, captain)
-  assert.equal(road.attack, 52 + weapon.amount)
+  assert.equal(road.attack, (52 + weapon.amount) * TROOP_SCALE)
   const forest = { ...battle, map: battle.map.map((row, y) => y === 2 ? row.slice(0, 4) + 'f' + row.slice(5) : row) }
   const stats = physicalStats(forest.map, captain)
   assert.equal(stats.terrainPercent, 110)
-  assert.equal(stats.attack, Math.floor(road.attack * 1.1))
-  assert.equal(stats.defense, Math.floor(road.defense * 1.1))
-  assert.equal(stats.agility, Math.floor(road.agility * 1.1))
+  assert.equal(stats.attack, Math.floor(road.attack / TROOP_SCALE * 1.1) * TROOP_SCALE)
+  assert.equal(stats.defense, Math.floor(road.defense / TROOP_SCALE * 1.1) * TROOP_SCALE)
   const enemy = physicalStats(forest.map, target)
   const forecast = forecastAttack(forest, captain, target)
-  assert.equal(forecast.damage, basicPhysicalDamage(stats.level, stats.attack, enemy.defense))
-  assert.equal(forecast.hit, physicalHitRate(stats.agility, enemy.agility))
+  assert.equal(forecast.damage, basicPhysicalDamage(stats.level, stats.attack / TROOP_SCALE, enemy.defense / TROOP_SCALE) * TROOP_SCALE)
+  assert.equal(forecast.hit, 100)
 })
 
-test('physical hits, guards and counters resolve in order without consuming the defender’s turn', () => {
+test('physical hits and counters resolve in order without consuming the defender’s turn', () => {
   const battle = deploy().battle
   const [attacker, , , , defender] = battle.units
-  Object.assign(defender, { x: attacker.x + 1, y: attacker.y, hp: 100, currentHP: 100, done: true })
+  Object.assign(defender, { x: attacker.x + 1, y: attacker.y, hp: 1000, currentHP: 1000, done: true })
   const stock = { salve: 1, tonic: 1 }
   const attack = { type: 'attack', unit: attacker.id, target: defender.id }
   const prediction = forecastAttack(battle, attacker, defender)
@@ -183,17 +174,17 @@ test('physical hits, guards and counters resolve in order without consuming the 
   assert.deepEqual(first.events.map(({ impact }) => impact.kind), ['attack', 'counter'])
   assert.equal(first.events[0].impact.damage, prediction.damage)
   const normalReturn = forecastAttack(battle, defender, attacker)
-  assert.equal(first.events[1].impact.damage, Math.max(1, Math.floor(normalReturn.damage * 0.75)))
+  assert.equal(first.events[1].impact.damage, Math.max(1, Math.floor(normalReturn.damage / TROOP_SCALE * 0.75)) * TROOP_SCALE)
   assert.equal(first.events[1].impact.remainingHP, attacker.currentHP - first.events[1].impact.damage)
   assert.equal(first.units.find(({ id }) => id === defender.id).done, true)
   defender.done = false
   assert.equal(exchange(1).units.find(({ id }) => id === defender.id).done, false)
-  const guardedExchange = exchange(1850)
-  assert.deepEqual(guardedExchange.events.map(({ impact }) => impact.kind), ['attack', 'counter'])
-  const guarded = guardedExchange.events[0].impact
-  assert.equal(guarded.blocked, true)
-  assert.equal(guarded.damage, 0)
-  assert.equal(guarded.remainingHP, defender.currentHP)
+  const highRollExchange = exchange(1850)
+  assert.deepEqual(highRollExchange.events.map(({ impact }) => impact.kind), ['attack', 'counter'])
+  const hit = highRollExchange.events[0].impact
+  assert.equal(hit.blocked, false)
+  assert.ok(hit.damage > 0)
+  assert.equal(hit.remainingHP, defender.currentHP - hit.damage)
   defender.currentHP = 1
   assert.deepEqual(exchange(1).events.map(({ impact }) => impact.kind), ['attack'])
 })
@@ -239,7 +230,7 @@ test('play a real first victory, buy all three categories, equip and begin the n
   assert.ok(next.battle.units.some((unit) => unit.id === id))
   assert.ok(next.battle.units.every((unit) => unit.currentHP === unit.hp && unit.currentMP === unit.mp))
   const relic = treasureById[treasure]
-  assert.equal(next.battle.units.find((unit) => unit.captain)[relic.stat], deploy().battle.units[0][relic.stat] + relic.amount)
+  assert.equal(next.battle.units.find((unit) => unit.captain)[relic.stat], deploy().battle.units[0][relic.stat] + relic.amount * (relic.stat === 'hp' ? TROOP_SCALE : 1))
 })
 
 test('all recruitable officers have politics and additional officers can join through the regular shop', () => {
@@ -247,12 +238,12 @@ test('all recruitable officers have politics and additional officers can join th
   assert.equal(new Set(officers.map(({ name }) => name)).size, officers.length)
   for (const { name } of officers) {
     const attributes = officerAttributes[name]
-    assert.equal(attributes?.length, 6, name)
+    assert.equal(attributes?.length, 4, name)
     assert.ok(attributes.every((value) => Number.isInteger(value) && value >= 1 && value <= 100), name)
   }
-  assert.equal(officerAttributes.조조[5], 94)
-  assert.equal(officerAttributes.등애[5], 81)
-  assert.equal(officerAttributes.문빙[5], 69)
+  assert.equal(officerAttributes.조조[3], 94)
+  assert.equal(officerAttributes.등애[3], 81)
+  assert.equal(officerAttributes.문빙[3], 69)
 
   const id = 'cao-zhang'
   const won = winFirstBattle()
@@ -287,7 +278,7 @@ test('items consume an action, defeat retries the same stage, and the last win c
   const state = deploy()
   const damaged = { ...state, battle: { ...state.battle, units: state.battle.units.map((unit) => unit.captain ? { ...unit, currentHP: 10 } : unit) } }
   const healed = dispatchBattle(damaged, { type: 'item', unit: 'yeon', item: 'salve' })
-  assert.equal(healed.battle.units[0].currentHP, 30)
+  assert.equal(healed.battle.units[0].currentHP, 210)
   assert.equal(healed.battle.units[0].done, true)
   assert.equal(healed.inventory.salve, 0)
   assert.equal(dispatchBattle(healed, { type: 'item', unit: 'yeon', item: 'salve' }), healed)
@@ -345,4 +336,69 @@ test('restores saved camp and backfills legacy battle names and levels without r
     if (descriptors) Object.defineProperty(globalThis, 'localStorage', descriptors)
     else delete globalThis.localStorage
   }
+})
+
+test('learned war arts enforce class, will, target range, and one use per battle', () => {
+  const battle = deploy().battle
+  const archer = battle.units.find(({ id }) => id === 'jin')
+  const target = battle.units.find(({ side }) => side === 'enemy')
+  Object.assign(archer, { troopClass: 'ranged', x: 2, y: 2, currentMP: 69 })
+  Object.assign(target, { x: 5, y: 2, hp: 5000, currentHP: 5000 })
+  const stock = { salve: 1, tonic: 1 }
+  const action = { type: 'warArt', unit: archer.id, target: target.id, art: 'longShot' }
+  assert.equal(warArtsFor(target).length, 0)
+  assert.equal(warArtsFor({ ...archer, id: 'baek' }).length, 0)
+  assert.equal(warArtsFor(archer).length, 4)
+  assert.equal(canAttack(archer, target), false)
+  assert.equal(playBattle(battle, stock, action).battle, battle)
+  archer.currentMP = 70
+  archer.troopClass = 'infantry'
+  assert.equal(playBattle(battle, stock, action).battle, battle)
+  archer.troopClass = 'ranged'
+  const result = playBattle(battle, stock, action).battle
+  const used = result.units.find(({ id }) => id === archer.id)
+  assert.equal(used.currentMP, 70)
+  assert.equal(used.done, true)
+  assert.deepEqual(used.usedWarArts, ['longShot'])
+  assert.ok(result.units.find(({ id }) => id === target.id).currentHP < target.currentHP)
+  used.done = false
+  assert.equal(playBattle(result, stock, action).battle, result)
+})
+
+test('support war arts change eligibility and cleanse full-health allies', () => {
+  const battle = deploy().battle
+  const caster = battle.units.find(({ id }) => id === 'seo')
+  const archer = battle.units.find(({ id }) => id === 'jin')
+  const stock = { salve: 1, tonic: 1 }
+  Object.assign(caster, { x: 2, y: 2, troopClass: 'cavalry', currentMP: 10 })
+  Object.assign(archer, { x: 3, y: 3, troopClass: 'ranged', currentMP: 60 })
+  assert.equal(warArtsFor(caster).length, 4)
+  const cast = (state, art) => playBattle(state, stock, { type: 'warArt', unit: caster.id, target: archer.id, art }).battle
+  const inspired = cast(battle, 'inspire')
+  const boosted = inspired.units.find(({ id }) => id === archer.id)
+  assert.equal(boosted.currentMP, 70)
+  assert.equal(inspired.units.find(({ id }) => id === caster.id).currentMP, 10)
+  const enemy = inspired.units.find(({ side }) => side === 'enemy')
+  Object.assign(enemy, { x: 5, y: 3 })
+  const shot = { type: 'warArt', unit: archer.id, target: enemy.id, art: 'longShot' }
+  assert.notEqual(playBattle(inspired, stock, shot).battle, inspired)
+
+  archer.side = 'enemy'
+  archer.currentMP = 90
+  const demoralized = cast(battle, 'demoralize')
+  const weakened = demoralized.units.find(({ id }) => id === archer.id)
+  assert.equal(weakened.currentMP, 60)
+  const enemyView = { ...demoralized, units: demoralized.units.map((unit) => ({
+    ...unit, side: unit.side === 'enemy' ? 'ally' : 'enemy',
+  })) }
+  assert.equal(playBattle(enemyView, stock, { ...shot, target: caster.id }).battle, enemyView)
+
+  archer.side = 'ally'
+  archer.confusedUntil = battle.round
+  archer.pinnedUntil = battle.round
+  assert.equal(archer.currentHP, archer.hp)
+  const healed = cast(battle, 'heal').units.find(({ id }) => id === archer.id)
+  assert.equal(healed.currentHP, healed.hp)
+  assert.equal(healed.confusedUntil, undefined)
+  assert.equal(healed.pinnedUntil, undefined)
 })

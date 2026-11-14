@@ -1,3 +1,4 @@
+import type { LearnedWarArt } from './war-arts.ts'
 import { roleFor } from './unit-classes.ts'
 import type { Role } from './unit-classes.ts'
 import type { Facing } from './combat.ts'
@@ -47,19 +48,21 @@ export const isTerrain = (symbol: string | undefined): symbol is Terrain =>
   symbol !== undefined && Object.hasOwn(terrains, symbol)
 export type Point = { x: number; y: number }
 export type Stats = { hp: number; mp: number; attack: number; defense: number; move: number; range: number }
+export const TROOP_SCALE = 10
+export const SALVE_HEAL = 20 * TROOP_SCALE
 
 export const items = {
-  salve: { name: '상처약', detail: 'HP 20 회복', price: 35 },
-  tonic: { name: '정신약', detail: 'MP 8 회복', price: 45 },
+  salve: { name: '상처약', detail: `병력 ${SALVE_HEAL} 회복`, price: 35 },
+  tonic: { name: '정신약', detail: '의지 8 회복', price: 45 },
 }
 export type ItemId = keyof typeof items
 
-export type Officer = { id: string; name: string; role: Role; cost: number; price: number; bonus: number }
+export type Officer = { id: string; name: string; role: Role; cost: number; price: number; bonus: number; warArts?: readonly LearnedWarArt[] }
 export const officers: Officer[] = [
-  { id: 'yeon', name: '조조', role: roleFor('조조'), cost: 3, price: 80, bonus: 0 },
-  { id: 'ha', name: '관우', role: roleFor('관우'), cost: 3, price: 80, bonus: 0 },
-  { id: 'jin', name: '하후연', role: roleFor('하후연'), cost: 2, price: 70, bonus: 0 },
-  { id: 'seo', name: '곽가', role: roleFor('곽가'), cost: 2, price: 70, bonus: 0 },
+  { id: 'yeon', name: '조조', role: roleFor('조조'), cost: 3, price: 80, bonus: 0, warArts: [{ id: 'heavyStrike', level: 2 }, { id: 'sweep', level: 1 }, { id: 'disrupt', level: 2 }, { id: 'shove', level: 3 }] },
+  { id: 'ha', name: '관우', role: roleFor('관우'), cost: 3, price: 80, bonus: 0, warArts: [{ id: 'doubleStrike', level: 2 }, { id: 'charge', level: 1 }, { id: 'ambush', level: 3 }, { id: 'mountedShot', level: 1 }] },
+  { id: 'jin', name: '하후연', role: roleFor('하후연'), cost: 2, price: 70, bonus: 0, warArts: [{ id: 'volley', level: 2 }, { id: 'barrage', level: 1 }, { id: 'fireArrow', level: 2 }, { id: 'longShot', level: 3 }] },
+  { id: 'seo', name: '곽가', role: roleFor('곽가'), cost: 2, price: 70, bonus: 0, warArts: [{ id: 'rally', level: 1 }, { id: 'inspire', level: 2 }, { id: 'demoralize', level: 2 }, { id: 'heal', level: 3 }] },
   { id: 'baek', name: '조인', role: roleFor('조인'), cost: 2, price: 65, bonus: -1 },
   { id: 'dan', name: '장료', role: roleFor('장료'), cost: 2, price: 65, bonus: -1 },
   { id: 'yul', name: '우금', role: roleFor('우금'), cost: 2, price: 65, bonus: -1 },
@@ -112,7 +115,7 @@ treasureGroups.forEach(({ stat, names, amounts }) => names.forEach((name, i) => 
   treasures.push({ id: `${stat}-${i + 1}`, name, stat, amount: amounts[i], price: 65 + i * 15 })
 }))
 export const treasureById = Object.fromEntries(treasures.map((treasure) => [treasure.id, treasure]))
-export const statLabels = { hp: '최대 HP', mp: '최대 MP', attack: '공격', defense: '방어' }
+export const statLabels = { hp: '최대 병력', mp: '최대 의지', attack: '공격', defense: '방어' }
 
 const maps = [
   ['..ff...f..mm', '...f........', '....==..ff..', '...f..m..f..', '....f...=...', '..f...f.=...', '......f...m.', '...ff.......'],
@@ -159,9 +162,11 @@ const enemyNames = {
   sage: ['진궁', '이유', '전풍', '저수', '심배'],
 }
 
+export const enemyKindFor = (name: string): 'officer' | 'soldier' => /\d+$/.test(name) ? 'soldier' : 'officer'
+
 export type Stage = {
   number: number; name: string; map: readonly string[]; reward: number; tier: number
-  enemies: (Point & { role: Role; name: string; jo?: JoProfile; facing?: Facing; levelOffset?: number; behavior?: number })[]
+  enemies: (Point & { role: Role; name: string; jo?: JoProfile; facing?: Facing; levelOffset?: number; behavior?: number; enemyKind?: ReturnType<typeof enemyKindFor> })[]
   jo?: JoStageDetails
 }
 export const stages: Stage[] = stageNames.map((name, index) => {

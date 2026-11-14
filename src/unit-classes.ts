@@ -43,3 +43,40 @@ export function roleFor(name: string): Role {
   if (!role) throw new Error(`Missing class assignment for ${name}`)
   return role
 }
+
+export const troopClasses = {
+  infantry: '보병',
+  cavalry: '기병',
+  ranged: '궁병',
+  siege: '병기',
+} as const
+
+export type TroopClass = keyof typeof troopClasses
+
+const troopClassByRole: Partial<Record<Role, TroopClass>> = {
+  strategist: 'infantry',
+  tactician: 'infantry',
+  geomancer: 'infantry',
+  lightInfantry: 'infantry',
+  shieldInfantry: 'infantry',
+  heavyInfantry: 'infantry',
+  pikeman: 'infantry',
+  lightCavalry: 'cavalry',
+  heavyCavalry: 'cavalry',
+  shockCavalry: 'cavalry',
+  mountedArcher: 'ranged',
+  crossbowman: 'ranged',
+}
+
+const originalTroopClasses: Record<TroopClass, readonly number[]> = {
+  infantry: [3, 4, 5, 6, 7, 8, 9, 10, 11, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 81, 90, 93, 96, 99, 131, 133, 149, 151, 157, 187],
+  cavalry: [0, 30, 31, 32, 33, 34, 35, 36, 39, 78, 87, 88, 89, 103, 126, 127, 129, 136, 139, 162, 177],
+  ranged: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 102, 125, 138, 170, 183, 184, 185, 203],
+  siege: [42, 43, 44, 45, 46, 47, 111, 112, 113, 141, 142, 171, 172, 186],
+}
+
+export function troopClassFor(role: Role, originalClassId?: number): TroopClass | undefined {
+  if (originalClassId === undefined) return troopClassByRole[role]
+  return (Object.keys(originalTroopClasses) as TroopClass[]).find((kind) =>
+    originalTroopClasses[kind].includes(originalClassId))
+}

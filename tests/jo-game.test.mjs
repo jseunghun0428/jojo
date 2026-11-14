@@ -1,15 +1,16 @@
 import assert from 'node:assert/strict'
 import { existsSync } from 'node:fs'
+import { join } from 'node:path'
 import { test } from 'node:test'
 import { fileURLToPath } from 'node:url'
 import { readJoGame } from '../tools/jo-assets/game.mjs'
 import { createJoCampaign, joTerrainId } from '../src/jo-game.ts'
-import { campaignReducer, createCampaign } from '../src/campaign.ts'
-import { attackCells, canAttack, distance, key, movementCost, movesFor, newBattle } from '../src/combat.ts'
+import { awardExperience, campaignReducer, createCampaign, loadCampaign, saveCampaign } from '../src/campaign.ts'
+import { canAttack, distance, key, movementCost, movesFor, newBattle } from '../src/combat.ts'
 import { FIELD_LIMIT, STAGE_COUNT, recommendedIds } from '../src/data.ts'
 
-const source = fileURLToPath(new URL('../../jo/', import.meta.url))
-const hasSource = existsSync(new URL('../../jo/Data.e5', import.meta.url))
+const source = process.env.JO_GAME_SOURCE || fileURLToPath(new URL('../../jo/', import.meta.url))
+const hasSource = existsSync(join(source, 'Data.e5'))
 
 test('imports the local campaign and deploys valid formations in all 50 battles', { skip: !hasSource }, () => {
   const pack = readJoGame(source)
@@ -21,6 +22,7 @@ test('imports the local campaign and deploys valid formations in all 50 battles'
   assert.equal(data.officers.baek.className, '경전차')
   assert.equal(data.officers.seo.className, '부관')
   for (const stage of data.stages) {
+    assert.equal(stage.jo.deployment.length, FIELD_LIMIT, stage.name)
     const battle = newBattle(stage, recommendedIds, 'yeon', {}, data.officers)
     assert.ok(battle.units[0].captain, stage.name)
     assert.ok(battle.units.filter((unit) => unit.side === 'ally' && !unit.guest).length <= FIELD_LIMIT, stage.name)
@@ -32,13 +34,17 @@ test('imports the local campaign and deploys valid formations in all 50 battles'
   assert.equal(opening.map.length, 20)
   assert.equal(opening.map[0].length, 20)
   const [captain] = opening.units
-  assert.deepEqual([captain.x, captain.y, captain.hp, captain.move], [7, 0, 110, 6])
+  assert.equal(opening.units.filter((unit) => unit.side === 'ally' && !unit.guest).length, recommendedIds.length)
+  assert.deepEqual([captain.x, captain.y, captain.hp, captain.move], [7, 0, 1200, 6])
   assert.equal(movementCost(opening.map, captain, captain), 1)
   assert.ok(movesFor(opening, captain).every(({ cost }) => cost <= captain.move))
-  const bow = opening.units.find(({ name }) => name === '궁병1')
-  const range = new Set(attackCells(bow, false, opening.map).map(key))
-  assert.ok(range.has('12,19'))
-  assert.ok(!range.has('12,18'))
+  const enemies = opening.units.filter(({ side }) => side === 'enemy')
+  assert.equal(enemies.length, 10)
+  assert.ok(enemies.every((unit) => !['7,11', '12,12'].includes(key(unit))))
+  for (const y of [6, 14]) {
+    assert.deepEqual(enemies.filter((unit) => unit.y === y).map(({ x }) => x).sort((a, b) => a - b), [9, 10])
+  }
+  assert.equal(opening.units.filter(({ guest }) => guest).length, 0)
 })
 
 test('wins Yeongcheon with the imported classes and carries the reward into Sishui Gate', { skip: !hasSource }, () => {
@@ -78,4 +84,49 @@ test('wins Yeongcheon with the imported classes and carries the reward into Sish
   assert.equal(data.stages[1].name, '사수관 전투')
   assert.ok(state.battle.units[0].currentHP === state.battle.units[0].hp)
   assert.equal(state.battle.units.filter((unit) => unit.side === 'ally').length, 4)
+})
+
+test('settles each kill from a multi-target war art once and restores officer growth', { skip: !hasSource }, (context) => {
+  const data = createJoCampaign(readJoGame(source))
+  const initial = createCampaign()
+  const state = campaignReducer({
+    ...initial, captain: 'jin', lineup: ['jin', 'yeon'], roster: ['jin', 'yeon', 'ha'],
+    growth: { jin: { level: 2, xp: 190 } },
+  }, { type: 'deploy' }, data)
+  const { battle } = state
+  const archer = battle.units.find(({ id }) => id === 'jin')
+  const [officer, soldier] = battle.units.filter(({ side }) => side === 'enemy')
+  Object.assign(archer, { x: 9, y: 9, troopClass: 'ranged' })
+  Object.assign(officer, { x: 9, y: 10, level: 2, currentHP: 1 })
+  Object.assign(soldier, { x: 10, y: 10, level: 2, currentHP: 1, enemyKind: 'soldier' })
+  battle.units = [archer, battle.units.find(({ id }) => id === 'yeon'), officer, soldier]
+  battle.objectives = undefined
+  const victory = campaignReducer(state, { type: 'battle', action: {
+    type: 'warArt', art: 'barrage', unit: archer.id, target: officer.id,
+  } }, data)
+  assert.equal(victory.battle.result, 'win')
+  assert.deepEqual(victory.battle.experience.earned, { jin: 60 + 30, yeon: 48 + 24, ha: 30 + 15 })
+  assert.deepEqual(battle.experience.earned, {})
+  assert.deepEqual(awardExperience({ level: 2, xp: 190 }, 20), { level: 3, xp: 10 })
+  assert.deepEqual(awardExperience({ level: 1, xp: 0 }, 310), { level: 3, xp: 10 })
+
+  const storage = new Map()
+  const oldStorage = Object.getOwnPropertyDescriptor(globalThis, 'localStorage')
+  Object.defineProperty(globalThis, 'localStorage', { configurable: true, value: {
+    getItem: (key) => storage.get(key), setItem: (key, value) => storage.set(key, value),
+  } })
+  context.after(() => {
+    if (oldStorage) Object.defineProperty(globalThis, 'localStorage', oldStorage)
+    else delete globalThis.localStorage
+  })
+  saveCampaign(victory, 'jo')
+  const restored = loadCampaign('jo')
+  assert.deepEqual(restored.battle.experience, victory.battle.experience)
+  const collect = { type: 'collect', rolls: Array(10).fill(0) }
+  const camp = campaignReducer(restored, collect, data)
+  assert.deepEqual(camp.growth.jin, { level: 3, xp: 80 })
+  assert.equal(campaignReducer(camp, collect, data), camp)
+  saveCampaign(camp, 'jo')
+  const next = campaignReducer(loadCampaign('jo'), { type: 'deploy' }, data)
+  assert.equal(next.battle.units.find(({ id }) => id === 'jin').level, 3)
 })

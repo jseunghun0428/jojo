@@ -5,7 +5,7 @@ import { isTerrain, terrains } from './data.ts'
 import type { Point, Terrain } from './data.ts'
 import { facingBetween, key, validCell } from './combat.ts'
 import type { BattleEvent, BattleImpact, Facing, Unit } from './combat.ts'
-import { roles } from './unit-classes.ts'
+import { roles, troopClasses, troopClassFor } from './unit-classes.ts'
 
 const TILE = 64
 const STEP_MS = 200
@@ -19,7 +19,7 @@ const WALK_FRAMES: Record<Facing, readonly number[]> = {
   right: [4, 5, 8, 5],
 }
 const ATTACK_START: Record<Facing, number> = { down: 0, up: 4, left: 8, right: 8 }
-const eventDuration = (event: BattleEvent) => 'move' in event ? (event.move.path.length - 1) * STEP_MS : IMPACT_MS
+const eventDuration = (event: BattleEvent) => 'move' in event ? (event.move.path.length - 1) * STEP_MS : 'turn' in event ? 900 : IMPACT_MS
 const terrainColors: Record<(typeof terrains)[Terrain]['appearance'], [number, number]> = {
   plain: [0x596342, 0x5f6946], forest: [0x394f37, 0x40583c], rock: [0x575951, 0x60625a],
   water: [0x36545a, 0x3e6064], road: [0x8b7654, 0x917b58], peach: [0x624756, 0x6d4f60],
@@ -34,10 +34,14 @@ type MapProps = {
   selected?: string
   moves?: Set<string>
   range?: Set<string>
+  affected?: Set<string>
+  burning?: readonly Point[]
   path?: Point[]
   targets?: Set<string>
   events?: BattleEvent[]
   onPlaybackEnd?: () => void
+  followAction?: boolean
+  onTurnBoundary?: (banner: boolean, enemy: boolean) => void
   focusOnTarget?: boolean
   onHover?: (point: Point | null) => void
   onCell?: (point: Point) => void
@@ -81,35 +85,38 @@ function drawUnit(g: Phaser.GameObjects.Graphics, unit: Unit, x: number, y: numb
   const opacity = unit.done ? 0.58 : 1
   g.fillStyle(0x172018, 0.6).fillEllipse(x + 32, y + 48, 44, 14)
   if (selected) g.lineStyle(2, 0xffd484).strokeEllipse(x + 32, y + 46, 44, 16)
-  if (!hasSprite) {
+  if (!hasSprite) for (const offset of [0, 16, 32]) {
+    g.save().translateCanvas(x + 8 + offset, y + 14).scaleCanvas(0.43, 0.56)
     const faceOffset = facing === 'left' ? -4 : facing === 'right' ? 4 : 0
-    g.fillStyle(0x23251e, opacity).fillRect(x + 18, y + 25, 29, 19)
-    g.fillStyle(dark, opacity).fillRect(x + 20, y + 25, 25, 18)
-    g.fillStyle(0x23251e, opacity).fillRect(x + 21, y + 43 + stride, 8, 6).fillRect(x + 37, y + 43 - stride, 7, 6)
-    g.fillStyle(base, opacity).fillRect(x + 23, y + 26, 19, 5).fillRect(x + 28, y + 31, 8, 11)
-    g.fillStyle(facing === 'up' ? dark : 0xd9a981, opacity).fillRect(x + 26 + faceOffset, y + 15, 14, 10)
-    g.fillStyle(dark, opacity).fillRect(x + 23, y + 11, 19, 7)
-    g.fillStyle(base, opacity).fillRect(x + 26, y + 9, 13, 5)
+    g.fillStyle(0x23251e, opacity).fillRect(18, 25, 29, 19)
+    g.fillStyle(dark, opacity).fillRect(20, 25, 25, 18)
+    g.fillStyle(0x23251e, opacity).fillRect(21, 43 + stride, 8, 6).fillRect(37, 43 - stride, 7, 6)
+    g.fillStyle(base, opacity).fillRect(23, 26, 19, 5).fillRect(28, 31, 8, 11)
+    g.fillStyle(facing === 'up' ? dark : 0xd9a981, opacity).fillRect(26 + faceOffset, 15, 14, 10)
+    g.fillStyle(dark, opacity).fillRect(23, 11, 19, 7)
+    g.fillStyle(base, opacity).fillRect(26, 9, 13, 5)
     if (roles[unit.role].sprite === 'guard') {
-      g.fillStyle(0x252720, opacity).fillRect(x + 14, y + 29, 13, 16)
-      g.fillStyle(base, opacity).fillRect(x + 16, y + 30, 9, 11)
+      g.fillStyle(0x252720, opacity).fillRect(14, 29, 13, 16)
+      g.fillStyle(base, opacity).fillRect(16, 30, 9, 11)
     } else if (roles[unit.role].sprite === 'bow') {
-      g.lineStyle(2, 0xf2ce8a, opacity).strokeCircle(x + 46, y + 29, 7)
-      g.lineBetween(x + 46, y + 21, x + 46, y + 37)
+      g.lineStyle(2, 0xf2ce8a, opacity).strokeCircle(46, 29, 7)
+      g.lineBetween(46, 21, 46, 37)
     } else {
-      g.fillStyle(roles[unit.role].sprite === 'sage' ? 0xffd78c : 0xe1d9c5, opacity).fillRect(x + 45, y + 19, 3, 23)
-      g.fillRect(x + 42, y + 37, 9, 2)
+      g.fillStyle(roles[unit.role].sprite === 'sage' ? 0xffd78c : 0xe1d9c5, opacity).fillRect(45, 19, 3, 23)
+      g.fillRect(42, 37, 9, 2)
     }
+    g.restore()
   }
   if (unit.captain) g.fillStyle(0xffd485).fillTriangle(x + 27, y + 3, x + 37, y + 3, x + 32, y + 8)
-  g.fillStyle(0x1b201a).fillRect(x + 13, y + 48, 38, 5)
-  g.fillStyle(base).fillRect(x + 14, y + 49, Math.ceil(36 * unit.currentHP / unit.hp), 3)
+  g.fillStyle(0x1b201a).fillRect(x + 3, y + 57, TILE - 6, 5)
+  g.fillStyle(base).fillRect(x + 4, y + 58, Math.ceil((TILE - 8) * unit.currentHP / unit.hp), 3)
 }
 
 export default function BattleMap(props: MapProps) {
   const width = props.map[0].length
   const height = props.map.length
   const image = props.image
+  const isBattle = props.units !== undefined
   const localGraphics = useContext(LocalGraphicsContext)
   const sprites = useRef(localGraphics)
   const host = useRef<HTMLDivElement>(null)
@@ -135,26 +142,29 @@ export default function BattleMap(props: MapProps) {
 
   useEffect(() => {
     const parent = host.current!
+    const renderScale = isBattle ? 2 : 1
     let game: Phaser.Game | undefined
     let advance = () => {}
     try {
       game = new Phaser.Game({
         type: Phaser.CANVAS,
         parent,
-        width: width * TILE,
-        height: height * TILE,
+        width: width * TILE * renderScale,
+        height: height * TILE * renderScale,
         transparent: !!image,
-        pixelArt: true,
+        antialias: true,
+        disableContextMenu: true,
         banner: false,
         audio: { noAudio: true },
         scene: {
           update() { advance() },
           create(this: Phaser.Scene) {
+            this.cameras.main.setZoom(renderScale).setOrigin(0, 0)
             const graphics = this.add.graphics()
             const unitImages = new Map<string, Phaser.GameObjects.Image>()
-            const labels = new Map<string, Phaser.GameObjects.Text>()
+            const labels = new Map<string, { className: Phaser.GameObjects.Text; hp: Phaser.GameObjects.Text }>()
             const resultLabel = this.add.text(0, 0, '', {
-              fontFamily: '"Malgun Gothic", sans-serif', fontSize: '16px', fontStyle: 'bold',
+              fontFamily: '"Malgun Gothic", sans-serif', fontSize: '16px', fontStyle: 'bold', resolution: renderScale,
               stroke: '#15130e', strokeThickness: 4,
             }).setOrigin(0.5).setDepth(2).setVisible(false)
             let previousEvents: MapProps['events']
@@ -175,24 +185,37 @@ export default function BattleMap(props: MapProps) {
               if (elapsed >= duration) current.current.onPlaybackEnd?.()
             }
             redraw.current = () => {
-              const { map, units = [], selected, moves, range, path = [], targets, events } = current.current
+              const { map, units = [], selected, moves, range, path = [], targets, events, affected, burning } = current.current
               const poses = new Map<string, { point?: Point; facing: Facing; step?: number }>()
+              let enemy = false
+              let banner = false
+              let actingId: string | undefined
               const hp = new Map<string, number>()
               let visibleImpact: { impact: BattleImpact; time: number } | undefined
               let remaining = events === previousEvents ? elapsed : 0
               for (const event of events ?? []) {
                 if (remaining < 0) break
+                if ('turn' in event) {
+                  enemy = true
+                  banner = remaining < eventDuration(event)
+                  remaining -= eventDuration(event)
+                  continue
+                }
                 if ('impact' in event) {
                   const impact = event.impact
                   const pose = poses.get(impact.attacker)
                   poses.set(impact.attacker, { ...pose, facing: impact.facing, step: 0 })
                   if (remaining >= HIT_MS) hp.set(impact.target, impact.remainingHP)
-                  if (remaining < IMPACT_MS) visibleImpact = { impact, time: remaining }
+                  if (remaining < IMPACT_MS) {
+                    visibleImpact = { impact, time: remaining }
+                    actingId = impact.attacker
+                  }
                   remaining -= IMPACT_MS
                   continue
                 }
                 const movement = event.move
                 const last = movement.path.length - 1
+                if (remaining < last * STEP_MS) actingId = movement.unit
                 const step = Math.min(remaining / STEP_MS, last)
                 const segment = Math.min(Math.floor(step), last - 1)
                 const from = movement.path[segment]
@@ -205,10 +228,21 @@ export default function BattleMap(props: MapProps) {
                 })
                 remaining -= last * STEP_MS
               }
+              if (events?.length) current.current.onTurnBoundary?.(banner, enemy)
+              const viewport = parent.parentElement
+              const actor = current.current.followAction && units.find(({ id }) => id === actingId)
+              if (viewport && actor) {
+                const point = poses.get(actor.id)?.point ?? actor
+                viewport.scrollLeft = (point.x + 0.5) * parent.offsetWidth / width - viewport.clientWidth / 2
+                viewport.scrollTop = (point.y + 0.5) * parent.offsetHeight / height - viewport.clientHeight / 2
+              }
               graphics.clear()
               resultLabel.setVisible(false)
               for (const sprite of unitImages.values()) sprite.setVisible(false)
-              for (const label of labels.values()) label.setVisible(false)
+              for (const label of labels.values()) {
+                label.className.setVisible(false)
+                label.hp.setVisible(false)
+              }
               map.forEach((row, y) => [...row].forEach((cell, x) => {
                 if (isTerrain(cell)) drawTerrain(graphics, cell, x * TILE, y * TILE, x * 17 + y * 29)
                 if (range?.has(key({ x, y }))) {
@@ -220,6 +254,13 @@ export default function BattleMap(props: MapProps) {
                   graphics.lineStyle(1, 0x9edce9, 0.8).strokeRect(x * TILE + 3, y * TILE + 3, TILE - 6, TILE - 6)
                 }
               }))
+              for (const point of burning ?? []) {
+                graphics.fillStyle(0xe85e24, 0.45).fillRect(point.x * TILE, point.y * TILE, TILE, TILE)
+              }
+              for (const cell of affected ?? []) {
+                const [x, y] = cell.split(',').map(Number)
+                graphics.fillStyle(0xffd066, 0.55).fillRect(x * TILE, y * TILE, TILE, TILE)
+              }
               const origin = units.find((unit) => unit.id === selected)
               if (origin && path.length) {
                 graphics.lineStyle(5, 0xdaf9ff, 0.92).beginPath()
@@ -247,8 +288,9 @@ export default function BattleMap(props: MapProps) {
                 const x = position.x * TILE
                 const y = position.y * TILE
                 const graphicsPack = sprites.current
-                const personalKey = graphicsPack?.officerSprites[unit.name]
-                const spriteKey = personalKey && graphicsPack?.units[personalKey] ? personalKey : `${unit.side}-${roles[unit.role].sprite}`
+                const kind = unit.troopClass ?? troopClassFor(unit.role, unit.jo?.classId)
+                const sharedKey = `${unit.side}-${kind}`
+                const spriteKey = graphicsPack?.units[sharedKey] ? sharedKey : `${unit.side}-${roles[unit.role].sprite}`
                 const poseType = attacking ? (impact.kind === 'fire' ? 'special' : 'attack')
                   : receiving && !impact.blocked ? 'special' : 'units'
                 const guardFrame = receiving && impact.blocked && impact.kind !== 'fire' ? 1 : step
@@ -265,51 +307,70 @@ export default function BattleMap(props: MapProps) {
                     if (sheet) this.textures.addSpriteSheet(textureKey, frame, { frameWidth: frameSize, frameHeight: frameSize })
                     else this.textures.addImage(textureKey, frame)
                   }
-                  let sprite = unitImages.get(unit.id)
-                  if (!sprite) {
-                    sprite = this.add.image(0, 0, textureKey).setOrigin(0.5, 1)
-                    unitImages.set(unit.id, sprite)
-                  }
                   const frameIndex = attackSheet ? ATTACK_START[facing] + Math.min(3, Math.floor(time / 125))
                     : specialSheet ? (receiving ? 3 : 4) : WALK_FRAMES[facing][guardFrame]
-                  sprite.setTexture(textureKey, sheet ? frameIndex : undefined)
-                    .setFlipX(facing === 'right').setPosition(x + TILE / 2, y + 46)
-                    .setAlpha(receiving && !unit.currentHP ? 1 - (time - HIT_MS) / (IMPACT_MS - HIT_MS) : unit.done && !attacking ? 0.58 : 1)
-                    .setVisible(true)
+                  for (const offset of [-17, 17, 0]) {
+                    const key = `${unit.id}:soldier:${offset}`
+                    let soldier = unitImages.get(key)
+                    if (!soldier) {
+                      soldier = this.add.image(0, 0, textureKey).setOrigin(0.5, 1)
+                      unitImages.set(key, soldier)
+                    }
+                    soldier.setTexture(textureKey, sheet ? frameIndex : undefined)
+                      .setScale(0.62).setFlipX(facing === 'right')
+                      .setPosition(x + TILE / 2 + offset, y + (offset ? 36 : 39))
+                      .setAlpha(receiving && !unit.currentHP ? 1 - (time - HIT_MS) / (IMPACT_MS - HIT_MS) : unit.done && !attacking ? 0.58 : 1)
+                      .setVisible(true)
+                  }
+                }
+                const portrait = graphicsPack?.portraitImages[unit.name]
+                if (portrait) {
+                  const texture = `portrait:${unit.name}`
+                  if (!this.textures.exists(texture)) this.textures.addImage(texture, portrait)
+                  const key = `${unit.id}:portrait`
+                  let face = unitImages.get(key)
+                  if (!face) {
+                    face = this.add.image(0, 0, texture).setDepth(1)
+                    unitImages.set(key, face)
+                  }
+                  face.setPosition(x + TILE / 2, y + 19).setDisplaySize(28, 28)
+                    .setAlpha(unit.done ? 0.75 : 1).setVisible(true)
                 }
                 if (receiving) {
                   const text = impact.blocked ? (impact.kind === 'fire' ? '실패' : '방어')
-                    : `${impact.critical ? '회심 ' : ''}-${impact.damage}`
+                    : `-${impact.damage}`
                   resultLabel.setText(impact.kind === 'counter' ? `반격 · ${text}` : text)
                     .setColor(impact.blocked ? '#d2ecfa' : '#ffd782')
                     .setPosition(x + TILE / 2, y + 8 - (time - HIT_MS) / 24).setVisible(true)
                 }
                 let label = labels.get(unit.id)
                 if (!label) {
-                  label = this.add.text(0, 0, unit.name, {
+                  const style = {
                     fontFamily: '"Malgun Gothic", "Apple SD Gothic Neo", sans-serif',
-                    fontSize: '15px',
+                    fontSize: '10px',
+                    resolution: renderScale,
                     fontStyle: 'bold',
                     padding: { x: 3, y: 0 },
                     backgroundColor: '#181b16',
-                  }).setOrigin(0.5).setDepth(1)
+                  }
+                  label = {
+                    className: this.add.text(0, 0, '', style).setOrigin(0, 1).setDepth(1),
+                    hp: this.add.text(0, 0, '', style).setOrigin(1, 1).setDepth(1),
+                  }
                   labels.set(unit.id, label)
                 }
                 const color = unit.id === selected ? '#ffe1a0' : unit.side === 'ally' ? '#d2f4ff' : '#ffc7b8'
-                label.setText(unit.name).setPosition(x + TILE / 2, y + 55).setColor(color).setVisible(true)
+                const className = kind ? troopClasses[kind] : '분류 보류'
+                label.hp.setText(String(unit.currentHP)).setPosition(x + TILE - 3, y + 55).setColor(color).setVisible(true)
+                label.className.setText(className).setScale(1)
+                  .setPosition(x + 3, y + 55).setColor(color).setVisible(true)
+                const availableWidth = TILE - 8 - label.hp.width
+                label.className.setScale(Math.min(1, availableWidth / label.className.width), 1)
               }
               const focus = cursor.current
               if (focus) graphics.lineStyle(2, 0xfff2b8).strokeRect(focus.x * TILE + 3, focus.y * TILE + 3, TILE - 6, TILE - 6)
             }
             redraw.current()
-            this.input.on('pointermove', (pointer: Phaser.Input.Pointer) => {
-              const point = { x: Math.floor(pointer.x / TILE), y: Math.floor(pointer.y / TILE) }
-              current.current.onHover?.(validCell(point, current.current.map) ? point : null)
-            })
-            this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
-              const point = { x: Math.floor(pointer.x / TILE), y: Math.floor(pointer.y / TILE) }
-              if (validCell(point, current.current.map)) current.current.onCell?.(point)
-            })
           },
         },
       })
@@ -320,17 +381,74 @@ export default function BattleMap(props: MapProps) {
       redraw.current = () => {}
       game?.destroy(true)
     }
-  }, [width, height, image])
+  }, [width, height, image, isBattle])
 
-  return <div className="board-frame">
+  const pointerGesture = useRef<{ id: number; x: number; y: number; left: number; top: number; dragging: boolean } | null>(null)
+  const [dragging, setDragging] = useState(false)
+  function pointAt(clientX: number, clientY: number) {
+    const bounds = host.current?.getBoundingClientRect()
+    if (!bounds?.width || !bounds.height) return null
+    const point = {
+      x: Math.floor((clientX - bounds.left) * width / bounds.width),
+      y: Math.floor((clientY - bounds.top) * height / bounds.height),
+    }
+    return validCell(point, props.map) ? point : null
+  }
+
+  function endGesture() {
+    pointerGesture.current = null
+    setDragging(false)
+  }
+
+  return <div className={isBattle ? 'board-frame board-viewport' : 'board-frame'}
+    data-dragging={dragging || undefined}
+    onPointerDown={(event) => {
+      if (!isBattle || event.button !== 0 || pointerGesture.current || !pointAt(event.clientX, event.clientY)) return
+      const viewport = event.currentTarget
+      viewport.setPointerCapture(event.pointerId)
+      pointerGesture.current = {
+        id: event.pointerId, x: event.clientX, y: event.clientY,
+        left: viewport.scrollLeft, top: viewport.scrollTop, dragging: false,
+      }
+    }}
+    onPointerMove={(event) => {
+      const gesture = pointerGesture.current
+      if (!gesture) {
+        props.onHover?.(pointAt(event.clientX, event.clientY))
+        return
+      }
+      if (gesture.id !== event.pointerId) return
+      const dx = event.clientX - gesture.x
+      const dy = event.clientY - gesture.y
+      if (!gesture.dragging && Math.hypot(dx, dy) < 6) return
+      if (!gesture.dragging) {
+        gesture.dragging = true
+        setDragging(true)
+        props.onHover?.(null)
+      }
+      event.currentTarget.scrollLeft = gesture.left - dx
+      event.currentTarget.scrollTop = gesture.top - dy
+    }}
+    onPointerUp={(event) => {
+      const gesture = pointerGesture.current
+      if (!gesture || gesture.id !== event.pointerId) return
+      endGesture()
+      if (gesture.dragging || Math.hypot(event.clientX - gesture.x, event.clientY - gesture.y) >= 6) return
+      const point = pointAt(event.clientX, event.clientY)
+      if (point) props.onCell?.(point)
+    }}
+    onLostPointerCapture={(event) => {
+      if (pointerGesture.current?.id === event.pointerId) endGesture()
+    }}
+    onPointerLeave={() => props.onHover?.(null)}
+  >
     <div
       ref={host}
       className="board"
       style={{ aspectRatio: `${width} / ${height}`, backgroundImage: image ? `url("${image}")` : undefined, backgroundSize: '100% 100%' }}
       role={props.onCell ? 'group' : 'img'}
-      aria-label={props.onCell ? '전장 지도. 방향키로 칸을 고르고 Enter로 선택합니다.' : '수풀과 바위가 놓인 전장 지도'}
+      aria-label={props.onCell ? '전장 지도. 드래그로 시점을 이동하거나 방향키로 칸을 고르고 Enter로 선택합니다.' : '수풀과 바위가 놓인 전장 지도'}
       tabIndex={props.onCell ? 0 : undefined}
-      onPointerLeave={() => props.onHover?.(null)}
       onBlur={() => { cursor.current = null; props.onHover?.(null); redraw.current() }}
       onKeyDown={(event) => {
         if (!props.onCell) return
@@ -348,12 +466,21 @@ export default function BattleMap(props: MapProps) {
         event.preventDefault()
         const next = { x: active.x + step.x, y: active.y + step.y }
         cursor.current = validCell(next, props.map) ? next : { x: active.x, y: active.y }
+        const viewport = event.currentTarget.parentElement
+        if (viewport) {
+          const cellWidth = event.currentTarget.offsetWidth * TILE / width
+          const cellHeight = event.currentTarget.offsetHeight * TILE / height
+          const left = cursor.current.x * cellWidth
+          const top = cursor.current.y * cellHeight
+          viewport.scrollLeft = Phaser.Math.Clamp(viewport.scrollLeft, left + cellWidth - viewport.clientWidth, left)
+          viewport.scrollTop = Phaser.Math.Clamp(viewport.scrollTop, top + cellHeight - viewport.clientHeight, top)
+        }
         props.onHover?.(cursor.current)
         redraw.current()
       }}
     />
     {boardError && <p role="alert">전장을 표시할 수 없습니다. 브라우저를 새로고침해 주세요.</p>}
     <span className="sr-only">{props.units?.filter(({ currentHP }) => currentHP > 0).map((unit) =>
-      `${unit.name} ${unit.jo?.className ?? roles[unit.role].name} ${unit.x + 1}열 ${unit.y + 1}행`).join(', ')}</span>
+      `${unit.name}  ${unit.x + 1}열 ${unit.y + 1}행`).join(', ')}</span>
   </div>
 }

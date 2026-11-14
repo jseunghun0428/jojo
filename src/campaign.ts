@@ -1,13 +1,30 @@
-import { DRAFT_LIMIT, FIELD_LIMIT, STAGE_COUNT, items, officerById, officers, recommendedIds, starterIds, treasureById, treasures } from './data.ts'
+import { DRAFT_LIMIT, FIELD_LIMIT, STAGE_COUNT, TROOP_SCALE, items, officerById, officers, recommendedIds, starterIds, treasureById, treasures } from './data.ts'
 import type { ItemId } from './data.ts'
-import { newBattle, playBattle, unitStats } from './combat.ts'
+import { MAX_WILL, newBattle, playBattle, unitStats } from './combat.ts'
 import type { Battle, BattleAction } from './combat.ts'
-import { roles } from './unit-classes.ts'
+import { roles, troopClasses } from './unit-classes.ts'
+import type { TroopClass } from './unit-classes.ts'
 import { webCampaign } from './jo-game.ts'
 import type { CampaignData } from './jo-game.ts'
 
+export type OfficerGrowth = { level: number; xp: number }
+
+export function awardExperience(growth: OfficerGrowth, earned: number): OfficerGrowth {
+  let { level, xp } = growth
+  xp += earned
+  while (xp >= level * 100) {
+    xp -= level * 100
+    level++
+  }
+  return { level, xp }
+}
+
 export type Campaign = {
+  growth?: Partial<Record<string, OfficerGrowth>>
   phase: 'draft' | 'battle' | 'camp' | 'complete'
+  draftConfirmed?: boolean
+  troopClasses?: Partial<Record<string, TroopClass>>
+  troopScale?: number
   stage: number
   roster: string[]
   captain: string | null
@@ -23,6 +40,8 @@ export type Campaign = {
 export type Action =
   | { type: 'draft'; id: string }
   | { type: 'recommended' }
+  | { type: 'confirmDraft' }
+  | { type: 'changeTroopClass'; id: string; troopClass: TroopClass }
   | { type: 'captain'; id: string }
   | { type: 'lineup'; id: string }
   | { type: 'deploy' }
@@ -35,7 +54,7 @@ export type Action =
 
 export function createCampaign(): Campaign {
   return {
-    phase: 'draft', stage: 1, roster: [], captain: null, lineup: [], gold: 0,
+    phase: 'draft', troopScale: TROOP_SCALE, stage: 1, roster: [], captain: null, lineup: [], gold: 0,
     inventory: { salve: 1, tonic: 1 }, treasures: [], equipment: {},
     offers: { officers: [], treasures: [] }, battle: null,
   }
@@ -57,20 +76,32 @@ function sample(available: string[], rolls: number[]) {
 
 function deploy(state: Campaign, stage: number, data: CampaignData): Campaign {
   if (!state.captain || !state.lineup.includes(state.captain)) return state
-  const battle = newBattle(data.stages[stage - 1], state.lineup, state.captain, state.equipment, data.officers)
+  const battle = newBattle(data.stages[stage - 1], state.lineup, state.captain, state.equipment, data.officers, state.troopClasses, state.growth)
+  if (data.source === 'jo') battle.experience = battleExperience(battle, state.roster)
   return { ...state, stage, phase: 'battle', battle }
+}
+
+function battleExperience(battle: Battle, roster: string[]): NonNullable<Battle['experience']> {
+  const deployed = battle.units.filter((unit) => unit.side === 'ally' && !unit.guest && roster.includes(unit.id)).map(({ id }) => id)
+  return { deployed, reserves: roster.filter((id) => !deployed.includes(id)), earned: {} }
 }
 
 export function campaignReducer(state: Campaign, action: Action, data: CampaignData = webCampaign): Campaign {
   switch (action.type) {
     case 'reset':
       return createCampaign()
+    case 'confirmDraft':
+      return state.phase === 'draft' && state.captain ? { ...state, draftConfirmed: true } : state
+    case 'changeTroopClass':
+      if (state.phase !== 'camp' && !(state.phase === 'draft' && state.draftConfirmed)) return state
+      if (!state.roster.includes(action.id) || action.troopClass === 'siege' || !Object.hasOwn(troopClasses, action.troopClass)) return state
+      return { ...state, troopClasses: { ...state.troopClasses, [action.id]: action.troopClass } }
     case 'recommended':
-      return state.phase === 'draft'
+      return state.phase === 'draft' && !state.draftConfirmed
         ? { ...state, roster: [...recommendedIds], lineup: [...recommendedIds], captain: recommendedIds[0] }
         : state
     case 'draft': {
-      if (state.phase !== 'draft' || !starterIds.includes(action.id)) return state
+      if (state.phase !== 'draft' || state.draftConfirmed || !starterIds.includes(action.id)) return state
       if (state.roster.includes(action.id)) {
         const roster = state.roster.filter((id) => id !== action.id)
         return { ...state, roster, lineup: roster, captain: state.captain === action.id ? null : state.captain }
@@ -79,6 +110,7 @@ export function campaignReducer(state: Campaign, action: Action, data: CampaignD
       return draftCost(roster) <= DRAFT_LIMIT ? { ...state, roster, lineup: roster } : state
     }
     case 'captain': {
+      if (state.phase === 'draft' && state.draftConfirmed) return state
       if ((state.phase !== 'draft' && state.phase !== 'camp') || !state.roster.includes(action.id)) return state
       if (!state.lineup.includes(action.id) && state.lineup.length === FIELD_LIMIT) return state
       const lineup = state.lineup.includes(action.id) ? state.lineup : [...state.lineup, action.id]
@@ -95,13 +127,23 @@ export function campaignReducer(state: Campaign, action: Action, data: CampaignD
       return state.stage === STAGE_COUNT ? { ...state, phase: 'complete' } : deploy(state, state.stage + 1, data)
     case 'battle': {
       if (state.phase !== 'battle' || !state.battle) return state
-      const { battle, inventory } = playBattle(state.battle, state.inventory, action.action, action.seed)
-      return battle === state.battle ? state : { ...state, battle, inventory }
+      const battleWithTerrain = state.battle.terrainNames || !data.stages[state.stage - 1].jo
+        ? state.battle
+        : { ...state.battle, terrainNames: data.stages[state.stage - 1].jo?.terrainNames }
+      const current = data.source === 'jo' && !battleWithTerrain.experience
+        ? { ...battleWithTerrain, experience: battleExperience(battleWithTerrain, state.roster) }
+        : battleWithTerrain
+      const { battle, inventory } = playBattle(current, state.inventory, action.action, action.seed)
+      return battle === current ? state : { ...state, battle, inventory }
     }
     case 'collect': {
       if (state.phase !== 'battle' || state.battle?.result !== 'win' || action.rolls.length < 10) return state
+      const growth = { ...state.growth }
+      for (const [id, earned] of Object.entries(state.battle.experience?.earned ?? {})) {
+        growth[id] = awardExperience(growth[id] ?? { level: Math.max(1, data.officers[id]?.level ?? 1), xp: 0 }, earned)
+      }
       return {
-        ...state, phase: 'camp', battle: null, gold: state.gold + data.stages[state.stage - 1].reward,
+        ...state, growth, phase: 'camp', battle: null, gold: state.gold + data.stages[state.stage - 1].reward,
         offers: {
           officers: sample(officers.filter(({ id }) => !state.roster.includes(id) && (data.source === 'web' || data.officers[id]))
             .map(({ id }) => id), action.rolls.slice(0, 5)),
@@ -158,8 +200,8 @@ function restoreBattleUnits(save: Campaign): Campaign {
     if (role !== unit.role) {
       const stats = unitStats(role, stage.tier, officer && { bonus: officer.bonus, treasure: save.equipment[unit.id] })
       const currentHP = unit.currentHP > 0 ? Math.max(1, Math.min(unit.currentHP, stats.hp)) : 0
-      const currentMP = Math.min(unit.currentMP, stats.mp)
-      return { ...unit, ...stats, name: name ?? unit.name, role, level, currentHP, currentMP }
+      const currentMP = unit.currentMP
+      return { ...unit, ...stats, mp: MAX_WILL, name: name ?? unit.name, role, level, currentHP, currentMP }
     }
     if ((!name || unit.name === name) && unit.level === level) return unit
     return { ...unit, name: name ?? unit.name, level }
@@ -182,7 +224,18 @@ export function loadCampaign(source: CampaignData['source'] = 'web'): Campaign {
           && Number.isInteger(save.stage) && save.stage >= 1 && save.stage <= STAGE_COUNT
           && Array.isArray(save.roster) && Array.isArray(save.lineup)
           && save.inventory && save.equipment && save.offers
-          && (save.phase !== 'battle' || save.battle?.units)) return source === 'jo' ? save : restoreBattleUnits(save)
+          && (save.phase !== 'battle' || save.battle?.units)) {
+        if (save.troopScale !== TROOP_SCALE) {
+          save.troopScale = TROOP_SCALE
+          if (save.battle) save.battle.units = save.battle.units.map((unit) => ({
+            ...unit, hp: unit.hp * TROOP_SCALE, currentHP: unit.currentHP * TROOP_SCALE,
+          }))
+        }
+        if (save.battle) save.battle.units = save.battle.units.map((unit) => unit.mp === MAX_WILL ? unit : ({
+          ...unit, mp: MAX_WILL, currentMP: Math.max(0, MAX_WILL - Math.max(0, unit.mp - unit.currentMP)),
+        }))
+        return source === 'jo' ? save : restoreBattleUnits(save)
+      }
     }
   } catch {
     // Storage can be disabled in private or restricted browsing.

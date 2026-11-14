@@ -1,4 +1,4 @@
-import { FIELD_LIMIT, STAGE_COUNT, officerById, stages } from './data.ts'
+import { FIELD_LIMIT, STAGE_COUNT, enemyKindFor, officerById, stages } from './data.ts'
 import type { Point, Stage } from './data.ts'
 import type { Facing } from './combat.ts'
 import type { Role } from './unit-classes.ts'
@@ -77,7 +77,13 @@ export function createJoCampaign(pack: JoPack): CampaignData {
       })
     }
     const visible = source.enemies.filter(({ visibility }) => visibility === 0)
-    const enemies = unique(visible.length ? visible : source.enemies.filter(({ visibility }) => visibility === 0xffff), occupied)
+    const enemyFormation = visible.length ? visible : source.enemies.filter(({ visibility }) => visibility === 0xffff)
+    const yeongcheonGuards = index === 0 ? enemyFormation
+      .filter(({ y }) => y === 14)
+      .map((guard) => ({ ...guard, y: 6 })) : []
+    const enemies = unique(index === 0
+      ? [...enemyFormation.filter(({ x, y }) => y <= 14 && !(x === 7 && y === 11) && !(x === 12 && y === 12)), ...yeongcheonGuards]
+      : enemyFormation, occupied)
     const [primary, ...alternate] = source.deployment
     const slots = primary.filter(({ slot, x, y }) => slot === 0 || x !== 0 || y !== 0)
     const orderedSlots = [...slots, ...alternate.flat()].sort((a, b) => Number(a.hidden) - Number(b.hidden))
@@ -96,13 +102,23 @@ export function createJoCampaign(pack: JoPack): CampaignData {
         occupied.add(position(nearest))
       }
     }
-    const guests = unique(source.guests.filter(({ visibility }) => visibility === 0), occupied)
+    const guests = index === 0 ? [] : unique(source.guests.filter(({ visibility }) => visibility === 0), occupied)
     const reinforcements = source.guests.filter(({ officer }) => source.openingReinforcements.includes(officer))
+    if (deployment.length && deployment.length < FIELD_LIMIT) {
+      const captain = deployment[0]
+      const reserved = new Set(reinforcements.map(position))
+      const open = source.map.flatMap((row, y) => row.flatMap((id, x) =>
+        occupied.has(position({ x, y })) || reserved.has(position({ x, y })) || pack.classes[0].terrain[30 + id] === 255
+          ? [] : [{ x, y, facing: captain.facing }]))
+      open.sort((a, b) => Math.abs(a.x - captain.x) + Math.abs(a.y - captain.y)
+        - Math.abs(b.x - captain.x) - Math.abs(b.y - captain.y))
+      deployment.push(...open.slice(0, FIELD_LIMIT - deployment.length))
+    }
     if (!deployment.length || !enemies.length) throw new Error(`전장 ${source.mapId}의 출전 좌표를 구성할 수 없습니다.`)
     return {
       ...stages[index], name: source.name,
       map: source.map.map((row) => String.fromCharCode(...row.map((id) => terrainStart + id))),
-      enemies: units(enemies),
+      enemies: units(enemies).map((unit) => ({ ...unit, enemyKind: enemyKindFor(unit.name) })),
       jo: {
         image: assetRoot + source.image, terrainNames: pack.terrainNames, deployment, guests: units(guests),
         reinforcements: units(reinforcements), objectives: index === 0 ? ['장보', '장량'] : undefined,

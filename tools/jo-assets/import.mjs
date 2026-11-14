@@ -32,6 +32,9 @@ function extract(staging) {
     'ally-blade': 9, 'enemy-blade': 11,
     'ally-bow': 27, 'enemy-bow': 29,
     'ally-sage': 63, 'enemy-sage': 65,
+    'ally-infantry': 9, 'enemy-infantry': 11,
+    'ally-cavalry': 99, 'enemy-cavalry': 101,
+    'ally-ranged': 36, 'enemy-ranged': 38,
   }
   const officerSprites = {}
   const portraits = {}
