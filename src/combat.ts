@@ -342,10 +342,10 @@ function damageUnit(battle: Battle, unit: Unit, damage: number, source?: string)
   for (const id of xp.reserves) xp.earned[id] = (xp.earned[id] ?? 0) + Math.floor(base / 2)
 }
 
-function applyImpact(battle: Battle, source: Unit, recipient: Unit, kind: BattleImpact['kind'], roll: () => number, art?: { name: string; percent: number }) {
+function applyImpact(battle: Battle, source: Unit, recipient: Unit, kind: BattleImpact['kind'], roll: () => number, art?: { name: string; percent?: number; direct?: number }) {
   const prediction = forecastAttack(battle, source, recipient, kind)
-  const blocked = roll() >= prediction.hit
-  const damage = blocked ? 0 : Math.floor(prediction.damage * (art?.percent ?? 100) / 100)
+  const blocked = art?.direct === undefined && roll() >= prediction.hit
+  const damage = blocked ? 0 : art?.direct ?? Math.floor(prediction.damage * (art?.percent ?? 100) / 100)
   const facing = facingBetween(source, recipient)
   source.facing = facing
   damageUnit(battle, recipient, damage, source.id)
@@ -371,10 +371,11 @@ function strike(battle: Battle, attacker: Unit, target: Unit, fire: boolean, rol
 }
 
 export function warArtsFor(unit: Unit) {
+  if (isSoldier(unit)) return []
   const troop = unit.troopClass ?? troopClassFor(unit.role, unit.jo?.classId)
   return (officerById[unit.id]?.warArts ?? []).filter(({ id }) => {
     const art = warArts[id]
-    return 'effect' in art || art.troop === troop
+    return !('troop' in art) || art.troop === troop
   })
 }
 
@@ -385,8 +386,10 @@ export function warArtCells(battle: Battle, unit: Unit, art: WarArtId) {
   return battle.map.flatMap((row, y) => Array.from(row, (_, x) => ({ x, y })).filter((point) => {
     const dx = Math.abs(point.x - unit.x)
     const dy = Math.abs(point.y - unit.y)
+    if (art === 'blaze') return dx + dy > 0 && dx + dy <= 2 && (!dx || !dy) && strategyTerrain(battle, point, art)
     return ranged ? rangedReach(dx, dy) || (art === 'longShot' && dx + dy === 3 && (!dx || !dy))
       : dx + dy > 0 && dx <= 1 && dy <= 1 && (art !== 'charge' || !blocksCharge(battle, point))
+        && strategyTerrain(battle, point, art)
   }))
 }
 
@@ -399,17 +402,38 @@ function blocksCharge(battle: Battle, point: Point) {
   return /성벽|성문|닫힌 관문|벽/.test(terrainName(battle, point)) || terrainAt(battle.map, point) === 'm'
 }
 
+function flammable(battle: Battle, point: Point) {
+  return /숲|삼림|초원/.test(terrainName(battle, point)) || ['f', 'p', 'g'].includes(terrainAt(battle.map, point) ?? '')
+}
+
+function strategyTerrain(battle: Battle, point: Point, art: WarArtId) {
+  const name = terrainName(battle, point)
+  const tile = terrainAt(battle.map, point)
+  const mountain = name === '산지' || name === '돌산' || tile === 'M'
+  if (art === 'rockfall') return mountain || tile === 'm'
+  if (art === 'intercept') return mountain || name === '삼림' || tile === 'f' || tile === 'p'
+  if (art === 'blaze') return name === '평지' || tile === '.' || flammable(battle, point)
+  return true
+}
+
+function ignite(battle: Battle, point: Point, source: string) {
+  battle.burning = [...(battle.burning ?? []).filter((tile) => key(tile) !== key(point)),
+    { x: point.x, y: point.y, round: battle.round, source }]
+}
+
 export function warArtArea(battle: Battle, unit: Unit, art: WarArtId, target: Point) {
   const dx = target.x - unit.x
   const dy = target.y - unit.y
   let points = [target]
-  if (art === 'sweep') {
+  if (art === 'sweep' || art === 'rockfall') {
     const ring = [[0, -1], [1, -1], [1, 0], [1, 1], [0, 1], [-1, 1], [-1, 0], [-1, -1]]
     const direction = ring.findIndex(([x, y]) => x === dx && y === dy)
     points = [-1, 0, 1].map((offset) => {
       const [x, y] = ring[(direction + offset + 8) % 8]
       return { x: unit.x + x, y: unit.y + y }
     })
+  } else if (art === 'blaze') {
+    points = [1, 2].map((step) => ({ x: unit.x + Math.sign(dx) * step, y: unit.y + Math.sign(dy) * step }))
   } else if (art === 'barrage') {
     points = [target, ...directions.map(({ x, y }) => ({ x: target.x + x, y: target.y + y }))]
   } else if (art === 'charge') {
@@ -420,7 +444,25 @@ export function warArtArea(battle: Battle, unit: Unit, art: WarArtId, target: Po
       points.push(point)
     }
   }
-  return points.filter((point) => validCell(point, battle.map))
+  return points.filter((point) => validCell(point, battle.map) && strategyTerrain(battle, point, art))
+}
+
+export function strategyPreviews(battle: Battle, unit: Unit, id: WarArtId, target: Unit) {
+  const art = warArts[id]
+  if (!('strategy' in art)) return []
+  const learned = warArtEffect(unit, target, id)
+  if (!learned?.level || !warArtCells(battle, unit, id).some((point) => key(point) === key(target))) return []
+  const intelligence = battleAttributes(unit)[1]
+  return warArtArea(battle, unit, id, target).flatMap((point) => {
+    const foe = unitAt(battle, point)
+    if (!foe || foe.side === unit.side) return []
+    const difference = intelligence - battleAttributes(foe)[1]
+    const base = 20 + (intelligence - 70) * 0.25
+    const directDamage = Math.max(1, Math.floor(base * art.damage[learned.level - 1] * (100 + Math.min(40, Math.max(0, difference))) / 10000))
+    const damage = directDamage * TROOP_SCALE
+    const confusion = id === 'intercept' && damage < foe.currentHP ? Math.min(75, Math.max(25, 50 + difference)) : undefined
+    return [{ foe, damage, confusion }]
+  })
 }
 
 export function warArtEffect(unit: Unit, target: Unit, id: WarArtId) {
@@ -448,8 +490,21 @@ function useWarArt(battle: Battle, unit: Unit, target: Unit, id: WarArtId, roll:
   const effect = warArtEffect(unit, target, id)
   if (!effect || !warArtCells(battle, unit, id).some((point) => key(point) === key(target))) return false
   const art = warArts[id]
+  const strategy = strategyPreviews(battle, unit, id, target)
   unit.done = true
   unit.usedWarArts = [...(unit.usedWarArts ?? []), id]
+  if ('strategy' in art) {
+    for (const { foe, damage, confusion } of strategy) {
+      applyImpact(battle, unit, foe, 'fire', roll, { name: art.name, direct: damage })
+      if (id === 'blaze') ignite(battle, foe, unit.id)
+      if (confusion !== undefined && roll() < confusion) {
+        foe.confusedUntil = battle.round + Number(foe.side === 'ally')
+        note(battle, `${foe.name} · ${controlStatus(foe)}`)
+      }
+    }
+    updateResult(battle)
+    return true
+  }
   if ('will' in effect && effect.will !== undefined) {
     target.currentMP += effect.will
     note(battle, `${art.name} · ${target.name} 의지 ${effect.will > 0 ? '+' : ''}${effect.will}`)
@@ -489,8 +544,8 @@ function useWarArt(battle: Battle, unit: Unit, target: Unit, id: WarArtId, roll:
       }
     }
   }
-  if (id === 'fireArrow' && (/숲|삼림|초원/.test(terrainName(battle, target)) || ['f', 'p', 'g'].includes(terrainAt(battle.map, target) ?? ''))) {
-    battle.burning = [...(battle.burning ?? []).filter((point) => key(point) !== key(target)), { x: target.x, y: target.y, round: battle.round, source: unit.id }]
+  if (id === 'fireArrow' && flammable(battle, target)) {
+    ignite(battle, target, unit.id)
   }
   if (id !== 'shove' && id !== 'mountedShot') {
     for (const foe of targets) {
@@ -550,9 +605,9 @@ function applyBurning(battle: Battle, side: Unit['side']) {
   for (const tile of battle.burning ?? []) {
     const unit = unitAt(battle, tile)
     if (unit?.side !== side) continue
-    const damage = Math.max(1, Math.floor(unit.hp / 10))
+    const damage = Math.max(1, Math.floor(unit.hp / 20))
     damageUnit(battle, unit, damage, tile.source)
-    note(battle, `${unit.name} · 화시 화재로 ${damage} 피해`)
+    note(battle, `${unit.name} · 화재로 ${damage} 피해`)
   }
   updateResult(battle)
 }

@@ -62,7 +62,7 @@ export const officers: Officer[] = [
   { id: 'yeon', name: '조조', role: roleFor('조조'), cost: 3, price: 80, bonus: 0, warArts: [{ id: 'heavyStrike', level: 2 }, { id: 'sweep', level: 1 }, { id: 'disrupt', level: 2 }, { id: 'shove', level: 3 }] },
   { id: 'ha', name: '관우', role: roleFor('관우'), cost: 3, price: 80, bonus: 0, warArts: [{ id: 'doubleStrike', level: 2 }, { id: 'charge', level: 1 }, { id: 'ambush', level: 3 }, { id: 'mountedShot', level: 1 }] },
   { id: 'jin', name: '하후연', role: roleFor('하후연'), cost: 2, price: 70, bonus: 0, warArts: [{ id: 'volley', level: 2 }, { id: 'barrage', level: 1 }, { id: 'fireArrow', level: 2 }, { id: 'longShot', level: 3 }] },
-  { id: 'seo', name: '곽가', role: roleFor('곽가'), cost: 2, price: 70, bonus: 0, warArts: [{ id: 'rally', level: 1 }, { id: 'inspire', level: 2 }, { id: 'demoralize', level: 2 }, { id: 'heal', level: 3 }] },
+  { id: 'seo', name: '곽가', role: roleFor('곽가'), cost: 2, price: 70, bonus: 0, warArts: [{ id: 'rally', level: 1 }, { id: 'inspire', level: 2 }, { id: 'demoralize', level: 2 }, { id: 'heal', level: 3 }, { id: 'blaze', level: 2 }, { id: 'intercept', level: 2 }] },
   { id: 'baek', name: '조인', role: roleFor('조인'), cost: 2, price: 65, bonus: -1 },
   { id: 'dan', name: '장료', role: roleFor('장료'), cost: 2, price: 65, bonus: -1 },
   { id: 'yul', name: '우금', role: roleFor('우금'), cost: 2, price: 65, bonus: -1 },
@@ -80,7 +80,8 @@ const reserveNames = {
 for (const [prefix, names] of Object.entries(reserveNames)) {
   names.forEach((name, index) => {
     const bonus = index % 4 + 1
-    officers.push({ id: `${prefix}-${index + 1}`, name, role: roleFor(name), cost: 0, price: 85 + bonus * 20, bonus })
+    officers.push({ id: `${prefix}-${index + 1}`, name, role: roleFor(name), cost: 0, price: 85 + bonus * 20, bonus,
+      warArts: name === '가후' ? [{ id: 'rockfall', level: 2 }] : undefined })
   })
 }
 

@@ -11,7 +11,7 @@ import { roles, troopClasses, troopClassFor } from './unit-classes.ts'
 import type { Role, TroopClass } from './unit-classes.ts'
 import { awardExperience, campaignReducer, draftCost, loadCampaign, saveCampaign } from './campaign.ts'
 import type { Action, Campaign } from './campaign.ts'
-import { FIRE_COST, attackCells, attributesOf, canAttack, controlStatus, forecastAttack, hasTactics, isSoldier, key, movementCost, movementLimit, movementPath, movesFor, physicalStats, terrainAt, unitAt, warArtArea, warArtCells, warArtEffect, warArtsFor } from './combat.ts'
+import { FIRE_COST, attackCells, attributesOf, canAttack, controlStatus, forecastAttack, hasTactics, isSoldier, key, movementCost, movementLimit, movementPath, movesFor, physicalStats, strategyPreviews, terrainAt, unitAt, warArtArea, warArtCells, warArtEffect, warArtsFor } from './combat.ts'
 import type { Battle, BattleAction, Unit } from './combat.ts'
 import { DRAFT_LIMIT, FIELD_LIMIT, STAGE_COUNT, TROOP_SCALE, items, officerById, starterIds, statLabels, terrains, treasureById } from './data.ts'
 import type { ItemId, Point } from './data.ts'
@@ -229,6 +229,7 @@ function BattleScreen({ state, dispatch, data }: ScreenProps) {
   const affected = active && selectedArt && target && targets.has(target.id)
     ? new Set(warArtArea(battle, active, selectedArt, target).map(key)) : undefined
   const support = active && selectedArt && target && targets.has(target.id) ? warArtEffect(active, target, selectedArt) : null
+  const strategy = active && selectedArt && target ? strategyPreviews(battle, active, selectedArt, target) : []
   const forecast = !selectedArt && active && target && targets.has(target.id)
     ? forecastAttack(battle, active, target, mode === 'fire' ? 'fire' : 'attack') : null
 
@@ -404,6 +405,7 @@ function BattleScreen({ state, dispatch, data }: ScreenProps) {
         <strong>지형 {terrainName ?? '—'}</strong>
         {support && target && 'will' in support && <span>{target.name} · 의지 {support.will! > 0 ? '+' : ''}{support.will}</span>}
         {support && target && 'hp' in support && <span>{target.name} · 병력 +{support.hp}{controlStatus(target) && ' · ' + controlStatus(target) + ' 해제'}</span>}
+        {strategy.map(({ foe, damage, confusion }) => <span key={foe.id}>{foe.name} · 피해 {damage}{confusion !== undefined && ` · 혼란 ${confusion}%`}</span>)}
         {forecast && target && <span>{target.name} · 예상 피해 {forecast.damage} · 명중 {forecast.hit}%{forecast.counter ? ' · 반격 가능' : ''}</span>}
         {terrainName && <span>{moveCost === null ? '통과 불가' : `이동 비용 ${moveCost}`}</span>}
       </div>

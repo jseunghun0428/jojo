@@ -365,6 +365,69 @@ test('learned war arts enforce class, will, target range, and one use per battle
   assert.equal(playBattle(result, stock, action).battle, result)
 })
 
+test('strategy arts share terrain, damage, and status rules with their previews', async () => {
+  const { strategyPreviews, warArtCells } = await import('../src/combat.ts')
+  const { officers } = await import('../src/data.ts')
+  const battle = deploy().battle
+  const caster = { ...battle.units.find(({ id }) => id === 'seo'), x: 1, y: 1, currentMP: 69,
+    captain: true, troopClass: 'cavalry', jo: { attributes: [40, 40, 45], growth: [3, 3] } }
+  const enemy = (id, x, y) => ({ ...caster, id, x, y, captain: false, side: 'enemy', enemyKind: 'officer',
+    hp: 1000, currentHP: 1000, jo: { ...caster.jo, attributes: [40, 40, 35] } })
+  const north = enemy('north', 1, 0)
+  const northwest = enemy('northwest', 0, 0)
+  northwest.jo.attributes = [40, 40, 45]
+  const friend = { ...enemy('friend', 2, 0), side: 'ally' }
+  const east = enemy('east', 2, 1)
+  const far = enemy('far', 3, 1)
+  Object.assign(battle, { map: ['MMM.', '..fg', '....'], objectives: undefined,
+    units: [caster, north, northwest, friend, east, far] })
+  const cast = (art, target, state = battle, seed = 1) => playBattle(state, { salve: 0, tonic: 0 },
+    { type: 'warArt', art, unit: caster.id, target: target.id }, seed).battle
+  assert.equal(cast('blaze', east), battle)
+  caster.currentMP = 70
+  assert.equal(cast('blaze', north), battle)
+  assert.equal(cast('intercept', far), battle)
+  assert.equal(strategyPreviews(battle, caster, 'intercept', east)[0].confusion, 70)
+  assert.equal(cast('intercept', east).units.find(({ id }) => id === east.id).confusedUntil, battle.round)
+  const failed = cast('intercept', east, battle, 1500)
+  assert.equal(failed.units.find(({ id }) => id === east.id).confusedUntil, undefined)
+  assert.deepEqual(failed.units[0].usedWarArts, ['intercept'])
+  const blaze = cast('blaze', far)
+  assert.deepEqual(blaze.burning.map(({ x, y }) => [x, y]), [[2, 1], [3, 1]])
+  assert.equal(blaze.units[0].currentMP, 70)
+  assert.equal(blaze.events.filter(({ impact }) => impact?.kind === 'counter').length, 0)
+  const burningState = { ...blaze, units: blaze.units.map((unit) =>
+    unit.side === 'enemy' ? { ...unit, confusedUntil: blaze.round } : unit) }
+  const burned = playBattle(burningState, { salve: 0, tonic: 0 }, { type: 'end' }).battle
+  assert.equal(burned.units.find(({ id }) => id === east.id).currentHP, 670)
+  blaze.units[0].done = false
+  assert.equal(cast('blaze', far, blaze), blaze)
+  const plain = cast('blaze', far, { ...battle, map: ['MMM.', '..f.', '....'] })
+  assert.equal(plain.units.find(({ id }) => id === far.id).currentHP, 720)
+  assert.ok(plain.burning.some(({ x, y }) => x === far.x && y === far.y))
+  caster.id = officers.find(({ name }) => name === '가후').id
+  caster.troopClass = 'ranged'
+  assert.ok(warArtCells(battle, caster, 'rockfall').some(({ x, y }) => x === 1 && y === 0))
+  assert.equal(cast('rockfall', east), battle)
+  assert.deepEqual(strategyPreviews(battle, caster, 'rockfall', north).map(({ foe, damage }) => [foe.id, damage]),
+    [['northwest', 280], ['north', 340]])
+  const rocks = cast('rockfall', north)
+  assert.equal(rocks.units.find(({ id }) => id === north.id).currentHP, 660)
+  assert.equal(rocks.units.find(({ id }) => id === northwest.id).currentHP, 720)
+  assert.equal(rocks.units.find(({ id }) => id === friend.id).currentHP, 1000)
+
+  caster.id = 'jin'
+  east.hp = east.currentHP = 3000
+  const arrow = cast('fireArrow', east)
+  const afterArrow = arrow.units.find(({ id }) => id === east.id)
+  assert.ok(arrow.burning.some(({ x, y }) => x === east.x && y === east.y))
+  assert.ok(afterArrow.currentHP < east.currentHP)
+  const arrowBurning = { ...arrow, units: arrow.units.map((unit) =>
+    unit.side === 'enemy' ? { ...unit, confusedUntil: arrow.round } : unit) }
+  const afterBurn = playBattle(arrowBurning, { salve: 0, tonic: 0 }, { type: 'end' }).battle
+  assert.equal(afterBurn.units.find(({ id }) => id === east.id).currentHP, afterArrow.currentHP - 150)
+})
+
 test('support war arts change eligibility and cleanse full-health allies', () => {
   const battle = deploy().battle
   const caster = battle.units.find(({ id }) => id === 'seo')
@@ -372,7 +435,7 @@ test('support war arts change eligibility and cleanse full-health allies', () =>
   const stock = { salve: 1, tonic: 1 }
   Object.assign(caster, { x: 2, y: 2, troopClass: 'cavalry', currentMP: 10 })
   Object.assign(archer, { x: 3, y: 3, troopClass: 'ranged', currentMP: 60 })
-  assert.equal(warArtsFor(caster).length, 4)
+  assert.equal(warArtsFor(caster).length, 6)
   const cast = (state, art) => playBattle(state, stock, { type: 'warArt', unit: caster.id, target: archer.id, art }).battle
   const inspired = cast(battle, 'inspire')
   const boosted = inspired.units.find(({ id }) => id === archer.id)
