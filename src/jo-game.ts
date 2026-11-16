@@ -23,7 +23,7 @@ export type JoProfile = {
 }
 type JoUnit = Point & { name: string; role: Role; jo: JoProfile; facing: Facing; levelOffset: number; behavior: number }
 export type JoStageDetails = {
-  image: string; terrainNames: string[]; deployment: (Point & { facing: Facing })[]
+  image?: string; terrainNames: string[]; deployment: (Point & { facing: Facing })[]
   guests: JoUnit[]; reinforcements: JoUnit[]; objectives?: string[]
 }
 export type CampaignData = { stages: Stage[]; officers: Record<string, JoProfile>; source: 'web' | 'jo' }
@@ -31,6 +31,8 @@ export const webCampaign: CampaignData = { stages, officers: {}, source: 'web' }
 export const fieldLimitFor = (stage: Stage) => Math.min(FIELD_LIMIT, stage.jo?.deployment.length ?? FIELD_LIMIT)
 const assetRoot = '/jo-game/'
 const terrainStart = 0x100
+export const joTerrainRow = (row: readonly number[]) => String.fromCharCode(...row.map((id) => terrainStart + id))
+export const JO_FIRE_TERRAIN = 26 // Mapatr.dll stores this as bitmap 100 + 26.
 export function joTerrainId(map: readonly string[], point: Point) {
   const id = (map[point.y]?.charCodeAt(point.x) ?? 0) - terrainStart
   return id >= 0 && id < 30 ? id : undefined
@@ -117,7 +119,7 @@ export function createJoCampaign(pack: JoPack): CampaignData {
     if (!deployment.length || !enemies.length) throw new Error(`전장 ${source.mapId}의 출전 좌표를 구성할 수 없습니다.`)
     return {
       ...stages[index], name: source.name,
-      map: source.map.map((row) => String.fromCharCode(...row.map((id) => terrainStart + id))),
+      map: source.map.map(joTerrainRow),
       enemies: units(enemies).map((unit) => ({ ...unit, enemyKind: enemyKindFor(unit.name) })),
       jo: {
         image: assetRoot + source.image, terrainNames: pack.terrainNames, deployment, guests: units(guests),

@@ -1,17 +1,81 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import Phaser from 'phaser'
 import { LocalGraphicsContext } from './local-graphics.ts'
 import { isTerrain, terrains } from './data.ts'
 import type { Point, Terrain } from './data.ts'
-import { facingBetween, key, validCell } from './combat.ts'
-import type { BattleEvent, BattleImpact, Facing, Unit } from './combat.ts'
+import { facingBetween, key } from './combat.ts'
+import type { BattleEvent, BattleHit, BattleImpact, Facing, Unit } from './combat.ts'
 import { roles, troopClasses, troopClassFor } from './unit-classes.ts'
+import { JO_FIRE_TERRAIN, joTerrainId } from './jo-game.ts'
+import { boardGeometry, CELL_SIZE as TILE, hexStep, validCell } from './grid.ts'
+import type { Grid } from './grid.ts'
 
-const TILE = 64
 const STEP_MS = 200
 const IMPACT_MS = 680
 const HIT_MS = 320
 const FRAME_SIZE = 48
+const MIN_BATTLE_TILE_WIDTH = 60
+const FIRE_TERRAIN_TEXTURE = 'jo-fire-terrain'
+const FIRE_ANIMATION = 'jo-fire-loop'
+const FIRE_FRAME_SIZE = 48
+const FIRE_FRAME_COUNT = 8
+
+function createFireAnimation(scene: Phaser.Scene, fallback: boolean) {
+  const source = scene.textures.exists(FIRE_TERRAIN_TEXTURE) ? scene.textures.get(FIRE_TERRAIN_TEXTURE).getSourceImage() : undefined
+  if (!(source instanceof HTMLImageElement) && !fallback) return false
+  const sheet = scene.textures.createCanvas(FIRE_ANIMATION, FIRE_FRAME_SIZE * FIRE_FRAME_COUNT, FIRE_FRAME_SIZE)
+  if (!sheet) return false
+
+  const { context } = sheet
+  if (source instanceof HTMLImageElement) context.drawImage(source, 0, 0)
+  else {
+    for (const [color, center, base, width, height] of [
+      ['#a83221', 24, 43, 17, 36], ['#ef6127', 23, 43, 12, 32], ['#ffb33c', 25, 43, 8, 23], ['#fff2a3', 25, 42, 4, 13],
+    ] as const) {
+      context.fillStyle = color
+      context.beginPath()
+      context.moveTo(center - width, base - 6)
+      context.quadraticCurveTo(center - width, base - 16, center - width / 2, base - height + 8)
+      context.lineTo(center - width / 4, base - height + 17)
+      context.quadraticCurveTo(center + width / 3, base - height + 8, center + width / 4, base - height)
+      context.quadraticCurveTo(center + width * 2, base - 9, center + width * 0.6, base)
+      context.quadraticCurveTo(center, base + 5, center - width, base - 6)
+      context.fill()
+    }
+  }
+  const pixels = context.getImageData(0, 0, FIRE_FRAME_SIZE, FIRE_FRAME_SIZE)
+  context.clearRect(0, 0, sheet.width, sheet.height)
+
+  for (let frame = 0; frame < FIRE_FRAME_COUNT; frame++) {
+    const phase = frame * Math.PI * 2 / FIRE_FRAME_COUNT
+    const offset = frame * FIRE_FRAME_SIZE
+    for (let y = 0; y < FIRE_FRAME_SIZE; y++) {
+      const sway = Math.round(Math.sin(phase + y / 8) * (1 - y / FIRE_FRAME_SIZE) * 2)
+      for (let x = 0; x < FIRE_FRAME_SIZE; x++) {
+        const index = (y * FIRE_FRAME_SIZE + x) * 4
+        const [red, green, blue, alpha] = pixels.data.subarray(index, index + 4)
+        if (!alpha || red - green < 30 || red - blue < 55) continue
+
+        const targetX = x + sway
+        if (targetX < 0 || targetX >= FIRE_FRAME_SIZE) continue
+
+        const glow = Math.round(12 * Math.sin(phase + y / 6))
+        context.fillStyle = `rgb(${red + glow}, ${green + glow}, ${blue})`
+        context.fillRect(offset + targetX, y, 1, 1)
+      }
+    }
+    sheet.add(frame, 0, offset, 0, FIRE_FRAME_SIZE, FIRE_FRAME_SIZE)
+  }
+  sheet.refresh()
+  scene.anims.create({
+    key: FIRE_ANIMATION,
+    frames: scene.anims.generateFrameNumbers(FIRE_ANIMATION, { start: 0, end: FIRE_FRAME_COUNT - 1 }),
+    frameRate: 12,
+    repeat: -1,
+  })
+  return true
+}
+
 const WALK_FRAMES: Record<Facing, readonly number[]> = {
   down: [0, 1, 6, 1],
   up: [2, 3, 7, 3],
@@ -27,8 +91,33 @@ const terrainColors: Record<(typeof terrains)[Terrain]['appearance'], [number, n
   ice: [0x789ba7, 0x87a9b3], marsh: [0x435a48, 0x4a6250], building: [0x645d53, 0x726859],
 }
 
+const joHexColors: Partial<Record<number, [number, number]>> = {
+  0: [0x747752, 0x7b7d56], 1: [0x465c39, 0x4d653d],
+  10: [0x405348, 0x495c50], 14: [0x503b2e, 0x594230],
+  20: [0x51596a, 0x59637a], 22: [0x575b44, 0x62664d], 23: [0x6a5b45, 0x735f47],
+}
+
+function drawJoHexDetails(g: Phaser.GameObjects.Graphics, id: number, { x, y }: Point) {
+  if (id === 14) {
+    g.fillStyle(0x34271d).fillRect(x - 21, y - 4, 42, 10)
+    g.fillStyle(0xa27b4f)
+    for (let offset = -20; offset <= 20; offset += 8) {
+      g.fillRect(x + offset, y - 9, 4, 20).fillTriangle(x + offset - 1, y - 9, x + offset + 2, y - 14, x + offset + 5, y - 9)
+    }
+  } else if (id === 20 || id === 22 || id === 23) {
+    g.fillStyle(0xaa9470).fillRect(x - 13, y - 5, 26, 17)
+    g.fillStyle(id === 20 ? 0x354761 : id === 22 ? 0xa8864b : 0x54352a)
+      .fillTriangle(x - 20, y - 3, x, y - 18, x + 20, y - 3)
+    g.fillStyle(0x3c3328).fillRect(x - 3, y + 4, 6, 8)
+  } else if (id === 10) {
+    g.lineStyle(2, 0x799080, 0.55).lineBetween(x - 17, y - 4, x + 4, y - 4)
+      .lineBetween(x - 4, y + 5, x + 15, y + 5)
+  }
+}
+
 type MapProps = {
   map: readonly string[]
+  grid?: Grid
   image?: string
   units?: Unit[]
   selected?: string
@@ -113,8 +202,10 @@ function drawUnit(g: Phaser.GameObjects.Graphics, unit: Unit, x: number, y: numb
 }
 
 export default function BattleMap(props: MapProps) {
-  const width = props.map[0].length
-  const height = props.map.length
+  const grid = props.grid
+  const hex = grid === 'hex'
+  const geometry = useMemo(() => boardGeometry(props.map, grid), [props.map, grid])
+  const { width, height, center } = geometry
   const image = props.image
   const isBattle = props.units !== undefined
   const localGraphics = useContext(LocalGraphicsContext)
@@ -149,24 +240,51 @@ export default function BattleMap(props: MapProps) {
       game = new Phaser.Game({
         type: Phaser.CANVAS,
         parent,
-        width: width * TILE * renderScale,
-        height: height * TILE * renderScale,
-        transparent: !!image,
+        width: width * renderScale,
+        height: height * renderScale,
+        transparent: !!image || hex,
         antialias: true,
         disableContextMenu: true,
         banner: false,
         audio: { noAudio: true },
         scene: {
           update() { advance() },
+          preload(this: Phaser.Scene) {
+            if (import.meta.env.DEV) this.load.image(FIRE_TERRAIN_TEXTURE, '/jo-game/fire-terrain.bmp')
+          },
           create(this: Phaser.Scene) {
             this.cameras.main.setZoom(renderScale).setOrigin(0, 0)
+            const viewport = parent.parentElement
+            function showPoint(point: Point, follow = false) {
+              if (!viewport) return
+              const x = point.x * parent.offsetWidth / width
+              const y = point.y * parent.offsetHeight / height
+              if (follow || x < viewport.scrollLeft || x >= viewport.scrollLeft + viewport.clientWidth) {
+                viewport.scrollLeft = x - viewport.clientWidth / 2
+              }
+              if (follow || y < viewport.scrollTop || y >= viewport.scrollTop + viewport.clientHeight) {
+                viewport.scrollTop = y - viewport.clientHeight / 2
+              }
+            }
+            const captain = current.current.units?.find((unit) => unit.captain && unit.currentHP > 0)
+            if (captain) showPoint(center(captain))
+            const terrainGraphics = this.add.graphics().setDepth(-2)
             const graphics = this.add.graphics()
+            const hasFireTexture = createFireAnimation(this, hex)
+            function fillCell(layer: Phaser.GameObjects.Graphics, point: Point, color: number, alpha = 1, inset = 0) {
+              layer.fillStyle(color, alpha)
+              if (hex) layer.fillPoints(geometry.corners(point, inset), true)
+              else layer.fillRect(point.x * TILE + inset, point.y * TILE + inset, TILE - 2 * inset, TILE - 2 * inset)
+            }
+            function outlineCell(layer: Phaser.GameObjects.Graphics, point: Point, color: number, thickness: number, alpha: number, inset: number) {
+              layer.lineStyle(thickness, color, alpha)
+              if (hex) layer.strokePoints(geometry.corners(point, inset), true)
+              else layer.strokeRect(point.x * TILE + inset, point.y * TILE + inset, TILE - 2 * inset, TILE - 2 * inset)
+            }
+            const fireTiles = new Map<string, Phaser.GameObjects.Sprite>()
             const unitImages = new Map<string, Phaser.GameObjects.Image>()
             const labels = new Map<string, { className: Phaser.GameObjects.Text; hp: Phaser.GameObjects.Text }>()
-            const resultLabel = this.add.text(0, 0, '', {
-              fontFamily: '"Malgun Gothic", sans-serif', fontSize: '16px', fontStyle: 'bold', resolution: renderScale,
-              stroke: '#15130e', strokeThickness: 4,
-            }).setOrigin(0.5).setDepth(2).setVisible(false)
+            const resultLabels = new Map<string, Phaser.GameObjects.Text>()
             let previousEvents: MapProps['events']
             let startedAt = 0
             let elapsed = 0
@@ -191,6 +309,7 @@ export default function BattleMap(props: MapProps) {
               let banner = false
               let actingId: string | undefined
               const hp = new Map<string, number>()
+              const receivingImpacts = new Map<string, BattleHit>()
               let visibleImpact: { impact: BattleImpact; time: number } | undefined
               let remaining = events === previousEvents ? elapsed : 0
               for (const event of events ?? []) {
@@ -203,9 +322,15 @@ export default function BattleMap(props: MapProps) {
                 }
                 if ('impact' in event) {
                   const impact = event.impact
+                  const impacts = [impact, ...(event.additionalImpacts ?? [])]
                   const pose = poses.get(impact.attacker)
                   poses.set(impact.attacker, { ...pose, facing: impact.facing, step: 0 })
-                  if (remaining >= HIT_MS) hp.set(impact.target, impact.remainingHP)
+                  if (remaining >= HIT_MS) {
+                    for (const hit of impacts) {
+                      hp.set(hit.target, hit.remainingHP)
+                      if (remaining < IMPACT_MS) receivingImpacts.set(hit.target, hit)
+                    }
+                  }
                   if (remaining < IMPACT_MS) {
                     visibleImpact = { impact, time: remaining }
                     actingId = impact.attacker
@@ -221,79 +346,106 @@ export default function BattleMap(props: MapProps) {
                 const from = movement.path[segment]
                 const to = movement.path[segment + 1]
                 const progress = step - segment
+                const start = center(from)
+                const end = center(to)
                 poses.set(movement.unit, {
-                  point: { x: Phaser.Math.Linear(from.x, to.x, progress), y: Phaser.Math.Linear(from.y, to.y, progress) },
-                  facing: facingBetween(from, to),
+                  point: { x: Phaser.Math.Linear(start.x, end.x, progress), y: Phaser.Math.Linear(start.y, end.y, progress) },
+                  facing: facingBetween(from, to, grid),
                   step: step < last ? Math.floor(progress * 4) : 0,
                 })
                 remaining -= last * STEP_MS
               }
               if (events?.length) current.current.onTurnBoundary?.(banner, enemy)
-              const viewport = parent.parentElement
               const actor = current.current.followAction && units.find(({ id }) => id === actingId)
-              if (viewport && actor) {
-                const point = poses.get(actor.id)?.point ?? actor
-                viewport.scrollLeft = (point.x + 0.5) * parent.offsetWidth / width - viewport.clientWidth / 2
-                viewport.scrollTop = (point.y + 0.5) * parent.offsetHeight / height - viewport.clientHeight / 2
-              }
+              if (actor) showPoint(poses.get(actor.id)?.point ?? center(actor), true)
+              terrainGraphics.clear()
               graphics.clear()
-              resultLabel.setVisible(false)
+              for (const label of resultLabels.values()) label.setVisible(false)
               for (const sprite of unitImages.values()) sprite.setVisible(false)
               for (const label of labels.values()) {
                 label.className.setVisible(false)
                 label.hp.setVisible(false)
               }
+              const burningCells = new Set(burning?.map(key))
+              for (const tile of fireTiles.values()) tile.setVisible(false)
               map.forEach((row, y) => [...row].forEach((cell, x) => {
-                if (isTerrain(cell)) drawTerrain(graphics, cell, x * TILE, y * TILE, x * 17 + y * 29)
-                if (range?.has(key({ x, y }))) {
-                  graphics.fillStyle(0xf18767, 0.24).fillRect(x * TILE + 1, y * TILE + 1, TILE - 2, TILE - 2)
-                  graphics.lineStyle(1, 0xf79d80, 0.65).strokeRect(x * TILE + 3, y * TILE + 3, TILE - 6, TILE - 6)
+                const point = { x, y }
+                const location = key(point)
+                const sourceTerrain = joTerrainId(map, point)
+                const fire = burningCells.has(location) || sourceTerrain === JO_FIRE_TERRAIN
+                if (hex) {
+                  const palette = sourceTerrain === undefined
+                    ? terrainColors[isTerrain(cell) ? terrains[cell].appearance : 'plain']
+                    : joHexColors[sourceTerrain] ?? terrainColors.plain
+                  fillCell(terrainGraphics, point, palette[(x + y) % 2])
+                  outlineCell(terrainGraphics, point, 0x20271a, 1, 0.8, 0.5)
+                  if (sourceTerrain !== undefined) drawJoHexDetails(terrainGraphics, sourceTerrain, center(point))
+                } else if (isTerrain(cell)) {
+                  drawTerrain(terrainGraphics, cell, x * TILE, y * TILE, x * 17 + y * 29)
                 }
-                if (moves?.has(key({ x, y }))) {
-                  graphics.fillStyle(0x9edce9, 0.27).fillRect(x * TILE + 1, y * TILE + 1, TILE - 2, TILE - 2)
-                  graphics.lineStyle(1, 0x9edce9, 0.8).strokeRect(x * TILE + 3, y * TILE + 3, TILE - 6, TILE - 6)
+                if (fire && hasFireTexture) {
+                  let tile = fireTiles.get(location)
+                  if (!tile) {
+                    const pixel = center(point)
+                    tile = this.add.sprite(pixel.x, pixel.y, FIRE_ANIMATION, 0)
+                      .setDisplaySize(hex ? TILE * 0.78 : TILE, hex ? TILE * 0.78 : TILE).setDepth(-1)
+                    tile.play(FIRE_ANIMATION)
+                    fireTiles.set(location, tile)
+                  }
+                  tile.setVisible(true)
+                } else if (fire) {
+                  fillCell(graphics, point, 0xe85e24, 0.45)
+                }
+                if (range?.has(location)) {
+                  fillCell(graphics, point, 0xf18767, 0.24, 1)
+                  outlineCell(graphics, point, 0xf79d80, 1, 0.65, 3)
+                }
+                if (moves?.has(location)) {
+                  fillCell(graphics, point, 0x9edce9, 0.27, 1)
+                  outlineCell(graphics, point, 0x9edce9, 1, 0.8, 3)
                 }
               }))
-              for (const point of burning ?? []) {
-                graphics.fillStyle(0xe85e24, 0.45).fillRect(point.x * TILE, point.y * TILE, TILE, TILE)
-              }
               for (const cell of affected ?? []) {
                 const [x, y] = cell.split(',').map(Number)
-                graphics.fillStyle(0xffd066, 0.55).fillRect(x * TILE, y * TILE, TILE, TILE)
+                fillCell(graphics, { x, y }, 0xffd066, 0.55)
               }
               const origin = units.find((unit) => unit.id === selected)
               if (origin && path.length) {
                 graphics.lineStyle(5, 0xdaf9ff, 0.92).beginPath()
-                graphics.moveTo((origin.x + 0.5) * TILE, (origin.y + 0.5) * TILE)
-                for (const point of path) graphics.lineTo((point.x + 0.5) * TILE, (point.y + 0.5) * TILE)
+                const start = center(origin)
+                graphics.moveTo(start.x, start.y)
+                for (const point of path) {
+                  const pixel = center(point)
+                  graphics.lineTo(pixel.x, pixel.y)
+                }
                 graphics.strokePath()
-                const end = path[path.length - 1]
-                graphics.fillStyle(0xdaf9ff).fillCircle((end.x + 0.5) * TILE, (end.y + 0.5) * TILE, 6)
+                const end = center(path[path.length - 1])
+                graphics.fillStyle(0xdaf9ff).fillCircle(end.x, end.y, 6)
               }
               for (const original of units) {
                 const unit = { ...original, currentHP: hp.get(original.id) ?? original.currentHP }
-                const impact = visibleImpact?.impact
+                const attack = visibleImpact?.impact
                 const time = visibleImpact?.time ?? 0
-                const attacking = impact?.attacker === unit.id
-                const receiving = impact?.target === unit.id && time >= HIT_MS
+                const attacking = attack?.attacker === unit.id
+                const receiving = receivingImpacts.get(unit.id)
                 if (unit.currentHP <= 0 && !receiving) continue
                 if (targets?.has(unit.id)) {
-                  graphics.fillStyle(0xf18767, 0.35).fillRect(unit.x * TILE, unit.y * TILE, TILE, TILE)
-                  graphics.lineStyle(2, 0xf79d80).strokeRect(unit.x * TILE + 2, unit.y * TILE + 2, TILE - 4, TILE - 4)
+                  fillCell(graphics, unit, 0xf18767, 0.35)
+                  outlineCell(graphics, unit, 0xf79d80, 2, 1, 2)
                 }
                 const pose = poses.get(unit.id)
-                const position = pose?.point ?? unit
+                const position = pose?.point ?? center(unit)
                 const facing = pose?.facing ?? unit.facing ?? 'down'
                 const step = pose?.step ?? 0
-                const x = position.x * TILE
-                const y = position.y * TILE
+                const x = position.x - TILE / 2
+                const y = position.y - TILE / 2
                 const graphicsPack = sprites.current
                 const kind = unit.troopClass ?? troopClassFor(unit.role, unit.jo?.classId)
                 const sharedKey = `${unit.side}-${kind}`
                 const spriteKey = graphicsPack?.units[sharedKey] ? sharedKey : `${unit.side}-${roles[unit.role].sprite}`
-                const poseType = attacking ? (impact.kind === 'fire' ? 'special' : 'attack')
-                  : receiving && !impact.blocked ? 'special' : 'units'
-                const guardFrame = receiving && impact.blocked && impact.kind !== 'fire' ? 1 : step
+                const poseType = attacking ? (attack.kind === 'fire' ? 'special' : 'attack')
+                  : receiving && !receiving.blocked ? 'special' : 'units'
+                const guardFrame = receiving?.blocked && receiving.kind !== 'fire' ? 1 : step
                 const combatFrame = graphicsPack?.[poseType][spriteKey]
                 const textureKey = combatFrame && poseType !== 'units' ? `${spriteKey}-${poseType}` : spriteKey
                 const frame = combatFrame ?? graphicsPack?.units[spriteKey]
@@ -337,10 +489,17 @@ export default function BattleMap(props: MapProps) {
                     .setAlpha(unit.done ? 0.75 : 1).setVisible(true)
                 }
                 if (receiving) {
-                  const text = impact.blocked ? (impact.kind === 'fire' ? '실패' : '방어')
-                    : `-${impact.damage}`
-                  resultLabel.setText(impact.kind === 'counter' ? `반격 · ${text}` : text)
-                    .setColor(impact.blocked ? '#d2ecfa' : '#ffd782')
+                  let resultLabel = resultLabels.get(unit.id)
+                  if (!resultLabel) {
+                    resultLabel = this.add.text(0, 0, '', {
+                      fontFamily: '"Malgun Gothic", sans-serif', fontSize: '16px', fontStyle: 'bold', resolution: renderScale,
+                      stroke: '#15130e', strokeThickness: 4,
+                    }).setOrigin(0.5).setDepth(2)
+                    resultLabels.set(unit.id, resultLabel)
+                  }
+                  const text = receiving.blocked ? (receiving.kind === 'fire' ? '실패' : '방어') : `-${receiving.damage}`
+                  resultLabel.setText(receiving.kind === 'counter' ? `반격 · ${text}` : text)
+                    .setColor(receiving.blocked ? '#d2ecfa' : '#ffd782')
                     .setPosition(x + TILE / 2, y + 8 - (time - HIT_MS) / 24).setVisible(true)
                 }
                 let label = labels.get(unit.id)
@@ -368,7 +527,7 @@ export default function BattleMap(props: MapProps) {
                 label.className.setScale(Math.min(1, availableWidth / label.className.width), 1)
               }
               const focus = cursor.current
-              if (focus) graphics.lineStyle(2, 0xfff2b8).strokeRect(focus.x * TILE + 3, focus.y * TILE + 3, TILE - 6, TILE - 6)
+              if (focus) outlineCell(graphics, focus, 0xfff2b8, 2, 1, 3)
             }
             redraw.current()
           },
@@ -381,18 +540,17 @@ export default function BattleMap(props: MapProps) {
       redraw.current = () => {}
       game?.destroy(true)
     }
-  }, [width, height, image, isBattle])
+  }, [geometry, width, height, center, grid, hex, image, isBattle])
 
   const pointerGesture = useRef<{ id: number; x: number; y: number; left: number; top: number; dragging: boolean } | null>(null)
   const [dragging, setDragging] = useState(false)
   function pointAt(clientX: number, clientY: number) {
     const bounds = host.current?.getBoundingClientRect()
     if (!bounds?.width || !bounds.height) return null
-    const point = {
-      x: Math.floor((clientX - bounds.left) * width / bounds.width),
-      y: Math.floor((clientY - bounds.top) * height / bounds.height),
-    }
-    return validCell(point, props.map) ? point : null
+    return geometry.cellAt({
+      x: (clientX - bounds.left) * width / bounds.width,
+      y: (clientY - bounds.top) * height / bounds.height,
+    })
   }
 
   function endGesture() {
@@ -401,6 +559,7 @@ export default function BattleMap(props: MapProps) {
   }
 
   return <div className={isBattle ? 'board-frame board-viewport' : 'board-frame'}
+    data-grid={grid}
     data-dragging={dragging || undefined}
     onPointerDown={(event) => {
       if (!isBattle || event.button !== 0 || pointerGesture.current || !pointAt(event.clientX, event.clientY)) return
@@ -445,14 +604,20 @@ export default function BattleMap(props: MapProps) {
     <div
       ref={host}
       className="board"
-      style={{ aspectRatio: `${width} / ${height}`, backgroundImage: image ? `url("${image}")` : undefined, backgroundSize: '100% 100%' }}
+      style={{
+        aspectRatio: `${width} / ${height}`,
+        minWidth: isBattle ? width * MIN_BATTLE_TILE_WIDTH / TILE : undefined,
+        backgroundImage: image ? `url("${image}")` : undefined,
+        backgroundSize: '100% 100%',
+      }}
       role={props.onCell ? 'group' : 'img'}
-      aria-label={props.onCell ? '전장 지도. 드래그로 시점을 이동하거나 방향키로 칸을 고르고 Enter로 선택합니다.' : '수풀과 바위가 놓인 전장 지도'}
+      aria-label={props.onCell ? (hex ? '육각 전장 지도. 좌우 방향키와 Q, E, Z, C로 칸을 고르고 Enter로 선택합니다.'
+        : '전장 지도. 드래그로 시점을 이동하거나 방향키로 칸을 고르고 Enter로 선택합니다.') : '수풀과 바위가 놓인 전장 지도'}
       tabIndex={props.onCell ? 0 : undefined}
       onBlur={() => { cursor.current = null; props.onHover?.(null); redraw.current() }}
       onKeyDown={(event) => {
         if (!props.onCell) return
-        const active = cursor.current ?? props.units?.find((unit) => unit.id === props.selected) ?? { x: 2, y: 3 }
+        const active = cursor.current ?? props.units?.find((unit) => unit.id === props.selected) ?? (hex ? { x: 0, y: 0 } : { x: 2, y: 3 })
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault()
           props.onCell(active)
@@ -461,17 +626,23 @@ export default function BattleMap(props: MapProps) {
         const steps: Record<string, Point> = {
           ArrowLeft: { x: -1, y: 0 }, ArrowRight: { x: 1, y: 0 }, ArrowUp: { x: 0, y: -1 }, ArrowDown: { x: 0, y: 1 },
         }
+        const hexKeys: Record<string, number> = { arrowright: 0, c: 1, z: 2, arrowleft: 3, q: 4, e: 5, arrowup: 5, arrowdown: 2 }
+        const direction = hexKeys[event.key.toLowerCase()]
         const step = steps[event.key]
-        if (!step) return
+        const next = hex ? direction === undefined ? undefined : hexStep(active, direction)
+          : step && { x: active.x + step.x, y: active.y + step.y }
+        if (!next) return
         event.preventDefault()
-        const next = { x: active.x + step.x, y: active.y + step.y }
         cursor.current = validCell(next, props.map) ? next : { x: active.x, y: active.y }
         const viewport = event.currentTarget.parentElement
         if (viewport) {
-          const cellWidth = event.currentTarget.offsetWidth * TILE / width
-          const cellHeight = event.currentTarget.offsetHeight * TILE / height
-          const left = cursor.current.x * cellWidth
-          const top = cursor.current.y * cellHeight
+          const pixel = center(cursor.current)
+          const scaleX = event.currentTarget.offsetWidth / width
+          const scaleY = event.currentTarget.offsetHeight / height
+          const cellWidth = TILE * scaleX
+          const cellHeight = geometry.cellHeight * scaleY
+          const left = pixel.x * scaleX - cellWidth / 2
+          const top = pixel.y * scaleY - cellHeight / 2
           viewport.scrollLeft = Phaser.Math.Clamp(viewport.scrollLeft, left + cellWidth - viewport.clientWidth, left)
           viewport.scrollTop = Phaser.Math.Clamp(viewport.scrollTop, top + cellHeight - viewport.clientHeight, top)
         }

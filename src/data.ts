@@ -1,8 +1,8 @@
-import type { LearnedWarArt } from './war-arts.ts'
 import { roleFor } from './unit-classes.ts'
 import type { Role } from './unit-classes.ts'
 import type { Facing } from './combat.ts'
 import type { JoProfile, JoStageDetails } from './jo-game.ts'
+import type { Grid } from './grid.ts'
 
 export const WIDTH = 12
 export const HEIGHT = 8
@@ -57,12 +57,12 @@ export const items = {
 }
 export type ItemId = keyof typeof items
 
-export type Officer = { id: string; name: string; role: Role; cost: number; price: number; bonus: number; warArts?: readonly LearnedWarArt[] }
+export type Officer = { id: string; name: string; role: Role; cost: number; price: number; bonus: number }
 export const officers: Officer[] = [
-  { id: 'yeon', name: '조조', role: roleFor('조조'), cost: 3, price: 80, bonus: 0, warArts: [{ id: 'heavyStrike', level: 2 }, { id: 'sweep', level: 1 }, { id: 'disrupt', level: 2 }, { id: 'shove', level: 3 }] },
-  { id: 'ha', name: '관우', role: roleFor('관우'), cost: 3, price: 80, bonus: 0, warArts: [{ id: 'doubleStrike', level: 2 }, { id: 'charge', level: 1 }, { id: 'ambush', level: 3 }, { id: 'mountedShot', level: 1 }] },
-  { id: 'jin', name: '하후연', role: roleFor('하후연'), cost: 2, price: 70, bonus: 0, warArts: [{ id: 'volley', level: 2 }, { id: 'barrage', level: 1 }, { id: 'fireArrow', level: 2 }, { id: 'longShot', level: 3 }] },
-  { id: 'seo', name: '곽가', role: roleFor('곽가'), cost: 2, price: 70, bonus: 0, warArts: [{ id: 'rally', level: 1 }, { id: 'inspire', level: 2 }, { id: 'demoralize', level: 2 }, { id: 'heal', level: 3 }, { id: 'blaze', level: 2 }, { id: 'intercept', level: 2 }] },
+  { id: 'yeon', name: '조조', role: roleFor('조조'), cost: 3, price: 80, bonus: 0 },
+  { id: 'ha', name: '관우', role: roleFor('관우'), cost: 3, price: 80, bonus: 0 },
+  { id: 'jin', name: '하후연', role: roleFor('하후연'), cost: 2, price: 70, bonus: 0 },
+  { id: 'seo', name: '곽가', role: roleFor('곽가'), cost: 2, price: 70, bonus: 0 },
   { id: 'baek', name: '조인', role: roleFor('조인'), cost: 2, price: 65, bonus: -1 },
   { id: 'dan', name: '장료', role: roleFor('장료'), cost: 2, price: 65, bonus: -1 },
   { id: 'yul', name: '우금', role: roleFor('우금'), cost: 2, price: 65, bonus: -1 },
@@ -80,8 +80,7 @@ const reserveNames = {
 for (const [prefix, names] of Object.entries(reserveNames)) {
   names.forEach((name, index) => {
     const bonus = index % 4 + 1
-    officers.push({ id: `${prefix}-${index + 1}`, name, role: roleFor(name), cost: 0, price: 85 + bonus * 20, bonus,
-      warArts: name === '가후' ? [{ id: 'rockfall', level: 2 }] : undefined })
+    officers.push({ id: `${prefix}-${index + 1}`, name, role: roleFor(name), cost: 0, price: 85 + bonus * 20, bonus })
   })
 }
 
@@ -167,9 +166,17 @@ export const enemyKindFor = (name: string): 'officer' | 'soldier' => /\d+$/.test
 
 export type Stage = {
   number: number; name: string; map: readonly string[]; reward: number; tier: number
+  grid?: Grid; deployment?: readonly Point[]
   enemies: (Point & { role: Role; name: string; jo?: JoProfile; facing?: Facing; levelOffset?: number; behavior?: number; enemyKind?: ReturnType<typeof enemyKindFor> })[]
   jo?: JoStageDetails
 }
+const defaultDeployment: readonly Point[] = [
+  { x: 2, y: 3 }, { x: 2, y: 4 }, { x: 1, y: 2 }, { x: 1, y: 5 },
+  { x: 2, y: 2 }, { x: 2, y: 5 }, { x: 1, y: 3 }, { x: 1, y: 4 },
+  { x: 2, y: 1 }, { x: 2, y: 6 }, { x: 1, y: 1 }, { x: 1, y: 6 },
+]
+export const stageDeployment = (stage: Stage) => stage.jo?.deployment ?? stage.deployment ?? defaultDeployment
+
 export const stages: Stage[] = stageNames.map((name, index) => {
   const chapter = Math.floor(index / maps.length)
   const layout = index % maps.length

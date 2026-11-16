@@ -6,8 +6,8 @@ import { fileURLToPath } from 'node:url'
 import { readJoGame } from '../tools/jo-assets/game.mjs'
 import { createJoCampaign, joTerrainId } from '../src/jo-game.ts'
 import { awardExperience, campaignReducer, createCampaign, loadCampaign, saveCampaign } from '../src/campaign.ts'
-import { canAttack, distance, key, movementCost, movesFor, newBattle } from '../src/combat.ts'
-import { FIELD_LIMIT, STAGE_COUNT, recommendedIds } from '../src/data.ts'
+import { battleAttributes, canAttack, distance, key, movementCost, movesFor, newBattle, warArtsFor } from '../src/combat.ts'
+import { FIELD_LIMIT, STAGE_COUNT, officers, recommendedIds } from '../src/data.ts'
 
 const source = process.env.JO_GAME_SOURCE || fileURLToPath(new URL('../../jo/', import.meta.url))
 const hasSource = existsSync(join(source, 'Data.e5'))
@@ -21,6 +21,10 @@ test('imports the local campaign and deploys valid formations in all 50 battles'
   assert.equal(data.officers.ha.className, '전위대')
   assert.equal(data.officers.baek.className, '경전차')
   assert.equal(data.officers.seo.className, '부관')
+  for (const { id, name } of officers.filter(({ id }) => data.officers[id])) {
+    const [officer] = newBattle(data.stages[0], [id], id, {}, data.officers).units
+    assert.equal(warArtsFor(officer).length > 0, name !== '우금' && name !== '한당', name)
+  }
   for (const stage of data.stages) {
     assert.equal(stage.jo.deployment.length, FIELD_LIMIT, stage.name)
     const battle = newBattle(stage, recommendedIds, 'yeon', {}, data.officers)
@@ -34,6 +38,7 @@ test('imports the local campaign and deploys valid formations in all 50 battles'
   assert.equal(opening.map.length, 20)
   assert.equal(opening.map[0].length, 20)
   const [captain] = opening.units
+  assert.deepEqual(battleAttributes(captain), [73, 93, 99, 97])
   assert.equal(opening.units.filter((unit) => unit.side === 'ally' && !unit.guest).length, recommendedIds.length)
   assert.deepEqual([captain.x, captain.y, captain.hp, captain.move], [7, 0, 1200, 6])
   assert.equal(movementCost(opening.map, captain, captain), 1)
@@ -96,7 +101,7 @@ test('settles each kill from a multi-target war art once and restores officer gr
   const { battle } = state
   const archer = battle.units.find(({ id }) => id === 'jin')
   const [officer, soldier] = battle.units.filter(({ side }) => side === 'enemy')
-  Object.assign(archer, { x: 9, y: 9, troopClass: 'ranged' })
+  Object.assign(archer, { x: 9, y: 9, troopClass: 'ranged', currentMP: 70 })
   Object.assign(officer, { x: 9, y: 10, level: 2, currentHP: 1 })
   Object.assign(soldier, { x: 10, y: 10, level: 2, currentHP: 1, enemyKind: 'soldier' })
   battle.units = [archer, battle.units.find(({ id }) => id === 'yeon'), officer, soldier]

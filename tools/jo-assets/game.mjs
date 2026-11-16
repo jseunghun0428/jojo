@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { openArchive } from './inspect-ls.mjs'
+import { readFireTerrain } from './fire-terrain.mjs'
 
 const decode = new TextDecoder('euc-kr')
 const nameOf = (bytes) => decode.decode(bytes).split('\0')[0].trim()
@@ -154,8 +155,10 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   const output = path.join(project, 'local-graphics', 'jo-game')
   try {
     const pack = readJoGame(source)
+    const fireTerrain = readFireTerrain(path.join(source, 'Mapatr.dll'))
     fs.mkdirSync(output, { recursive: true })
     for (const { image } of pack.stages) fs.copyFileSync(path.join(source, 'Map', image), path.join(output, image))
+    fs.writeFileSync(path.join(output, 'fire-terrain.bmp'), fireTerrain)
     const temporary = path.join(output, 'manifest.tmp')
     fs.writeFileSync(temporary, JSON.stringify(pack))
     fs.renameSync(temporary, path.join(output, 'manifest.json'))

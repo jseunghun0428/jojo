@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { officerAttributes } from '../src/officer-attributes.ts'
+import { officerWarArts } from '../src/officer-war-arts.ts'
 import { roles } from '../src/unit-classes.ts'
 import { campaignReducer as reduce, createCampaign, draftCost, loadCampaign, saveCampaign } from '../src/campaign.ts'
-import { attackCells, basicPhysicalDamage, canAttack, distance, forecastAttack, key, movementLimit, movementPath, movesFor, newBattle, physicalStats, playBattle, terrainAt, warArtsFor } from '../src/combat.ts'
+import { MAX_WILL, START_WILL, attackCells, basicPhysicalDamage, battleAttributes, canAttack, distance, forecastAttack, key, movementLimit, movementPath, movesFor, newBattle, physicalStats, playBattle, terrainAt, warArtEffect, warArtsFor } from '../src/combat.ts'
 import { DRAFT_LIMIT, FIELD_LIMIT, HEIGHT, TROOP_SCALE, WIDTH, items, officerById, officers, recommendedIds, stages, treasureById } from '../src/data.ts'
 
 const dispatchBattle = (state, action) => reduce(state, { type: 'battle', action })
@@ -228,22 +229,33 @@ test('play a real first victory, buy all three categories, equip and begin the n
   const next = reduce(camp, { type: 'deploy' })
   assert.equal(next.stage, 2)
   assert.ok(next.battle.units.some((unit) => unit.id === id))
-  assert.ok(next.battle.units.every((unit) => unit.currentHP === unit.hp && unit.currentMP === unit.mp))
+  assert.ok(next.battle.units.every((unit) => unit.currentHP === unit.hp && unit.currentMP === START_WILL))
   const relic = treasureById[treasure]
   assert.equal(next.battle.units.find((unit) => unit.captain)[relic.stat], deploy().battle.units[0][relic.stat] + relic.amount * (relic.stat === 'hp' ? TROOP_SCALE : 1))
 })
 
-test('all recruitable officers have politics and additional officers can join through the regular shop', () => {
+test('playable officers have PK attributes and learned arts while Zhang Jiao is data-only', () => {
   assert.equal(new Set(officers.map(({ id }) => id)).size, officers.length)
   assert.equal(new Set(officers.map(({ name }) => name)).size, officers.length)
-  for (const { name } of officers) {
+  for (const { id, name } of officers) {
     const attributes = officerAttributes[name]
     assert.equal(attributes?.length, 4, name)
     assert.ok(attributes.every((value) => Number.isInteger(value) && value >= 1 && value <= 100), name)
+    const [officer] = newBattle(stages[0], [id], id, {}).units
+    assert.deepEqual(battleAttributes(officer), attributes, name)
+    assert.ok(officerWarArts(name).length > 0, name)
   }
-  assert.equal(officerAttributes.조조[3], 94)
-  assert.equal(officerAttributes.등애[3], 81)
-  assert.equal(officerAttributes.문빙[3], 69)
+  const [yuJin] = newBattle(stages[0], ['yul'], 'yul', {}).units
+  assert.deepEqual(warArtsFor(yuJin), [])
+  assert.ok(warArtsFor({ ...yuJin, troopClass: 'cavalry' }).some(({ id, level }) => id === 'charge' && level === 2))
+  assert.deepEqual(officerAttributes.조조, [73, 93, 99, 97])
+  assert.deepEqual(officerAttributes.우금, [78, 64, 81, 53])
+  assert.deepEqual(officerAttributes.장각, [38, 87, 86, 80])
+  assert.deepEqual(officerWarArts('장각'), [
+    { id: 'disrupt', level: 2 }, { id: 'fireArrow', level: 2 }, { id: 'blaze', level: 2 },
+    { id: 'rockfall', level: 3 }, { id: 'inspire', level: 3 }, { id: 'heal', level: 3 },
+  ])
+  assert.ok(!officers.some(({ name }) => name === '장각'))
 
   const id = 'cao-zhang'
   const won = winFirstBattle()
@@ -299,6 +311,28 @@ test('items consume an action, defeat retries the same stage, and the last win c
   assert.equal(finished.stage, 50)
 })
 
+test('will starts at 60 and increases by five per new round for both sides, capped at 100', () => {
+  const { battle } = deploy()
+  const captain = battle.units.find((unit) => unit.captain)
+  const archer = battle.units.find(({ id }) => id === 'jin')
+  const foe = battle.units.find(({ side }) => side === 'enemy')
+  assert.ok(battle.units.every((unit) => unit.currentMP === 60 && unit.mp === 100))
+  assert.equal(warArtEffect(archer, foe, 'barrage'), null)
+  captain.currentMP = 98
+  for (const unit of battle.units.filter(({ side }) => side === 'enemy')) unit.behavior = 2
+  const advance = (previous) => playBattle(previous, { salve: 0, tonic: 0 }, { type: 'end' }).battle
+  const second = advance(battle)
+  assert.equal(second.round, 2)
+  assert.equal(second.units.find(({ id }) => id === captain.id).currentMP, MAX_WILL)
+  assert.equal(second.units.find(({ id }) => id === foe.id).currentMP, 65)
+  assert.equal(second.units.find(({ id }) => id === archer.id).currentMP, 65)
+  assert.equal(captain.currentMP, 98)
+  const third = advance(second)
+  const ready = third.units.find(({ id }) => id === archer.id)
+  assert.equal(ready.currentMP, 70)
+  assert.ok(warArtEffect(ready, third.units.find(({ id }) => id === foe.id), 'barrage'))
+})
+
 test('restores saved camp and backfills legacy battle names and levels without resetting progress', () => {
   const descriptors = Object.getOwnPropertyDescriptor(globalThis, 'localStorage')
   const store = new Map()
@@ -314,7 +348,7 @@ test('restores saved camp and backfills legacy battle names and levels without r
     const legacy = { ...active, stage: 11, battle: {
       ...active.battle,
       units: active.battle.units.map(({ level, ...unit }) => {
-        if (unit.id === 'yeon') return { ...unit, name: '연무', role: 'guard', currentHP: 31 }
+        if (unit.id === 'yeon') return { ...unit, name: '연무', role: 'guard', currentHP: 31, currentMP: 83 }
         if (unit.id === 'enemy-0') return { ...unit, name: '적 검병 1', role: 'blade' }
         return unit
       }),
@@ -324,6 +358,7 @@ test('restores saved camp and backfills legacy battle names and levels without r
     const restored = loadCampaign()
     assert.equal(restored.battle.units.find((unit) => unit.captain).name, '조조')
     assert.equal(restored.battle.units.find((unit) => unit.captain).currentHP, 31)
+    assert.equal(restored.battle.units.find((unit) => unit.captain).currentMP, 83)
     assert.equal(restored.battle.units.find((unit) => unit.captain).level, 1)
     assert.equal(restored.battle.units.find((unit) => unit.captain).role, 'shieldInfantry')
     const enemy = restored.battle.units.find((unit) => unit.id === 'enemy-0')
@@ -347,8 +382,11 @@ test('learned war arts enforce class, will, target range, and one use per battle
   const stock = { salve: 1, tonic: 1 }
   const action = { type: 'warArt', unit: archer.id, target: target.id, art: 'longShot' }
   assert.equal(warArtsFor(target).length, 0)
-  assert.equal(warArtsFor({ ...archer, id: 'baek' }).length, 0)
-  assert.equal(warArtsFor(archer).length, 4)
+  assert.equal(warArtsFor({ ...archer, guest: true }).length, 0)
+  assert.deepEqual(warArtsFor(archer), [
+    { id: 'volley', level: 3 }, { id: 'barrage', level: 2 }, { id: 'longShot', level: 3 },
+    { id: 'blaze', level: 1 }, { id: 'inspire', level: 2 },
+  ])
   assert.equal(canAttack(archer, target), false)
   assert.equal(playBattle(battle, stock, action).battle, battle)
   archer.currentMP = 70
@@ -365,11 +403,32 @@ test('learned war arts enforce class, will, target range, and one use per battle
   assert.equal(playBattle(result, stock, action).battle, result)
 })
 
+test('area physical arts hit together, while counters and two-hit arts resolve in separate beats', () => {
+  const battle = deploy().battle
+  const archer = { ...battle.units.find(({ id }) => id === 'jin'), x: 1, y: 1, currentMP: 70, troopClass: 'ranged', captain: true }
+  const enemy = { ...battle.units.find(({ side }) => side === 'enemy'), x: 2, y: 1, hp: 5000, currentHP: 5000, range: 3 }
+  const second = { ...enemy, id: 'second-enemy', x: 2, y: 2 }
+  const stock = { salve: 0, tonic: 0 }
+  Object.assign(battle, { map: ['....', '....', '....'], units: [archer, enemy, second], objectives: undefined })
+  const barrage = playBattle(battle, stock, { type: 'warArt', art: 'barrage', unit: archer.id, target: enemy.id }).battle
+  const [volley, ...counters] = barrage.events
+  assert.equal(volley.impact.facing, 'right')
+  assert.deepEqual([volley.impact, ...volley.additionalImpacts].map(({ target }) => target), [enemy.id, second.id])
+  assert.deepEqual(counters.map(({ impact }) => [impact.attacker, impact.kind]), [[enemy.id, 'counter'], [second.id, 'counter']])
+  assert.ok(barrage.units.slice(1).every(({ currentHP }) => currentHP < 5000))
+
+  const rider = { ...archer, id: 'ha', troopClass: 'cavalry' }
+  const doubleStrike = playBattle({ ...battle, units: [rider, enemy] }, stock,
+    { type: 'warArt', art: 'doubleStrike', unit: rider.id, target: enemy.id }).battle
+  assert.deepEqual(doubleStrike.events.map(({ impact }) => impact.kind), ['attack', 'attack', 'counter'])
+  assert.ok(doubleStrike.events.every(({ additionalImpacts }) => additionalImpacts === undefined))
+})
+
 test('strategy arts share terrain, damage, and status rules with their previews', async () => {
   const { strategyPreviews, warArtCells } = await import('../src/combat.ts')
   const { officers } = await import('../src/data.ts')
   const battle = deploy().battle
-  const caster = { ...battle.units.find(({ id }) => id === 'seo'), x: 1, y: 1, currentMP: 69,
+  const caster = { ...battle.units.find(({ id }) => id === 'seo'), name: '시험 책사', x: 1, y: 1, currentMP: 69,
     captain: true, troopClass: 'cavalry', jo: { attributes: [40, 40, 45], growth: [3, 3] } }
   const enemy = (id, x, y) => ({ ...caster, id, x, y, captain: false, side: 'enemy', enemyKind: 'officer',
     hp: 1000, currentHP: 1000, jo: { ...caster.jo, attributes: [40, 40, 35] } })
@@ -395,7 +454,9 @@ test('strategy arts share terrain, damage, and status rules with their previews'
   const blaze = cast('blaze', far)
   assert.deepEqual(blaze.burning.map(({ x, y }) => [x, y]), [[2, 1], [3, 1]])
   assert.equal(blaze.units[0].currentMP, 70)
-  assert.equal(blaze.events.filter(({ impact }) => impact?.kind === 'counter').length, 0)
+  assert.equal(blaze.events.length, 1)
+  assert.equal(blaze.events[0].impact.kind, 'fire')
+  assert.deepEqual([blaze.events[0].impact, ...blaze.events[0].additionalImpacts].map(({ target }) => target), [east.id, far.id])
   const burningState = { ...blaze, units: blaze.units.map((unit) =>
     unit.side === 'enemy' ? { ...unit, confusedUntil: blaze.round } : unit) }
   const burned = playBattle(burningState, { salve: 0, tonic: 0 }, { type: 'end' }).battle
@@ -410,13 +471,16 @@ test('strategy arts share terrain, damage, and status rules with their previews'
   assert.ok(warArtCells(battle, caster, 'rockfall').some(({ x, y }) => x === 1 && y === 0))
   assert.equal(cast('rockfall', east), battle)
   assert.deepEqual(strategyPreviews(battle, caster, 'rockfall', north).map(({ foe, damage }) => [foe.id, damage]),
-    [['northwest', 280], ['north', 340]])
+    [['northwest', 320], ['north', 390]])
   const rocks = cast('rockfall', north)
-  assert.equal(rocks.units.find(({ id }) => id === north.id).currentHP, 660)
-  assert.equal(rocks.units.find(({ id }) => id === northwest.id).currentHP, 720)
+  assert.equal(rocks.events.length, 1)
+  assert.equal(rocks.events[0].impact.facing, 'up')
+  assert.deepEqual([rocks.events[0].impact, ...rocks.events[0].additionalImpacts].map(({ target }) => target), [northwest.id, north.id])
+  assert.equal(rocks.units.find(({ id }) => id === north.id).currentHP, 610)
+  assert.equal(rocks.units.find(({ id }) => id === northwest.id).currentHP, 680)
   assert.equal(rocks.units.find(({ id }) => id === friend.id).currentHP, 1000)
 
-  caster.id = 'jin'
+  caster.id = officers.find(({ name }) => name === '황충').id
   east.hp = east.currentHP = 3000
   const arrow = cast('fireArrow', east)
   const afterArrow = arrow.units.find(({ id }) => id === east.id)
@@ -435,7 +499,7 @@ test('support war arts change eligibility and cleanse full-health allies', () =>
   const stock = { salve: 1, tonic: 1 }
   Object.assign(caster, { x: 2, y: 2, troopClass: 'cavalry', currentMP: 10 })
   Object.assign(archer, { x: 3, y: 3, troopClass: 'ranged', currentMP: 60 })
-  assert.equal(warArtsFor(caster).length, 6)
+  assert.ok(warArtsFor(caster).some(({ id }) => id === 'inspire'))
   const cast = (state, art) => playBattle(state, stock, { type: 'warArt', unit: caster.id, target: archer.id, art }).battle
   const inspired = cast(battle, 'inspire')
   const boosted = inspired.units.find(({ id }) => id === archer.id)
@@ -448,6 +512,7 @@ test('support war arts change eligibility and cleanse full-health allies', () =>
 
   archer.side = 'enemy'
   archer.currentMP = 90
+  caster.id = officers.find(({ name }) => name === '사마의').id
   const demoralized = cast(battle, 'demoralize')
   const weakened = demoralized.units.find(({ id }) => id === archer.id)
   assert.equal(weakened.currentMP, 60)
@@ -459,6 +524,7 @@ test('support war arts change eligibility and cleanse full-health allies', () =>
   archer.side = 'ally'
   archer.confusedUntil = battle.round
   archer.pinnedUntil = battle.round
+  caster.id = 'diao-chan'
   assert.equal(archer.currentHP, archer.hp)
   const healed = cast(battle, 'heal').units.find(({ id }) => id === archer.id)
   assert.equal(healed.currentHP, healed.hp)
