@@ -1,13 +1,13 @@
 import { roles, troopClassFor } from './unit-classes.ts'
 import type { Role, TroopClass } from './unit-classes.ts'
-import { HEIGHT, SALVE_HEAL, TROOP_SCALE, WIDTH, enemyKindFor, isTerrain, officerById, stageDeployment, terrains, treasureById } from './data.ts'
-import type { ItemId, Point, Stage, Stats } from './data.ts'
+import { HEIGHT, SALVE_HEAL, TROOP_SCALE, WIDTH, enemyKindFor, isTerrain, officerById, stageDeployment, stageGuests, terrains, treasureById } from './data.ts'
+import type { ItemId, Point, Stage, StageBoard, StageUnit, Stats } from './data.ts'
 import { officerAttributes } from './officer-attributes.ts'
 import { officerWarArts } from './officer-war-arts.ts'
 import { joTerrainId } from './jo-game.ts'
 import type { JoProfile } from './jo-game.ts'
 import { warArtWill, warArts } from './war-arts.ts'
-import type { WarArtId } from './war-arts.ts'
+import type { BattleElement, WarArtId } from './war-arts.ts'
 import { gridDistance, hexDirection, hexStep, neighbors, validCell } from './grid.ts'
 import type { Grid } from './grid.ts'
 
@@ -27,6 +27,7 @@ export type UnitMovement = { unit: string; path: Point[] }
 export type BattleHit = {
   attacker: string; target: string; kind: 'attack' | 'counter' | 'fire'
   damage: number; remainingHP: number; blocked: boolean
+  element?: BattleElement; burningTile?: Point
 }
 export type BattleImpact = BattleHit & { facing: Facing }
 export type BattleEvent = { move: UnitMovement } | { impact: BattleImpact; additionalImpacts?: BattleHit[] } | { turn: 'enemy' }
@@ -48,6 +49,7 @@ export type Unit = Point & Stats & {
 export type Battle = {
   map: readonly string[]; units: Unit[]; round: number; result: 'win' | 'loss' | null; log: string[]
   grid?: Grid
+  board?: StageBoard
   events?: BattleEvent[]
   pendingMove?: { unit: string; origin: Point; facing?: Facing }
   reinforcements?: Unit[]
@@ -110,6 +112,7 @@ function joUnitStats(profile: JoProfile, level: number, treasureId?: string): St
 }
 
 export function newBattle(stage: Stage, lineup: string[], captain: string, equipment: Record<string, string>, profiles: Record<string, JoProfile> = {}, troopClasses: Partial<Record<string, TroopClass>> = {}, growth: Partial<Record<string, { level: number }>> = {}): Battle {
+  const levelModifier = (offset: number | undefined) => offset === undefined || offset === 0xffff ? 0 : offset < 50 ? offset : 50 - offset
   const slots = stageDeployment(stage)
   const ordered = [captain, ...lineup.filter((id) => id !== captain)].slice(0, slots.length)
   const allies = ordered.map((id, i) => {
@@ -121,27 +124,33 @@ export function newBattle(stage: Stage, lineup: string[], captain: string, equip
     return { ...makeUnit(id, name, role, 'ally', slots[i], stats, level, id === captain), jo, troopClass: troopClasses[id] }
   })
   const enemies = stage.enemies.map(({ x, y, role, name, jo, facing, levelOffset, behavior, enemyKind }, i) => {
-    const modifier = levelOffset === undefined || levelOffset === 0xffff ? 0 : levelOffset < 50 ? levelOffset : 50 - levelOffset
-    const level = Math.max(1, (jo?.level ?? 1) + stage.tier + modifier)
+    const level = Math.max(1, (jo?.level ?? 1) + stage.tier + levelModifier(levelOffset))
     const stats = jo ? joUnitStats(jo, level) : unitStats(role, stage.tier)
     stats.hp = troopStrength(level, (enemyKind ?? enemyKindFor(name)) === 'soldier')
-    return { ...makeUnit(`enemy-${i}`, name, role, 'enemy', { x, y }, stats, level), jo, facing, behavior, enemyKind }
+    return { ...makeUnit(`enemy-${i}`, name, role, 'enemy', { x, y }, stats, level), jo, facing, behavior: behavior ?? stage.enemyBehavior, enemyKind }
   })
-  const makeGuest = ({ x, y, role, name, jo, facing, levelOffset, behavior }: NonNullable<Stage['jo']>['guests'][number]) => {
-    const level = Math.max(1, jo.level + (levelOffset < 50 ? levelOffset : levelOffset === 0xffff ? 0 : 50 - levelOffset))
-    const stats = joUnitStats(jo, level)
-    stats.hp = troopStrength(level, enemyKindFor(name) === 'soldier')
-    return { ...makeUnit(`guest-${jo.id}`, name, role, 'ally', { x, y }, stats, level), jo, facing, guest: true, behavior }
+  const guestCounts = new Map<number, number>()
+  const makeGuest = ({ x, y, role, name, jo, facing, levelOffset, behavior, enemyKind }: StageUnit, index: number, phase: 'initial' | 'reserve') => {
+    let id = `guest-web-${phase}-${index}`
+    if (jo) {
+      const count = (guestCounts.get(jo.id) ?? 0) + 1
+      guestCounts.set(jo.id, count)
+      id = count === 1 ? `guest-${jo.id}` : `guest-${jo.id}-${count}`
+    }
+    const level = Math.max(1, (jo?.level ?? 1) + levelModifier(levelOffset))
+    const stats = jo ? joUnitStats(jo, level) : unitStats(role, stage.tier)
+    stats.hp = troopStrength(level, (enemyKind ?? enemyKindFor(name)) === 'soldier')
+    return { ...makeUnit(id, name, role, 'ally', { x, y }, stats, level), jo, facing, guest: true, behavior, enemyKind }
   }
-  const guests = stage.jo?.guests.map(makeGuest) ?? []
-  const reinforcements = stage.jo?.reinforcements.map(makeGuest)
+  const guests = stageGuests(stage).map((unit, index) => makeGuest(unit, index, 'initial'))
+  const reinforcements = stage.jo?.reinforcements.map((unit, index) => makeGuest(unit, index, 'reserve'))
   return {
-    grid: stage.grid, map: stage.map, units: [...allies, ...guests, ...enemies], round: 1, result: null,
+    grid: stage.grid, ...(stage.board && { board: stage.board }), map: stage.map, units: [...allies, ...guests, ...enemies], round: 1, result: null,
     reinforcements, objectives: stage.jo?.objectives, terrainNames: stage.jo?.terrainNames, log: [`${stage.name} 전투 시작. 아군이 먼저 행동합니다.`],
   }
 }
 
-export function movementCost(map: readonly string[], point: Point, unit?: Unit) {
+export function movementCost(map: readonly string[], point: Point, unit?: Pick<Unit, 'jo'>) {
   const original = joTerrainId(map, point)
   if (original !== undefined) {
     const cost = unit?.jo?.terrain[30 + original] ?? 1
@@ -220,7 +229,7 @@ export function attackCells(unit: Unit, fire = false, map?: readonly string[], g
   for (let y = 0; y < (map?.length ?? HEIGHT); y++) {
     for (let x = 0; x < (map?.[y].length ?? WIDTH); x++) {
       const point = { x, y }
-      if (withinRange(unit, point, fire, grid)) cells.push(point)
+      if ((!map || validCell(point, map)) && withinRange(unit, point, fire, grid)) cells.push(point)
     }
   }
   return cells
@@ -352,7 +361,9 @@ function damageUnit(battle: Battle, unit: Unit, damage: number, source?: string)
   for (const id of xp.reserves) xp.earned[id] = (xp.earned[id] ?? 0) + Math.floor(base / 2)
 }
 
-function resolveImpact(battle: Battle, source: Unit, recipient: Unit, kind: BattleHit['kind'], roll: () => number, art?: { name: string; percent?: number; direct?: number }): BattleHit {
+type ImpactArt = { name: string; percent?: number; direct?: number; element?: BattleElement; ignites?: boolean }
+
+function resolveImpact(battle: Battle, source: Unit, recipient: Unit, kind: BattleHit['kind'], roll: () => number, art?: ImpactArt): BattleHit {
   const prediction = forecastAttack(battle, source, recipient, kind)
   const blocked = art?.direct === undefined && roll() >= prediction.hit
   const damage = blocked ? 0 : art?.direct ?? Math.floor(prediction.damage * (art?.percent ?? 100) / 100)
@@ -363,6 +374,8 @@ function resolveImpact(battle: Battle, source: Unit, recipient: Unit, kind: Batt
   return {
     attacker: source.id, target: recipient.id, kind, damage,
     remainingHP: recipient.currentHP, blocked,
+    ...(art?.element && !blocked ? { element: art.element } : {}),
+    ...(art?.ignites ? { burningTile: { x: recipient.x, y: recipient.y } } : {}),
   }
 }
 
@@ -374,7 +387,7 @@ function recordImpacts(battle: Battle, source: Unit, aim: Point, [first, ...addi
   battle.events!.push(additionalImpacts.length ? { impact, additionalImpacts } : { impact })
 }
 
-function applyImpact(battle: Battle, source: Unit, target: Unit, kind: BattleImpact['kind'], roll: () => number, art?: { name: string; percent?: number }) {
+function applyImpact(battle: Battle, source: Unit, target: Unit, kind: BattleImpact['kind'], roll: () => number, art?: ImpactArt) {
   recordImpacts(battle, source, target, [resolveImpact(battle, source, target, kind, roll, art)])
 }
 
@@ -382,7 +395,7 @@ function strike(battle: Battle, attacker: Unit, target: Unit, fire: boolean, rol
   attacker.done = true
   if (fire) {
     attacker.currentMP -= FIRE_COST
-    applyImpact(battle, attacker, target, 'fire', roll)
+    applyImpact(battle, attacker, target, 'fire', roll, { name: '화계', element: 'fire' })
   } else {
     applyImpact(battle, attacker, target, 'attack', roll)
     if (canCounter(target, attacker, battle.grid)) applyImpact(battle, target, attacker, 'counter', roll)
@@ -405,6 +418,7 @@ export function warArtCells(battle: Battle, unit: Unit, art: WarArtId) {
   if ('effect' in definition && definition.effect === 'self') return [{ x: unit.x, y: unit.y }]
   const ranged = ('troop' in definition && definition.troop === 'ranged') || art === 'mountedShot'
   return battle.map.flatMap((row, y) => Array.from(row, (_, x) => ({ x, y })).filter((point) => {
+    if (!validCell(point, battle.map)) return false
     if (battle.grid === 'hex') {
       const steps = gridDistance(unit, point, battle.grid)
       if (art === 'blaze') return steps <= 2 && hexDirection(unit, point) >= 0 && strategyTerrain(battle, point, art)
@@ -439,6 +453,7 @@ function strategyTerrain(battle: Battle, point: Point, art: WarArtId) {
   const tile = terrainAt(battle.map, point)
   const mountain = name === '산지' || name === '돌산' || tile === 'M'
   if (art === 'rockfall') return mountain || tile === 'm'
+  if (art === 'torrent') return /^(여울|습지|연못|소하|대하|도랑)$/.test(name) || ['r', 'j', 'e', 'l', 'w'].includes(tile ?? '')
   if (art === 'intercept') return mountain || name === '삼림' || tile === 'f' || tile === 'p'
   if (art === 'blaze') return name === '평지' || tile === '.' || flammable(battle, point)
   return true
@@ -453,13 +468,14 @@ export function warArtArea(battle: Battle, unit: Unit, art: WarArtId, target: Po
   const dx = target.x - unit.x
   const dy = target.y - unit.y
   let points = [target]
+  const fan = art === 'sweep' || art === 'rockfall' || art === 'torrent'
   if (art === 'barrage') {
     points = [target, ...neighbors(target, battle.grid)]
   } else if (battle.grid === 'hex') {
     const direction = hexDirection(unit, target)
-    if (art === 'sweep' || art === 'rockfall' || art === 'blaze' || art === 'charge') {
+    if (fan || art === 'blaze' || art === 'charge') {
       if (direction < 0) return []
-      if (art === 'sweep' || art === 'rockfall') {
+      if (fan) {
         points = [-1, 0, 1].map((offset) => hexStep(unit, direction + offset))
       } else if (art === 'blaze') {
         points = [1, 2].map((step) => hexStep(unit, direction, step))
@@ -472,7 +488,7 @@ export function warArtArea(battle: Battle, unit: Unit, art: WarArtId, target: Po
         }
       }
     }
-  } else if (art === 'sweep' || art === 'rockfall') {
+  } else if (fan) {
     const ring = [[0, -1], [1, -1], [1, 0], [1, 1], [0, 1], [-1, 1], [-1, 0], [-1, -1]]
     const direction = ring.findIndex(([x, y]) => x === dx && y === dy)
     points = [-1, 0, 1].map((offset) => {
@@ -538,9 +554,12 @@ function useWarArt(battle: Battle, unit: Unit, target: Unit, id: WarArtId, roll:
   const strategy = strategyPreviews(battle, unit, id, target)
   unit.done = true
   unit.usedWarArts = [...(unit.usedWarArts ?? []), id]
+  const element = 'element' in art ? art.element : undefined
   if ('strategy' in art) {
     const impacts = strategy.map(({ foe, damage, confusion }) => {
-      const impact = resolveImpact(battle, unit, foe, 'fire', roll, { name: art.name, direct: damage })
+      const impact = resolveImpact(battle, unit, foe, 'fire', roll, {
+        name: art.name, direct: damage, element, ignites: id === 'blaze',
+      })
       if (id === 'blaze') ignite(battle, foe, unit.id)
       if (confusion !== undefined && roll() < confusion) {
         foe.confusedUntil = battle.round + Number(foe.side === 'ally')
@@ -554,7 +573,7 @@ function useWarArt(battle: Battle, unit: Unit, target: Unit, id: WarArtId, roll:
   }
   if ('will' in effect && effect.will !== undefined) {
     target.currentMP += effect.will
-    note(battle, `${art.name} · ${target.name} 의지 ${effect.will > 0 ? '+' : ''}${effect.will}`)
+    note(battle, `${art.name} · ${target.name} 사기 ${effect.will > 0 ? '+' : ''}${effect.will}`)
     return true
   }
   if ('hp' in effect && effect.hp !== undefined) {
@@ -568,7 +587,8 @@ function useWarArt(battle: Battle, unit: Unit, target: Unit, id: WarArtId, roll:
   if (!('damage' in art) || !effect.level) return false
   const area = warArtArea(battle, unit, id, target)
   const targets = area.map((point) => unitAt(battle, point)).filter((foe): foe is Unit => !!foe && foe.side !== unit.side)
-  const damage = { name: art.name, percent: art.damage[effect.level - 1] }
+  const ignites = id === 'fireArrow' && flammable(battle, target)
+  const damage = { name: art.name, percent: art.damage[effect.level - 1], element, ignites }
   recordImpacts(battle, unit, target, targets.map((foe) => resolveImpact(battle, unit, foe, 'attack', roll, damage)))
   for (const foe of targets) {
     if (id === 'doubleStrike' && foe.currentHP > 0) applyImpact(battle, unit, foe, 'attack', roll, damage)
@@ -592,7 +612,7 @@ function useWarArt(battle: Battle, unit: Unit, target: Unit, id: WarArtId, roll:
       }
     }
   }
-  if (id === 'fireArrow' && flammable(battle, target)) {
+  if (ignites) {
     ignite(battle, target, unit.id)
   }
   if (id !== 'shove' && id !== 'mountedShot') {
@@ -681,7 +701,7 @@ function enemyTurn(battle: Battle, roll: () => number) {
     unit.done = false
   }
   if (battle.reinforcements?.length) {
-    const available = battle.reinforcements.filter((unit) => !unitAt(battle, unit))
+    const available = battle.reinforcements.filter((unit) => validCell(unit, battle.map) && !unitAt(battle, unit))
     battle.units.push(...available.map((unit) => ({ ...unit, mp: MAX_WILL, currentMP: START_WILL })))
     battle.reinforcements = battle.reinforcements.filter((unit) => !available.includes(unit))
     if (available.length) note(battle, `우군 증원 · ${available.map(({ name }) => name).join('·')}`)
@@ -749,7 +769,7 @@ export function playBattle(previous: Battle, stock: Record<ItemId, number>, acti
       unit[current] += amount
       unit.done = true
       inventory = { ...stock, [action.item]: stock[action.item] - 1 }
-      note(battle, `${unit.name} · ${healHP ? '병력' : '의지'} ${amount} 회복`)
+      note(battle, `${unit.name} · ${healHP ? '병력' : '사기'} ${amount} 회복`)
       break
     }
     case 'wait':

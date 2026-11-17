@@ -63,6 +63,12 @@ function extract(staging) {
       if (archive.records[index]) fs.writeFileSync(path.join(staging, `${kind}-${index}.bin`), archive.read(index))
     }
   }
+  if (fs.existsSync(fromSource('Meff.e5'))) {
+    const effects = openArchive(fromSource('Meff.e5'), { indexEndsAtData: true })
+    for (const [name, index] of Object.entries({ fire: 1, earth: 7, water: 2 })) {
+      fs.writeFileSync(path.join(staging, `effect-${name}.bin`), effects.read(index))
+    }
+  }
   fs.writeFileSync(path.join(staging, 'palette.bin'), openArchive(fromSource('Spalet.e5')).read(0))
   fs.writeFileSync(path.join(staging, 'index.json'), JSON.stringify({ mappings, officerSprites, portraits }))
 }

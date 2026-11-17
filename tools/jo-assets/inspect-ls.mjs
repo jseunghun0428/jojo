@@ -1,9 +1,11 @@
 import fs from 'node:fs'
-export function openArchive(file) {
+export function openArchive(file, { indexEndsAtData = false } = {}) {
  const b=fs.readFileSync(file)
  if(b.toString('ascii',0,4)!=='Ls12') throw new Error('Expected Ls12')
  const records=[]
- for(let p=272;b.readUInt32BE(p)!==0;p+=12) {
+ const end=indexEndsAtData ? b.readUInt32BE(280) : b.length
+ if(end<284 || end>b.length) throw new Error('Invalid Ls12 index boundary')
+ for(let p=272;p+12<=end && b.readUInt32BE(p)!==0;p+=12) {
   const length=b.readUInt32BE(p), size=b.readUInt32BE(p+4), offset=b.readUInt32BE(p+8)
   if(size>50_000_000 || offset+length>b.length) throw new Error('Invalid index '+p)
   records.push({length,size,offset})

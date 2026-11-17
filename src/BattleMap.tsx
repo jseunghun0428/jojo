@@ -7,12 +7,18 @@ import { facingBetween, key } from './combat.ts'
 import type { BattleEvent, BattleHit, BattleImpact, Facing, Unit } from './combat.ts'
 import { roles, troopClasses, troopClassFor } from './unit-classes.ts'
 import { JO_FIRE_TERRAIN, joTerrainId } from './jo-game.ts'
-import { boardGeometry, CELL_SIZE as TILE, hexStep, validCell } from './grid.ts'
+import { boardGeometry, CELL_SIZE as TILE, hexStep, validCell, OUTSIDE_CELL } from './grid.ts'
+import type { BoardLayout } from './grid.ts'
 import type { Grid } from './grid.ts'
+import { unitFormation } from './unit-formation.ts'
+import type { BattleElement } from './war-arts.ts'
 
 const STEP_MS = 200
 const IMPACT_MS = 680
 const HIT_MS = 320
+const ELEMENTAL_IMPACT_MS = 850
+const FIRE_SETTLE_MS = 600
+const TERRAIN_FLAME = 'elemental-terrain-fire'
 const FRAME_SIZE = 48
 const MIN_BATTLE_TILE_WIDTH = 60
 const FIRE_TERRAIN_TEXTURE = 'jo-fire-terrain'
@@ -20,9 +26,8 @@ const FIRE_ANIMATION = 'jo-fire-loop'
 const FIRE_FRAME_SIZE = 48
 const FIRE_FRAME_COUNT = 8
 
-function createFireAnimation(scene: Phaser.Scene, fallback: boolean) {
+function createFireAnimation(scene: Phaser.Scene) {
   const source = scene.textures.exists(FIRE_TERRAIN_TEXTURE) ? scene.textures.get(FIRE_TERRAIN_TEXTURE).getSourceImage() : undefined
-  if (!(source instanceof HTMLImageElement) && !fallback) return false
   const sheet = scene.textures.createCanvas(FIRE_ANIMATION, FIRE_FRAME_SIZE * FIRE_FRAME_COUNT, FIRE_FRAME_SIZE)
   if (!sheet) return false
 
@@ -83,7 +88,9 @@ const WALK_FRAMES: Record<Facing, readonly number[]> = {
   right: [4, 5, 8, 5],
 }
 const ATTACK_START: Record<Facing, number> = { down: 0, up: 4, left: 8, right: 8 }
-const eventDuration = (event: BattleEvent) => 'move' in event ? (event.move.path.length - 1) * STEP_MS : 'turn' in event ? 900 : IMPACT_MS
+const eventDuration = (event: BattleEvent) => 'move' in event ? (event.move.path.length - 1) * STEP_MS
+  : 'turn' in event ? 900 : event.impact.element ? ELEMENTAL_IMPACT_MS : IMPACT_MS
+const elementalSizes = { fire: 64, earth: 70, water: 68 }
 const terrainColors: Record<(typeof terrains)[Terrain]['appearance'], [number, number]> = {
   plain: [0x596342, 0x5f6946], forest: [0x394f37, 0x40583c], rock: [0x575951, 0x60625a],
   water: [0x36545a, 0x3e6064], road: [0x8b7654, 0x917b58], peach: [0x624756, 0x6d4f60],
@@ -119,6 +126,7 @@ type MapProps = {
   map: readonly string[]
   grid?: Grid
   image?: string
+  layout?: BoardLayout
   units?: Unit[]
   selected?: string
   moves?: Set<string>
@@ -168,14 +176,16 @@ function drawTerrain(g: Phaser.GameObjects.Graphics, terrain: Terrain, x: number
   g.lineStyle(1, 0x20271a, 0.5).strokeRect(x + 0.5, y + 0.5, TILE - 1, TILE - 1)
 }
 
-function drawUnit(g: Phaser.GameObjects.Graphics, unit: Unit, x: number, y: number, selected: boolean, hasSprite: boolean, facing: Facing, stride: number) {
+function drawUnit(g: Phaser.GameObjects.Graphics, unit: Unit, x: number, y: number, selected: boolean,
+  fallback: ReturnType<typeof unitFormation> | undefined, facing: Facing, stride: number) {
   const base = unit.side === 'ally' ? 0x98c4cc : 0xe0856d
   const dark = unit.side === 'ally' ? 0x33596b : 0x79382d
   const opacity = unit.done ? 0.58 : 1
   g.fillStyle(0x172018, 0.6).fillEllipse(x + 32, y + 48, 44, 14)
   if (selected) g.lineStyle(2, 0xffd484).strokeEllipse(x + 32, y + 46, 44, 16)
-  if (!hasSprite) for (const offset of [0, 16, 32]) {
-    g.save().translateCanvas(x + 8 + offset, y + 14).scaleCanvas(0.43, 0.56)
+  if (fallback) for (const position of fallback.positions) {
+    const { scale } = fallback
+    g.save().translateCanvas(x + position.x - 32 * scale, y + position.y - 49 * scale).scaleCanvas(scale, scale)
     const faceOffset = facing === 'left' ? -4 : facing === 'right' ? 4 : 0
     g.fillStyle(0x23251e, opacity).fillRect(18, 25, 29, 19)
     g.fillStyle(dark, opacity).fillRect(20, 25, 25, 18)
@@ -196,7 +206,7 @@ function drawUnit(g: Phaser.GameObjects.Graphics, unit: Unit, x: number, y: numb
     }
     g.restore()
   }
-  if (unit.captain) g.fillStyle(0xffd485).fillTriangle(x + 27, y + 3, x + 37, y + 3, x + 32, y + 8)
+  if (unit.captain) g.fillStyle(0xffd485).fillTriangle(x + 8, y + 8, x + 15, y + 8, x + 11.5, y + 12)
   g.fillStyle(0x1b201a).fillRect(x + 3, y + 57, TILE - 6, 5)
   g.fillStyle(base).fillRect(x + 4, y + 58, Math.ceil((TILE - 8) * unit.currentHP / unit.hp), 3)
 }
@@ -204,7 +214,7 @@ function drawUnit(g: Phaser.GameObjects.Graphics, unit: Unit, x: number, y: numb
 export default function BattleMap(props: MapProps) {
   const grid = props.grid
   const hex = grid === 'hex'
-  const geometry = useMemo(() => boardGeometry(props.map, grid), [props.map, grid])
+  const geometry = useMemo(() => boardGeometry(props.map, grid, props.layout), [props.map, grid, props.layout])
   const { width, height, center } = geometry
   const image = props.image
   const isBattle = props.units !== undefined
@@ -270,16 +280,67 @@ export default function BattleMap(props: MapProps) {
             if (captain) showPoint(center(captain))
             const terrainGraphics = this.add.graphics().setDepth(-2)
             const graphics = this.add.graphics()
-            const hasFireTexture = createFireAnimation(this, hex)
+            const hitGraphics = this.add.graphics().setDepth(0.5)
+            const hasFireTexture = createFireAnimation(this)
+            const effectSprites = new Map<string, Phaser.GameObjects.Sprite>()
+            const scene = this
+            function effectTexture(element: BattleElement) {
+              const art = sprites.current?.effects[element]
+              if (!art) return
+              const texture = `battle-element-${element}`
+              const size = art.naturalWidth
+              const frames = Math.floor(art.naturalHeight / size)
+              if (!size || frames < 5) return
+              if (!scene.textures.exists(texture)) {
+                scene.textures.addSpriteSheet(texture, art, { frameWidth: size, frameHeight: size })
+              }
+              return { texture, frames }
+            }
+            function drawElement(id: string, element: BattleElement, x: number, y: number, time: number) {
+              const progress = Phaser.Math.Clamp((time - HIT_MS) / (ELEMENTAL_IMPACT_MS - HIT_MS), 0, 1)
+              const alpha = element === 'fire' && time >= FIRE_SETTLE_MS
+                ? (ELEMENTAL_IMPACT_MS - time) / (ELEMENTAL_IMPACT_MS - FIRE_SETTLE_MS) : 1
+              const art = effectTexture(element) ?? (element === 'fire' && hasFireTexture
+                ? { texture: FIRE_ANIMATION, frames: FIRE_FRAME_COUNT } : undefined)
+              if (art) {
+                let sprite = effectSprites.get(id)
+                if (!sprite) {
+                  sprite = scene.add.sprite(x, y, art.texture).setOrigin(0.5, 0.85).setDepth(0.5)
+                  effectSprites.set(id, sprite)
+                }
+                sprite.setTexture(art.texture, Math.min(art.frames - 1, Math.floor(progress * art.frames)))
+                  .setDisplaySize(elementalSizes[element], elementalSizes[element]).setPosition(x, y).setAlpha(alpha).setVisible(true)
+                return
+              }
+              const spread = 8 + progress * 25
+              const opacity = Math.sin(Math.PI * progress)
+              if (element === 'earth') {
+                hitGraphics.fillStyle(0xa88351, opacity)
+                for (const direction of [-1, 0, 1]) {
+                  const offset = direction * spread
+                  const lift = spread * (direction === 0 ? 0.8 : 0.5)
+                  hitGraphics.fillTriangle(x + offset - 5, y, x + offset + 2, y - lift, x + offset + 7, y)
+                }
+              } else if (element === 'water') {
+                hitGraphics.lineStyle(3, 0x7ad5ec, opacity).strokeEllipse(x, y - 3, spread * 2, spread * 0.7)
+                hitGraphics.lineStyle(2, 0xc8f4ff, opacity).strokeEllipse(x, y - 9, spread * 1.65, spread * 0.55)
+              }
+            }
             function fillCell(layer: Phaser.GameObjects.Graphics, point: Point, color: number, alpha = 1, inset = 0) {
               layer.fillStyle(color, alpha)
               if (hex) layer.fillPoints(geometry.corners(point, inset), true)
-              else layer.fillRect(point.x * TILE + inset, point.y * TILE + inset, TILE - 2 * inset, TILE - 2 * inset)
+              else {
+                const { x, y } = geometry.corners(point, inset)[0]
+                layer.fillRect(x, y, TILE - 2 * inset, TILE - 2 * inset)
+              }
             }
             function outlineCell(layer: Phaser.GameObjects.Graphics, point: Point, color: number, thickness: number, alpha: number, inset: number) {
               layer.lineStyle(thickness, color, alpha)
               if (hex) layer.strokePoints(geometry.corners(point, inset), true)
-              else layer.strokeRect(point.x * TILE + inset, point.y * TILE + inset, TILE - 2 * inset, TILE - 2 * inset)
+              else {
+                const { x, y } = geometry.corners(point, inset)[0]
+                layer.strokeRect(x, y, TILE - 2 * inset, TILE - 2 * inset)
+              }
             }
             const fireTiles = new Map<string, Phaser.GameObjects.Sprite>()
             const unitImages = new Map<string, Phaser.GameObjects.Image>()
@@ -310,6 +371,7 @@ export default function BattleMap(props: MapProps) {
               let actingId: string | undefined
               const hp = new Map<string, number>()
               const receivingImpacts = new Map<string, BattleHit>()
+              const burningCells = new Set(burning?.map(key))
               let visibleImpact: { impact: BattleImpact; time: number } | undefined
               let remaining = events === previousEvents ? elapsed : 0
               for (const event of events ?? []) {
@@ -322,20 +384,22 @@ export default function BattleMap(props: MapProps) {
                 }
                 if ('impact' in event) {
                   const impact = event.impact
+                  const impactDuration = eventDuration(event)
                   const impacts = [impact, ...(event.additionalImpacts ?? [])]
                   const pose = poses.get(impact.attacker)
                   poses.set(impact.attacker, { ...pose, facing: impact.facing, step: 0 })
                   if (remaining >= HIT_MS) {
                     for (const hit of impacts) {
                       hp.set(hit.target, hit.remainingHP)
-                      if (remaining < IMPACT_MS) receivingImpacts.set(hit.target, hit)
+                      if (remaining < impactDuration) receivingImpacts.set(hit.target, hit)
+                      if (hit.burningTile && remaining >= FIRE_SETTLE_MS) burningCells.add(key(hit.burningTile))
                     }
                   }
-                  if (remaining < IMPACT_MS) {
+                  if (remaining < impactDuration) {
                     visibleImpact = { impact, time: remaining }
                     actingId = impact.attacker
                   }
-                  remaining -= IMPACT_MS
+                  remaining -= impactDuration
                   continue
                 }
                 const movement = event.move
@@ -360,20 +424,36 @@ export default function BattleMap(props: MapProps) {
               if (actor) showPoint(poses.get(actor.id)?.point ?? center(actor), true)
               terrainGraphics.clear()
               graphics.clear()
+              hitGraphics.clear()
+              for (const sprite of effectSprites.values()) sprite.setVisible(false)
               for (const label of resultLabels.values()) label.setVisible(false)
               for (const sprite of unitImages.values()) sprite.setVisible(false)
               for (const label of labels.values()) {
                 label.className.setVisible(false)
                 label.hp.setVisible(false)
               }
-              const burningCells = new Set(burning?.map(key))
+              const fireTexture = effectTexture('fire')
+              if (fireTexture && !this.anims.exists(TERRAIN_FLAME)) {
+                this.anims.create({
+                  key: TERRAIN_FLAME, frames: [2, 3, 4, 3].map((frame) => ({ key: fireTexture.texture, frame })),
+                  frameRate: 8, repeat: -1,
+                })
+              }
+              const terrainFire = fireTexture?.texture ?? FIRE_ANIMATION
+              const fireAnimation = fireTexture ? TERRAIN_FLAME : FIRE_ANIMATION
               for (const tile of fireTiles.values()) tile.setVisible(false)
               map.forEach((row, y) => [...row].forEach((cell, x) => {
                 const point = { x, y }
+                if (cell === OUTSIDE_CELL) {
+                  fillCell(terrainGraphics, point, 0x111810, 0.72)
+                  return
+                }
                 const location = key(point)
                 const sourceTerrain = joTerrainId(map, point)
                 const fire = burningCells.has(location) || sourceTerrain === JO_FIRE_TERRAIN
-                if (hex) {
+                if (image && geometry.image) {
+                  outlineCell(terrainGraphics, point, 0x20271a, 1, 0.65, 0.5)
+                } else if (hex) {
                   const palette = sourceTerrain === undefined
                     ? terrainColors[isTerrain(cell) ? terrains[cell].appearance : 'plain']
                     : joHexColors[sourceTerrain] ?? terrainColors.plain
@@ -381,20 +461,22 @@ export default function BattleMap(props: MapProps) {
                   outlineCell(terrainGraphics, point, 0x20271a, 1, 0.8, 0.5)
                   if (sourceTerrain !== undefined) drawJoHexDetails(terrainGraphics, sourceTerrain, center(point))
                 } else if (isTerrain(cell)) {
-                  drawTerrain(terrainGraphics, cell, x * TILE, y * TILE, x * 17 + y * 29)
+                  const pixel = geometry.corners(point)[0]
+                  drawTerrain(terrainGraphics, cell, pixel.x, pixel.y, x * 17 + y * 29)
                 }
-                if (fire && hasFireTexture) {
+                if (fire && (fireTexture || hasFireTexture)) {
                   let tile = fireTiles.get(location)
                   if (!tile) {
                     const pixel = center(point)
-                    tile = this.add.sprite(pixel.x, pixel.y, FIRE_ANIMATION, 0)
-                      .setDisplaySize(hex ? TILE * 0.78 : TILE, hex ? TILE * 0.78 : TILE).setDepth(-1)
-                    tile.play(FIRE_ANIMATION)
+                    tile = this.add.sprite(pixel.x, pixel.y + 12, terrainFire, fireTexture ? 2 : 0)
+                      .setOrigin(0.5, 0.85).setDepth(-1)
+                    tile.play(fireAnimation)
                     fireTiles.set(location, tile)
                   }
-                  tile.setVisible(true)
+                  if (tile.texture.key !== terrainFire) tile.play(fireAnimation)
+                  tile.setDisplaySize(53, 53).setVisible(true)
                 } else if (fire) {
-                  fillCell(graphics, point, 0xe85e24, 0.45)
+                  fillCell(terrainGraphics, point, 0xe85e24, 0.45)
                 }
                 if (range?.has(location)) {
                   fillCell(graphics, point, 0xf18767, 0.24, 1)
@@ -426,7 +508,7 @@ export default function BattleMap(props: MapProps) {
                 const unit = { ...original, currentHP: hp.get(original.id) ?? original.currentHP }
                 const attack = visibleImpact?.impact
                 const time = visibleImpact?.time ?? 0
-                const attacking = attack?.attacker === unit.id
+                const attacking = attack?.attacker === unit.id && (!attack.element || time < 500)
                 const receiving = receivingImpacts.get(unit.id)
                 if (unit.currentHP <= 0 && !receiving) continue
                 if (targets?.has(unit.id)) {
@@ -443,14 +525,15 @@ export default function BattleMap(props: MapProps) {
                 const kind = unit.troopClass ?? troopClassFor(unit.role, unit.jo?.classId)
                 const sharedKey = `${unit.side}-${kind}`
                 const spriteKey = graphicsPack?.units[sharedKey] ? sharedKey : `${unit.side}-${roles[unit.role].sprite}`
-                const poseType = attacking ? (attack.kind === 'fire' ? 'special' : 'attack')
+                const poseType = attacking ? 'attack'
                   : receiving && !receiving.blocked ? 'special' : 'units'
                 const guardFrame = receiving?.blocked && receiving.kind !== 'fire' ? 1 : step
                 const combatFrame = graphicsPack?.[poseType][spriteKey]
                 const textureKey = combatFrame && poseType !== 'units' ? `${spriteKey}-${poseType}` : spriteKey
                 const frame = combatFrame ?? graphicsPack?.units[spriteKey]
-                drawUnit(graphics, unit, x, y - 2, unit.id === selected, !!frame, facing, [0, 2, 0, -2][step])
-                if (frame) {
+                const formation = unitFormation(unit.currentHP)
+                drawUnit(graphics, unit, x, y - 2, unit.id === selected, frame ? undefined : formation, facing, [0, 2, 0, -2][step])
+                if (frame && formation.positions.length) {
                   const attackSheet = !!combatFrame && poseType === 'attack'
                   const specialSheet = !!combatFrame && poseType === 'special'
                   const frameSize = attackSheet ? 64 : FRAME_SIZE
@@ -461,17 +544,17 @@ export default function BattleMap(props: MapProps) {
                   }
                   const frameIndex = attackSheet ? ATTACK_START[facing] + Math.min(3, Math.floor(time / 125))
                     : specialSheet ? (receiving ? 3 : 4) : WALK_FRAMES[facing][guardFrame]
-                  for (const offset of [-17, 17, 0]) {
-                    const key = `${unit.id}:soldier:${offset}`
+                  for (const [index, position] of formation.positions.entries()) {
+                    const key = `${unit.id}:soldier:${index}`
                     let soldier = unitImages.get(key)
                     if (!soldier) {
                       soldier = this.add.image(0, 0, textureKey).setOrigin(0.5, 1)
                       unitImages.set(key, soldier)
                     }
                     soldier.setTexture(textureKey, sheet ? frameIndex : undefined)
-                      .setScale(0.62).setFlipX(facing === 'right')
-                      .setPosition(x + TILE / 2 + offset, y + (offset ? 36 : 39))
-                      .setAlpha(receiving && !unit.currentHP ? 1 - (time - HIT_MS) / (IMPACT_MS - HIT_MS) : unit.done && !attacking ? 0.58 : 1)
+                      .setScale(formation.scale * FRAME_SIZE / frameSize).setFlipX(facing === 'right')
+                      .setPosition(x + position.x, y + position.y)
+                      .setAlpha(unit.done && !attacking ? 0.58 : 1)
                       .setVisible(true)
                   }
                 }
@@ -485,10 +568,11 @@ export default function BattleMap(props: MapProps) {
                     face = this.add.image(0, 0, texture).setDepth(1)
                     unitImages.set(key, face)
                   }
-                  face.setPosition(x + TILE / 2, y + 19).setDisplaySize(28, 28)
+                  face.setPosition(x + TILE / 2, y + 17).setDisplaySize(32, 32)
                     .setAlpha(unit.done ? 0.75 : 1).setVisible(true)
                 }
                 if (receiving) {
+                  if (receiving.element) drawElement(unit.id, receiving.element, position.x, position.y + 12, time)
                   let resultLabel = resultLabels.get(unit.id)
                   if (!resultLabel) {
                     resultLabel = this.add.text(0, 0, '', {
@@ -608,7 +692,9 @@ export default function BattleMap(props: MapProps) {
         aspectRatio: `${width} / ${height}`,
         minWidth: isBattle ? width * MIN_BATTLE_TILE_WIDTH / TILE : undefined,
         backgroundImage: image ? `url("${image}")` : undefined,
-        backgroundSize: '100% 100%',
+        backgroundSize: geometry.image ? `${geometry.image.width / width * 100}% ${geometry.image.height / height * 100}%` : '100% 100%',
+        backgroundPosition: geometry.image ? `${geometry.image.x / (width - geometry.image.width || 1) * 100}% ${geometry.image.y / (height - geometry.image.height || 1) * 100}%` : undefined,
+        backgroundRepeat: 'no-repeat',
       }}
       role={props.onCell ? 'group' : 'img'}
       aria-label={props.onCell ? (hex ? '육각 전장 지도. 좌우 방향키와 Q, E, Z, C로 칸을 고르고 Enter로 선택합니다.'
@@ -617,7 +703,8 @@ export default function BattleMap(props: MapProps) {
       onBlur={() => { cursor.current = null; props.onHover?.(null); redraw.current() }}
       onKeyDown={(event) => {
         if (!props.onCell) return
-        const active = cursor.current ?? props.units?.find((unit) => unit.id === props.selected) ?? (hex ? { x: 0, y: 0 } : { x: 2, y: 3 })
+        const active = cursor.current ?? props.units?.find((unit) => unit.id === props.selected)
+          ?? props.units?.find((unit) => unit.captain) ?? (hex ? { x: 0, y: 0 } : { x: 2, y: 3 })
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault()
           props.onCell(active)

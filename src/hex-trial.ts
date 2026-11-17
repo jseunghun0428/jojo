@@ -1,6 +1,7 @@
 import { newBattle } from './combat.ts'
 import { recommendedIds } from './data.ts'
 import type { Stage } from './data.ts'
+import { validCell } from './grid.ts'
 
 export const hexTrialStage: Stage = {
   number: 1,
@@ -11,9 +12,9 @@ export const hexTrialStage: Stage = {
   map: [
     '.g...w...',
     '..f..w...',
-    '.g.fm....',
+    '.g.fm..M.',
     '.....m...',
-    '..f..w...',
+    '..fj.w...',
     '...gg....',
     '.........',
   ],
@@ -26,10 +27,11 @@ export const hexTrialStage: Stage = {
   ],
 }
 
-export function newHexTrial() {
-  const battle = newBattle(hexTrialStage, recommendedIds, 'yeon', {}, {}, {
+export function newHexTrial(stage = hexTrialStage) {
+  const battle = newBattle(stage, recommendedIds, 'yeon', {}, {}, {
     yeon: 'infantry', ha: 'cavalry', jin: 'ranged', seo: 'infantry',
   })
-  battle.burning = [{ x: 4, y: 5, round: 1 }]
+  const fire = { x: 4, y: 5, round: 1 }
+  if (validCell(fire, stage.map)) battle.burning = [fire]
   return battle
 }

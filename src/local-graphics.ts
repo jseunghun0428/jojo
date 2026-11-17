@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
+import type { BattleElement } from './war-arts.ts'
 
 type Graphics = {
   portraits: Partial<Record<string, string>>
@@ -6,6 +7,7 @@ type Graphics = {
   units: Partial<Record<string, HTMLImageElement>>
   attack: Partial<Record<string, HTMLImageElement>>
   special: Partial<Record<string, HTMLImageElement>>
+  effects: Partial<Record<BattleElement, HTMLImageElement>>
   officerSprites: Partial<Record<string, string>>
 }
 
@@ -15,11 +17,12 @@ export const LocalGraphicsContext = createContext<Graphics | null>(null)
 async function loadLocalGraphics(): Promise<Graphics | null> {
   const response = await fetch(assetRoot + 'manifest.json')
   if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) return null
-  const { portraits, units, attack = {}, special = {}, officerSprites = {} } = await response.json() as {
+  const { portraits, units, attack = {}, special = {}, effects = {}, officerSprites = {} } = await response.json() as {
     portraits: Record<string, string>
     units: Record<string, string>
     attack?: Record<string, string>
     special?: Record<string, string>
+    effects?: Partial<Record<BattleElement, string>>
     officerSprites?: Record<string, string>
   }
   async function loadImages(files: Record<string, string>): Promise<Graphics['units']> {
@@ -36,8 +39,8 @@ async function loadLocalGraphics(): Promise<Graphics | null> {
     }))
     return images
   }
-  const [unitImages, attackImages, specialImages, portraitImages] = await Promise.all([
-    loadImages(units), loadImages(attack), loadImages(special), loadImages(portraits),
+  const [unitImages, attackImages, specialImages, portraitImages, effectImages] = await Promise.all([
+    loadImages(units), loadImages(attack), loadImages(special), loadImages(portraits), loadImages(effects),
   ])
   return {
     portraits: Object.fromEntries(Object.entries(portraits).map(([name, url]) => [name, assetRoot + url])),
@@ -45,6 +48,7 @@ async function loadLocalGraphics(): Promise<Graphics | null> {
     units: unitImages,
     attack: attackImages,
     special: specialImages,
+    effects: effectImages,
     officerSprites,
   }
 }

@@ -1,4 +1,5 @@
 import json
+import struct
 import sys
 from io import BytesIO
 from pathlib import Path
@@ -49,6 +50,20 @@ def render(root):
     manifest["officerSprites"] = {
         name: key for name, key in source["officerSprites"].items() if key in manifest["units"]
     }
+    manifest["effects"] = {}
+    for name in ("fire", "earth", "water"):
+        effect = root / f"effect-{name}.bin"
+        if not effect.exists():
+            continue
+        raw = effect.read_bytes()
+        commands, frames = raw[:2]
+        width, height = struct.unpack_from("<II", raw, 8)
+        pixels = raw[20 + commands * 20:]
+        if width != height or not frames or len(pixels) != width * height * frames:
+            raise ValueError(f"Unexpected {name} effect sheet")
+        file = f"units/effect-{name}.png"
+        render_sheet(pixels, width, frames, rgb).save(root / file)
+        manifest["effects"][name] = file
     (root / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 

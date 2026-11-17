@@ -16,14 +16,15 @@ export function trialSetup(data: CampaignData, id: TrialStageId, grid: Grid): Tr
   if (id === 'sandbox') return grid === 'hex' ? { data: webCampaign, stage: hexTrialStage, sandbox: true } : undefined
   const original = data.stages.find(({ number }) => number === id)
   if (!original) return undefined
-  const stage = grid === 'hex' ? createHexStage(data, original) : original
+  const stage = grid === (original.grid ?? 'square') ? original : grid === 'hex'
+    ? createHexStage(data, data.originals?.find(({ number }) => number === id) ?? original) : undefined
   return stage && { data, stage }
 }
 
 export function startTrial(setup: TrialSetup): Campaign {
   const { stage, data, sandbox } = setup
   const [captain] = recommendedIds
-  const battle = sandbox ? newHexTrial() : newBattle(stage, recommendedIds, captain, {}, data.officers)
+  const battle = sandbox ? newHexTrial(stage) : newBattle(stage, recommendedIds, captain, {}, data.officers)
   return {
     ...createCampaign(), stage: stage.number, phase: 'battle', battle, captain,
     roster: [...recommendedIds], lineup: [...recommendedIds],

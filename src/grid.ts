@@ -1,6 +1,8 @@
 import type { Point } from './data.ts'
 
 export type Grid = 'square' | 'hex'
+export const OUTSIDE_CELL = '_'
+export type BoardLayout = { cellSize: number; x: number; y: number; imageWidth?: number; imageHeight?: number }
 type Axial = { q: number; r: number }
 
 // Clockwise, starting east. Odd-r is used for storage; calculations use axial coordinates.
@@ -43,6 +45,7 @@ export function hexDirection(from: Point, to: Point) {
 
 export function validCell({ x, y }: Point, map: readonly string[]) {
   return Number.isInteger(x) && Number.isInteger(y) && x >= 0 && y >= 0 && x < (map[y]?.length ?? 0)
+    && map[y][x] !== OUTSIDE_CELL
 }
 
 export const CELL_SIZE = 64
@@ -73,27 +76,51 @@ const hexCorners: readonly Point[] = [
   { x: CELL_SIZE / 2, y: radius / 2 }, { x: 0, y: radius },
   { x: -CELL_SIZE / 2, y: radius / 2 }, { x: -CELL_SIZE / 2, y: -radius / 2 },
 ]
+const halfCell = CELL_SIZE / 2
+const squareCorners: readonly Point[] = [
+  { x: -halfCell, y: -halfCell }, { x: halfCell, y: -halfCell },
+  { x: halfCell, y: halfCell }, { x: -halfCell, y: halfCell },
+]
 
-export function boardGeometry(map: readonly string[], grid?: Grid) {
+export function boardGeometry(map: readonly string[], grid?: Grid, layout?: BoardLayout) {
   const hex = grid === 'hex'
-  const columns = Math.max(...map.map(({ length }) => length))
-  const width = hex ? Math.max(...map.map((row, y) => (row.length + (y % 2) * 0.5) * CELL_SIZE))
+  const columns = Math.max(0, ...map.map(({ length }) => length))
+  const gridWidth = hex ? Math.max(0, ...map.map((row, y) => (row.length + (y % 2) * 0.5) * CELL_SIZE))
     : columns * CELL_SIZE
-  const height = hex ? Math.ceil((map.length - 1) * rowSpacing + radius * 2) : map.length * CELL_SIZE
+  const gridHeight = hex ? Math.ceil((map.length - 1) * rowSpacing + radius * 2) : map.length * CELL_SIZE
+  const scale = layout ? CELL_SIZE / layout.cellSize : 1
+  const left = (layout?.x ?? 0) * scale
+  const top = (layout?.y ?? 0) * scale
+  const imageWidth = (layout?.imageWidth ?? 0) * scale
+  const imageHeight = (layout?.imageHeight ?? 0) * scale
+  const imageX = Math.max(0, -left)
+  const imageY = Math.max(0, -top)
+  const offsetX = left + imageX
+  const offsetY = top + imageY
+  const width = Math.max(1, Math.ceil(Math.max(offsetX + gridWidth, imageX + imageWidth)))
+  const height = Math.max(1, Math.ceil(Math.max(offsetY + gridHeight, imageY + imageHeight)))
+  const center = (point: Point) => {
+    const pixel = cellCenter(point, grid)
+    return { x: pixel.x + offsetX, y: pixel.y + offsetY }
+  }
   return {
     width, height, cellHeight: hex ? radius * 2 : CELL_SIZE,
-    center: (point: Point) => cellCenter(point, grid),
+    image: imageWidth && imageHeight ? { x: imageX, y: imageY, width: imageWidth, height: imageHeight } : undefined,
+    center,
     corners: (point: Point, inset = 0) => {
-      const center = cellCenter(point, grid)
+      const pixel = center(point)
       const scale = 1 - inset * 2 / CELL_SIZE
-      return hexCorners.map(({ x, y }) => ({ x: center.x + x * scale, y: center.y + y * scale }))
+      const corners = hex ? hexCorners : squareCorners
+      return corners.map(({ x, y }) => ({ x: pixel.x + x * scale, y: pixel.y + y * scale }))
     },
-    cellAt({ x, y }: Point) {
-      if (x < 0 || x >= width || y < 0 || y >= height) return null
+    cellAt(pixel: Point, includeExcluded = false) {
+      const x = pixel.x - offsetX
+      const y = pixel.y - offsetY
+      if (x < 0 || x >= gridWidth || y < 0 || y >= gridHeight) return null
       const r = (y - radius) / rowSpacing
       const point = hex ? toOffset(roundAxial((x - CELL_SIZE / 2) / CELL_SIZE - r / 2, r))
         : { x: Math.floor(x / CELL_SIZE), y: Math.floor(y / CELL_SIZE) }
-      return validCell(point, map) ? point : null
+      return (includeExcluded ? map[point.y]?.[point.x] !== undefined : validCell(point, map)) ? point : null
     },
   }
 }

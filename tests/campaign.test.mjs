@@ -456,6 +456,8 @@ test('strategy arts share terrain, damage, and status rules with their previews'
   assert.equal(blaze.units[0].currentMP, 70)
   assert.equal(blaze.events.length, 1)
   assert.equal(blaze.events[0].impact.kind, 'fire')
+  assert.deepEqual([blaze.events[0].impact, ...blaze.events[0].additionalImpacts].map(({ element, burningTile }) => [element, burningTile]),
+    [['fire', { x: 2, y: 1 }], ['fire', { x: 3, y: 1 }]])
   assert.deepEqual([blaze.events[0].impact, ...blaze.events[0].additionalImpacts].map(({ target }) => target), [east.id, far.id])
   const burningState = { ...blaze, units: blaze.units.map((unit) =>
     unit.side === 'enemy' ? { ...unit, confusedUntil: blaze.round } : unit) }
@@ -474,6 +476,7 @@ test('strategy arts share terrain, damage, and status rules with their previews'
     [['northwest', 320], ['north', 390]])
   const rocks = cast('rockfall', north)
   assert.equal(rocks.events.length, 1)
+  assert.equal(rocks.events[0].impact.element, 'earth')
   assert.equal(rocks.events[0].impact.facing, 'up')
   assert.deepEqual([rocks.events[0].impact, ...rocks.events[0].additionalImpacts].map(({ target }) => target), [northwest.id, north.id])
   assert.equal(rocks.units.find(({ id }) => id === north.id).currentHP, 610)
@@ -483,6 +486,7 @@ test('strategy arts share terrain, damage, and status rules with their previews'
   caster.id = officers.find(({ name }) => name === '황충').id
   east.hp = east.currentHP = 3000
   const arrow = cast('fireArrow', east)
+  assert.equal(arrow.events[0].impact.element, 'fire')
   const afterArrow = arrow.units.find(({ id }) => id === east.id)
   assert.ok(arrow.burning.some(({ x, y }) => x === east.x && y === east.y))
   assert.ok(afterArrow.currentHP < east.currentHP)
@@ -490,6 +494,30 @@ test('strategy arts share terrain, damage, and status rules with their previews'
     unit.side === 'enemy' ? { ...unit, confusedUntil: arrow.round } : unit) }
   const afterBurn = playBattle(arrowBurning, { salve: 0, tonic: 0 }, { type: 'end' }).battle
   assert.equal(afterBurn.units.find(({ id }) => id === east.id).currentHP, afterArrow.currentHP - 150)
+})
+
+test('torrent previews and hits only water cells on both grids', () => {
+  for (const grid of [undefined, 'hex']) {
+    const battle = deploy().battle
+    const [caster, target, nearby, dry] = [
+      { ...battle.units.find(({ id }) => id === 'seo'), x: 1, y: 1, currentMP: 70, captain: true },
+      ...battle.units.filter(({ side }) => side === 'enemy'),
+    ]
+    Object.assign(target, { x: 2, y: 1 })
+    Object.assign(nearby, { x: 2, y: 0 })
+    Object.assign(dry, { x: 2, y: 2 })
+    Object.assign(battle, { grid, map: ['..j.', '..r.', '....'], units: [caster, target, nearby, dry] })
+    const cast = (recipient) => playBattle(battle, { salve: 0, tonic: 0 },
+      { type: 'warArt', art: 'torrent', unit: caster.id, target: recipient.id }).battle
+    assert.equal(cast(dry), battle)
+    const result = cast(target)
+    assert.equal(result.events.length, 1)
+    const { impact, additionalImpacts } = result.events[0]
+    assert.deepEqual([impact, ...additionalImpacts].map(({ element }) => element), ['water', 'water'])
+    assert.deepEqual(new Set([impact.target, additionalImpacts[0].target]), new Set([target.id, nearby.id]))
+    assert.equal(result.units.find(({ id }) => id === dry.id).currentHP, dry.currentHP)
+    assert.equal(result.burning, undefined)
+  }
 })
 
 test('support war arts change eligibility and cleanse full-health allies', () => {

@@ -11,10 +11,11 @@ export const warArts = {
   mountedShot: { name: '기사', troop: 'cavalry', damage: [95, 110, 125] },
   volley: { name: '제사', troop: 'ranged', damage: [150, 170, 190] },
   barrage: { name: '난사', troop: 'ranged', damage: [75, 85, 95] },
-  fireArrow: { name: '화시', troop: 'ranged', damage: [90, 100, 110] },
+  fireArrow: { name: '화시', troop: 'ranged', damage: [90, 100, 110], element: 'fire' },
   longShot: { name: '원사', troop: 'ranged', damage: [110, 125, 140] },
-  blaze: { name: '열화', strategy: true, damage: [80, 95, 110] },
-  rockfall: { name: '낙석', strategy: true, damage: [100, 115, 130] },
+  blaze: { name: '열화', strategy: true, damage: [80, 95, 110], element: 'fire' },
+  torrent: { name: '격류', strategy: true, damage: [80, 95, 110], element: 'water' },
+  rockfall: { name: '낙석', strategy: true, damage: [100, 115, 130], element: 'earth' },
   intercept: { name: '요격', strategy: true, damage: [90, 105, 120] },
   rally: { name: '분기', effect: 'self', amount: [10, 15, 20] },
   inspire: { name: '고무', effect: 'ally', amount: [5, 10, 15] },
@@ -23,6 +24,7 @@ export const warArts = {
 } as const
 
 export type WarArtId = keyof typeof warArts
+export type BattleElement = 'fire' | 'earth' | 'water'
 export type LearnedWarArt = { id: WarArtId; level: 1 | 2 | 3 }
 
 export function warArtWill(id: WarArtId) {

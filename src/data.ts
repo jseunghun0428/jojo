@@ -2,7 +2,7 @@ import { roleFor } from './unit-classes.ts'
 import type { Role } from './unit-classes.ts'
 import type { Facing } from './combat.ts'
 import type { JoProfile, JoStageDetails } from './jo-game.ts'
-import type { Grid } from './grid.ts'
+import type { BoardLayout, Grid } from './grid.ts'
 
 export const WIDTH = 12
 export const HEIGHT = 8
@@ -53,7 +53,7 @@ export const SALVE_HEAL = 20 * TROOP_SCALE
 
 export const items = {
   salve: { name: '상처약', detail: `병력 ${SALVE_HEAL} 회복`, price: 35 },
-  tonic: { name: '정신약', detail: '의지 8 회복', price: 45 },
+  tonic: { name: '정신약', detail: '사기 8 회복', price: 45 },
 }
 export type ItemId = keyof typeof items
 
@@ -115,7 +115,7 @@ treasureGroups.forEach(({ stat, names, amounts }) => names.forEach((name, i) => 
   treasures.push({ id: `${stat}-${i + 1}`, name, stat, amount: amounts[i], price: 65 + i * 15 })
 }))
 export const treasureById = Object.fromEntries(treasures.map((treasure) => [treasure.id, treasure]))
-export const statLabels = { hp: '최대 병력', mp: '최대 의지', attack: '공격', defense: '방어' }
+export const statLabels = { hp: '최대 병력', mp: '최대 사기', attack: '공격', defense: '방어' }
 
 const maps = [
   ['..ff...f..mm', '...f........', '....==..ff..', '...f..m..f..', '....f...=...', '..f...f.=...', '......f...m.', '...ff.......'],
@@ -164,10 +164,18 @@ const enemyNames = {
 
 export const enemyKindFor = (name: string): 'officer' | 'soldier' => /\d+$/.test(name) ? 'soldier' : 'officer'
 
+export type StageBoard = BoardLayout & { image?: string }
+export type StageUnit = Point & {
+  role: Role; name: string; jo?: JoProfile; facing?: Facing
+  levelOffset?: number; behavior?: number; enemyKind?: ReturnType<typeof enemyKindFor>
+}
 export type Stage = {
   number: number; name: string; map: readonly string[]; reward: number; tier: number
   grid?: Grid; deployment?: readonly Point[]
-  enemies: (Point & { role: Role; name: string; jo?: JoProfile; facing?: Facing; levelOffset?: number; behavior?: number; enemyKind?: ReturnType<typeof enemyKindFor> })[]
+  board?: StageBoard
+  enemyBehavior?: 0 | 1 | 2
+  enemies: StageUnit[]
+  guests?: StageUnit[]
   jo?: JoStageDetails
 }
 const defaultDeployment: readonly Point[] = [
@@ -175,7 +183,9 @@ const defaultDeployment: readonly Point[] = [
   { x: 2, y: 2 }, { x: 2, y: 5 }, { x: 1, y: 3 }, { x: 1, y: 4 },
   { x: 2, y: 1 }, { x: 2, y: 6 }, { x: 1, y: 1 }, { x: 1, y: 6 },
 ]
-export const stageDeployment = (stage: Stage) => stage.jo?.deployment ?? stage.deployment ?? defaultDeployment
+export const stageDeployment = (stage: Stage) => stage.deployment ?? stage.jo?.deployment ?? defaultDeployment
+export const stageGuests = (stage: Stage): readonly StageUnit[] => stage.guests ?? stage.jo?.guests ?? []
+export const stageImage = (stage: Stage) => stage.board ? stage.board.image : stage.jo?.image
 
 export const stages: Stage[] = stageNames.map((name, index) => {
   const chapter = Math.floor(index / maps.length)

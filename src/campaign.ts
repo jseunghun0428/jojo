@@ -187,7 +187,7 @@ export function campaignReducer(state: Campaign, action: Action, data: CampaignD
 
 function restoreBattleUnits(save: Campaign): Campaign {
   const battle = save.battle
-  if (!battle) return save
+  if (!battle || battle.board) return save
   const stage = webCampaign.stages[save.stage - 1]
   const renamed = new Map<string, string>()
   const units = battle.units.map((unit) => {

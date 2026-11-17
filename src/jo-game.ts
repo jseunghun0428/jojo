@@ -1,4 +1,4 @@
-import { FIELD_LIMIT, STAGE_COUNT, enemyKindFor, officerById, stages } from './data.ts'
+import { FIELD_LIMIT, STAGE_COUNT, enemyKindFor, officerById, stageDeployment, stages } from './data.ts'
 import type { Point, Stage } from './data.ts'
 import type { Facing } from './combat.ts'
 import type { Role } from './unit-classes.ts'
@@ -26,9 +26,9 @@ export type JoStageDetails = {
   image?: string; terrainNames: string[]; deployment: (Point & { facing: Facing })[]
   guests: JoUnit[]; reinforcements: JoUnit[]; objectives?: string[]
 }
-export type CampaignData = { stages: Stage[]; officers: Record<string, JoProfile>; source: 'web' | 'jo' }
+export type CampaignData = { stages: Stage[]; officers: Record<string, JoProfile>; source: 'web' | 'jo'; originals?: Stage[] }
 export const webCampaign: CampaignData = { stages, officers: {}, source: 'web' }
-export const fieldLimitFor = (stage: Stage) => Math.min(FIELD_LIMIT, stage.jo?.deployment.length ?? FIELD_LIMIT)
+export const fieldLimitFor = (stage: Stage) => Math.min(FIELD_LIMIT, stageDeployment(stage).length)
 const assetRoot = '/jo-game/'
 const terrainStart = 0x100
 export const joTerrainRow = (row: readonly number[]) => String.fromCharCode(...row.map((id) => terrainStart + id))

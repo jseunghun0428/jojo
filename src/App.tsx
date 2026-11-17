@@ -5,7 +5,7 @@ import type { CSSProperties, Dispatch } from 'react'
 import BattleMap from './BattleMap.tsx'
 import { LocalGraphicsContext, useLocalGraphics } from './local-graphics.ts'
 import { officerStatLabels } from './officer-attributes.ts'
-import { fieldLimitFor, joTerrainId, loadJoCampaign, webCampaign } from './jo-game.ts'
+import { fieldLimitFor, joTerrainId, webCampaign } from './jo-game.ts'
 import type { CampaignData, JoProfile } from './jo-game.ts'
 import { roles, troopClasses, troopClassFor } from './unit-classes.ts'
 import type { Role, TroopClass } from './unit-classes.ts'
@@ -14,9 +14,11 @@ import type { Action, Campaign } from './campaign.ts'
 import { FIRE_COST, attackCells, attributesOf, battleAttributes, canAttack, controlStatus, forecastAttack, hasTactics, key, movementCost, movementLimit, movementPath, movesFor, physicalStats, playBattle, strategyPreviews, terrainAt, unitAt, warArtArea, warArtCells, warArtEffect, warArtsFor } from './combat.ts'
 import type { Battle, BattleAction, Unit } from './combat.ts'
 import { startTrial, trialSetup } from './trial-battle.ts'
-import type { TrialSetup, TrialStageId } from './trial-battle.ts'
+import type { TrialSetup } from './trial-battle.ts'
 import type { Stage } from './data.ts'
-import { DRAFT_LIMIT, FIELD_LIMIT, STAGE_COUNT, TROOP_SCALE, items, officerById, starterIds, statLabels, terrains, treasureById } from './data.ts'
+import { DRAFT_LIMIT, FIELD_LIMIT, STAGE_COUNT, TROOP_SCALE, items, officerById, stageImage, starterIds, statLabels, terrains, treasureById } from './data.ts'
+import { campaignWithStages, loadStageCatalog, loadStageSources } from './stage-library.ts'
+import type { StageEntry } from './stage-library.ts'
 import type { ItemId, Point } from './data.ts'
 
 type ScreenProps = { state: Campaign; dispatch: Dispatch<Action>; data: CampaignData }
@@ -110,7 +112,7 @@ function FirstBattleLobby({ state, dispatch, data }: ScreenProps) {
     </section>
     <section className="panel preview-panel">
       <div className="panel-heading"><div><span className="eyebrow">전장 {stageNumber(1)}</span><h2>{stage.name}</h2></div><span className="tag">전장 미리보기</span></div>
-      <BattleMap map={stage.map} image={stage.jo?.image} />
+        <BattleMap map={stage.map} grid={stage.grid} image={stageImage(stage)} layout={stage.board} />
       {stage.jo && <p>이 전장의 출전 인원은 총대장을 포함해 최대 {fieldLimitFor(stage)}명입니다.</p>}
       <div className="preview-notes">
         <p><strong>승리</strong> {stage.jo?.objectives ? `${stage.jo.objectives.join('·')}을 격파하세요.` : '적군을 모두 격파하세요.'}</p>
@@ -136,7 +138,7 @@ function UnitDetails({ unit, map, terrainNames, grid }: { unit: Unit; map: reado
   return <div className="unit-details">
     <div className="unit-header"><RoleIcon role={unit.role} name={unit.name} /><div><strong>{unit.name}</strong><small>{unit.captain ? '총대장 · ' : unit.guest ? '우군 · ' : ''}<ClassLabel role={unit.role} jo={unit.jo} troopClass={unit.troopClass} />{terrainName && ` · ${terrainName}`}</small></div></div>
     <div className="meter"><span>병력</span><meter min={0} max={unit.hp} value={unit.currentHP} /><b>{unit.currentHP}/{unit.hp}</b></div>
-    {unit.mp > 0 && <div className="meter mp"><span>의지</span><meter min={0} max={unit.mp} value={unit.currentMP} /><b>{unit.currentMP}/{unit.mp}</b></div>}
+    {unit.mp > 0 && <div className="meter mp"><span>사기</span><meter min={0} max={unit.mp} value={unit.currentMP} /><b>{unit.currentMP}/{unit.mp}</b></div>}
     <OfficerAttributes attributes={battleAttributes(unit)} />
     {status && <p className="unit-stats">상태 · {status}</p>}
     <p className="unit-stats">레벨 {level} · 공격 {attack} · 방어 {defense} · 지형 {terrainPercent}%</p>
@@ -175,6 +177,8 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
     return () => window.clearTimeout(timer)
   }, [turnTransition, beforeAction, resolved, playing, dispatch])
   const stage = trialStage ?? data.stages[state.stage - 1]
+  const original = data.originals?.[state.stage - 1] ?? stage
+  const background = battle.board ? battle.board.image : stageImage(trialStage ?? original)
   const width = battle.map[0].length
   const height = battle.map.length
   const [selectedId, select] = useState('')
@@ -336,7 +340,7 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
       </div>
     </div>
     <div className="battle-board">
-      <BattleMap map={battle.map} grid={battle.grid} image={stage.jo?.image} units={battle.units} selected={focusedId} moves={moves} range={range} path={path} targets={targets} affected={affected} burning={battle.burning}
+          <BattleMap map={battle.map} grid={battle.grid} image={background} layout={battle.board} units={battle.units} selected={focusedId} moves={moves} range={range} path={path} targets={targets} affected={affected} burning={battle.burning}
         events={events}
         followAction={turnTransition === 'enemy'}
         onTurnBoundary={turnTransition === 'enemy' ? (banner, enemy) => setEnemyPlayback(banner ? 1 : enemy ? 2 : 0) : undefined}
@@ -360,9 +364,9 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
       >
         <strong>{mode === 'items' ? '도구' : mode === 'tactics' ? '책략' : mode === 'warArts' ? '전법' : active.name}</strong>
         {mode === 'warArts' ? <>
-          <span className="field-menu-note">의지 {active.currentMP}</span>
+          <span className="field-menu-note">사기 {active.currentMP}</span>
           {learnedArts.map(({ id, level, used, available }) => <button key={id} disabled={!available}
-            onClick={() => setSelectedArt(id)}>{warArts[id].name} Lv.{level} · 의지 {warArtWill(id)} 이상 · {used ? '사용 완료' : '미사용'}</button>)}
+            onClick={() => setSelectedArt(id)}>{warArts[id].name} Lv.{level} · 사기 {warArtWill(id)} 이상 · {used ? '사용 완료' : '미사용'}</button>)}
           <button onClick={cancel}>돌아가기</button>
         </> : mode === 'items' ? <>
           {ownedItems.length === 0 && <span className="field-menu-note">보유 도구 없음</span>}
@@ -374,7 +378,7 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
             }}>{items[id].name} ×{state.inventory[id]}</button>)}
           <button onClick={cancel}>돌아가기</button>
         </> : mode === 'tactics' ? <>
-          <button disabled={!spells.length} onClick={() => setMode('fire')}>화계 · 의지 {FIRE_COST}</button>
+          <button disabled={!spells.length} onClick={() => setMode('fire')}>화계 · 사기 {FIRE_COST}</button>
           <button onClick={cancel}>돌아가기</button>
         </> : <>
           <button disabled={!attacks.length} onClick={() => setMode('attack')}>공격</button>
@@ -408,7 +412,7 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
       {selected ? <UnitDetails unit={selected} map={battle.map} terrainNames={stage.jo?.terrainNames} grid={battle.grid} /> : <div className="battle-objective"><strong>승리 조건</strong><span>{objective}</span><strong>패배 조건</strong><span>총대장 전사</span></div>}
       <div className="terrain-status">
         <strong>지형 {terrainName ?? '—'}{tileBurning && ' · 화계'}</strong>
-        {support && target && 'will' in support && <span>{target.name} · 의지 {support.will! > 0 ? '+' : ''}{support.will}</span>}
+        {support && target && 'will' in support && <span>{target.name} · 사기 {support.will! > 0 ? '+' : ''}{support.will}</span>}
         {support && target && 'hp' in support && <span>{target.name} · 병력 +{support.hp}{controlStatus(target) && ' · ' + controlStatus(target) + ' 해제'}</span>}
         {strategy.map(({ foe, damage, confusion }) => <span key={foe.id}>{foe.name} · 피해 {damage}{confusion !== undefined && ` · 혼란 ${confusion}%`}</span>)}
         {forecast && target && <span>{target.name} · 예상 피해 {forecast.damage} · 명중 {forecast.hit}%{forecast.counter ? ' · 반격 가능' : ''}</span>}
@@ -436,7 +440,7 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
       </form>
     </dialog>
     {showLog && <section className="battle-history" aria-label="전투 기록">
-      <ol>{[...battle.log].reverse().map((line, index) => <li key={index}>{line}</li>)}</ol>
+      <ol>{[...battle.log].reverse().map((line, index) => <li key={index}>{line.replaceAll(' 의지 ', ' 사기 ')}</li>)}</ol>
     </section>}
   </section>
 }
@@ -518,7 +522,7 @@ function Camp({ state, dispatch, data }: ScreenProps) {
   </div>
 }
 
-function TrialBattle({ setup, onExit }: { setup: TrialSetup; onExit: () => void }) {
+export function TrialBattle({ setup, onExit, exitLabel = '스테이지 선택으로' }: { setup: TrialSetup; onExit: () => void; exitLabel?: string }) {
   const [run, setRun] = useState(0)
   const [state, dispatch] = useReducer((state: Campaign, action: Action): Campaign => {
     if (action.type === 'retry') return startTrial(setup)
@@ -531,7 +535,7 @@ function TrialBattle({ setup, onExit }: { setup: TrialSetup; onExit: () => void 
   }
   return <main className="battle-main trial-main">
     <div className="trial-toolbar">
-      <button className="secondary" onClick={onExit}>스테이지 선택으로</button>
+      <button className="secondary" onClick={onExit}>{exitLabel}</button>
       <button className="secondary" onClick={restart}>다시 시작</button>
     </div>
     <BattleScreen key={run} state={state} dispatch={(action) => action.type === 'retry' ? restart() : dispatch(action)}
@@ -539,20 +543,27 @@ function TrialBattle({ setup, onExit }: { setup: TrialSetup; onExit: () => void 
   </main>
 }
 
-function TrialScreen({ initial, jo, onExit }: { initial: CampaignData; jo?: CampaignData; onExit: () => void }) {
+function TrialScreen({ initial, web, jo, entries, onExit }: { initial: CampaignData; web: CampaignData; jo?: CampaignData; entries: StageEntry[]; onExit: () => void }) {
   const [source, setSource] = useState(initial.source)
-  const [stageId, setStageId] = useState<TrialStageId>(initial.stages[0].number)
+  const [stageId, setStageId] = useState<number | string>(initial.stages[0].number)
   const [playing, setPlaying] = useState<TrialSetup>()
-  const data = source === 'jo' && jo ? jo : webCampaign
+  const data = source === 'jo' && jo ? jo : web
   if (playing) return <TrialBattle setup={playing} onExit={() => setPlaying(undefined)} />
-  const square = trialSetup(data, stageId, 'square')
-  const hex = trialSetup(data, stageId, 'hex')
+  const saved = entries.find(({ id }) => id === stageId)
+  const savedSetup = saved && { stage: saved.stage, data: saved.source === 'jo' && jo ? jo : web,
+    sandbox: saved.id === 'sandbox' ? true as const : undefined }
+  const alternate = typeof stageId === 'number' && data.source === 'jo' && stageId === 1
+    ? entries.find(({ id }) => id === 'jo-hex:1') : undefined
+  const square = savedSetup ? (savedSetup.stage.grid !== 'hex' ? savedSetup : undefined)
+    : typeof stageId === 'number' ? trialSetup(data, stageId, 'square') : undefined
+  const hex = savedSetup ? (savedSetup.stage.grid === 'hex' ? savedSetup : undefined)
+    : alternate ? { stage: alternate.stage, data } : typeof stageId === 'number' || stageId === 'sandbox' ? trialSetup(data, stageId, 'hex') : undefined
   return <main className="title-screen">
     <section className="panel trial-panel" aria-labelledby="trial-title">
       <h1 id="trial-title">시험 전투</h1>
       <label>원정
         <select value={data.source} onChange={(event) => {
-          const next = event.currentTarget.value === 'jo' && jo ? jo : webCampaign
+          const next = event.currentTarget.value === 'jo' && jo ? jo : web
           setSource(next.source)
           setStageId(next.stages[0].number)
         }}>
@@ -563,10 +574,12 @@ function TrialScreen({ initial, jo, onExit }: { initial: CampaignData; jo?: Camp
       <label>스테이지
         <select value={stageId} size={8} onChange={(event) => {
           const value = event.currentTarget.value
-          setStageId(value === 'sandbox' ? value : Number(value))
+          setStageId(/^\d+$/.test(value) ? Number(value) : value)
         }}>
           {data.stages.map(({ number, name }) => <option key={number} value={number}>{stageNumber(number)} · {name}</option>)}
-          <option value="sandbox">육각 전장 시험 (9×7)</option>
+          <option value="sandbox">{entries.find(({ id }) => id === 'sandbox')?.stage.name ?? '육각 전장 시험 (9×7)'}</option>
+          {entries.filter((entry) => (entry.source === data.source || !jo) && entry.id.startsWith('custom:'))
+            .map(({ id, stage }) => <option key={id} value={id}>{stage.name}</option>)}
         </select>
       </label>
       <div className="trial-actions" aria-label="전장 버전">
@@ -578,7 +591,7 @@ function TrialScreen({ initial, jo, onExit }: { initial: CampaignData; jo?: Camp
   </main>
 }
 
-function CampaignScreen({ data, jo, switchCampaign }: { data: CampaignData; jo?: CampaignData; switchCampaign?: () => void }) {
+function CampaignScreen({ data, web, jo, entries, switchCampaign }: { data: CampaignData; web: CampaignData; jo?: CampaignData; entries: StageEntry[]; switchCampaign?: () => void }) {
   const [state, dispatch] = useReducer((state: Campaign, action: Action) => campaignReducer(state, action, data), data.source, loadCampaign)
   const [view, setView] = useState<'title' | 'settings' | 'campaign' | 'trial'>('title')
   const hasProgress = state.phase !== 'draft' || state.roster.length > 0
@@ -586,7 +599,7 @@ function CampaignScreen({ data, jo, switchCampaign }: { data: CampaignData; jo?:
     if (view === 'campaign') saveCampaign(state, data.source)
   }, [state, data.source, view])
 
-  if (import.meta.env.DEV && view === 'trial') return <TrialScreen initial={data} jo={jo} onExit={() => setView('title')} />
+  if (import.meta.env.DEV && view === 'trial') return <TrialScreen initial={data} web={web} jo={jo} entries={entries} onExit={() => setView('title')} />
   if (view !== 'campaign') return <main className="title-screen">
     <section className="panel title-panel" aria-labelledby="title-heading">
       <span className="seal" aria-hidden="true">鐵</span>
@@ -639,21 +652,27 @@ function CampaignScreen({ data, jo, switchCampaign }: { data: CampaignData; jo?:
 
 export default function App() {
   const localGraphics = useLocalGraphics()
+  const [web, setWeb] = useState(webCampaign)
   const [jo, setJo] = useState<CampaignData>()
+  const [entries, setEntries] = useState<StageEntry[]>([])
   const [loaded, setLoaded] = useState(!import.meta.env.DEV)
   const [showWeb, setShowWeb] = useState(false)
   const [error, setError] = useState('')
   useEffect(() => {
     if (!import.meta.env.DEV) return
-    void loadJoCampaign().then((data) => {
-      if (data.source === 'jo') setJo(data)
-    }).catch(() => setError('신조조전 전장 데이터를 읽지 못했습니다. 가져오기를 다시 실행해 주세요.'))
-      .finally(() => setLoaded(true))
+    void Promise.allSettled([loadStageSources(), loadStageCatalog()]).then(([sources, catalog]) => {
+      const saved = catalog.status === 'fulfilled' ? catalog.value.entries : []
+      setEntries(saved)
+      setWeb(campaignWithStages(webCampaign, saved))
+      if (sources.status === 'fulfilled' && sources.value.jo) setJo(campaignWithStages(sources.value.jo, saved))
+      setError([sources.status === 'fulfilled' && sources.value.warning,
+        catalog.status === 'rejected' && '편집한 스테이지를 불러오지 못했습니다. 기본 스테이지를 사용합니다.'].filter(Boolean).join(' '))
+    }).finally(() => setLoaded(true))
   }, [])
   if (!loaded) return <main><p role="status">전장 불러오는 중…</p></main>
-  const data = !showWeb && jo ? jo : webCampaign
+  const data = !showWeb && jo ? jo : web
   return <LocalGraphicsContext.Provider value={localGraphics}>
     {error && <p role="alert">{error}</p>}
-    <CampaignScreen key={data.source} data={data} jo={jo} switchCampaign={jo && (() => setShowWeb(!showWeb))} />
+    <CampaignScreen key={data.source} data={data} web={web} jo={jo} entries={entries} switchCampaign={jo && (() => setShowWeb(!showWeb))} />
   </LocalGraphicsContext.Provider>
 }
