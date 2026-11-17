@@ -53,6 +53,9 @@ export const troopClasses = {
 
 export type TroopClass = keyof typeof troopClasses
 
+export const troopSpecialtyNames = { infantry: '보장', cavalry: '기장', ranged: '궁장', siege: '조기' } as const
+export type TroopSpecialties = Partial<Record<TroopClass, 1 | 2 | 3>>
+
 const troopClassByRole: Partial<Record<Role, TroopClass>> = {
   strategist: 'infantry',
   tactician: 'infantry',

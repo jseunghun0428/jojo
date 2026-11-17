@@ -1,3 +1,5 @@
+import { navalLessons, navalTraining, resolveDeployment, ships, siegeEquipment } from './deployments.ts'
+import type { Loadout } from './deployments.ts'
 import { warArtWill, warArts } from './war-arts.ts'
 import type { WarArtId } from './war-arts.ts'
 import { useContext, useEffect, useReducer, useRef, useState } from 'react'
@@ -7,11 +9,11 @@ import { LocalGraphicsContext, useLocalGraphics } from './local-graphics.ts'
 import { officerStatLabels } from './officer-attributes.ts'
 import { fieldLimitFor, joTerrainId, webCampaign } from './jo-game.ts'
 import type { CampaignData, JoProfile } from './jo-game.ts'
-import { roles, troopClasses, troopClassFor } from './unit-classes.ts'
+import { roles, troopClasses, troopClassFor, troopSpecialtyNames } from './unit-classes.ts'
 import type { Role, TroopClass } from './unit-classes.ts'
-import { awardExperience, campaignReducer, draftCost, loadCampaign, saveCampaign } from './campaign.ts'
+import { campaignReducer, draftCost, initialProgression, loadCampaign, requiredShipIds, saveCampaign, settleClear } from './campaign.ts'
 import type { Action, Campaign } from './campaign.ts'
-import { FIRE_COST, attackCells, attributesOf, battleAttributes, canAttack, controlStatus, forecastAttack, hasTactics, key, movementCost, movementLimit, movementPath, movesFor, physicalStats, playBattle, strategyPreviews, terrainAt, unitAt, warArtArea, warArtCells, warArtEffect, warArtsFor } from './combat.ts'
+import { FIRE_COST, attackCells, attributesOf, battleAttributes, canAttack, controlStatus, deploymentPreviews, forecastAttack, hasTactics, key, movementCost, movementLimit, movementPath, movesFor, physicalStats, playBattle, strategyPreviews, terrainAt, troopArtPreviews, unitAt, warArtArea, warArtCells, warArtEffect, warArtsFor } from './combat.ts'
 import type { Battle, BattleAction, Unit } from './combat.ts'
 import { startTrial, trialSetup } from './trial-battle.ts'
 import type { TrialSetup } from './trial-battle.ts'
@@ -44,10 +46,10 @@ function OfficerAttributes({ attributes }: { attributes: readonly number[] }) {
   </small>
 }
 
-function TroopFilter({ value, onChange }: { value: TroopClass | ''; onChange: (value: TroopClass | '') => void }) {
+function TroopFilter({ value, onChange, landOnly }: { value: TroopClass | ''; onChange: (value: TroopClass | '') => void; landOnly?: boolean }) {
   return <select aria-label="병종 필터" value={value} onChange={(event) => onChange(event.target.value as TroopClass | '')}>
     <option value="">전체 병종</option>
-    {Object.entries(troopClasses).map(([id, name]) => <option key={id} value={id}>{name}</option>)}
+    {Object.entries(troopClasses).filter(([id]) => !landOnly || id !== 'siege').map(([id, name]) => <option key={id} value={id}>{name}</option>)}
   </select>
 }
 
@@ -59,9 +61,10 @@ function Draft({ state, dispatch, data }: ScreenProps) {
         <div><h1>최초 장수 편성</h1><p>장수를 고르고 총대장을 지정하세요.</p></div>
         <strong className="counter">코스트 <b>{cost}</b> / {DRAFT_LIMIT}</strong>
       </div>
-      <TroopFilter value={troopFilter} onChange={setTroopFilter} />
+      <TroopFilter value={troopFilter} onChange={setTroopFilter} landOnly={data.source === 'jo'} />
       <div className="draft-grid">
-        {starterIds.filter((id) => !troopFilter || troopClassFor(officerById[id].role, data.officers[id]?.classId) === troopFilter).map((id) => {
+        {starterIds.filter((id) => !troopFilter || (data.source === 'jo' ? resolveDeployment(officerById[id].role, data.officers[id]?.classId, state.troopClasses?.[id]).troopClass
+          : troopClassFor(officerById[id].role, data.officers[id]?.classId)) === troopFilter).map((id) => {
           const officer = officerById[id]
           const active = state.roster.includes(id)
           const captain = state.captain === id
@@ -87,13 +90,38 @@ function Draft({ state, dispatch, data }: ScreenProps) {
 
 function TroopClassSelect({ id, state, dispatch, data }: ScreenProps & { id: string }) {
   const officer = officerById[id]
-  const selected = state.troopClasses?.[id] ?? troopClassFor(officer.role, data.officers[id]?.classId)
-  return <select aria-label={`${officer.name} 병종 변경`} value={selected} onChange={(event) =>
+  const deployment = resolveDeployment(officer.role, data.officers[id]?.classId, state.troopClasses?.[id], state.loadouts?.[id])
+  const selected = data.source === 'jo' ? deployment.troopClass : state.troopClasses?.[id] ?? troopClassFor(officer.role, data.officers[id]?.classId)
+  const loadout = deployment.loadout ?? {}
+  const setLoadout = (value: Loadout) => dispatch({ type: 'loadout', id, loadout: value })
+  return <><select aria-label={`${officer.name} 병종 변경`} value={selected} onChange={(event) =>
     dispatch({ type: 'changeTroopClass', id, troopClass: event.target.value as TroopClass })}>
     {selected === 'siege' && <option value="siege" disabled>{troopClasses.siege}</option>}
     {Object.entries(troopClasses).filter(([value]) => value !== 'siege')
       .map(([value, name]) => <option key={value} value={value}>{name}</option>)}
   </select>
+    {officer.specialties ? <div>
+      {Object.entries(officer.specialties).map(([troop, level]) => (
+        <div key={troop}>{troopSpecialtyNames[troop as TroopClass]} Lv.{level} · {troop === 'siege' && data.source === 'jo' ? (loadout.siege ? '병기 전법에 발동' : '미발동') : troop === selected ? '발동' : '미발동'}</div>
+      ))}
+    </div> : <div>병과 특기 없음</div>}
+    {data.source === 'jo' && <div>
+      <select aria-label={`${officer.name} 병기 편제`} value={loadout.siege ?? ''}
+        onChange={(event) => setLoadout({ ...loadout, siege: (event.target.value || undefined) as Loadout['siege'] })}>
+        <option value="">병기 없음</option>
+        {Object.entries(siegeEquipment).map(([key, item]) => <option key={key} value={key}>{item.name}</option>)}
+      </select>
+      <select aria-label={`${officer.name} 함선 편제`} value={loadout.ship ?? ''}
+        onChange={(event) => setLoadout({ ...loadout, ship: (event.target.value || undefined) as Loadout['ship'] })}>
+        <option value="">함선 없음</option>
+        {Object.entries(ships).map(([key, item]) => <option key={key} value={key}>{item.name}</option>)}
+      </select>
+      {loadout.siege && <div>병기 전법 · {siegeEquipment[loadout.siege].name}</div>}
+      {loadout.ship && <div>함선 지원 · {ships[loadout.ship].arts.map((art) => warArts[art].name).join('·')}</div>}
+      {navalTraining[officer.name] && <div>수련 Lv.{navalTraining[officer.name]} · 수상에서 발동</div>}
+      {navalLessons[officer.name] && <div>습득 함선 전법 · {navalLessons[officer.name]?.map(({ id, level }) => warArts[id].name + ' Lv.' + level).join('·')}</div>}
+    </div>}
+  </>
 }
 
 function FirstBattleLobby({ state, dispatch, data }: ScreenProps) {
@@ -136,7 +164,7 @@ function UnitDetails({ unit, map, terrainNames, grid }: { unit: Unit; map: reado
   const terrainId = joTerrainId(map, unit)
   const terrainName = terrainId === undefined ? terrain && terrains[terrain].name : terrainNames?.[terrainId]
   return <div className="unit-details">
-    <div className="unit-header"><RoleIcon role={unit.role} name={unit.name} /><div><strong>{unit.name}</strong><small>{unit.captain ? '총대장 · ' : unit.guest ? '우군 · ' : ''}<ClassLabel role={unit.role} jo={unit.jo} troopClass={unit.troopClass} />{terrainName && ` · ${terrainName}`}</small></div></div>
+    <div className="unit-header"><RoleIcon role={unit.role} name={unit.name} /><div><strong>{unit.name}</strong><small>{unit.captain ? '총대장 · ' : unit.guest ? '우군 · ' : ''}<ClassLabel role={unit.role} jo={unit.jo} troopClass={unit.troopClass} />{unit.afloat && unit.loadout?.ship && ' · 수상 ' + ships[unit.loadout.ship].name}{terrainName && ` · ${terrainName}`}</small></div></div>
     <div className="meter"><span>병력</span><meter min={0} max={unit.hp} value={unit.currentHP} /><b>{unit.currentHP}/{unit.hp}</b></div>
     {unit.mp > 0 && <div className="meter mp"><span>사기</span><meter min={0} max={unit.mp} value={unit.currentMP} /><b>{unit.currentMP}/{unit.mp}</b></div>}
     <OfficerAttributes attributes={battleAttributes(unit)} />
@@ -150,7 +178,7 @@ type CommandMode = 'attack' | 'tactics' | 'fire' | 'items' | 'warArts' | null
 
 function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { trialStage?: Stage }) {
   const resolved = state.battle!
-  const earnedExperience = Object.entries(resolved.experience?.earned ?? {})
+  const clear = trialStage ? undefined : settleClear(state, data).clearResult
   const [beforeAction, setBeforeAction] = useState<Battle | null>(null)
   const [enemyPlayback, setEnemyPlayback] = useState(0)
   const [turnTransition, setTurnTransition] = useState<'enemy-banner' | 'enemy' | 'ally-banner' | null>(null)
@@ -201,14 +229,17 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
   const learnedArts = active?.moved ? warArtsFor(active).map((art) => {
     const used = active.usedWarArts?.includes(art.id)
     const available = warArtCells(battle, active, art.id).some((point) => {
+      if ('platform' in warArts[art.id]) return deploymentPreviews(battle, active, art.id, point).length > 0
       const target = unitAt(battle, point)
       return target && warArtEffect(active, target, art.id)
     })
     return { ...art, used, available }
   }) : []
-  const artRange = active && selectedArt ? new Set(warArtCells(battle, active, selectedArt).map(key)) : null
+  const platformArt = selectedArt && 'platform' in warArts[selectedArt]
+  const artRange = active && selectedArt ? new Set(warArtCells(battle, active, selectedArt)
+    .filter((point) => !platformArt || deploymentPreviews(battle, active, selectedArt, point).length > 0).map(key)) : null
   const range = artRange ?? new Set(active?.moved ? attackCells(active, mode === 'fire', battle.map, battle.grid).map(key) : [])
-  const targets = new Set((artRange && active && selectedArt ? battle.units.filter((unit) => artRange.has(key(unit)) && warArtEffect(active, unit, selectedArt)) : mode === 'fire' ? spells : attacks).map(({ id }) => id))
+  const targets = new Set((artRange && active && selectedArt ? battle.units.filter((unit) => !platformArt && artRange.has(key(unit)) && warArtEffect(active, unit, selectedArt)) : mode === 'fire' ? spells : attacks).map(({ id }) => id))
   const ownedItems = itemIds.filter((id) => state.inventory[id] > 0)
   const tile = hovered ?? inspected ?? selected
   const terrainCode = tile && terrainAt(battle.map, tile)
@@ -232,10 +263,12 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
   const objective = battle.objectives ? `${battle.objectives.join('·')} 격파` : '적군 전멸'
   const targeting = !!selectedArt || mode === 'attack' || mode === 'fire'
   const target = targeting && tile ? unitAt(battle, tile) : undefined
-  const affected = active && selectedArt && target && targets.has(target.id)
-    ? new Set(warArtArea(battle, active, selectedArt, target).map(key)) : undefined
+  const deploymentForecast = active && selectedArt && platformArt && tile ? deploymentPreviews(battle, active, selectedArt, tile) : []
+  const affected = active && selectedArt && tile && (deploymentForecast.length || (target && targets.has(target.id)))
+    ? new Set(warArtArea(battle, active, selectedArt, tile).map(key)) : undefined
   const support = active && selectedArt && target && targets.has(target.id) ? warArtEffect(active, target, selectedArt) : null
   const strategy = active && selectedArt && target ? strategyPreviews(battle, active, selectedArt, target) : []
+  const troopArt = active && selectedArt && target ? troopArtPreviews(battle, active, selectedArt, target) : []
   const forecast = !selectedArt && active && target && targets.has(target.id)
     ? forecastAttack(battle, active, target, mode === 'fire' ? 'fire' : 'attack') : null
 
@@ -275,13 +308,18 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
 
   function onCell(point: Point) {
     const unit = unitAt(battle, point)
+    if (active && selectedArt && platformArt && artRange?.has(key(point))) {
+      playAction({ type: 'warArt', art: selectedArt, unit: active.id, target: point })
+      setSelectedArt(null)
+      return
+    }
     if (pendingMove && unit?.side === 'ally' && unit.id !== pendingMove.unit
       && !(selectedArt && targets.has(unit.id))) {
       cancelMove(unit.id)
       return
     }
     if (targeting) {
-      if (!active || !unit || !targets.has(unit.id)) return
+      if (platformArt || !active || !unit || !targets.has(unit.id)) return
       playAction(selectedArt ? { type: 'warArt', art: selectedArt, unit: active.id, target: unit.id }
         : { type: mode === 'fire' ? 'fire' : 'attack', unit: active.id, target: unit.id })
       setSelectedArt(null)
@@ -393,12 +431,13 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
           <span>{stage.name}</span>
           <h2>{battle.result === 'win' ? '승리' : '패배'}</h2>
           <p>{battle.result === 'win' ? (trialStage ? objective : `${objective} · 보상 ${stage.reward} G`) : '총대장이 쓰러졌습니다.'}</p>
-          {battle.result === 'win' && earnedExperience.length > 0 && <ul className="experience-results" aria-label="장수별 성장">
-            {earnedExperience.map(([id, xp]) => {
-              const current = state.growth?.[id] ?? { level: Math.max(1, data.officers[id]?.level ?? 1), xp: 0 }
-              const next = awardExperience(current, xp)
-              return <li key={id}>{officerById[id].name} · +{xp} XP{next.level > current.level && ` · Lv.${current.level} → Lv.${next.level}`}</li>
-            })}
+          {battle.result === 'win' && clear && <ul className="experience-results" aria-label="클리어 점수">
+            <li>클리어 기본 {clear.basePoints}점</li>
+            <li>일반 병사 격파 {clear.soldierPoints}점</li>
+            <li>장수 격파 {clear.officerPoints}점</li>
+            <li>남은 턴 보너스 {clear.turnPoints}점</li>
+            <li>총 획득 {clear.xp} XP</li>
+            <li>통합 Lv.{clear.fromLevel} → Lv.{clear.toLevel}</li>
           </ul>}
           {trialStage
             ? <button className="classic-button" onClick={() => { choose(''); dispatch({ type: 'retry' }) }}>시험 전투 다시 시작</button>
@@ -414,6 +453,8 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
         <strong>지형 {terrainName ?? '—'}{tileBurning && ' · 화계'}</strong>
         {support && target && 'will' in support && <span>{target.name} · 사기 {support.will! > 0 ? '+' : ''}{support.will}</span>}
         {support && target && 'hp' in support && <span>{target.name} · 병력 +{support.hp}{controlStatus(target) && ' · ' + controlStatus(target) + ' 해제'}</span>}
+        {deploymentForecast.map(({ foe, damage, pin }) => <span key={foe.id}>{foe.name}{foe.id.startsWith('structure-') && ' ' + foe.currentHP + '/' + foe.hp} · 피해 {damage}{pin !== undefined && ' · 저지 ' + pin + '%'}</span>)}
+        {troopArt.map(({ foe, damage, hits }) => <span key={foe.id}>{foe.name} · 피해 {damage}{hits > 1 && ` × ${hits}타`}</span>)}
         {strategy.map(({ foe, damage, confusion }) => <span key={foe.id}>{foe.name} · 피해 {damage}{confusion !== undefined && ` · 혼란 ${confusion}%`}</span>)}
         {forecast && target && <span>{target.name} · 예상 피해 {forecast.damage} · 명중 {forecast.hit}%{forecast.counter ? ' · 반격 가능' : ''}</span>}
         {terrainName && <span>{moveCost === null ? '통과 불가' : `이동 비용 ${moveCost}`}</span>}
@@ -424,10 +465,6 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
       {mode && !battle.result && <button className="classic-button" onClick={cancel}>명령 취소</button>}
       <span className="battle-ready">행동 가능 {ready}명</span>
     </footer>
-    {!battle.result && earnedExperience.length > 0 && <details className="battle-history">
-      <summary>이번 전투 획득 경험치</summary>
-      <ul>{earnedExperience.map(([id, xp]) => <li key={id}>{officerById[id].name} · +{xp} XP</li>)}</ul>
-    </details>}
     <dialog ref={turnPrompt} className="result-card turn-prompt" aria-labelledby="turn-prompt-title"
       onKeyDown={(event) => event.stopPropagation()}>
       <h2 id="turn-prompt-title">아군 턴을 종료할까요?</h2>
@@ -452,20 +489,24 @@ function Camp({ state, dispatch, data }: ScreenProps) {
   const firstBattle = state.phase === 'draft'
   const atEnd = !firstBattle && state.stage === STAGE_COUNT
   const nextStage = data.stages[firstBattle ? 0 : state.stage]
+  const { level, xp } = state.progression ?? initialProgression
+  const needsShips = nextStage ? requiredShipIds(state, nextStage, data) : []
   return <div className="panel camp-panel">
     <div className="panel-heading camp-heading">
       <div>{!firstBattle && <span className="eyebrow">전장 {stageNumber(state.stage)} 승리</span>}<h2>야영지</h2>
         <p>{atEnd ? '원정을 마쳤습니다.' : `${firstBattle ? '첫 전장' : '다음 전장'} · ${stageNumber(nextStage.number)} ${nextStage.name}`}</p>
+        {data.source === 'jo' && <p>통합 Lv.{level} · {xp} / {level * 100} XP</p>}
+        {needsShips.length > 0 && <p role="status">수상 출전 위치에 함선 필요 · {needsShips.map((id) => officerById[id].name).join('·')}</p>}
         {nextStage?.jo && <p>다음 전장 출전 한도 {fieldLimitFor(nextStage)}명 · 총대장 우선, 편성 순서대로 출전</p>}
       </div>
-      <button className="primary" onClick={() => dispatch({ type: 'deploy' })}>{firstBattle ? '첫 전투 출전' : atEnd ? '원정 마치기' : '다음 전장 출전'} →</button>
+      <button className="primary" disabled={needsShips.length > 0} onClick={() => dispatch({ type: 'deploy' })}>{firstBattle ? '첫 전투 출전' : atEnd ? '원정 마치기' : '다음 전장 출전'} →</button>
     </div>
     {firstBattle ? <FirstBattleLobby {...{ state, dispatch, data }} /> : <>
     <div className="camp-tabs" role="group" aria-label="야영지 메뉴">
       <button aria-pressed={tab === 'shop'} onClick={() => setTab('shop')}>대기 상점</button>
       <button aria-pressed={tab === 'lineup'} onClick={() => setTab('lineup')}>출전 편성 · {state.lineup.length}/{FIELD_LIMIT}</button>
     </div>
-    <TroopFilter value={troopFilter} onChange={setTroopFilter} />
+    <TroopFilter value={troopFilter} onChange={setTroopFilter} landOnly={data.source === 'jo'} />
     {tab === 'shop' ? <div className="shop-grid">
       <section className="shop-group">
         <h3>장수 영입 <span>{state.offers.officers.length}명</span></h3>
@@ -507,7 +548,7 @@ function Camp({ state, dispatch, data }: ScreenProps) {
         const deployed = state.lineup.includes(id)
         const available = state.treasures.filter((treasure) => state.equipment[id] === treasure || !Object.values(state.equipment).includes(treasure))
         return <div className="lineup-row" key={id}>
-          <div className="unit-header"><RoleIcon role={officer.role} name={officer.name} /><div><strong>{officer.name}</strong><small><ClassLabel role={officer.role} jo={data.officers[id]} troopClass={state.troopClasses?.[id]} /></small><OfficerAttributes attributes={attributesOf({ name: officer.name, player: true })} /></div></div>
+          <div className="unit-header"><RoleIcon role={officer.role} name={officer.name} /><div><strong>{officer.name}</strong><small><ClassLabel role={officer.role} jo={data.officers[id]} troopClass={data.source === 'jo' ? resolveDeployment(officer.role, data.officers[id]?.classId, state.troopClasses?.[id]).troopClass : state.troopClasses?.[id]} /></small><OfficerAttributes attributes={attributesOf({ name: officer.name, player: true })} /></div></div>
           <label><input type="checkbox" checked={deployed} disabled={captain || (!deployed && state.lineup.length >= FIELD_LIMIT)} onChange={() => dispatch({ type: 'lineup', id })} /> 출전</label>
           <button className="secondary" disabled={captain || (!deployed && state.lineup.length >= FIELD_LIMIT)} onClick={() => dispatch({ type: 'captain', id })}>{captain ? '◆ 총대장' : '총대장 지정'}</button>
           <TroopClassSelect {...{ id, state, dispatch, data }} />

@@ -1,6 +1,9 @@
+import { deploymentArts } from './deployments.ts'
+
 export const WAR_ART_WILL = 70
 
 export const warArts = {
+  ...deploymentArts,
   heavyStrike: { name: '강격', troop: 'infantry', damage: [150, 170, 190] },
   sweep: { name: '난격', troop: 'infantry', damage: [80, 90, 100] },
   disrupt: { name: '교란', troop: 'infantry', damage: [100, 110, 120] },

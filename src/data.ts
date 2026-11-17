@@ -1,5 +1,5 @@
 import { roleFor } from './unit-classes.ts'
-import type { Role } from './unit-classes.ts'
+import type { Role, TroopSpecialties } from './unit-classes.ts'
 import type { Facing } from './combat.ts'
 import type { JoProfile, JoStageDetails } from './jo-game.ts'
 import type { BoardLayout, Grid } from './grid.ts'
@@ -57,11 +57,11 @@ export const items = {
 }
 export type ItemId = keyof typeof items
 
-export type Officer = { id: string; name: string; role: Role; cost: number; price: number; bonus: number }
+export type Officer = { id: string; name: string; role: Role; cost: number; price: number; bonus: number; specialties?: TroopSpecialties }
 export const officers: Officer[] = [
-  { id: 'yeon', name: '조조', role: roleFor('조조'), cost: 3, price: 80, bonus: 0 },
-  { id: 'ha', name: '관우', role: roleFor('관우'), cost: 3, price: 80, bonus: 0 },
-  { id: 'jin', name: '하후연', role: roleFor('하후연'), cost: 2, price: 70, bonus: 0 },
+  { id: 'yeon', name: '조조', role: roleFor('조조'), cost: 3, price: 80, bonus: 0, specialties: { infantry: 2, siege: 1 } },
+  { id: 'ha', name: '관우', role: roleFor('관우'), cost: 3, price: 80, bonus: 0, specialties: { cavalry: 3 } },
+  { id: 'jin', name: '하후연', role: roleFor('하후연'), cost: 2, price: 70, bonus: 0, specialties: { ranged: 2 } },
   { id: 'seo', name: '곽가', role: roleFor('곽가'), cost: 2, price: 70, bonus: 0 },
   { id: 'baek', name: '조인', role: roleFor('조인'), cost: 2, price: 65, bonus: -1 },
   { id: 'dan', name: '장료', role: roleFor('장료'), cost: 2, price: 65, bonus: -1 },
@@ -171,6 +171,7 @@ export type StageUnit = Point & {
 }
 export type Stage = {
   number: number; name: string; map: readonly string[]; reward: number; tier: number
+  turnLimit?: number
   grid?: Grid; deployment?: readonly Point[]
   board?: StageBoard
   enemyBehavior?: 0 | 1 | 2
