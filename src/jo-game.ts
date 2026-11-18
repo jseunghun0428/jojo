@@ -26,7 +26,7 @@ export type JoStageDetails = {
   image?: string; terrainNames: string[]; deployment: (Point & { facing: Facing })[]
   guests: JoUnit[]; reinforcements: JoUnit[]; objectives?: string[]
 }
-export type CampaignData = { stages: Stage[]; officers: Record<string, JoProfile>; source: 'web' | 'jo'; originals?: Stage[] }
+export type CampaignData = { stages: Stage[]; officers: Record<string, JoProfile>; source: 'web' | 'jo'; originals?: Stage[]; expedition?: boolean }
 export const webCampaign: CampaignData = { stages, officers: {}, source: 'web' }
 export const fieldLimitFor = (stage: Stage) => Math.min(FIELD_LIMIT, stageDeployment(stage).length)
 const assetRoot = '/jo-game/'

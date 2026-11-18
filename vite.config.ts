@@ -2,11 +2,14 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 // @ts-expect-error The local Vite middleware is a Node-only ES module.
 import { stageStorage } from './tools/stage-storage.mjs'
+// @ts-expect-error The local launcher is a Node-only ES module.
+import { gameServerDiscovery } from './tools/game-server.mjs'
 
 export default defineConfig(({ command, isPreview, mode }) => ({
   publicDir: command === 'serve' && !isPreview ? 'local-graphics' : false,
   cacheDir: mode === 'stage-editor' ? 'node_modules/.vite-stage-editor' : undefined,
-  plugins: [react(), stageStorage(mode === 'stage-editor')],
+  plugins: [react(), stageStorage(mode === 'stage-editor'),
+    command === 'serve' && !isPreview && mode !== 'stage-editor' && gameServerDiscovery()],
   base: './',
   build: {
     rollupOptions: {

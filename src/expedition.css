@@ -1,0 +1,54 @@
+.expedition-shell { min-height:100svh; color:#ede8db; background:#141918; font-family:'Malgun Gothic',sans-serif; }
+.expedition-nav,.expedition-content { width:min(1440px,100%); margin:auto; }
+.expedition-nav { display:flex; align-items:center; justify-content:space-between; gap:22px; padding:0 clamp(18px,5vw,80px); min-height:75px; border-bottom:1px solid #43443b; background:#141918; }
+.expedition-nav button { border:0; background:none; color:#aeb1a6; }
+.expedition-brand { display:flex; gap:12px; align-items:center; font:700 24px/1 var(--display); color:#efe8d4!important; }
+.expedition-brand i { display:grid; place-items:center; font:24px/1 serif; width:35px; height:36px; background:#944935; color:#f3dcbb; border:3px double #ca8764; }
+.expedition-nav nav { display:flex; gap:clamp(14px,3vw,48px); align-self:stretch; }
+.expedition-nav nav button { padding:0 3px; font-size:14px; font-weight:700; border-bottom:2px solid transparent; }
+.expedition-nav nav button[aria-current] { color:#e4c691; border-color:#b39361; }
+.legacy-link { font-size:13px; }
+.expedition-content { padding:0; }
+.expedition-hero { position:relative; isolation:isolate; display:flex; align-items:center; min-height:clamp(388px,53vh,650px); padding:45px 7%; background:#323831 url('./assets/expedition-cover.jpg') center 47%/cover no-repeat; }
+.expedition-hero::before { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,#101816ec,#171d1880 42%,transparent 72%),linear-gradient(0deg,#141918b5,transparent 24%); }
+.hero-kicker { display:flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.19em; color:#ddc69a; }
+.hero-kicker::before { content:''; width:28px; height:2px; background:#c0724d; }
+.hero-copy h1 { display:flex; align-items:flex-start; gap:12px; margin:14px 0 16px; font-size:clamp(62px,7.6vw,116px); line-height:1.12; letter-spacing:-.085em; color:#f4ecda; text-shadow:0 4px 16px #13171166; }
+.hero-copy h1 span { writing-mode:vertical-rl; padding:4px 3px; margin-top:9px; font:14px/1.15 serif; letter-spacing:.15em; color:#efd4af; background:#954532; border:1px solid #c27c56; }
+.hero-copy p { font-size:clamp(14px,1.4vw,19px); line-height:1.8; color:#d5d3c3; }
+.expedition-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:27px; }
+.expedition-actions button,.expedition-guide button { border:1px solid #968e72; background:#1b2421ce; color:#eae4d1; padding:12px 22px; font-weight:700; }
+.expedition-actions .march { background:#a35138; border:1px solid #ce8762; color:#fff3de; }
+.march span { padding-left:25px; }
+.chapter-section,.expedition-ledger { padding:30px clamp(18px,5vw,80px) 45px; }
+.chapter-heading { display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:16px; }
+.chapter-heading h2 { color:#eee3ca; font-size:27px; }
+.chapter-heading>span,.chapter-range { font-size:12px; color:#aaa999; }
+.chapter-heading b { color:#dbb981; margin-left:8px; }
+.chapter-track { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; }
+.chapter-card { position:relative; overflow:hidden; display:grid; gap:6px; text-align:left; border:1px solid #43473e; background:linear-gradient(115deg,#282e26,#202620); padding:17px 16px 13px; }
+.chapter-card[data-active=true] { border-color:#b19360; background:linear-gradient(115deg,#39392b,#272b23); }
+.chapter-card:hover,.stage-index li:hover { border-color:#b19360; }
+.chapter-seal { position:absolute; right:7px; top:-10px; color:#e5d1a811; font:78px serif; transform:rotate(-9deg); }
+.chapter-card small { font:12px var(--display); letter-spacing:.13em; color:#c4af8a; }
+.chapter-card strong { font:700 clamp(16px,1.55vw,24px) var(--display); }
+.chapter-range { display:flex; justify-content:space-between; border-top:1px solid #686b555a; padding-top:9px; margin-top:4px; }
+.expedition-ledger { max-width:1060px; margin:auto; }
+.expedition-ledger h1 { font-size:42px; margin-bottom:22px; }
+.ledger-tabs { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:22px; }
+.ledger-tabs button { padding:9px 13px; background:#252c25; border:1px solid #53584a; }
+.ledger-tabs [aria-pressed=true] { border-color:#ccaa70; color:#e9c58e; }
+.stage-index { list-style:none; padding:0; }
+.stage-index li { display:grid; grid-template-columns:40px 1fr 1fr 54px; align-items:center; gap:10px; padding:13px 8px; border-bottom:1px solid #42473b; }
+.stage-index b { font:20px Georgia,serif; color:#c6a77a; }
+.stage-index .stage-officers { grid-column:2/-1; line-height:1.6; color:#cec6b6; }
+.stage-index span,.stage-index small { font-size:13px; color:#b5b9ac; }.stage-index small { text-align:right; }
+.expedition-guide { max-width:820px; }.expedition-guide h2 { margin:24px 0 8px; }.expedition-guide p { line-height:1.8; color:#d3d4c8; }.expedition-guide button { margin-top:24px; }
+.spoil-panel { margin:15px 0 22px; padding:16px; border:1px solid #8c7654; background:#363327; }
+.spoil-options { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:12px; }.spoil-options button { padding:13px; text-align:left; }
+.spoil-history { margin:10px 0; color:#cbbd9e; font-size:13px; }
+.troop-budget { display:flex; flex-wrap:wrap; gap:5px 20px; padding:12px 15px; margin-bottom:16px; border-left:3px solid #b19360; background:#333329; }
+.troop-budget strong { color:#f0d49b; }.troop-budget small { flex-basis:100%; }
+.troop-assignment { display:flex; align-items:center; gap:8px; margin:5px 0; color:#d1c7ad; font-size:.84rem; }
+.recruit-shop { margin-top:16px; }
+@media(max-width:760px){.chapter-track{grid-template-columns:repeat(2,minmax(0,1fr))}.chapter-card:last-child{grid-column:1/-1}.expedition-nav{gap:8px;flex-wrap:wrap;padding-top:10px}.expedition-nav nav{order:3;width:100%;justify-content:space-between;min-height:38px}.expedition-brand{font-size:20px}.expedition-hero{background-position:62% center}.stage-index li{grid-template-columns:26px 1fr 1fr}.stage-index small{grid-column:2/-1;text-align:left}.spoil-options{grid-template-columns:1fr}}

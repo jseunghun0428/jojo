@@ -25,6 +25,7 @@ export function controlStatus(unit: { pinnedUntil?: number; confusedUntil?: numb
 export type Facing = 'down' | 'up' | 'left' | 'right'
 export type UnitMovement = { unit: string; path: Point[] }
 export type BattleHit = {
+  technique?: string
   attacker: string; target: string; kind: 'attack' | 'counter' | 'fire'
   damage: number; remainingHP: number; blocked: boolean
   element?: BattleElement; burningTile?: Point
@@ -33,6 +34,7 @@ export type BattleImpact = BattleHit & { facing: Facing }
 export type BattleEvent = { move: UnitMovement } | { impact: BattleImpact; additionalImpacts?: BattleHit[] } | { turn: 'enemy' }
 
 export type Unit = Point & Stats & {
+  morale?: number; fieldAttack?: number; fieldDefense?: number
   id: string; name: string; role: Role; side: 'ally' | 'enemy'; captain: boolean;
   troopClass?: TroopClass
   loadout?: Loadout
@@ -348,8 +350,8 @@ export function physicalStats(unit: Unit) {
   const role = troop && troop !== 'siege' && troop !== troopClassFor(unit.role) ? standardTroopRole[troop] : unit.role
   const command = Math.floor(unit.currentHP * leadership / SOLDIER_TROOPS)
   return {
-    attack: command + roles[role].attack,
-    defense: command + roles[role].defense,
+    attack: command + roles[role].attack + (unit.fieldAttack ?? 0),
+    defense: command + roles[role].defense + (unit.fieldDefense ?? 0),
   }
 }
 
@@ -387,7 +389,8 @@ export function forecastAttack(battle: Battle, attacker: Unit, target: Unit, kin
   const defense = physicalStats(target).defense + equippedBonus(target, 'defense')
   const base = basicPhysicalDamage(attack, defense)
   // Apply the counter reduction in combat units before converting to troop losses.
-  const physical = (kind === 'counter' ? Math.max(1, Math.floor(base * 0.75)) : base) * TROOP_SCALE
+  const scale = attacker.morale === undefined ? TROOP_SCALE : TROOP_SCALE * 3
+  const physical = (kind === 'counter' ? Math.max(1, Math.floor(base * 0.75)) : base) * scale
   const damage = artPercent === undefined ? physical : troopArtDamage(physical, attacker, target, artPercent)
   return {
     hit: 100,
@@ -423,6 +426,7 @@ function resolveImpact(battle: Battle, source: Unit, recipient: Unit, kind: Batt
   note(battle, `${source.name} → ${recipient.name} · ${label} · ${outcome}${recipient.currentHP ? '' : ' · 격파'}`)
   return {
     attacker: source.id, target: recipient.id, kind, damage,
+    ...(source.morale !== undefined && art && { technique: art.name }),
     remainingHP: recipient.currentHP, blocked,
     ...(art?.element && !blocked ? { element: art.element } : {}),
     ...(art?.ignites ? { burningTile: { x: recipient.x, y: recipient.y } } : {}),
@@ -441,15 +445,29 @@ function applyImpact(battle: Battle, source: Unit, target: Unit, kind: BattleImp
   recordImpacts(battle, source, target, [resolveImpact(battle, source, target, kind, roll, art)])
 }
 
+export function linkedAlly(battle: Battle, attacker: Unit, target: Unit) {
+  if (attacker.morale === undefined || attacker.morale < 60) return
+  return battle.units.find(unit => unit.id !== attacker.id && unit.side === attacker.side && unit.currentHP > 0
+    && unit.confusedUntil === undefined && gridDistance(unit, attacker, battle.grid) === 1
+    && withinRange(unit, target, false, battle.grid))
+}
+
 function strike(battle: Battle, attacker: Unit, target: Unit, fire: boolean, roll: () => number) {
   attacker.done = true
   if (fire) {
     attacker.currentMP -= TACTIC_ENERGY_COST
     applyImpact(battle, attacker, target, 'fire', roll, { name: '화계', element: 'fire' })
   } else {
+    const partner = linkedAlly(battle, attacker, target)
     applyImpact(battle, attacker, target, 'attack', roll)
+    if (partner && target.currentHP > 0) {
+      const direct = Math.max(1, Math.floor(forecastAttack(battle, partner, target).damage * 0.65))
+      applyImpact(battle, partner, target, 'attack', roll, { name: '연계 공격', direct })
+      attacker.morale! -= 20
+    }
     if (canCounter(target, attacker, battle.grid)) applyImpact(battle, target, attacker, 'counter', roll)
   }
+  if (attacker.morale !== undefined) attacker.morale = Math.min(100, attacker.morale + 12)
   updateResult(battle)
 }
 
@@ -578,7 +596,7 @@ export function strategyPreviews(battle: Battle, unit: Unit, id: WarArtId, targe
     const difference = intelligence - battleAttributes(foe)[1]
     const base = 20 + (intelligence - 70) * 0.25
     const directDamage = Math.max(1, Math.floor(base * art.damage[learned.level - 1] * (100 + Math.min(40, Math.max(0, difference))) / 10000))
-    const damage = directDamage * TROOP_SCALE
+    const damage = directDamage * TROOP_SCALE * (unit.morale === undefined ? 1 : 3)
     const confusion = id === 'intercept' && damage < foe.currentHP ? Math.min(75, Math.max(25, 50 + difference)) : undefined
     return [{ foe, damage, confusion }]
   })
@@ -858,6 +876,7 @@ function nextDay(battle: Battle) {
   for (const unit of battle.units) {
     unit.moved = false
     unit.done = false
+    if (unit.morale !== undefined) unit.morale = Math.min(100, unit.morale + 8)
   }
   if (battle.reinforcements?.length) {
     const available = battle.reinforcements.filter((unit) => validCell(unit, battle.map) && !unitAt(battle, unit))

@@ -174,6 +174,7 @@ export type StageUnit = Point & {
   levelOffset?: number; behavior?: number; enemyKind?: ReturnType<typeof enemyKindFor>
 }
 export type Stage = {
+  expedition?: { landscape: string; chief?: string }
   number: number; name: string; map: readonly string[]; reward: number; tier: number
   turnLimit?: number
   grid?: Grid; deployment?: readonly Point[]

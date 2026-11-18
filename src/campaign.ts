@@ -8,6 +8,8 @@ import { roles, troopClasses } from './unit-classes.ts'
 import type { TroopClass } from './unit-classes.ts'
 import { webCampaign } from './jo-game.ts'
 import type { CampaignData } from './jo-game.ts'
+import { TROOP_STEP, assignedTroops, assignmentLimit, drawSpoils, expeditionCampaign, prepareExpedition, spoils, troopBudget } from './expedition.ts'
+import type { Spoil, SpoilCounts } from './expedition.ts'
 
 export type CampaignGrowth = { level: number; xp: number }
 
@@ -48,6 +50,9 @@ export function settleClear(state: Campaign, data: CampaignData): Campaign {
 }
 
 export type Campaign = {
+  troopAssignments?: Record<string, number>
+  spoils?: SpoilCounts
+  spoilChoices?: Spoil[]
   progression?: CampaignGrowth
   scoredStages?: number[]
   clearResult?: ReturnType<typeof clearScore> & { fromLevel: number; toLevel: number; xp: number }
@@ -69,6 +74,8 @@ export type Campaign = {
 }
 
 export type Action =
+  | { type: 'assignTroops'; id: string; count: number }
+  | { type: 'claimSpoil'; id: Spoil }
   | { type: 'draft'; id: string }
   | { type: 'recommended' }
   | { type: 'confirmDraft' }
@@ -84,10 +91,11 @@ export type Action =
   | { type: 'equip'; officer: string; treasure: string }
   | { type: 'reset' }
 
-export function createCampaign(): Campaign {
+export function createCampaign(expedition = false): Campaign {
   return {
     phase: 'draft', progression: { ...initialProgression }, troopSizeVersion: 1, stage: 1, roster: [], captain: null, lineup: [], gold: 0,
-    inventory: { salve: 1, tonic: 1 }, treasures: [], equipment: {},
+    inventory: { salve: expedition ? 0 : 1, tonic: expedition ? 0 : 1 }, treasures: [], equipment: {},
+    ...(expedition && { troopAssignments: {} }),
     offers: { officers: [], treasures: [] }, battle: null,
   }
 }
@@ -120,17 +128,34 @@ function deploy(state: Campaign, stage: number, data: CampaignData): Campaign {
   if (!state.captain || !state.lineup.includes(state.captain)) return state
   if (requiredShipIds(state, data.stages[stage - 1], data).length) return state
   const progression = state.progression ?? initialProgression
-  const battle = newBattle(data.stages[stage - 1], state.lineup, state.captain, state.equipment, data.officers,
+  const battle = newBattle(data.stages[stage - 1], state.lineup, state.captain, data.expedition ? {} : state.equipment, data.officers,
     state.troopClasses, data.source === 'jo' ? progression.level : undefined,
     data.source === 'jo' ? state.loadouts ?? {} : undefined)
+  if (data.expedition) prepareExpedition(battle, data.stages[stage - 1], state)
   if (data.source === 'web' && battle.grid === 'hex') startInitiativeBattle(battle)
   return { ...state, stage, phase: 'battle', battle, clearResult: undefined }
+}
+
+function addToLineup(state: Campaign, id: string, data: CampaignData): Campaign {
+  if (state.lineup.includes(id) || state.lineup.length >= FIELD_LIMIT) return state
+  const lineup = [...state.lineup, id]
+  if (!data.expedition) return { ...state, lineup }
+  const count = Math.min(assignedTroops(state, id), troopBudget(state).reserve)
+  if (count < TROOP_STEP) return state
+  return { ...state, lineup, troopAssignments: { ...state.troopAssignments, [id]: count } }
 }
 
 export function campaignReducer(state: Campaign, action: Action, data: CampaignData = webCampaign): Campaign {
   switch (action.type) {
     case 'reset':
-      return createCampaign()
+      return createCampaign(data.expedition)
+    case 'assignTroops': {
+      if (!data.expedition || !state.lineup.includes(action.id)
+        || !(state.phase === 'camp' || (state.phase === 'draft' && state.draftConfirmed))
+        || !Number.isInteger(action.count) || action.count % TROOP_STEP !== 0
+        || action.count < TROOP_STEP || action.count > assignmentLimit(state, action.id)) return state
+      return { ...state, troopAssignments: { ...state.troopAssignments, [action.id]: action.count } }
+    }
     case 'confirmDraft':
       return state.phase === 'draft' && state.captain ? { ...state, draftConfirmed: true } : state
     case 'changeTroopClass':
@@ -166,20 +191,22 @@ export function campaignReducer(state: Campaign, action: Action, data: CampaignD
       if (state.phase === 'draft' && state.draftConfirmed) return state
       if ((state.phase !== 'draft' && state.phase !== 'camp') || !state.roster.includes(action.id)) return state
       if (!state.lineup.includes(action.id) && state.lineup.length === FIELD_LIMIT) return state
-      const lineup = state.lineup.includes(action.id) ? state.lineup : [...state.lineup, action.id]
-      return { ...state, captain: action.id, lineup }
+      const next = addToLineup(state, action.id, data)
+      return next.lineup.includes(action.id) ? { ...next, captain: action.id } : state
     }
     case 'lineup': {
       if (state.phase !== 'camp' || !state.roster.includes(action.id) || action.id === state.captain) return state
       if (state.lineup.includes(action.id)) return { ...state, lineup: state.lineup.filter((id) => id !== action.id) }
-      return state.lineup.length < FIELD_LIMIT ? { ...state, lineup: [...state.lineup, action.id] } : state
+      return addToLineup(state, action.id, data)
     }
     case 'deploy':
+      if (state.spoilChoices?.length) return state
       if (state.phase === 'draft') return deploy(state, 1, data)
       if (state.phase !== 'camp') return state
       return state.stage === STAGE_COUNT ? { ...state, phase: 'complete' } : deploy(state, state.stage + 1, data)
     case 'battle': {
       if (state.phase !== 'battle' || !state.battle) return state
+      if (data.expedition && action.action.type === 'item') return state
       const battleWithTerrain = state.battle.terrainNames || !data.stages[state.stage - 1].jo
         ? state.battle
         : { ...state.battle, terrainNames: data.stages[state.stage - 1].jo?.terrainNames }
@@ -189,19 +216,28 @@ export function campaignReducer(state: Campaign, action: Action, data: CampaignD
     case 'collect': {
       if (state.phase !== 'battle' || state.battle?.result !== 'win' || action.rolls.length < 10) return state
       const { clearResult, ...settled } = settleClear(state, data)
+      if (data.expedition && state.stage === STAGE_COUNT) {
+        return { ...settled, phase: 'complete', battle: null, gold: state.gold + data.stages[state.stage - 1].reward }
+      }
       return {
         ...settled, phase: 'camp', battle: null, gold: state.gold + data.stages[state.stage - 1].reward,
+        ...(data.expedition && { spoilChoices: drawSpoils(action.rolls.length >= 13 ? action.rolls.slice(10) : action.rolls) }),
         offers: {
           officers: sample(officers.filter(({ id }) => !state.roster.includes(id) && (data.source === 'web' || data.officers[id]))
             .map(({ id }) => id), action.rolls.slice(0, 5)),
-          treasures: sample(treasures.filter(({ id }) => !state.treasures.includes(id)).map(({ id }) => id), action.rolls.slice(5, 10)),
+          treasures: data.expedition ? [] : sample(treasures.filter(({ id }) => !state.treasures.includes(id)).map(({ id }) => id), action.rolls.slice(5, 10)),
         },
       }
+    }
+    case 'claimSpoil': {
+      if (!data.expedition || state.phase !== 'camp' || !state.spoilChoices?.includes(action.id)) return state
+      const spoils = { ...state.spoils, [action.id]: (state.spoils?.[action.id] ?? 0) + 1 }
+      return { ...state, spoils, spoilChoices: undefined, gold: state.gold + (action.id === 'pay' ? 150 : 0) }
     }
     case 'retry':
       return state.phase === 'battle' && state.battle?.result === 'loss' ? deploy(state, state.stage, data) : state
     case 'buy': {
-      if (state.phase !== 'camp') return state
+      if (state.phase !== 'camp' || (data.expedition && action.kind !== 'officers')) return state
       if (action.kind === 'items') {
         if (!Object.hasOwn(items, action.id)) return state
         const id = action.id as ItemId
@@ -220,7 +256,7 @@ export function campaignReducer(state: Campaign, action: Action, data: CampaignD
       return state.gold >= treasure.price ? { ...state, gold: state.gold - treasure.price, treasures: [...state.treasures, treasure.id], offers } : state
     }
     case 'equip': {
-      if (state.phase !== 'camp' || !state.roster.includes(action.officer)) return state
+      if (data.expedition || state.phase !== 'camp' || !state.roster.includes(action.officer)) return state
       const equipment = { ...state.equipment }
       if (!action.treasure) {
         delete equipment[action.officer]
@@ -276,10 +312,25 @@ function restoreTroopSizes(save: Campaign) {
   return save
 }
 
-const SAVE_KEY = 'iron-pass.v1'
-export function loadCampaign(source: CampaignData['source'] = 'web'): Campaign {
+const saveKeys = { web: 'iron-pass.v1', jo: 'iron-pass.jo.v1', expedition: 'seven.expedition.v1' }
+
+function restoreExpeditionEnemies(battle: Battle, stage: Stage) {
+  if (!battle.units.some(unit => unit.side === 'enemy' && isSoldier(unit))) return
+  const renamed = new Map<string, string>()
+  stage.enemies.forEach((officer, slot) => {
+    const unit = battle.units.find(unit => unit.side === 'enemy' && unit.id === 'enemy-' + slot)
+    if (!unit) return
+    if (isSoldier(unit)) renamed.set(unit.name, officer.name)
+    const { attack, defense, move, range } = unitStats(officer.role, stage.tier)
+    Object.assign(unit, { name: officer.name, enemyKind: 'officer', role: officer.role, attack, defense, move, range })
+  })
+  battle.objectives = stage.expedition?.chief ? [stage.expedition.chief] : undefined
+  battle.log = battle.log.map(line => line.replace(/[가-힣]+병\d+/g, name => renamed.get(name) ?? name))
+}
+
+export function loadCampaign(source: keyof typeof saveKeys = 'web'): Campaign {
   try {
-    const raw = localStorage.getItem(source === 'jo' ? 'iron-pass.jo.v1' : SAVE_KEY)
+    const raw = localStorage.getItem(saveKeys[source])
     if (raw) {
       const save = JSON.parse(raw) as Campaign & { growth?: unknown; battle: (Battle & { experience?: unknown }) | null }
       if (['draft', 'battle', 'camp', 'complete'].includes(save.phase)
@@ -287,6 +338,31 @@ export function loadCampaign(source: CampaignData['source'] = 'web'): Campaign {
           && Array.isArray(save.roster) && Array.isArray(save.lineup)
           && save.inventory && save.equipment && save.offers
           && (save.phase !== 'battle' || save.battle?.units)) {
+        if (source === 'expedition') {
+          if (save.battle) restoreExpeditionEnemies(save.battle, expeditionCampaign.stages[save.stage - 1])
+          if (!save.troopAssignments) {
+            save.troopAssignments = {}
+            save.inventory = { salve: 0, tonic: 0 }
+            save.treasures = []
+            save.equipment = {}
+            save.offers.treasures = []
+            if (save.spoils) Reflect.deleteProperty(save.spoils, 'provisions')
+            if (save.spoilChoices?.length) {
+              const valid = save.spoilChoices.filter(id => Object.hasOwn(spoils, id))
+              save.spoilChoices = [...new Set([...valid, ...Object.keys(spoils) as Spoil[]])].slice(0, 3)
+            }
+            for (const unit of save.battle?.units ?? []) {
+              if (unit.side !== 'ally' || unit.guest) continue
+              const max = assignedTroops(save, unit.id)
+              unit.currentHP = unit.currentHP > 0 ? Math.max(1, Math.round(unit.currentHP / unit.hp * max)) : 0
+              unit.hp = max
+              const item = unit.treasure && treasureById[unit.treasure]
+              if (item && (item.stat === 'attack' || item.stat === 'defense')) unit[item.stat] -= item.amount
+              delete unit.treasure
+            }
+          }
+          return save
+        }
         if (save.battle) {
           for (const unit of [...save.battle.units, ...(save.battle.reinforcements ?? [])]) {
             Reflect.deleteProperty(unit, 'tacticPoints')
@@ -329,12 +405,12 @@ export function loadCampaign(source: CampaignData['source'] = 'web'): Campaign {
   } catch {
     // Storage can be disabled in private or restricted browsing.
   }
-  return createCampaign()
+  return createCampaign(source === 'expedition')
 }
 
-export function saveCampaign(state: Campaign, source: CampaignData['source'] = 'web') {
+export function saveCampaign(state: Campaign, source: keyof typeof saveKeys = 'web') {
   try {
-    localStorage.setItem(source === 'jo' ? 'iron-pass.jo.v1' : SAVE_KEY, JSON.stringify(state))
+    localStorage.setItem(saveKeys[source], JSON.stringify(state))
   } catch {
     // The running campaign still works when browser storage is unavailable.
   }

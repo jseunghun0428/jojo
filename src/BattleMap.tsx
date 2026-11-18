@@ -5,13 +5,17 @@ import { isTerrain, terrains } from './data.ts'
 import type { Point, Terrain } from './data.ts'
 import { facingBetween, key } from './combat.ts'
 import type { BattleEvent, BattleHit, BattleImpact, Facing, Unit } from './combat.ts'
-import { roles, troopClasses, troopClassFor } from './unit-classes.ts'
+import { expeditionTroopClasses, roles, troopClasses, troopClassFor } from './unit-classes.ts'
 import { JO_FIRE_TERRAIN, joTerrainId } from './jo-game.ts'
 import { boardGeometry, CELL_SIZE as TILE, hexStep, validCell, OUTSIDE_CELL } from './grid.ts'
 import type { BoardLayout } from './grid.ts'
 import type { Grid } from './grid.ts'
 import { unitFormation } from './unit-formation.ts'
 import type { BattleElement } from './war-arts.ts'
+import { paintElementBurst, paintMarch, paintStrike } from './expedition-fx.ts'
+import { paintExpeditionLandscape } from './expedition-landscape.ts'
+import terrainAtlasUrl from './assets/expedition-terrain.jpg'
+import enemySheetUrl from './assets/expedition-enemies.png'
 
 const STEP_MS = 200
 const IMPACT_MS = 680
@@ -127,6 +131,7 @@ function drawJoHexDetails(g: Phaser.GameObjects.Graphics, id: number, { x, y }: 
 }
 
 type MapProps = {
+  expedition?: boolean
   map: readonly string[]
   grid?: Grid
   image?: string
@@ -222,6 +227,7 @@ export default function BattleMap(props: MapProps) {
   const geometry = useMemo(() => boardGeometry(props.map, grid, props.layout), [props.map, grid, props.layout])
   const { width, height, center } = geometry
   const image = props.image
+  const expedition = !!props.expedition
   const isBattle = props.units !== undefined
   const localGraphics = useContext(LocalGraphicsContext)
   const sprites = useRef(localGraphics)
@@ -265,6 +271,10 @@ export default function BattleMap(props: MapProps) {
         scene: {
           update() { advance() },
           preload(this: Phaser.Scene) {
+            if (expedition) {
+              this.load.image('expedition-terrain', terrainAtlasUrl)
+              if (isBattle) this.load.spritesheet('expedition-enemies', enemySheetUrl, { frameWidth: 192, frameHeight: 192 })
+            }
             if (import.meta.env.DEV) this.load.image(FIRE_TERRAIN_TEXTURE, '/jo-game/fire-terrain.bmp')
           },
           create(this: Phaser.Scene) {
@@ -284,6 +294,15 @@ export default function BattleMap(props: MapProps) {
             const captain = current.current.units?.find((unit) => unit.captain && unit.currentHP > 0)
             if (captain) showPoint(center(captain))
             const terrainGraphics = this.add.graphics().setDepth(-2)
+            const ground = expedition && hex && !image ? this.textures.createCanvas('expedition-map',
+              Math.ceil(width * renderScale), Math.ceil(height * renderScale)) : null
+            if (ground) {
+              ground.context.scale(renderScale, renderScale)
+              const atlas = this.textures.exists('expedition-terrain') ? this.textures.get('expedition-terrain').getSourceImage() : undefined
+              paintExpeditionLandscape(ground.context, current.current.map, geometry, atlas instanceof HTMLImageElement ? atlas : undefined)
+              ground.refresh()
+              this.add.image(0, 0, 'expedition-map').setOrigin(0).setScale(1 / renderScale).setDepth(-3)
+            }
             const graphics = this.add.graphics()
             const hitGraphics = this.add.graphics().setDepth(0.5)
             const hasFireTexture = createFireAnimation(this)
@@ -303,6 +322,7 @@ export default function BattleMap(props: MapProps) {
             }
             function drawElement(id: string, element: BattleElement, x: number, y: number, time: number) {
               const progress = Phaser.Math.Clamp((time - HIT_MS) / (ELEMENTAL_IMPACT_MS - HIT_MS), 0, 1)
+              if (expedition) paintElementBurst(hitGraphics, element, x, y, progress)
               const alpha = element === 'fire' && time >= FIRE_SETTLE_MS
                 ? (ELEMENTAL_IMPACT_MS - time) / (ELEMENTAL_IMPACT_MS - FIRE_SETTLE_MS) : 1
               const art = effectTexture(element) ?? (element === 'fire' && hasFireTexture
@@ -351,6 +371,9 @@ export default function BattleMap(props: MapProps) {
             const unitImages = new Map<string, Phaser.GameObjects.Image>()
             const labels = new Map<string, { className: Phaser.GameObjects.Text; hp: Phaser.GameObjects.Text }>()
             const resultLabels = new Map<string, Phaser.GameObjects.Text>()
+            const techniqueLabel = this.add.text(0, 0, '', { fontFamily: '"Batang", serif', fontStyle: 'bold',
+              fontSize: '17px', backgroundColor: '#492e22', color: '#ffdf9d', padding: { x: 8, y: 3 }, resolution: renderScale,
+            }).setOrigin(.5, 1).setDepth(4).setVisible(false)
             let previousEvents: MapProps['events']
             let startedAt = 0
             let elapsed = 0
@@ -376,6 +399,7 @@ export default function BattleMap(props: MapProps) {
               let actingId: string | undefined
               const hp = new Map<string, number>()
               const receivingImpacts = new Map<string, BattleHit>()
+              let march: { unit: string; start: Point; end: Point; cell: Point; progress: number } | undefined
               const burningCells = new Set(burning?.map(key))
               let visibleImpact: { impact: BattleImpact; time: number } | undefined
               let remaining = events === previousEvents ? elapsed : 0
@@ -417,6 +441,7 @@ export default function BattleMap(props: MapProps) {
                 const progress = step - segment
                 const start = center(from)
                 const end = center(to)
+                if (expedition && step < last) march = { unit: movement.unit, start, end, cell: progress < .5 ? from : to, progress }
                 poses.set(movement.unit, {
                   point: { x: Phaser.Math.Linear(start.x, end.x, progress), y: Phaser.Math.Linear(start.y, end.y, progress) },
                   facing: facingBetween(from, to, grid),
@@ -430,6 +455,22 @@ export default function BattleMap(props: MapProps) {
               terrainGraphics.clear()
               graphics.clear()
               hitGraphics.clear()
+              techniqueLabel.setVisible(false)
+              if (visibleImpact) {
+                const { impact, time } = visibleImpact
+                const source = units.find(unit => unit.id === impact.attacker)
+                const target = units.find(unit => unit.id === impact.target)
+                if (source?.morale !== undefined && target) {
+                  const from = poses.get(source.id)?.point ?? center(source)
+                  const to = poses.get(target.id)?.point ?? center(target)
+                  paintStrike(hitGraphics, impact, source, from, to, time, HIT_MS)
+                  if (impact.technique) {
+                    techniqueLabel.setText(source.name + ' · ' + impact.technique)
+                      .setPosition(Phaser.Math.Clamp(from.x, techniqueLabel.width / 2, width - techniqueLabel.width / 2),
+                        Math.max(techniqueLabel.height + 3, from.y - 26)).setVisible(true)
+                  }
+                }
+              }
               for (const sprite of effectSprites.values()) sprite.setVisible(false)
               for (const label of resultLabels.values()) label.setVisible(false)
               for (const sprite of unitImages.values()) sprite.setVisible(false)
@@ -458,7 +499,7 @@ export default function BattleMap(props: MapProps) {
                 const fire = burningCells.has(location) || (sourceTerrain === JO_FIRE_TERRAIN && !extinguishedTerrain?.includes(location))
                 if (image && geometry.image) {
                   outlineCell(terrainGraphics, point, 0x20271a, 1, 0.65, 0.5)
-                } else if (hex) {
+                } else if (hex && !ground) {
                   const palette = sourceTerrain === undefined
                     ? terrainColors[isTerrain(cell) ? terrains[cell].appearance : 'plain']
                     : joHexColors[sourceTerrain] ?? terrainColors.plain
@@ -466,7 +507,7 @@ export default function BattleMap(props: MapProps) {
                   outlineCell(terrainGraphics, point, 0x20271a, 1, 0.8, 0.5)
                   const detail = sourceTerrain ?? (isTerrain(cell) ? webHexDetails[cell] : undefined)
                   if (detail !== undefined) drawJoHexDetails(terrainGraphics, detail, center(point))
-                } else if (isTerrain(cell)) {
+                } else if (!hex && isTerrain(cell)) {
                   const pixel = geometry.corners(point)[0]
                   drawTerrain(terrainGraphics, cell, pixel.x, pixel.y, x * 17 + y * 29)
                 }
@@ -529,6 +570,9 @@ export default function BattleMap(props: MapProps) {
                 const y = position.y - TILE / 2
                 const graphicsPack = sprites.current
                 const kind = unit.troopClass ?? troopClassFor(unit.role, unit.jo?.classId)
+                if (march?.unit === unit.id) {
+                  paintMarch(hitGraphics, march.start, march.end, march.progress, map[march.cell.y][march.cell.x], kind === 'cavalry')
+                }
                 const sharedKey = `${unit.side}-${kind}`
                 const spriteKey = graphicsPack?.units[sharedKey] ? sharedKey : `${unit.side}-${roles[unit.role].sprite}`
                 const poseType = attacking ? 'attack'
@@ -537,9 +581,31 @@ export default function BattleMap(props: MapProps) {
                 const combatFrame = graphicsPack?.[poseType][spriteKey]
                 const textureKey = combatFrame && poseType !== 'units' ? `${spriteKey}-${poseType}` : spriteKey
                 const frame = combatFrame ?? graphicsPack?.units[spriteKey]
-                const formation = unitFormation(unit.currentHP)
-                drawUnit(graphics, unit, x, y - 2, unit.id === selected, frame ? undefined : formation, facing, [0, 2, 0, -2][step])
-                if (frame && formation.positions.length) {
+                const enemyOfficer = expedition && unit.side === 'enemy' && unit.enemyKind === 'officer'
+                const formation = unitFormation(enemyOfficer ? 0 : unit.currentHP)
+                drawUnit(graphics, unit, x, y - 2, unit.id === selected, frame || enemyOfficer ? undefined : formation, facing, [0, 2, 0, -2][step])
+                if (enemyOfficer) {
+                  const frameIndex = kind === 'cavalry' ? 1 : kind === 'ranged' ? 2 : 0
+                  let officer = unitImages.get(unit.id)
+                  if (!officer) {
+                    officer = this.add.image(0, 0, 'expedition-enemies', frameIndex).setOrigin(.5, .98).setDepth(.2)
+                    unitImages.set(unit.id, officer)
+                  }
+                  const lunge = attacking && time <= HIT_MS ? Math.sin(Math.PI * time / HIT_MS) * (kind === 'cavalry' ? 8 : 4) : 0
+                  const recoil = receiving && !receiving.blocked ? 3 * Math.sin(Math.max(0, time - HIT_MS) / 35) * Math.exp(-Math.max(0, time - HIT_MS) / 100) : 0
+                  const walk = march?.unit === unit.id ? Math.abs(Math.sin(march.progress * Math.PI * 2)) : 0
+                  const facingRight = facing === 'right' || (facing === 'down' && march?.unit === unit.id && march.end.x > march.start.x)
+                  officer.setFrame(frameIndex).setFlipX(facingRight)
+                    .setDisplaySize(51, 51).setPosition(position.x + (facingRight ? lunge : -lunge) + recoil, y + 44 - walk * 2)
+                    .setAlpha(unit.done && !attacking ? .8 : 1).setVisible(true)
+                  let name = resultLabels.get(unit.id + ':name')
+                  if (!name) {
+                    name = this.add.text(0, 0, unit.name, { fontFamily: '"Malgun Gothic", sans-serif', fontSize: '10px',
+                      fontStyle: 'bold', color: '#ffecda', stroke: '#3d211b', strokeThickness: 3, resolution: renderScale }).setOrigin(.5, .5).setDepth(1)
+                    resultLabels.set(unit.id + ':name', name)
+                  }
+                  name.setPosition(position.x, y + 3).setVisible(true)
+                } else if (frame && formation.positions.length) {
                   const attackSheet = !!combatFrame && poseType === 'attack'
                   const specialSheet = !!combatFrame && poseType === 'special'
                   const frameSize = attackSheet ? 64 : FRAME_SIZE
@@ -564,7 +630,7 @@ export default function BattleMap(props: MapProps) {
                       .setVisible(true)
                   }
                 }
-                const portrait = graphicsPack?.portraitImages[unit.name]
+                const portrait = !enemyOfficer && graphicsPack?.portraitImages[unit.name]
                 if (portrait) {
                   const texture = `portrait:${unit.name}`
                   if (!this.textures.exists(texture)) this.textures.addImage(texture, portrait)
@@ -609,7 +675,7 @@ export default function BattleMap(props: MapProps) {
                   labels.set(unit.id, label)
                 }
                 const color = unit.id === selected ? '#ffe1a0' : unit.side === 'ally' ? '#d2f4ff' : '#ffc7b8'
-                const className = kind ? troopClasses[kind] : '분류 보류'
+                const className = kind ? (expedition ? expeditionTroopClasses : troopClasses)[kind] : '분류 보류'
                 label.hp.setText(String(unit.currentHP)).setPosition(x + TILE - 3, y + 55).setColor(color).setVisible(true)
                 label.className.setText(className).setScale(1)
                   .setPosition(x + 3, y + 55).setColor(color).setVisible(true)
@@ -630,7 +696,7 @@ export default function BattleMap(props: MapProps) {
       redraw.current = () => {}
       game?.destroy(true)
     }
-  }, [geometry, width, height, center, grid, hex, image, isBattle])
+  }, [geometry, width, height, center, grid, hex, image, isBattle, expedition])
 
   const pointerGesture = useRef<{ id: number; x: number; y: number; left: number; top: number; dragging: boolean } | null>(null)
   const [dragging, setDragging] = useState(false)

@@ -2,7 +2,7 @@ import { navalLessons, navalTraining, resolveDeployment, ships, siegeEquipment }
 import type { Loadout } from './deployments.ts'
 import { TACTIC_ENERGY_COST, warArtEnergyCost, warArts } from './war-arts.ts'
 import type { WarArtId } from './war-arts.ts'
-import { useContext, useEffect, useReducer, useRef, useState } from 'react'
+import { createContext, useContext, useEffect, useReducer, useRef, useState } from 'react'
 import type { CSSProperties, Dispatch } from 'react'
 import BattleMap from './BattleMap.tsx'
 import { LocalGraphicsContext, useLocalGraphics } from './local-graphics.ts'
@@ -10,7 +10,7 @@ import { officerStatLabels } from './officer-attributes.ts'
 import { fieldLimitFor, joTerrainId, webCampaign } from './jo-game.ts'
 import type { CampaignData, JoProfile } from './jo-game.ts'
 import { createWebHexCampaign } from './hex-stages.ts'
-import { roles, troopClasses, troopClassFor, troopSpecialtyNames } from './unit-classes.ts'
+import { expeditionTroopClasses, roles, troopClasses, troopClassFor, troopSpecialtyNames } from './unit-classes.ts'
 import type { Role, TroopClass } from './unit-classes.ts'
 import { campaignReducer, draftCost, initialProgression, loadCampaign, requiredShipIds, saveCampaign, settleClear } from './campaign.ts'
 import type { Action, Campaign } from './campaign.ts'
@@ -23,11 +23,17 @@ import { DRAFT_LIMIT, FIELD_LIMIT, STAGE_COUNT, TROOP_SCALE, items, officerById,
 import { campaignWithStages, loadStageCatalog, loadStageSources } from './stage-library.ts'
 import type { StageEntry } from './stage-library.ts'
 import type { ItemId, Point } from './data.ts'
+import { ExpeditionTitle } from './ExpeditionTitle.tsx'
+import { TROOP_STEP, assignedTroops, assignmentLimit, expeditionCampaign, spoils, troopBudget } from './expedition.ts'
+import type { Spoil } from './expedition.ts'
+import { linkedAlly } from './combat.ts'
 
 type ScreenProps = { state: Campaign; dispatch: Dispatch<Action>; data: CampaignData }
+const TroopLabels = createContext<Readonly<Record<TroopClass, string>>>(troopClasses)
 function ClassLabel({ role, jo, troopClass }: { role: Role; jo?: JoProfile; troopClass?: TroopClass }) {
   const kind = troopClass ?? troopClassFor(role, jo?.classId)
-  return <>{kind ? troopClasses[kind] : '분류 보류'}</>
+  const labels = useContext(TroopLabels)
+  return <>{kind ? labels[kind] : '분류 보류'}</>
 }
 const itemIds = Object.keys(items) as ItemId[]
 const stageNumber = (stage: number) => String(stage).padStart(2, '0')
@@ -48,9 +54,10 @@ function OfficerAttributes({ attributes }: { attributes: readonly number[] }) {
 }
 
 function TroopFilter({ value, onChange, landOnly }: { value: TroopClass | ''; onChange: (value: TroopClass | '') => void; landOnly?: boolean }) {
+  const labels = useContext(TroopLabels)
   return <select aria-label="병종 필터" value={value} onChange={(event) => onChange(event.target.value as TroopClass | '')}>
     <option value="">전체 병종</option>
-    {Object.entries(troopClasses).filter(([id]) => !landOnly || id !== 'siege').map(([id, name]) => <option key={id} value={id}>{name}</option>)}
+    {Object.entries(labels).filter(([id]) => !landOnly || id !== 'siege').map(([id, name]) => <option key={id} value={id}>{name}</option>)}
   </select>
 }
 
@@ -98,7 +105,7 @@ function TroopClassSelect({ id, state, dispatch, data }: ScreenProps & { id: str
   return <><select aria-label={`${officer.name} 병종 변경`} value={selected} onChange={(event) =>
     dispatch({ type: 'changeTroopClass', id, troopClass: event.target.value as TroopClass })}>
     {selected === 'siege' && <option value="siege" disabled>{troopClasses.siege}</option>}
-    {Object.entries(troopClasses).filter(([value]) => value !== 'siege')
+    {Object.entries(data.expedition ? expeditionTroopClasses : troopClasses).filter(([value]) => value !== 'siege')
       .map(([value, name]) => <option key={value} value={value}>{name}</option>)}
   </select>
     {officer.specialties ? <div>
@@ -125,6 +132,17 @@ function TroopClassSelect({ id, state, dispatch, data }: ScreenProps & { id: str
   </>
 }
 
+function TroopAssignment({ id, state, dispatch }: Pick<ScreenProps, 'state' | 'dispatch'> & { id: string }) {
+  const limit = assignmentLimit(state, id)
+  return <label className="troop-assignment">배치 병력
+    <select aria-label={officerById[id].name + ' 배치 병력'} value={assignedTroops(state, id)}
+      onChange={event => dispatch({ type: 'assignTroops', id, count: Number(event.target.value) })}>
+      {Array.from({ length: limit / TROOP_STEP }, (_, index) => (index + 1) * TROOP_STEP).map(count =>
+        <option key={count} value={count}>{count.toLocaleString('ko-KR')}명</option>)}
+    </select>
+  </label>
+}
+
 function FirstBattleLobby({ state, dispatch, data }: ScreenProps) {
   const stage = data.stages[0]
   return <div className="split draft-layout">
@@ -134,14 +152,15 @@ function FirstBattleLobby({ state, dispatch, data }: ScreenProps) {
         const officer = officerById[id]
         return <div className="shop-row" key={id}>
           <RoleIcon role={officer.role} name={officer.name} />
-          <div><strong>{officer.name}</strong><br /><TroopClassSelect {...{ id, state, dispatch, data }} /></div>
+          <div><strong>{officer.name}</strong><br /><TroopClassSelect {...{ id, state, dispatch, data }} />
+            {data.expedition && <TroopAssignment {...{ id, state, dispatch }} />}</div>
           {id === state.captain && <span className="tag">총대장</span>}
         </div>
       })}
     </section>
     <section className="panel preview-panel">
       <div className="panel-heading"><div><span className="eyebrow">전장 {stageNumber(1)}</span><h2>{stage.name}</h2></div><span className="tag">전장 미리보기</span></div>
-        <BattleMap map={stage.map} grid={stage.grid} image={stageImage(stage)} layout={stage.board} />
+        <BattleMap expedition={data.expedition} map={stage.map} grid={stage.grid} image={stageImage(stage)} layout={stage.board} />
       {stage.jo && <p>이 전장의 출전 인원은 총대장을 포함해 최대 {fieldLimitFor(stage)}명입니다.</p>}
       <div className="preview-notes">
         <p><strong>승리</strong> {stage.jo?.objectives ? `${stage.jo.objectives.join('·')}을 격파하세요.` : '적군을 모두 격파하세요.'}</p>
@@ -154,7 +173,7 @@ function FirstBattleLobby({ state, dispatch, data }: ScreenProps) {
 function attackRangeLabel(unit: Unit, grid?: Battle['grid']) {
   const kind = unit.troopClass ?? troopClassFor(unit.role, unit.jo?.classId)
   if (kind === 'ranged') return grid === 'hex' ? '주변 2칸' : '주변 2칸 (바깥 모서리 제외)'
-  if (kind === 'infantry' || kind === 'cavalry') return '인접 8방향'
+  if (kind === 'infantry' || kind === 'cavalry') return grid === 'hex' ? '인접 6방향' : '인접 8방향'
   return unit.jo?.pattern === 'all' ? '전장 전체' : unit.range
 }
 
@@ -169,6 +188,7 @@ function UnitDetails({ unit, map, terrainNames, grid }: { unit: Unit; map: reado
     <div className="meter"><span>병력</span><meter min={0} max={unit.hp} value={unit.currentHP} /><b>{unit.currentHP}/{unit.hp}</b></div>
     {unit.mp > 0 && <div className="meter mp"><span>기력</span><meter min={0} max={unit.mp} value={unit.currentMP} /><b>{unit.currentMP}/{unit.mp}</b></div>}
     <OfficerAttributes attributes={battleAttributes(unit)} />
+    {unit.morale !== undefined && <div className="meter"><span>전의</span><meter min={0} max={100} value={unit.morale} /><b>{unit.morale}/100</b></div>}
     {status && <p className="unit-stats">상태 · {status}</p>}
     <p className="unit-stats">레벨 {unit.level ?? 1} · 공격 {attack} · 방어 {defense}</p>
     <p className="unit-stats">이동 {movementLimit(unit)} · 사거리 {attackRangeLabel(unit, grid)}</p>
@@ -382,7 +402,7 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
     }
   }}>
     <header className="battle-titlebar">
-      <span className="battle-window-icon" aria-hidden="true">鐵</span>
+      <span className="battle-window-icon" aria-hidden="true">{data.expedition ? '七' : '鐵'}</span>
       <h1>{stageName}</h1>
       <span className="battle-stage">{trialStage ? `시험 전투 · ${battle.grid === 'hex' ? '육각판' : '사각판'}` : `전장 ${stageNumber(state.stage)} / ${STAGE_COUNT}`}</span>
     </header>
@@ -395,6 +415,7 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
         <button className="classic-button" aria-pressed={showLog} onClick={() => setShowLog(!showLog)}>전투 기록</button>
       </div>
       <div className="battle-counts">
+        {data.expedition && <span>{objective}</span>}
         <span>{battle.initiative ? `${battle.round}일째` : `${battle.round}턴`} · {battle.result ? '전투 종료'
           : acting ? `${acting.name} 행동` : turnTransition?.startsWith('enemy') ? (guestPhase ? '우군 차례' : '상대 차례') : '아군 차례'}</span>
         <span>아군 {allies.length} / 적군 {enemies.length}</span>
@@ -406,7 +427,7 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
         <small>{unit.guest ? '우군' : unit.side === 'enemy' ? '적군' : '아군'}</small></li>)}
     </ol>}
     <div className="battle-board">
-          <BattleMap map={battle.map} grid={battle.grid} image={background} layout={battle.board} units={battle.units} selected={focusedId} moves={moves} range={range} path={path} targets={targets} affected={affected} burning={battle.burning}
+          <BattleMap expedition={data.expedition} map={battle.map} grid={battle.grid} image={background} layout={battle.board} units={battle.units} selected={focusedId} moves={moves} range={range} path={path} targets={targets} affected={affected} burning={battle.burning}
         extinguishedTerrain={battle.extinguishedTerrain}
         events={events}
         followAction={turnTransition === 'enemy' || !!automated}
@@ -451,7 +472,7 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
           <button disabled={!attacks.length} onClick={() => setMode('attack')}>공격</button>
           <button disabled={!combatArts.length || active.confusedUntil !== undefined} onClick={() => setMode('warArts')}>전법</button>
           <button disabled={active.confusedUntil !== undefined} onClick={() => setMode('tactics')}>책략</button>
-          <button onClick={() => setMode('items')}>도구</button>
+          {!data.expedition && <button onClick={() => setMode('items')}>도구</button>}
           <button onClick={() => dispatch({ type: 'battle', action: { type: 'wait', unit: active.id } })}>대기</button>
         </>}
       </div>}
@@ -471,7 +492,7 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
           {trialStage
             ? <button className="classic-button" onClick={() => { choose(''); dispatch({ type: 'retry' }) }}>시험 전투 다시 시작</button>
             : battle.result === 'win'
-            ? <button className="classic-button" onClick={() => dispatch({ type: 'collect', rolls: Array.from({ length: 10 }, () => Math.random()) })}>보상 받고 상점으로</button>
+            ? <button className="classic-button" onClick={() => dispatch({ type: 'collect', rolls: Array.from({ length: data.expedition ? 13 : 10 }, () => Math.random()) })}>{data.expedition ? state.stage === STAGE_COUNT ? '원정 완료' : '승전 보상 선택으로' : '보상 받고 상점으로'}</button>
             : <button className="classic-button" onClick={() => { choose(''); dispatch({ type: 'retry' }) }}>같은 전장 재도전</button>}
         </div>
       </div>}
@@ -487,6 +508,7 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
         {troopArt.map(({ foe, damage, hits }) => <span key={foe.id}>{foe.name} · 피해 {damage}{hits > 1 && ` × ${hits}타`}</span>)}
         {strategy.map(({ foe, damage, confusion }) => <span key={foe.id}>{foe.name} · 피해 {damage}{confusion !== undefined && ` · 혼란 ${confusion}%`}</span>)}
         {forecast && target && <span>{target.name} · 예상 피해 {forecast.damage} · 명중 {forecast.hit}%{forecast.counter ? ' · 반격 가능' : ''}</span>}
+        {forecast && active && target && linkedAlly(battle, active, target) && <span>연계 가능 · {linkedAlly(battle, active, target)?.name}</span>}
         {terrainName && <span>{moveCost === null ? '통과 불가' : `이동 비용 ${moveCost}`}</span>}
       </div>
     </div>
@@ -515,12 +537,13 @@ function BattleScreen({ state, dispatch, data, trialStage }: ScreenProps & { tri
 function Camp({ state, dispatch, data }: ScreenProps) {
   const [troopFilter, setTroopFilter] = useState<TroopClass | ''>('')
   const matchesTroop = (id: string) => !troopFilter || troopClassFor(officerById[id].role, data.officers[id]?.classId) === troopFilter
-  const [tab, setTab] = useState<'shop' | 'lineup'>('shop')
+  const [tab, setTab] = useState<'shop' | 'lineup'>(data.expedition ? 'lineup' : 'shop')
   const firstBattle = state.phase === 'draft'
   const atEnd = !firstBattle && state.stage === STAGE_COUNT
   const nextStage = data.stages[firstBattle ? 0 : state.stage]
   const { level, xp } = state.progression ?? initialProgression
   const needsShips = nextStage ? requiredShipIds(state, nextStage, data) : []
+  const troops = data.expedition ? troopBudget(state) : null
   return <div className="panel camp-panel">
     <div className="panel-heading camp-heading">
       <div>{!firstBattle && <span className="eyebrow">전장 {stageNumber(state.stage)} 승리</span>}<h2>야영지</h2>
@@ -529,15 +552,24 @@ function Camp({ state, dispatch, data }: ScreenProps) {
         {needsShips.length > 0 && <p role="status">수상 출전 위치에 함선 필요 · {needsShips.map((id) => officerById[id].name).join('·')}</p>}
         {nextStage?.jo && <p>다음 전장 출전 한도 {fieldLimitFor(nextStage)}명 · 총대장 우선, 편성 순서대로 출전</p>}
       </div>
-      <button className="primary" disabled={needsShips.length > 0} onClick={() => dispatch({ type: 'deploy' })}>{firstBattle ? '첫 전투 출전' : atEnd ? '원정 마치기' : '다음 전장 출전'} →</button>
+      <button className="primary" disabled={needsShips.length > 0 || !!state.spoilChoices?.length} onClick={() => dispatch({ type: 'deploy' })}>{firstBattle ? '첫 전투 출전' : atEnd ? '원정 마치기' : '다음 전장 출전'} →</button>
     </div>
+    {troops && <section className="troop-budget" aria-label="병력 배치 현황">
+      <strong>총병력 {troops.total.toLocaleString('ko-KR')}명</strong>
+      <span aria-live="polite">출전 {troops.assigned.toLocaleString('ko-KR')}명 · 예비 {troops.reserve.toLocaleString('ko-KR')}명</span>
+      <small>출전 장수마다 1,000명 단위로 배치하세요. 다른 장수의 병력을 줄이면 예비 병력으로 돌아옵니다.</small>
+    </section>}
+    {state.spoilChoices?.length ? <section className="spoil-panel"><h3>승전 보상 · 하나 선택</h3>
+      <div className="spoil-options">{state.spoilChoices.map(id => <button className="secondary" key={id} onClick={() => dispatch({ type: 'claimSpoil', id })}>
+        <strong>{spoils[id].name}</strong><small>{spoils[id].description}</small></button>)}</div></section> : null}
+    {state.spoils && Object.keys(state.spoils).length > 0 && <p className="spoil-history">받은 보상 · {Object.entries(state.spoils).map(([id, count]) => spoils[id as Spoil].name + ' ×' + count).join(' · ')}</p>}
     {firstBattle ? <FirstBattleLobby {...{ state, dispatch, data }} /> : <>
     <div className="camp-tabs" role="group" aria-label="야영지 메뉴">
-      <button aria-pressed={tab === 'shop'} onClick={() => setTab('shop')}>대기 상점</button>
+      <button aria-pressed={tab === 'shop'} onClick={() => setTab('shop')}>{data.expedition ? '장수 영입' : '대기 상점'}</button>
       <button aria-pressed={tab === 'lineup'} onClick={() => setTab('lineup')}>출전 편성 · {state.lineup.length}/{FIELD_LIMIT}</button>
     </div>
     <TroopFilter value={troopFilter} onChange={setTroopFilter} landOnly={data.source === 'jo'} />
-    {tab === 'shop' ? <div className="shop-grid">
+    {tab === 'shop' ? <div className={data.expedition ? 'recruit-shop' : 'shop-grid'}>
       <section className="shop-group">
         <h3>장수 영입 <span>{state.offers.officers.length}명</span></h3>
         {state.offers.officers.length === 0 && <p className="muted">이번 상점의 영입을 모두 마쳤습니다.</p>}
@@ -549,7 +581,7 @@ function Camp({ state, dispatch, data }: ScreenProps) {
           </div>
         })}
       </section>
-      <section className="shop-group">
+      {!data.expedition && <><section className="shop-group">
         <h3>보물 <span>{state.offers.treasures.length}개</span></h3>
         {state.offers.treasures.length === 0 && <p className="muted">이번 상점의 보물을 모두 구매했습니다.</p>}
         {state.offers.treasures.map((id) => {
@@ -569,23 +601,25 @@ function Camp({ state, dispatch, data }: ScreenProps) {
             onClick={() => dispatch({ type: 'buy', kind: 'items', id })}>{items[id].price} G</button>
         </div>)}
         <p className="muted">회복 아이템은 전투 중 장수의 행동으로 사용합니다.</p>
-      </section>
+      </section></>}
     </div> : <section className="lineup-panel">
       <p className="muted">보유 {state.roster.length}명 · 최대 {FIELD_LIMIT}명 출전 · 총대장 필수 출전</p>
       {state.roster.filter(matchesTroop).map((id) => {
         const officer = officerById[id]
         const captain = state.captain === id
         const deployed = state.lineup.includes(id)
+        const cannotJoin = !deployed && (state.lineup.length >= FIELD_LIMIT || (troops !== null && troops.reserve < TROOP_STEP))
         const available = state.treasures.filter((treasure) => state.equipment[id] === treasure || !Object.values(state.equipment).includes(treasure))
         return <div className="lineup-row" key={id}>
           <div className="unit-header"><RoleIcon role={officer.role} name={officer.name} /><div><strong>{officer.name}</strong><small><ClassLabel role={officer.role} jo={data.officers[id]} troopClass={data.source === 'jo' ? resolveDeployment(officer.role, data.officers[id]?.classId, state.troopClasses?.[id]).troopClass : state.troopClasses?.[id]} /></small><OfficerAttributes attributes={attributesOf({ name: officer.name, player: true })} /></div></div>
-          <label><input type="checkbox" checked={deployed} disabled={captain || (!deployed && state.lineup.length >= FIELD_LIMIT)} onChange={() => dispatch({ type: 'lineup', id })} /> 출전</label>
-          <button className="secondary" disabled={captain || (!deployed && state.lineup.length >= FIELD_LIMIT)} onClick={() => dispatch({ type: 'captain', id })}>{captain ? '◆ 총대장' : '총대장 지정'}</button>
+          <label><input type="checkbox" checked={deployed} disabled={captain || cannotJoin} onChange={() => dispatch({ type: 'lineup', id })} /> 출전</label>
+          <button className="secondary" disabled={captain || cannotJoin} onClick={() => dispatch({ type: 'captain', id })}>{captain ? '◆ 총대장' : '총대장 지정'}</button>
           <TroopClassSelect {...{ id, state, dispatch, data }} />
-          <select aria-label={`${officer.name} 보물 장착`} value={state.equipment[id] ?? ''} onChange={(event) => dispatch({ type: 'equip', officer: id, treasure: event.target.value })}>
+          {data.expedition ? deployed ? <TroopAssignment {...{ id, state, dispatch }} /> : <small>대기 · 0명</small>
+          : <select aria-label={`${officer.name} 보물 장착`} value={state.equipment[id] ?? ''} onChange={(event) => dispatch({ type: 'equip', officer: id, treasure: event.target.value })}>
             <option value="">보물 장착 안 함</option>
             {available.map((treasure) => <option value={treasure} key={treasure}>{treasureById[treasure].name}</option>)}
-          </select>
+          </select>}
         </div>
       })}
     </section>}
@@ -662,15 +696,19 @@ function TrialScreen({ initial, web, jo, entries, onExit }: { initial: CampaignD
   </main>
 }
 
-function CampaignScreen({ data, web, jo, entries, switchCampaign }: { data: CampaignData; web: CampaignData; jo?: CampaignData; entries: StageEntry[]; switchCampaign?: () => void }) {
-  const [state, dispatch] = useReducer((state: Campaign, action: Action) => campaignReducer(state, action, data), data.source, loadCampaign)
+function CampaignScreen({ data, web, jo, entries, switchCampaign, toggleExpedition }: { data: CampaignData; web: CampaignData; jo?: CampaignData; entries: StageEntry[]; switchCampaign?: () => void; toggleExpedition: () => void }) {
+  const saveSlot = data.expedition ? 'expedition' : data.source
+  const [state, dispatch] = useReducer((state: Campaign, action: Action) => campaignReducer(state, action, data), saveSlot, loadCampaign)
   const [view, setView] = useState<'title' | 'settings' | 'campaign' | 'trial'>('title')
   const hasProgress = state.phase !== 'draft' || state.roster.length > 0
   useEffect(() => {
-    if (view === 'campaign') saveCampaign(state, data.source)
-  }, [state, data.source, view])
+    if (view === 'campaign') saveCampaign(state, saveSlot)
+  }, [state, saveSlot, view])
 
-  if (import.meta.env.DEV && view === 'trial') return <TrialScreen initial={data} web={web} jo={jo} entries={entries} onExit={() => setView('title')} />
+  if (import.meta.env.DEV && view === 'trial') return <TrialScreen initial={data.expedition ? web : data} web={web} jo={jo} entries={entries} onExit={() => setView('title')} />
+  if (data.expedition && view === 'title') return <ExpeditionTitle state={state} onStart={() => {
+    dispatch({ type: 'reset' }); setView('campaign')
+  }} onResume={() => setView('campaign')} onLegacy={toggleExpedition} onTrial={import.meta.env.DEV ? () => setView('trial') : undefined} />
   if (view !== 'campaign') return <main className="title-screen">
     <section className="panel title-panel" aria-labelledby="title-heading">
       <span className="seal" aria-hidden="true">鐵</span>
@@ -683,6 +721,7 @@ function CampaignScreen({ data, web, jo, entries, switchCampaign }: { data: Camp
         }}>새 게임</button>
         <button className="secondary" disabled={!hasProgress} onClick={() => setView('campaign')}>불러오기</button>
         <button className="secondary" onClick={() => setView('settings')}>설정</button>
+        <button className="secondary" onClick={toggleExpedition}>칠령전기 원정으로</button>
         {import.meta.env.DEV && <button className="secondary" onClick={() => setView('trial')}>시험 전투</button>}
       </div> : <div className="title-actions">
         <p>현재 원정 · {data.source === 'jo' ? '신조조전 원정' : '기존 웹 원정'}</p>
@@ -699,7 +738,7 @@ function CampaignScreen({ data, web, jo, entries, switchCampaign }: { data: Camp
   return <>
     <header className="topbar">
       <div className="topbar-inner">
-        <div className="brand"><span className="seal" aria-hidden="true">鐵</span><strong>철령전기</strong></div>
+        <div className="brand"><span className="seal" aria-hidden="true">{data.expedition ? '七' : '鐵'}</span><strong>{data.expedition ? '칠령전기' : '철령전기'}</strong></div>
         <div className="header-meta"><span className="gold"><span aria-hidden="true">◈</span> {state.gold} G</span>
           <button className="text-button" onClick={() => setView('title')}>대기 화면</button></div>
       </div>
@@ -713,9 +752,9 @@ function CampaignScreen({ data, web, jo, entries, switchCampaign }: { data: Camp
       {state.phase === 'camp' && <Camp {...screen} />}
       {state.phase === 'complete' && <section className="panel complete">
         <span className="seal" aria-hidden="true">勝</span>
-        <h2>{data.source === 'jo' ? '신조조전 원정 완료' : '철령 관문 돌파'}</h2>
+        <h2>{data.expedition ? '오장원 돌파 · 칠령전기 원정 완료' : data.source === 'jo' ? '신조조전 원정 완료' : '철령 관문 돌파'}</h2>
         <p>{STAGE_COUNT}개 전장을 모두 클리어했습니다.</p>
-        <p>보유 장수 {state.roster.length}명 · 보물 {state.treasures.length}개 · {state.gold} G</p>
+        <p>보유 장수 {state.roster.length}명 · {!data.expedition && `보물 ${state.treasures.length}개 · `}{state.gold} G</p>
       </section>}
     </main>
   </>
@@ -728,6 +767,7 @@ export default function App() {
   const [entries, setEntries] = useState<StageEntry[]>([])
   const [loaded, setLoaded] = useState(!import.meta.env.DEV)
   const [showWeb, setShowWeb] = useState(false)
+  const [expedition, setExpedition] = useState(true)
   const [error, setError] = useState('')
   useEffect(() => {
     if (!import.meta.env.DEV) return
@@ -741,9 +781,11 @@ export default function App() {
     }).finally(() => setLoaded(true))
   }, [])
   if (!loaded) return <main><p role="status">전장 불러오는 중…</p></main>
-  const data = !showWeb && jo ? jo : web
+  const data = expedition ? expeditionCampaign : !showWeb && jo ? jo : web
   return <LocalGraphicsContext.Provider value={localGraphics}>
     {error && <p role="alert">{error}</p>}
-    <CampaignScreen key={data.source} data={data} web={web} jo={jo} entries={entries} switchCampaign={jo && (() => setShowWeb(!showWeb))} />
+    <TroopLabels.Provider value={expedition ? expeditionTroopClasses : troopClasses}>
+      <CampaignScreen key={expedition ? 'expedition' : data.source} data={data} web={web} jo={jo} entries={entries} switchCampaign={jo && (() => setShowWeb(!showWeb))} toggleExpedition={() => setExpedition(!expedition)} />
+    </TroopLabels.Provider>
   </LocalGraphicsContext.Provider>
 }

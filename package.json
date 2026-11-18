@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host 127.0.0.1 --strictPort",
+    "dev": "node tools/start-game.mjs",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "import:jo": "node --experimental-strip-types tools/jo-assets/import.mjs",

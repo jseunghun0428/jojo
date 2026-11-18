@@ -16,18 +16,18 @@ export const roles = {
 export type Role = keyof typeof roles
 
 const officersByRole: Record<Role, readonly string[]> = {
-  strategist: ['곽가', '가후', '주유', '육손', '진궁', '전풍', '저수'],
-  tactician: ['순욱', '정욱', '노숙', '서서', '법정', '제갈량', '사마의', '방통', '이유', '심배'],
-  geomancer: ['순유', '만총', '초선'],
-  lightCavalry: ['하후돈', '장료', '장비', '태사자', '안량'],
-  heavyCavalry: ['관우', '조인', '능통', '문추', '기령', '고순', '화웅'],
-  shockCavalry: ['등애', '조운', '마초', '조창', '강유', '여포', '공손찬'],
-  mountedArcher: ['하후연', '장합', '황충'],
-  lightInfantry: ['감녕', '주태', '한당', '장연', '위연', '황개', '손책'],
-  shieldInfantry: ['조조', '황보숭', '악진', '조홍'],
-  pikeman: ['서황', '엄안', '곽사', '장익', '문빙'],
-  heavyInfantry: ['조비', '유비', '장수', '전위', '허저', '이각', '방덕'],
-  crossbowman: ['우금', '이전', '장임', '정봉', '서성', '진무', '유엽'],
+  strategist: ['곽가', '가후', '주유', '육손', '진궁', '전풍', '저수', '곽도', '봉기', '허유', '괴월', '사마부'],
+  tactician: ['순욱', '정욱', '노숙', '서서', '법정', '제갈량', '사마의', '방통', '이유', '심배', '장보', '신평', '부손', '신비', '진태'],
+  geomancer: ['순유', '만총', '초선', '장각', '황소'],
+  lightCavalry: ['하후돈', '장료', '장비', '태사자', '안량', '정원지', '고승', '장제', '한맹', '원희', '장패', '진랑', '여광'],
+  heavyCavalry: ['관우', '조인', '능통', '문추', '기령', '고순', '화웅', '동탁', '우보', '서영', '원담', '조순', '조진', '손례'],
+  shockCavalry: ['등애', '조운', '마초', '조창', '강유', '여포', '공손찬', '관해', '왕쌍', '하후패'],
+  mountedArcher: ['하후연', '장합', '황충', '번조', '이숙', '원상', '곽회', '호준'],
+  lightInfantry: ['감녕', '주태', '한당', '장연', '위연', '황개', '손책', '등무', '배원소', '하의', '손중', '유벽', '장초', '한거자', '하후은', '윤상'],
+  shieldInfantry: ['조조', '황보숭', '악진', '조홍', '파재', '한충', '동민', '장막', '원소', '한호', '학소', '악침', '마준'],
+  pikeman: ['서황', '엄안', '곽사', '장익', '문빙', '주창', '팽탈', '호진', '왕방', '여상', '비요', '양건'],
+  heavyInfantry: ['조비', '유비', '장수', '전위', '허저', '이각', '방덕', '장만성', '장량', '순우경', '고람', '하후무', '장호'],
+  crossbowman: ['우금', '이전', '장임', '정봉', '서성', '진무', '유엽', '엄정', '여위황', '채모', '장윤', '유종', '모개', '대릉', '양서'],
 }
 
 const roleByName = new Map<string, Role>()
@@ -52,6 +52,7 @@ export const troopClasses = {
 } as const
 
 export type TroopClass = keyof typeof troopClasses
+export const expeditionTroopClasses = { ...troopClasses, ranged: '노병' } as const
 
 export const troopSpecialtyNames = { infantry: '보장', cavalry: '기장', ranged: '궁장', siege: '조기' } as const
 export type TroopSpecialties = Partial<Record<TroopClass, 1 | 2 | 3>>
