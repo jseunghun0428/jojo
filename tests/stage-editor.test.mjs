@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { campaignReducer, loadCampaign, saveCampaign } from '../src/campaign.ts'
-import { attackCells, movesFor, newBattle, playBattle } from '../src/combat.ts'
+import { attackCells, initiativeQueue, movesFor, newBattle, playBattle } from '../src/combat.ts'
 import { recommendedIds } from '../src/data.ts'
 import { boardGeometry, validCell } from '../src/grid.ts'
 import { webCampaign } from '../src/jo-game.ts'
@@ -43,10 +43,22 @@ for (const grid of ['square', 'hex']) {
     assert.deepEqual([chaser.behavior, guard.behavior], [1, 2])
     assert.ok(movesFor(battle, captain).every(({ x, y }) => x !== 1 || y !== 1))
     assert.ok(attackCells({ ...captain, range: 3 }, false, battle.map, grid).every(({ x, y }) => x !== 1 || y !== 1))
-    const enemyTurn = playBattle(battle, inventory, { type: 'end' }).battle
-    assert.equal(enemyTurn.round, 2)
-    assert.ok(enemyTurn.events.some((event) => event.move?.unit === chaser.id))
-    assert.ok(!enemyTurn.events.some((event) => event.move?.unit === guard.id))
+    let next = battle
+    const events = []
+    if (grid === 'hex') {
+      for (const unit of initiativeQueue(battle)) {
+        assert.equal(initiativeQueue(next)[0].id, unit.id)
+        const action = unit.side === 'enemy' ? { type: 'initiative-ai', unit: unit.id, day: 1 } : { type: 'wait', unit: unit.id }
+        next = playBattle(next, inventory, action).battle
+        events.push(...next.events)
+      }
+    } else {
+      next = playBattle(battle, inventory, { type: 'end' }).battle
+      events.push(...next.events)
+    }
+    assert.equal(next.round, 2)
+    assert.ok(events.some((event) => event.move?.unit === chaser.id))
+    assert.ok(!events.some((event) => event.move?.unit === guard.id))
   })
 }
 

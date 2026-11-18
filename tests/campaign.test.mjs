@@ -4,8 +4,8 @@ import { officerAttributes } from '../src/officer-attributes.ts'
 import { officerWarArts } from '../src/officer-war-arts.ts'
 import { roles } from '../src/unit-classes.ts'
 import { campaignReducer as reduce, createCampaign, draftCost, loadCampaign, saveCampaign } from '../src/campaign.ts'
-import { MAX_WILL, START_WILL, attackCells, basicPhysicalDamage, battleAttributes, canAttack, deploymentPreviews, distance, forecastAttack, key, movementLimit, movementPath, movesFor, newBattle, physicalStats, playBattle, terrainAt, troopArtDamage, troopArtPreviews, warArtEffect, warArtsFor } from '../src/combat.ts'
-import { DRAFT_LIMIT, FIELD_LIMIT, HEIGHT, TROOP_SCALE, WIDTH, items, officerById, officers, recommendedIds, stages, treasureById } from '../src/data.ts'
+import { MAX_ENERGY, attackCells, basicPhysicalDamage, battleAttributes, canAttack, deploymentPreviews, distance, forecastAttack, key, movementLimit, movementPath, movesFor, newBattle, physicalStats, playBattle, terrainAt, troopArtDamage, troopArtPreviews, warArtEffect, warArtsFor } from '../src/combat.ts'
+import { DRAFT_LIMIT, FIELD_LIMIT, HEIGHT, OFFICER_TROOPS, SOLDIER_TROOPS, TROOP_SCALE, WIDTH, items, officerById, officers, recommendedIds, stages, treasureById } from '../src/data.ts'
 
 const dispatchBattle = (state, action) => reduce(state, { type: 'battle', action })
 const deploy = () => reduce(reduce(createCampaign(), { type: 'recommended' }), { type: 'deploy' })
@@ -20,7 +20,7 @@ function winFirstBattle() {
       const unit = state.battle.units.find((unit) => unit.id === id)
       const enemies = state.battle.units.filter((unit) => unit.side === 'enemy' && unit.currentHP > 0)
       const aim = (point) => Math.min(...enemies.map((enemy) => distance(point, enemy)))
-      const usesFire = roles[unit.role].group === '문관계' && unit.currentMP >= 4
+      const usesFire = roles[unit.role].group === '문관계' && unit.currentMP >= 10
       if (!enemies.some((enemy) => canAttack(unit, enemy, usesFire))) {
         const best = movesFor(state.battle, unit).sort((a, b) => aim(a) - aim(b))[0]
         if (best && aim(best) < aim(unit)) state = dispatchBattle(state, { type: 'move', unit: id, to: best })
@@ -109,7 +109,6 @@ test('new terrains resolve by map symbol and use provisional movement costs', ()
   assert.equal(byPoint.get(key(mountain)).cost, 1)
   assert.equal(byPoint.get(key(peachForest)).cost, 3)
   assert.equal(byPoint.has(key(rock)), false)
-  assert.equal(physicalStats(map, { ...unit, ...mountain }).terrainPercent, 100)
 })
 
 test('all 50 stages deploy deterministically with valid tiles and distinct units', () => {
@@ -141,54 +140,35 @@ test('physical damage truncates odd attack-defense differences toward zero', () 
   assert.equal(basicPhysicalDamage(10, 100), 1)
 })
 
-test('physical forecasts use the class terrain factor and the equipped attack bonus', () => {
+test('physical stats use current troops and leadership, with equipment added when attacking', () => {
   const stage = stages[0]
   const lineup = recommendedIds
   const weapon = Object.values(treasureById).find(({ stat }) => stat === 'attack')
   const battle = newBattle(stage, lineup, lineup[0], { [lineup[0]]: weapon.id })
   const [captain, , , , target] = battle.units
-  Object.assign(captain, { x: 4, y: 2 })
-  Object.assign(target, { x: 5, y: 2 })
-  const road = physicalStats(battle.map, captain)
-  const specialty = 8
-  assert.equal(road.attack, (62 + weapon.amount + specialty) * TROOP_SCALE)
-  const forest = { ...battle, map: battle.map.map((row, y) => y === 2 ? row.slice(0, 4) + 'f' + row.slice(5) : row) }
-  const stats = physicalStats(forest.map, captain)
-  assert.equal(stats.terrainPercent, 110)
-  assert.equal(stats.attack, (Math.floor((road.attack / TROOP_SCALE - specialty) * 1.1) + specialty) * TROOP_SCALE)
-  assert.equal(stats.defense, (Math.floor((road.defense / TROOP_SCALE - specialty) * 1.1) + specialty) * TROOP_SCALE)
-  const enemy = physicalStats(forest.map, target)
-  const forecast = forecastAttack(forest, captain, target)
-  const normalDamage = basicPhysicalDamage(stats.attack / TROOP_SCALE, enemy.defense / TROOP_SCALE) * TROOP_SCALE
-  assert.equal(forecast.damage, normalDamage * 1.2)
+  assert.equal(captain.hp, OFFICER_TROOPS)
+  const stats = physicalStats(captain)
+  assert.deepEqual(stats, { attack: 211, defense: 205 })
+  assert.deepEqual(physicalStats({ ...captain, currentHP: SOLDIER_TROOPS }), { attack: 112, defense: 106 })
+  assert.deepEqual(physicalStats({ ...captain, currentHP: 3333 }), { attack: 78, defense: 72 })
+  const enemy = physicalStats(target)
+  const forecast = forecastAttack(battle, captain, target)
+  assert.equal(forecast.damage, basicPhysicalDamage(stats.attack + weapon.amount, enemy.defense) * TROOP_SCALE)
   assert.equal(forecast.hit, 100)
-  assert.equal(forecastAttack(forest, { ...captain, level: 99 }, { ...target, level: 50 }).damage, forecast.damage)
+  assert.equal(forecastAttack(battle, { ...captain, level: 99 }, { ...target, level: 50 }).damage, forecast.damage)
 })
 
-test('officer troop specialties apply only to the matching class after terrain', () => {
-  const { units, map } = deploy().battle
-  const cao = units.find(({ id }) => id === 'yeon')
-  const base = physicalStats(map, { ...cao, troopClass: 'cavalry' })
-  const infantry = physicalStats(map, { ...cao, troopClass: 'infantry' })
-  const siege = physicalStats(map, { ...cao, troopClass: 'siege' })
-  assert.equal(infantry.attack - base.attack, 8 * TROOP_SCALE)
-  assert.equal(infantry.defense - base.defense, 8 * TROOP_SCALE)
-  assert.equal(siege.attack, base.attack)
-  assert.equal(siege.defense, base.defense)
-  const archer = units.find(({ id }) => id === 'jin')
-  for (const role of ['mountedArcher', 'crossbowman']) {
-    const untrained = physicalStats(map, { ...archer, role, troopClass: 'infantry' })
-    const trained = physicalStats(map, { ...archer, role, troopClass: undefined })
-    assert.equal(trained.attack - untrained.attack, 8 * TROOP_SCALE)
-    assert.equal(trained.defense - untrained.defense, 8 * TROOP_SCALE)
-  }
-  assert.deepEqual([4, 8, 12].map((bonus) => basicPhysicalDamage(56 + bonus, 50) * TROOP_SCALE), [300, 320, 340])
+test('changing troop class uses the new class attack and defense values', () => {
+  const [cao] = deploy().battle.units
+  assert.deepEqual(physicalStats({ ...cao, troopClass: 'cavalry' }), { attack: 214, defense: 202 })
+  assert.deepEqual(physicalStats({ ...cao, troopClass: 'infantry' }), { attack: 211, defense: 205 })
+  assert.deepEqual(physicalStats({ ...cao, troopClass: 'ranged' }), { attack: 213, defense: 200 })
 })
 
 test('physical hits and counters resolve in order without consuming the defender’s turn', () => {
   const battle = deploy().battle
   const [attacker, , , , defender] = battle.units
-  Object.assign(defender, { x: attacker.x + 1, y: attacker.y, hp: 1000, currentHP: 1000, done: true })
+  Object.assign(defender, { x: attacker.x + 1, y: attacker.y, hp: OFFICER_TROOPS, currentHP: OFFICER_TROOPS, done: true })
   const stock = { salve: 1, tonic: 1 }
   const attack = { type: 'attack', unit: attacker.id, target: defender.id }
   const prediction = forecastAttack(battle, attacker, defender)
@@ -197,8 +177,10 @@ test('physical hits and counters resolve in order without consuming the defender
   assert.deepEqual(first, exchange(1))
   assert.deepEqual(first.events.map(({ impact }) => impact.kind), ['attack', 'counter'])
   assert.equal(first.events[0].impact.damage, prediction.damage)
-  const normalReturn = forecastAttack(battle, defender, attacker)
-  assert.equal(first.events[1].impact.damage, Math.max(1, Math.floor(normalReturn.damage / TROOP_SCALE * 0.75)) * TROOP_SCALE)
+  const counterAtFullStrength = forecastAttack(battle, defender, attacker, 'counter').damage
+  const survivingTroops = first.events[0].impact.remainingHP
+  assert.equal(first.events[1].impact.damage, forecastAttack(battle, { ...defender, currentHP: survivingTroops }, attacker, 'counter').damage)
+  assert.ok(first.events[1].impact.damage < counterAtFullStrength)
   assert.equal(first.events[1].impact.remainingHP, attacker.currentHP - first.events[1].impact.damage)
   assert.equal(first.units.find(({ id }) => id === defender.id).done, true)
   defender.done = false
@@ -213,6 +195,31 @@ test('physical hits and counters resolve in order without consuming the defender
   assert.deepEqual(exchange(1).events.map(({ impact }) => impact.kind), ['attack'])
 })
 
+test('remaining troops affect both sides’ combat stats once for each physical hit', () => {
+  const battle = deploy().battle
+  const [captain] = battle.units
+  const enemy = battle.units.find(({ side }) => side === 'enemy')
+  Object.assign(captain, { x: 0, y: 0, troopClass: 'infantry' })
+  Object.assign(enemy, { x: 1, y: 0, hp: 5000, currentHP: 5000 })
+  Object.assign(battle, { map: ['..'], units: [captain, enemy] })
+  const stock = { salve: 0, tonic: 0 }
+  const attack = { type: 'attack', unit: captain.id, target: enemy.id }
+  const art = { ...attack, type: 'warArt', art: 'heavyStrike' }
+  const fullAttack = forecastAttack(battle, captain, enemy).damage
+  const fullArt = troopArtPreviews(battle, captain, art.art, enemy)[0].damage
+
+  captain.currentHP = captain.hp / 2
+  const halfAttack = forecastAttack(battle, captain, enemy).damage
+  const halfArt = troopArtPreviews(battle, captain, art.art, enemy)[0].damage
+  assert.equal(halfAttack, basicPhysicalDamage(physicalStats(captain).attack, physicalStats(enemy).defense) * TROOP_SCALE)
+  assert.equal(halfArt, troopArtDamage(halfAttack, captain, enemy, 170))
+  assert.ok(halfAttack < fullAttack && halfArt < fullArt)
+  assert.equal(playBattle(battle, stock, attack).battle.events[0].impact.damage, halfAttack)
+  assert.equal(playBattle(battle, stock, art).battle.events[0].impact.damage, halfArt)
+
+  assert.ok(forecastAttack(battle, captain, { ...enemy, currentHP: enemy.hp / 2 }).damage > halfAttack)
+})
+
 test('a defender outside its own range and a target hit by a spell cannot counter', () => {
   const battle = deploy().battle
   const [, , archer, sage, defender] = battle.units
@@ -224,7 +231,7 @@ test('a defender outside its own range and a target hit by a spell cannot counte
   Object.assign(defender, { x: sage.x + 1, y: sage.y })
   const spell = playBattle(battle, stock, { type: 'fire', unit: sage.id, target: defender.id }).battle
   assert.deepEqual(spell.events.map(({ impact }) => impact.kind), ['fire'])
-  assert.equal(spell.units.find(({ id }) => id === sage.id).currentMP, sage.currentMP - 4)
+  assert.equal(spell.units.find(({ id }) => id === sage.id).currentMP, sage.currentMP - 10)
 })
 
 test('play a real first victory, buy all three categories, equip and begin the next battle', () => {
@@ -252,7 +259,7 @@ test('play a real first victory, buy all three categories, equip and begin the n
   const next = reduce(camp, { type: 'deploy' })
   assert.equal(next.stage, 2)
   assert.ok(next.battle.units.some((unit) => unit.id === id))
-  assert.ok(next.battle.units.every((unit) => unit.currentHP === unit.hp && unit.currentMP === START_WILL))
+  assert.ok(next.battle.units.every((unit) => unit.currentHP === unit.hp && unit.currentMP === MAX_ENERGY))
   const relic = treasureById[treasure]
   assert.equal(next.battle.units.find((unit) => unit.captain)[relic.stat], deploy().battle.units[0][relic.stat] + relic.amount * (relic.stat === 'hp' ? TROOP_SCALE : 1))
 })
@@ -269,7 +276,9 @@ test('playable officers have PK attributes and learned arts while Zhang Jiao is 
     assert.ok(officerWarArts(name).length > 0, name)
   }
   const [yuJin] = newBattle(stages[0], ['yul'], 'yul', {}).units
-  assert.deepEqual(warArtsFor(yuJin), [])
+  assert.deepEqual(warArtsFor(yuJin), [
+    { id: 'blaze', level: 1 }, { id: 'intercept', level: 1 }, { id: 'calm', level: 1 },
+  ])
   assert.ok(warArtsFor({ ...yuJin, troopClass: 'cavalry' }).some(({ id, level }) => id === 'charge' && level === 2))
   assert.deepEqual(officerAttributes.조조, [73, 93, 99, 97])
   assert.deepEqual(officerAttributes.우금, [78, 64, 81, 53])
@@ -334,26 +343,28 @@ test('items consume an action, defeat retries the same stage, and the last win c
   assert.equal(finished.stage, 50)
 })
 
-test('will starts at 60 and increases by five per new round for both sides, capped at 100', () => {
+test('both sides start with full energy and retain spent energy across rounds', () => {
   const { battle } = deploy()
   const captain = battle.units.find((unit) => unit.captain)
   const archer = battle.units.find(({ id }) => id === 'jin')
   const foe = battle.units.find(({ side }) => side === 'enemy')
-  assert.ok(battle.units.every((unit) => unit.currentMP === 60 && unit.mp === 100))
-  assert.equal(warArtEffect(archer, foe, 'barrage'), null)
+  assert.ok(battle.units.every((unit) => unit.currentMP === 100 && unit.mp === 100))
+  assert.ok(warArtEffect(archer, foe, 'barrage'))
   captain.currentMP = 98
+  archer.currentMP = 19
+  foe.currentMP = 40
   for (const unit of battle.units.filter(({ side }) => side === 'enemy')) unit.behavior = 2
   const advance = (previous) => playBattle(previous, { salve: 0, tonic: 0 }, { type: 'end' }).battle
   const second = advance(battle)
   assert.equal(second.round, 2)
-  assert.equal(second.units.find(({ id }) => id === captain.id).currentMP, MAX_WILL)
-  assert.equal(second.units.find(({ id }) => id === foe.id).currentMP, 65)
-  assert.equal(second.units.find(({ id }) => id === archer.id).currentMP, 65)
+  assert.equal(second.units.find(({ id }) => id === captain.id).currentMP, 98)
+  assert.equal(second.units.find(({ id }) => id === foe.id).currentMP, 40)
+  assert.equal(second.units.find(({ id }) => id === archer.id).currentMP, 19)
   assert.equal(captain.currentMP, 98)
   const third = advance(second)
-  const ready = third.units.find(({ id }) => id === archer.id)
-  assert.equal(ready.currentMP, 70)
-  assert.ok(warArtEffect(ready, third.units.find(({ id }) => id === foe.id), 'barrage'))
+  const nextArcher = third.units.find(({ id }) => id === archer.id)
+  assert.equal(nextArcher.currentMP, 19)
+  assert.equal(warArtEffect(nextArcher, third.units.find(({ id }) => id === foe.id), 'barrage'), null)
 })
 
 test('restores saved camp and backfills legacy battle names and levels without resetting progress', () => {
@@ -371,7 +382,7 @@ test('restores saved camp and backfills legacy battle names and levels without r
     const legacy = { ...active, stage: 11, battle: {
       ...active.battle,
       units: active.battle.units.map(({ level, ...unit }) => {
-        if (unit.id === 'yeon') return { ...unit, name: '연무', role: 'guard', currentHP: 31, currentMP: 83 }
+        if (unit.id === 'yeon') return { ...unit, name: '연무', role: 'guard', currentHP: 31, currentMP: 83, tacticPoints: 4, usedWarArts: ['heavyStrike'] }
         if (unit.id === 'enemy-0') return { ...unit, name: '적 검병 1', role: 'blade' }
         return unit
       }),
@@ -382,6 +393,7 @@ test('restores saved camp and backfills legacy battle names and levels without r
     assert.equal(restored.battle.units.find((unit) => unit.captain).name, '조조')
     assert.equal(restored.battle.units.find((unit) => unit.captain).currentHP, 31)
     assert.equal(restored.battle.units.find((unit) => unit.captain).currentMP, 83)
+    assert.ok(restored.battle.units.every((unit) => !('tacticPoints' in unit) && !('usedWarArts' in unit)))
     assert.equal(restored.battle.units.find((unit) => unit.captain).level, 1)
     assert.equal(restored.battle.units.find((unit) => unit.captain).role, 'shieldInfantry')
     const enemy = restored.battle.units.find((unit) => unit.id === 'enemy-0')
@@ -390,18 +402,31 @@ test('restores saved camp and backfills legacy battle names and levels without r
     assert.equal(enemy.role, stages[10].enemies[0].role)
     assert.equal(enemy.move, roles[enemy.role].move)
     assert.deepEqual(restored.battle.log, [`조조 → ${enemy.name} · 공격 12 피해`])
+
+    const oldSizes = { ...active, troopSizeVersion: undefined, troopScale: 10, battle: { ...active.battle } }
+    const [captain, ally, , , enemyUnit] = oldSizes.battle.units
+    Object.assign(captain, { hp: 1200, currentHP: 600 })
+    Object.assign(ally, { hp: 1200, currentHP: 0 })
+    Object.assign(enemyUnit, { hp: 1000, currentHP: 250, enemyKind: 'soldier' })
+    saveCampaign(oldSizes)
+    const updated = loadCampaign()
+    assert.deepEqual([updated.battle.units[0].hp, updated.battle.units[0].currentHP], [10_000, 5_000])
+    assert.deepEqual([updated.battle.units[1].hp, updated.battle.units[1].currentHP], [10_000, 0])
+    assert.deepEqual([updated.battle.units[4].hp, updated.battle.units[4].currentHP], [5_000, 1_250])
+    saveCampaign(updated)
+    assert.deepEqual(loadCampaign(), updated)
   } finally {
     if (descriptors) Object.defineProperty(globalThis, 'localStorage', descriptors)
     else delete globalThis.localStorage
   }
 })
 
-test('learned war arts enforce class, will, target range, and one use per battle', () => {
+test('learned war arts spend energy and can be used again on a later turn', () => {
   const battle = deploy().battle
   const archer = battle.units.find(({ id }) => id === 'jin')
   const target = battle.units.find(({ side }) => side === 'enemy')
-  Object.assign(archer, { troopClass: 'ranged', x: 2, y: 2, currentMP: 69 })
-  Object.assign(target, { x: 5, y: 2, hp: 5000, currentHP: 5000 })
+  Object.assign(archer, { troopClass: 'ranged', x: 2, y: 2, currentMP: 19 })
+  Object.assign(target, { x: 5, y: 2, hp: 50_000, currentHP: 50_000, behavior: 2 })
   const stock = { salve: 1, tonic: 1 }
   const action = { type: 'warArt', unit: archer.id, target: target.id, art: 'longShot' }
   assert.equal(warArtsFor(target).length, 0)
@@ -409,21 +434,29 @@ test('learned war arts enforce class, will, target range, and one use per battle
   assert.deepEqual(warArtsFor(archer), [
     { id: 'volley', level: 3 }, { id: 'barrage', level: 2 }, { id: 'longShot', level: 3 },
     { id: 'blaze', level: 1 }, { id: 'inspire', level: 2 },
+    { id: 'intercept', level: 1 }, { id: 'calm', level: 1 },
   ])
   assert.equal(canAttack(archer, target), false)
   assert.equal(playBattle(battle, stock, action).battle, battle)
-  archer.currentMP = 70
+  archer.currentMP = 100
   archer.troopClass = 'infantry'
   assert.equal(playBattle(battle, stock, action).battle, battle)
   archer.troopClass = 'ranged'
   const result = playBattle(battle, stock, action).battle
   const used = result.units.find(({ id }) => id === archer.id)
-  assert.equal(used.currentMP, 70)
+  assert.equal(used.currentMP, 80)
   assert.equal(used.done, true)
-  assert.deepEqual(used.usedWarArts, ['longShot'])
   assert.ok(result.units.find(({ id }) => id === target.id).currentHP < target.currentHP)
-  used.done = false
   assert.equal(playBattle(result, stock, action).battle, result)
+  let repeated = result
+  for (const remaining of [60, 40, 20, 0]) {
+    const next = playBattle(repeated, stock, { type: 'end' }).battle
+    repeated = playBattle(next, stock, action).battle
+    assert.notEqual(repeated, next)
+    assert.equal(repeated.units.find(({ id }) => id === archer.id).currentMP, remaining)
+  }
+  const sixthTurn = playBattle(repeated, stock, { type: 'end' }).battle
+  assert.equal(playBattle(sixthTurn, stock, action).battle, sixthTurn)
 })
 
 test('area physical arts hit together, while counters and two-hit arts resolve in separate beats', () => {
@@ -465,32 +498,45 @@ test('strategy arts share terrain, damage, and status rules with their previews'
     units: [caster, north, northwest, friend, east, far] })
   const cast = (art, target, state = battle, seed = 1) => playBattle(state, { salve: 0, tonic: 0 },
     { type: 'warArt', art, unit: caster.id, target: target.id }, seed).battle
+  caster.currentMP = 9
   assert.equal(cast('blaze', east), battle)
+  caster.currentMP = 10
+  assert.notEqual(cast('blaze', east), battle)
   caster.currentMP = 70
   assert.equal(cast('blaze', north), battle)
-  assert.equal(cast('intercept', far), battle)
-  assert.equal(strategyPreviews(battle, caster, 'intercept', east)[0].confusion, 70)
-  assert.equal(cast('intercept', east).units.find(({ id }) => id === east.id).confusedUntil, battle.round)
-  const failed = cast('intercept', east, battle, 1500)
-  assert.equal(failed.units.find(({ id }) => id === east.id).confusedUntil, undefined)
-  assert.deepEqual(failed.units[0].usedWarArts, ['intercept'])
-  const blaze = cast('blaze', far)
-  assert.deepEqual(blaze.burning.map(({ x, y }) => [x, y]), [[2, 1], [3, 1]])
-  assert.equal(blaze.units[0].currentMP, 70)
+  for (const grid of ['square', 'hex']) {
+    const open = { ...battle, grid }
+    assert.deepEqual(warArtCells(open, caster, 'intercept'), [])
+    assert.equal(cast('intercept', east, open), open)
+    for (const terrain of ['f', 'M']) {
+      const cover = { ...open, map: ['MMM.', `.${terrain}.g`, '....'] }
+      assert.equal(cast('intercept', far, cover), cover)
+      assert.equal(strategyPreviews(cover, caster, 'intercept', east)[0].confusion, 70)
+      assert.equal(cast('intercept', east, cover).units.find(({ id }) => id === east.id).confusedUntil, battle.round)
+      const failed = cast('intercept', east, cover, 1500)
+      assert.equal(failed.units.find(({ id }) => id === east.id).confusedUntil, undefined)
+      assert.equal(failed.units[0].currentMP, 60)
+      assert.ok(failed.log.some((line) => line.includes(' · 매복 · ')))
+    }
+  }
+  assert.equal(cast('blaze', far), battle)
+  const blaze = cast('blaze', east)
+  assert.deepEqual(blaze.burning.map(({ x, y }) => [x, y]), [[2, 1]])
+  assert.equal(blaze.units[0].currentMP, 60)
   assert.equal(blaze.events.length, 1)
   assert.equal(blaze.events[0].impact.kind, 'fire')
-  assert.deepEqual([blaze.events[0].impact, ...blaze.events[0].additionalImpacts].map(({ element, burningTile }) => [element, burningTile]),
-    [['fire', { x: 2, y: 1 }], ['fire', { x: 3, y: 1 }]])
-  assert.deepEqual([blaze.events[0].impact, ...blaze.events[0].additionalImpacts].map(({ target }) => target), [east.id, far.id])
+  const { target, element, burningTile } = blaze.events[0].impact
+  assert.deepEqual([target, element, burningTile], [east.id, 'fire', { x: 2, y: 1 }])
+  assert.equal(blaze.events[0].additionalImpacts, undefined)
   const burningState = { ...blaze, units: blaze.units.map((unit) =>
     unit.side === 'enemy' ? { ...unit, confusedUntil: blaze.round } : unit) }
   const burned = playBattle(burningState, { salve: 0, tonic: 0 }, { type: 'end' }).battle
   assert.equal(burned.units.find(({ id }) => id === east.id).currentHP, 670)
   blaze.units[0].done = false
-  assert.equal(cast('blaze', far, blaze), blaze)
-  const plain = cast('blaze', far, { ...battle, map: ['MMM.', '..f.', '....'] })
-  assert.equal(plain.units.find(({ id }) => id === far.id).currentHP, 720)
-  assert.ok(plain.burning.some(({ x, y }) => x === far.x && y === far.y))
+  assert.equal(cast('blaze', east, blaze).units[0].currentMP, 50)
+  const plain = cast('blaze', east, { ...battle, map: ['MMM.', '...g', '....'] })
+  assert.equal(plain.units.find(({ id }) => id === east.id).currentHP, 720)
+  assert.ok(plain.burning.some(({ x, y }) => x === east.x && y === east.y))
   caster.id = officers.find(({ name }) => name === '가후').id
   caster.troopClass = 'ranged'
   assert.ok(warArtCells(battle, caster, 'rockfall').some(({ x, y }) => x === 1 && y === 0))
@@ -543,44 +589,98 @@ test('torrent previews and hits only water cells on both grids', () => {
   }
 })
 
-test('support war arts change eligibility and cleanse full-health allies', () => {
+test('support war arts spend energy and modify the target’s energy', () => {
   const battle = deploy().battle
   const caster = battle.units.find(({ id }) => id === 'seo')
   const archer = battle.units.find(({ id }) => id === 'jin')
   const stock = { salve: 1, tonic: 1 }
-  Object.assign(caster, { x: 2, y: 2, troopClass: 'cavalry', currentMP: 10 })
-  Object.assign(archer, { x: 3, y: 3, troopClass: 'ranged', currentMP: 60 })
+  Object.assign(caster, { x: 2, y: 2, troopClass: 'cavalry', currentMP: 20 })
+  Object.assign(archer, { x: 3, y: 3, troopClass: 'ranged', currentMP: 10 })
   assert.ok(warArtsFor(caster).some(({ id }) => id === 'inspire'))
   const cast = (state, art) => playBattle(state, stock, { type: 'warArt', unit: caster.id, target: archer.id, art }).battle
   const inspired = cast(battle, 'inspire')
   const boosted = inspired.units.find(({ id }) => id === archer.id)
-  assert.equal(boosted.currentMP, 70)
-  assert.equal(inspired.units.find(({ id }) => id === caster.id).currentMP, 10)
+  assert.equal(boosted.currentMP, 20)
+  assert.equal(inspired.units.find(({ id }) => id === caster.id).currentMP, 0)
   const enemy = inspired.units.find(({ side }) => side === 'enemy')
   Object.assign(enemy, { x: 5, y: 3 })
   const shot = { type: 'warArt', unit: archer.id, target: enemy.id, art: 'longShot' }
   assert.notEqual(playBattle(inspired, stock, shot).battle, inspired)
 
   archer.side = 'enemy'
-  archer.currentMP = 90
+  archer.currentMP = 49
   caster.id = officers.find(({ name }) => name === '사마의').id
   const demoralized = cast(battle, 'demoralize')
   const weakened = demoralized.units.find(({ id }) => id === archer.id)
-  assert.equal(weakened.currentMP, 60)
+  assert.equal(weakened.currentMP, 19)
   const enemyView = { ...demoralized, units: demoralized.units.map((unit) => ({
     ...unit, side: unit.side === 'enemy' ? 'ally' : 'enemy',
   })) }
   assert.equal(playBattle(enemyView, stock, { ...shot, target: caster.id }).battle, enemyView)
 
-  archer.side = 'ally'
-  archer.confusedUntil = battle.round
-  archer.pinnedUntil = battle.round
-  caster.id = 'diao-chan'
-  assert.equal(archer.currentHP, archer.hp)
-  const healed = cast(battle, 'heal').units.find(({ id }) => id === archer.id)
-  assert.equal(healed.currentHP, healed.hp)
-  assert.equal(healed.confusedUntil, undefined)
-  assert.equal(healed.pinnedUntil, undefined)
+  const self = battle.units.find(({ id }) => id === 'ha')
+  const rally = { type: 'warArt', unit: self.id, target: self.id, art: 'rally' }
+  self.currentMP = 19
+  assert.equal(playBattle(battle, stock, rally).battle, battle)
+  self.currentMP = 85
+  assert.equal(playBattle(battle, stock, rally).battle.units.find(({ id }) => id === self.id).currentMP, 90)
+  self.currentMP = 98
+  assert.equal(playBattle(battle, stock, rally).battle.units.find(({ id }) => id === self.id).currentMP, 100)
+})
+
+test('heal restores troops while calm removes status independently', () => {
+  const battle = deploy().battle
+  const caster = battle.units.find(({ id }) => id === 'ha')
+  const target = battle.units.find(({ id }) => id === 'jin')
+  Object.assign(caster, { x: 2, y: 2, currentMP: 60 })
+  Object.assign(target, { x: 3, y: 2, currentHP: target.hp - 50, confusedUntil: battle.round, pinnedUntil: battle.round })
+  const cast = (art) => playBattle(battle, { salve: 0, tonic: 0 }, { type: 'warArt', unit: caster.id, target: target.id, art }).battle
+  const healed = cast('heal')
+  assert.equal(healed.units.find(({ id }) => id === caster.id).currentMP, 50)
+  const healedTarget = healed.units.find(({ id }) => id === target.id)
+  assert.equal(healedTarget.currentHP, target.hp)
+  assert.equal(healedTarget.confusedUntil, battle.round)
+  assert.equal(healedTarget.pinnedUntil, battle.round)
+  const calmed = cast('calm')
+  assert.equal(calmed.units.find(({ id }) => id === caster.id).currentMP, 50)
+  const calmedTarget = calmed.units.find(({ id }) => id === target.id)
+  assert.equal(calmedTarget.currentHP, target.currentHP)
+  assert.equal(calmedTarget.confusedUntil, undefined)
+  assert.equal(calmedTarget.pinnedUntil, undefined)
+  target.currentHP = target.hp
+  assert.equal(cast('heal'), battle)
+  assert.notEqual(cast('calm'), battle)
+  delete target.confusedUntil
+  delete target.pinnedUntil
+  assert.equal(cast('calm'), battle)
+})
+
+test('basic tactics are available without lessons and only trained officers can heal', () => {
+  const battle = newBattle(stages[0], ['yul', 'ha', 'yeon'], 'yul', {})
+  const [ordinary, healer, expert, target] = battle.units
+  Object.assign(ordinary, { x: 1, y: 1 })
+  Object.assign(healer, { x: 1, y: 2 })
+  Object.assign(expert, { x: 2, y: 2, currentHP: expert.hp - 50, pinnedUntil: battle.round })
+  Object.assign(target, { x: 2, y: 1 })
+  Object.assign(battle, { map: ['....', '.f..', '....'], units: [ordinary, healer, expert, target] })
+  const cast = (art, unit, foe) => playBattle(battle, { salve: 0, tonic: 0 },
+    { type: 'warArt', unit: unit.id, target: foe.id, art }).battle
+
+  for (const { id, name } of officers) {
+    const [unit] = newBattle(stages[0], [id], id, {}).units
+    const arts = warArtsFor(unit)
+    for (const tactic of ['blaze', 'intercept', 'calm']) {
+      assert.equal(arts.filter(({ id }) => id === tactic).length, 1, `${name}: ${tactic}`)
+    }
+    assert.equal(arts.some(({ id }) => id === 'heal'), officerWarArts(name).some(({ id }) => id === 'heal'), name)
+  }
+  assert.equal(warArtsFor(expert).find(({ id }) => id === 'blaze').level, 2)
+  assert.equal(warArtsFor(expert).find(({ id }) => id === 'intercept').level, 3)
+  assert.ok(cast('blaze', ordinary, target).burning?.length)
+  assert.ok(cast('intercept', ordinary, target).units[3].currentHP < target.currentHP)
+  assert.equal(cast('calm', ordinary, expert).units[2].pinnedUntil, undefined)
+  assert.equal(cast('heal', ordinary, expert), battle)
+  assert.equal(cast('heal', healer, expert).units[2].currentHP, expert.hp)
 })
 
 test('leadership drives normal damage and troop arts use each target’s force', () => {
@@ -609,25 +709,65 @@ test('leadership drives normal damage and troop arts use each target’s force',
   }
 })
 
-test('equipped ram damages a gate using siege training only for its war art', () => {
+test('troop advantage increases war art damage but not ordinary attacks or counters', () => {
+  const battle = deploy().battle
+  const stock = { salve: 0, tonic: 0 }
+  const [attacker] = battle.units
+  const defender = battle.units.find(({ side }) => side === 'enemy')
+  Object.assign(attacker, { x: 0, y: 0, troopClass: 'infantry' })
+  Object.assign(defender, { x: 1, y: 0, hp: 5000, currentHP: 5000, name: '상성 검증 부대', enemyKind: 'officer' })
+
+  const attack = { type: 'attack', unit: attacker.id, target: defender.id }
+  const heavyStrike = { ...attack, type: 'warArt', art: 'heavyStrike' }
+  const scenario = (troopClass) => ({ ...battle, map: ['...'], units: [attacker, { ...defender, troopClass }] })
+  for (const troopClass of ['cavalry', 'infantry', 'ranged']) {
+    const state = scenario(troopClass)
+    const [hit, counter] = playBattle(state, stock, attack).battle.events.map(({ impact }) => impact)
+    assert.equal(hit.damage, basicPhysicalDamage(physicalStats(attacker).attack, physicalStats(state.units[1]).defense) * TROOP_SCALE)
+    const counterUnit = { ...state.units[1], currentHP: hit.remainingHP }
+    const counterBase = basicPhysicalDamage(physicalStats(counterUnit).attack, physicalStats(attacker).defense)
+    assert.equal(counter.damage, Math.max(1, Math.floor(counterBase * 0.75)) * TROOP_SCALE)
+  }
+
+  const artDamage = (troopClass) => {
+    const state = scenario(troopClass)
+    const [{ damage }] = troopArtPreviews(state, attacker, heavyStrike.art, state.units[1])
+    assert.equal(playBattle(state, stock, heavyStrike).battle.events[0].impact.damage, damage)
+    return damage
+  }
+  const favorable = scenario('cavalry')
+  const base = forecastAttack(favorable, attacker, favorable.units[1]).damage
+  assert.equal(troopArtDamage(base, attacker, favorable.units[1], 100), Math.floor(base * 1.2))
+  assert.equal(artDamage('cavalry'), Math.floor(base * 1.2 * 1.7))
+  const neutral = scenario('ranged')
+  const neutralBase = forecastAttack(neutral, attacker, neutral.units[1]).damage
+  assert.equal(artDamage('ranged'), Math.floor(neutralBase * 1.7))
+})
+
+test('equipped ram attacks a gate using current troops and the structure defense', () => {
   const { battle, inventory } = deploy()
   const [captain] = battle.units
   const enemy = battle.units.find(({ side }) => side === 'enemy')
-  Object.assign(captain, { x: 0, y: 0, troopClass: 'infantry', loadout: { siege: 'ram' }, currentMP: 70 })
+  Object.assign(captain, { x: 0, y: 0, troopClass: 'infantry', loadout: { siege: 'ram' }, currentMP: 20 })
   Object.assign(enemy, { x: 0, y: 1 })
   Object.assign(battle, { map: ['.G.', '...'], deployments: true, units: [captain, enemy] })
   const gate = { x: 1, y: 0 }
   const action = { type: 'warArt', art: 'ramStrike', unit: captain.id }
   assert.equal(playBattle(battle, inventory, { ...action, target: enemy.id }).battle, battle)
   const [{ foe, damage }] = deploymentPreviews(battle, captain, 'ramStrike', gate)
-  const attack = physicalStats(battle.map, captain).attack / TROOP_SCALE
-  const defense = physicalStats(battle.map, foe).defense / TROOP_SCALE
-  assert.equal(damage, basicPhysicalDamage(attack + 4, defense) * TROOP_SCALE * 2)
+  const attack = physicalStats(captain).attack
+  const defense = foe.defense
+  assert.equal(damage, basicPhysicalDamage(attack, defense) * TROOP_SCALE * 2)
   const result = playBattle(battle, inventory, { ...action, target: gate }).battle
-  assert.equal(result.structureHP[foe.id], foe.hp - damage)
-  assert.equal(result.units[0].currentMP, 70)
-  assert.deepEqual(result.units[0].usedWarArts, ['ramStrike'])
+  assert.equal(result.structureHP[foe.id], Math.max(0, foe.hp - damage))
+  assert.equal(result.units[0].currentMP, 0)
   assert.equal(result.units.find(({ id }) => id === enemy.id).currentHP, enemy.currentHP)
+
+  const weakened = { ...captain, currentHP: captain.hp / 4 }
+  const damagedRam = { ...battle, units: [weakened, enemy] }
+  const reduced = basicPhysicalDamage(physicalStats(weakened).attack, defense) * TROOP_SCALE * 2
+  assert.equal(deploymentPreviews(damagedRam, weakened, 'ramStrike', gate)[0].damage, reduced)
+  assert.equal(playBattle(damagedRam, inventory, { ...action, target: gate }).battle.structureHP[foe.id], Math.max(0, foe.hp - reduced))
 
   const catapult = { ...captain, loadout: { siege: 'catapult' } }
   const shelling = { ...battle, units: [catapult, enemy] }
@@ -661,10 +801,10 @@ test('ships require a crossing and training and naval arts follow water state', 
   const cancelled = playBattle(entered, inventory, { type: 'cancel-move', unit: archer.id }).battle
   assert.equal(cancelled.units[0].afloat, false)
   assert.equal(cancelled.units[0].x, start.x)
-  const landStats = physicalStats(battle.map, start)
-  const waterStats = physicalStats(entered.map, afloat)
-  assert.equal(waterStats.attack - landStats.attack, 4 * TROOP_SCALE)
-  assert.equal(waterStats.defense - landStats.defense, 4 * TROOP_SCALE)
+  const landStats = physicalStats(start)
+  const waterStats = physicalStats(afloat)
+  assert.equal(waterStats.attack - landStats.attack, roles.mountedArcher.attack - roles.lightInfantry.attack)
+  assert.equal(waterStats.defense - landStats.defense, roles.mountedArcher.defense - roles.lightInfantry.defense)
   assert.ok(warArtsFor(start).some(({ id }) => id === 'ramStrike'))
   assert.ok(warArtsFor(afloat).some(({ id }) => id === 'navalFire'))
   assert.ok(!warArtsFor(afloat).some(({ id }) => id === 'ramStrike' || id === 'shove'))
@@ -678,7 +818,7 @@ test('ships require a crossing and training and naval arts follow water state', 
   assert.equal(burned.units[1].currentHP, enemy.currentHP - damage - 90)
   const returned = playBattle(burned, inventory, { ...entry, to: { x: 5, y: 1 } }).battle
   assert.equal(returned.units[0].afloat, false)
-  assert.equal(physicalStats(returned.map, returned.units[0]).attack, landStats.attack)
+  assert.equal(physicalStats(returned.units[0]).attack, landStats.attack)
   assert.ok(warArtsFor(returned.units[0]).some(({ id }) => id === 'ramStrike'))
   assert.ok(!warArtsFor(returned.units[0]).some(({ id }) => id === 'navalFire'))
 })

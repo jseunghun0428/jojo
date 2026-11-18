@@ -23,7 +23,9 @@ test('imports the local campaign and deploys valid formations in all 50 battles'
   assert.equal(data.officers.seo.className, '부관')
   for (const { id, name } of officers.filter(({ id }) => data.officers[id])) {
     const [officer] = newBattle(data.stages[0], [id], id, {}, data.officers).units
-    assert.equal(warArtsFor(officer).length > 0, name !== '우금' && name !== '한당', name)
+    const arts = warArtsFor(officer).map(({ id }) => id)
+    for (const basic of ['blaze', 'intercept', 'calm']) assert.ok(arts.includes(basic), `${name}: ${basic}`)
+    if (name === '우금' || name === '한당') assert.deepEqual(arts, ['blaze', 'intercept', 'calm'], name)
   }
   for (const stage of data.stages) {
     assert.equal(stage.jo.deployment.length, FIELD_LIMIT, stage.name)
@@ -40,7 +42,8 @@ test('imports the local campaign and deploys valid formations in all 50 battles'
   const [captain] = opening.units
   assert.deepEqual(battleAttributes(captain), [73, 93, 99, 97])
   assert.equal(opening.units.filter((unit) => unit.side === 'ally' && !unit.guest).length, recommendedIds.length)
-  assert.deepEqual([captain.x, captain.y, captain.hp, captain.move], [7, 0, 1200, 6])
+  assert.deepEqual([captain.x, captain.y, captain.hp, captain.move], [7, 0, 10_000, 6])
+  assert.deepEqual([...new Set(opening.units.filter(({ enemyKind }) => enemyKind === 'soldier').map(({ hp }) => hp))], [5_000])
   assert.equal(movementCost(opening.map, captain, captain), 1)
   assert.ok(movesFor(opening, captain).every(({ cost }) => cost <= captain.move))
   const enemies = opening.units.filter(({ side }) => side === 'enemy')
@@ -198,7 +201,7 @@ test('Jo loadouts round-trip and legacy siege units become land units with equip
   Object.assign(captain, { x: gate.x - 1, y: gate.y, currentMP: 70 })
   const [{ foe, damage }] = deploymentPreviews(battle, captain, 'ramStrike', gate)
   const hit = reduce(deployed, { type: 'battle', action: { type: 'warArt', unit: captain.id, art: 'ramStrike', target: gate } })
-  assert.equal(hit.battle.structureHP[foe.id], foe.hp - damage)
+  assert.equal(hit.battle.structureHP[foe.id], Math.max(0, foe.hp - damage))
   const removed = reduce(outfitted, { type: 'loadout', id: 'yeon', loadout: {} })
   const cleared = reduce(removed, { type: 'deploy' })
   assert.deepEqual(cleared.battle.units[0].loadout, { siege: undefined, ship: undefined })

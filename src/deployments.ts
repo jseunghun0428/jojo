@@ -31,7 +31,7 @@ export const deploymentArts = {
   navalBlast: { name: '폭선', platform: 'ship', target: 'unit', range: 1, damage: [120, 140, 160], burn: true, element: 'fire' },
 } as const
 
-export const structureStats = { hp: 1000, defenseBonus: 20 }
+export const structureStats = { hp: 1000, defense: 57 }
 
 export const navalTraining: Readonly<Partial<Record<string, 1 | 2 | 3>>> = { '주유': 2, '하후연': 1 }
 export const navalLessons: Readonly<Partial<Record<string, readonly { id: keyof typeof deploymentArts; level: 1 | 2 | 3 }[]>>> = {

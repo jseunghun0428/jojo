@@ -37,6 +37,8 @@ export const terrains = {
   C: { name: '성채', moveCost: 1, appearance: 'building' },
   G: { name: '관문', moveCost: 1, appearance: 'building' },
   F: { name: '요새', moveCost: 1, appearance: 'building' },
+  P: { name: '울짱', moveCost: null, appearance: 'building' },
+  W: { name: '성벽', moveCost: null, appearance: 'building' },
   // Original map symbols also occur in saved battles.
   '=': { name: '길', moveCost: 1, appearance: 'road' },
   m: { name: '바위', moveCost: null, appearance: 'rock' },
@@ -49,11 +51,13 @@ export const isTerrain = (symbol: string | undefined): symbol is Terrain =>
 export type Point = { x: number; y: number }
 export type Stats = { hp: number; mp: number; attack: number; defense: number; move: number; range: number }
 export const TROOP_SCALE = 10
+export const OFFICER_TROOPS = 10_000
+export const SOLDIER_TROOPS = 5_000
 export const SALVE_HEAL = 20 * TROOP_SCALE
 
 export const items = {
   salve: { name: '상처약', detail: `병력 ${SALVE_HEAL} 회복`, price: 35 },
-  tonic: { name: '정신약', detail: '사기 8 회복', price: 45 },
+  tonic: { name: '정신약', detail: '기력 8 회복', price: 45 },
 }
 export type ItemId = keyof typeof items
 
@@ -115,7 +119,7 @@ treasureGroups.forEach(({ stat, names, amounts }) => names.forEach((name, i) => 
   treasures.push({ id: `${stat}-${i + 1}`, name, stat, amount: amounts[i], price: 65 + i * 15 })
 }))
 export const treasureById = Object.fromEntries(treasures.map((treasure) => [treasure.id, treasure]))
-export const statLabels = { hp: '최대 병력', mp: '최대 사기', attack: '공격', defense: '방어' }
+export const statLabels = { hp: '최대 병력', mp: '최대 기력', attack: '공격', defense: '방어' }
 
 const maps = [
   ['..ff...f..mm', '...f........', '....==..ff..', '...f..m..f..', '....f...=...', '..f...f.=...', '......f...m.', '...ff.......'],

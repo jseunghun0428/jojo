@@ -2,9 +2,9 @@ import { movementCost } from './combat.ts'
 import { FIELD_LIMIT, STAGE_COUNT, isTerrain, stageDeployment, stageGuests } from './data.ts'
 import type { Point, Stage } from './data.ts'
 import { boardGeometry, OUTSIDE_CELL, validCell } from './grid.ts'
-import { joTerrainId, loadJoCampaign, webCampaign } from './jo-game.ts'
+import { joTerrainId, loadJoCampaign } from './jo-game.ts'
 import type { CampaignData, JoProfile } from './jo-game.ts'
-import { createHexStage } from './hex-stages.ts'
+import { createHexStage, createWebHexCampaign, withHexGrid } from './hex-stages.ts'
 import { hexTrialStage } from './hex-trial.ts'
 import { roles } from './unit-classes.ts'
 
@@ -169,7 +169,12 @@ export function validateStage(stage: Stage, officers: CampaignData['officers'] =
 export function campaignWithStages(data: CampaignData, entries: StageEntry[]): CampaignData {
   const overrides = new Map(entries.filter(({ source, id, stage }) => source === data.source && id === source + ':' + stage.number)
     .map(({ stage }) => [stage.number, stage]))
-  return overrides.size ? { ...data, originals: data.stages, stages: data.stages.map((stage) => overrides.get(stage.number) ?? stage) } : data
+  if (!overrides.size) return data
+  return { ...data, originals: data.stages, stages: data.stages.map((stage) => {
+    const override = overrides.get(stage.number)
+    if (!override) return stage
+    return data.source === 'web' && stage.grid === 'hex' ? withHexGrid(override) : override
+  }) }
 }
 
 export function stageEntries(web: CampaignData, jo: CampaignData | undefined, entries: StageEntry[]): StageEntry[] {
@@ -197,8 +202,8 @@ export async function loadStageCatalog(): Promise<{ entries: StageEntry[]; revis
 export async function loadStageSources(): Promise<{ web: CampaignData; jo?: CampaignData; warning?: string }> {
   try {
     const jo = await loadJoCampaign()
-    return { web: webCampaign, jo: jo.source === 'jo' ? jo : undefined }
+    return jo.source === 'jo' ? { web: createWebHexCampaign(jo), jo } : { web: createWebHexCampaign() }
   } catch {
-    return { web: webCampaign, warning: '신조조전 원정 데이터를 불러오지 못했습니다.' }
+    return { web: createWebHexCampaign(), warning: '신조조전 원정 데이터를 불러오지 못했습니다. 웹 원정 기본 육각 지도를 사용합니다.' }
   }
 }

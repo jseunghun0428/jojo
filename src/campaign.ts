@@ -1,8 +1,8 @@
 import { resolveDeployment, ships, siegeEquipment } from './deployments.ts'
 import type { Loadout } from './deployments.ts'
-import { DRAFT_LIMIT, FIELD_LIMIT, STAGE_COUNT, TROOP_SCALE, enemyKindFor, items, officerById, officers, recommendedIds, starterIds, stageDeployment, treasureById, treasures } from './data.ts'
+import { DRAFT_LIMIT, FIELD_LIMIT, STAGE_COUNT, enemyKindFor, items, officerById, officers, recommendedIds, starterIds, stageDeployment, treasureById, treasures } from './data.ts'
 import type { ItemId, Stage } from './data.ts'
-import { MAX_WILL, isWater, newBattle, playBattle, syncDeploymentPositions, unitStats } from './combat.ts'
+import { MAX_ENERGY, isSoldier, isWater, newBattle, playBattle, resumeInitiativeBattle, startInitiativeBattle, syncDeploymentPositions, troopStrength, unitStats } from './combat.ts'
 import type { Battle, BattleAction } from './combat.ts'
 import { roles, troopClasses } from './unit-classes.ts'
 import type { TroopClass } from './unit-classes.ts'
@@ -55,7 +55,7 @@ export type Campaign = {
   draftConfirmed?: boolean
   loadouts?: Partial<Record<string, Loadout>>
   troopClasses?: Partial<Record<string, TroopClass>>
-  troopScale?: number
+  troopSizeVersion?: 1
   stage: number
   roster: string[]
   captain: string | null
@@ -86,7 +86,7 @@ export type Action =
 
 export function createCampaign(): Campaign {
   return {
-    phase: 'draft', progression: { ...initialProgression }, troopScale: TROOP_SCALE, stage: 1, roster: [], captain: null, lineup: [], gold: 0,
+    phase: 'draft', progression: { ...initialProgression }, troopSizeVersion: 1, stage: 1, roster: [], captain: null, lineup: [], gold: 0,
     inventory: { salve: 1, tonic: 1 }, treasures: [], equipment: {},
     offers: { officers: [], treasures: [] }, battle: null,
   }
@@ -123,6 +123,7 @@ function deploy(state: Campaign, stage: number, data: CampaignData): Campaign {
   const battle = newBattle(data.stages[stage - 1], state.lineup, state.captain, state.equipment, data.officers,
     state.troopClasses, data.source === 'jo' ? progression.level : undefined,
     data.source === 'jo' ? state.loadouts ?? {} : undefined)
+  if (data.source === 'web' && battle.grid === 'hex') startInitiativeBattle(battle)
   return { ...state, stage, phase: 'battle', battle, clearResult: undefined }
 }
 
@@ -233,7 +234,7 @@ export function campaignReducer(state: Campaign, action: Action, data: CampaignD
 
 function restoreBattleUnits(save: Campaign): Campaign {
   const battle = save.battle
-  if (!battle || battle.board) return save
+  if (!battle || battle.board || battle.grid === 'hex') return save
   const stage = webCampaign.stages[save.stage - 1]
   const renamed = new Map<string, string>()
   const units = battle.units.map((unit) => {
@@ -245,9 +246,7 @@ function restoreBattleUnits(save: Campaign): Campaign {
     const role = profile?.role ?? (Object.hasOwn(roles, unit.role) ? unit.role : 'lightInfantry')
     if (role !== unit.role) {
       const stats = unitStats(role, stage.tier, officer && { bonus: officer.bonus, treasure: save.equipment[unit.id] })
-      const currentHP = unit.currentHP > 0 ? Math.max(1, Math.min(unit.currentHP, stats.hp)) : 0
-      const currentMP = unit.currentMP
-      return { ...unit, ...stats, mp: MAX_WILL, name: name ?? unit.name, role, level, currentHP, currentMP }
+      return { ...unit, ...stats, hp: unit.hp, mp: MAX_ENERGY, name: name ?? unit.name, role, level }
     }
     if ((!name || unit.name === name) && unit.level === level) return unit
     return { ...unit, name: name ?? unit.name, level }
@@ -258,6 +257,23 @@ function restoreBattleUnits(save: Campaign): Campaign {
     return line
   })
   return { ...save, battle: { ...battle, units, log } }
+}
+
+function restoreTroopSizes(save: Campaign) {
+  if (save.troopSizeVersion === 1) return save
+  const battle = save.battle
+  if (battle) {
+    for (const unit of [...battle.units, ...(battle.reinforcements ?? [])]) {
+      if (unit.side === 'ally' && !unit.guest && save.equipment[unit.id]) unit.treasure = save.equipment[unit.id]
+      const max = troopStrength(isSoldier(unit), unit.treasure)
+      unit.currentHP = unit.currentHP > 0 && unit.hp > 0
+        ? Math.max(1, Math.round(max * Math.min(unit.currentHP, unit.hp) / unit.hp)) : 0
+      unit.hp = max
+    }
+  }
+  Reflect.deleteProperty(save, 'troopScale')
+  save.troopSizeVersion = 1
+  return save
 }
 
 const SAVE_KEY = 'iron-pass.v1'
@@ -271,15 +287,15 @@ export function loadCampaign(source: CampaignData['source'] = 'web'): Campaign {
           && Array.isArray(save.roster) && Array.isArray(save.lineup)
           && save.inventory && save.equipment && save.offers
           && (save.phase !== 'battle' || save.battle?.units)) {
-        if (save.troopScale !== TROOP_SCALE) {
-          save.troopScale = TROOP_SCALE
-          if (save.battle) save.battle.units = save.battle.units.map((unit) => ({
-            ...unit, hp: unit.hp * TROOP_SCALE, currentHP: unit.currentHP * TROOP_SCALE,
+        if (save.battle) {
+          for (const unit of [...save.battle.units, ...(save.battle.reinforcements ?? [])]) {
+            Reflect.deleteProperty(unit, 'tacticPoints')
+            Reflect.deleteProperty(unit, 'usedWarArts')
+          }
+          save.battle.units = save.battle.units.map((unit) => unit.mp === MAX_ENERGY ? unit : ({
+            ...unit, mp: MAX_ENERGY, currentMP: Math.max(0, MAX_ENERGY - Math.max(0, unit.mp - unit.currentMP)),
           }))
         }
-        if (save.battle) save.battle.units = save.battle.units.map((unit) => unit.mp === MAX_WILL ? unit : ({
-          ...unit, mp: MAX_WILL, currentMP: Math.max(0, MAX_WILL - Math.max(0, unit.mp - unit.currentMP)),
-        }))
         if (source === 'jo') {
           delete save.growth
           if (save.battle) delete save.battle.experience
@@ -303,9 +319,11 @@ export function loadCampaign(source: CampaignData['source'] = 'web'): Campaign {
             }
           }
           save.progression ??= { ...initialProgression }
-          return save
+          return restoreTroopSizes(save)
         }
-        return restoreBattleUnits(save)
+        const restored = restoreTroopSizes(restoreBattleUnits(save))
+        if (restored.phase === 'battle' && restored.battle?.grid === 'hex') resumeInitiativeBattle(restored.battle)
+        return restored
       }
     }
   } catch {

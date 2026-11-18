@@ -1,6 +1,6 @@
 import { createCampaign } from './campaign.ts'
 import type { Campaign } from './campaign.ts'
-import { newBattle } from './combat.ts'
+import { newBattle, startInitiativeBattle } from './combat.ts'
 import { recommendedIds } from './data.ts'
 import type { Stage } from './data.ts'
 import type { Grid } from './grid.ts'
@@ -25,6 +25,7 @@ export function startTrial(setup: TrialSetup): Campaign {
   const { stage, data, sandbox } = setup
   const [captain] = recommendedIds
   const battle = sandbox ? newHexTrial(stage) : newBattle(stage, recommendedIds, captain, {}, data.officers)
+  if (sandbox || (data.source === 'web' && battle.grid === 'hex')) startInitiativeBattle(battle)
   return {
     ...createCampaign(), stage: stage.number, phase: 'battle', battle, captain,
     roster: [...recommendedIds], lineup: [...recommendedIds],

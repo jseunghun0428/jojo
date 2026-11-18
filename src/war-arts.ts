@@ -1,6 +1,6 @@
 import { deploymentArts } from './deployments.ts'
 
-export const WAR_ART_WILL = 70
+export const TACTIC_ENERGY_COST = 10
 
 export const warArts = {
   ...deploymentArts,
@@ -16,20 +16,21 @@ export const warArts = {
   barrage: { name: '난사', troop: 'ranged', damage: [75, 85, 95] },
   fireArrow: { name: '화시', troop: 'ranged', damage: [90, 100, 110], element: 'fire' },
   longShot: { name: '원사', troop: 'ranged', damage: [110, 125, 140] },
-  blaze: { name: '열화', strategy: true, damage: [80, 95, 110], element: 'fire' },
+  blaze: { name: '열화', strategy: true, tactic: true, damage: [80, 95, 110], element: 'fire' },
   torrent: { name: '격류', strategy: true, damage: [80, 95, 110], element: 'water' },
   rockfall: { name: '낙석', strategy: true, damage: [100, 115, 130], element: 'earth' },
-  intercept: { name: '요격', strategy: true, damage: [90, 105, 120] },
-  rally: { name: '분기', effect: 'self', amount: [10, 15, 20] },
+  intercept: { name: '매복', strategy: true, tactic: true, damage: [90, 105, 120] },
+  rally: { name: '분기', effect: 'self', amount: [5, 10, 15] },
   inspire: { name: '고무', effect: 'ally', amount: [5, 10, 15] },
   demoralize: { name: '매성', effect: 'enemy', amount: [20, 30, 50] },
-  heal: { name: '치료', effect: 'heal', amount: [15, 25, 35] },
+  heal: { name: '치료', effect: 'heal', tactic: true, amount: [15, 25, 35] },
+  calm: { name: '진정', effect: 'cleanse', tactic: true },
 } as const
 
 export type WarArtId = keyof typeof warArts
 export type BattleElement = 'fire' | 'earth' | 'water'
 export type LearnedWarArt = { id: WarArtId; level: 1 | 2 | 3 }
 
-export function warArtWill(id: WarArtId) {
-  return 'effect' in warArts[id] ? 10 : WAR_ART_WILL
+export function warArtEnergyCost(id: WarArtId) {
+  return 'tactic' in warArts[id] ? TACTIC_ENERGY_COST : 20
 }

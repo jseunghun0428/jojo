@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { boardGeometry, gridDistance, hexStep, neighbors, validCell } from '../src/grid.ts'
-import { attackCells, canAttack, facingBetween, forecastAttack, key, movementCost, movementPath, movesFor, playBattle, warArtArea, warArtCells } from '../src/combat.ts'
+import { attackCells, canAttack, extinguishCells, extinguishChance, facingBetween, forecastAttack, isBurning, key, movementCost, movementPath, movesFor, playBattle, warArtArea, warArtCells } from '../src/combat.ts'
 import { newHexTrial } from '../src/hex-trial.ts'
+import { JO_FIRE_TERRAIN, joTerrainRow } from '../src/jo-game.ts'
 
 const p = (x, y) => ({ x, y })
 const stock = { salve: 0, tonic: 0 }
@@ -77,7 +78,10 @@ test('hex attack, counter and area arts use the preview geometry', () => {
   assert.deepEqual(area.map(key), [p(3, 4), ...neighbors(second, 'hex')].map(key))
   assert.ok(warArtCells(battle, archer, 'barrage').some((cell) => key(cell) === key(second)))
   assert.deepEqual(targets(art(archer, 'barrage', second).events[0]), [second, third, first].map(({ id }) => id))
-  assert.deepEqual(warArtArea(battle, caster, 'blaze', third), [p(2, 5), p(3, 5)])
+  assert.deepEqual(warArtArea(battle, caster, 'blaze', third), [])
+  assert.equal(art(caster, 'blaze', third), battle)
+  Object.assign(third, p(2, 5))
+  assert.deepEqual(warArtArea(battle, caster, 'blaze', third).map(key), [key(p(2, 5))])
   const fire = art(caster, 'blaze', third)
   assert.deepEqual(targets(fire.events[0]), [third.id])
   assert.ok(fire.burning.some((tile) => key(tile) === key(at(third))))
@@ -88,6 +92,43 @@ test('hex attack, counter and area arts use the preview geometry', () => {
   const chargeMap = { ...battle, map: battle.map.map((row, y) => y === far.y ? row.slice(0, far.x) + 'w' + row.slice(far.x + 1) : row) }
   assert.deepEqual(warArtArea(chargeMap, rider, 'charge', near), [near])
   assert.equal(warArtArea(battle, captain, 'sweep', hexStep(captain, 3)).length, 3)
+})
+
+test('extinguish uses intelligence and energy on a single nearby burning tile', () => {
+  for (const grid of ['square', 'hex']) {
+    const battle = newHexTrial()
+    battle.grid = grid
+    const caster = battle.units[0]
+    const fire = (x, y) => ({ x, y, round: battle.round })
+    const ownTile = fire(caster.x, caster.y)
+    const close = fire(caster.x + 1, caster.y)
+    const far = fire(caster.x + 2, caster.y)
+    battle.burning = [ownTile, close, far]
+    const cast = (target, seed = 1) => playBattle(battle, stock, { type: 'extinguish', unit: caster.id, target }, seed).battle
+    assert.deepEqual(extinguishCells(battle, caster).map(key), [ownTile, close].map(key))
+    assert.equal(cast(far), battle)
+    assert.equal(cast(p(caster.x - 1, caster.y)), battle)
+    assert.ok(extinguishChance(caster) > extinguishChance(battle.units.find(({ id }) => id === 'ha')))
+    const success = cast(close)
+    assert.deepEqual(success.burning, [ownTile, far])
+    assert.equal(success.units[0].currentMP, caster.currentMP - 10)
+    assert.equal(success.units[0].done, true)
+    assert.match(success.log.at(-1), /소화 성공/)
+    assert.equal(playBattle(success, stock, { type: 'end' }).battle.units[0].currentMP, 90)
+    const failure = cast(close, 1900)
+    assert.deepEqual(failure.burning, battle.burning)
+    assert.equal(failure.units[0].currentMP, 90)
+    assert.match(failure.log.at(-1), /소화 실패/)
+    assert.deepEqual(cast(ownTile).burning, [close, far])
+    caster.currentMP = 9
+    assert.equal(cast(close), battle)
+    caster.currentMP = 10
+    battle.burning = []
+    battle.map = battle.map.map((row, y) => y === close.y
+      ? row.slice(0, close.x) + joTerrainRow([JO_FIRE_TERRAIN]) + row.slice(close.x + 1) : row)
+    assert.equal(isBurning(battle, close), true)
+    assert.equal(isBurning(cast(close), close), false)
+  }
 })
 
 test('hex archers display, attack and counter at distances one and two', () => {

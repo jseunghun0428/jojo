@@ -103,6 +103,7 @@ const joHexColors: Partial<Record<number, [number, number]>> = {
   10: [0x405348, 0x495c50], 14: [0x503b2e, 0x594230],
   20: [0x51596a, 0x59637a], 22: [0x575b44, 0x62664d], 23: [0x6a5b45, 0x735f47],
 }
+const webHexDetails: Partial<Record<Terrain, number>> = { P: 14, W: 15, F: 20, B: 22, h: 23, e: 10 }
 
 function drawJoHexDetails(g: Phaser.GameObjects.Graphics, id: number, { x, y }: Point) {
   if (id === 14) {
@@ -111,6 +112,9 @@ function drawJoHexDetails(g: Phaser.GameObjects.Graphics, id: number, { x, y }: 
     for (let offset = -20; offset <= 20; offset += 8) {
       g.fillRect(x + offset, y - 9, 4, 20).fillTriangle(x + offset - 1, y - 9, x + offset + 2, y - 14, x + offset + 5, y - 9)
     }
+  } else if (id === 15) {
+    g.fillStyle(0x393631).fillRect(x - 21, y - 8, 42, 16)
+    g.fillStyle(0xaba192).fillRect(x - 21, y - 12, 42, 6)
   } else if (id === 20 || id === 22 || id === 23) {
     g.fillStyle(0xaa9470).fillRect(x - 13, y - 5, 26, 17)
     g.fillStyle(id === 20 ? 0x354761 : id === 22 ? 0xa8864b : 0x54352a)
@@ -133,6 +137,7 @@ type MapProps = {
   range?: Set<string>
   affected?: Set<string>
   burning?: readonly Point[]
+  extinguishedTerrain?: readonly string[]
   path?: Point[]
   targets?: Set<string>
   events?: BattleEvent[]
@@ -364,7 +369,7 @@ export default function BattleMap(props: MapProps) {
               if (elapsed >= duration) current.current.onPlaybackEnd?.()
             }
             redraw.current = () => {
-              const { map, units = [], selected, moves, range, path = [], targets, events, affected, burning } = current.current
+              const { map, units = [], selected, moves, range, path = [], targets, events, affected, burning, extinguishedTerrain } = current.current
               const poses = new Map<string, { point?: Point; facing: Facing; step?: number }>()
               let enemy = false
               let banner = false
@@ -450,7 +455,7 @@ export default function BattleMap(props: MapProps) {
                 }
                 const location = key(point)
                 const sourceTerrain = joTerrainId(map, point)
-                const fire = burningCells.has(location) || sourceTerrain === JO_FIRE_TERRAIN
+                const fire = burningCells.has(location) || (sourceTerrain === JO_FIRE_TERRAIN && !extinguishedTerrain?.includes(location))
                 if (image && geometry.image) {
                   outlineCell(terrainGraphics, point, 0x20271a, 1, 0.65, 0.5)
                 } else if (hex) {
@@ -459,7 +464,8 @@ export default function BattleMap(props: MapProps) {
                     : joHexColors[sourceTerrain] ?? terrainColors.plain
                   fillCell(terrainGraphics, point, palette[(x + y) % 2])
                   outlineCell(terrainGraphics, point, 0x20271a, 1, 0.8, 0.5)
-                  if (sourceTerrain !== undefined) drawJoHexDetails(terrainGraphics, sourceTerrain, center(point))
+                  const detail = sourceTerrain ?? (isTerrain(cell) ? webHexDetails[cell] : undefined)
+                  if (detail !== undefined) drawJoHexDetails(terrainGraphics, detail, center(point))
                 } else if (isTerrain(cell)) {
                   const pixel = geometry.corners(point)[0]
                   drawTerrain(terrainGraphics, cell, pixel.x, pixel.y, x * 17 + y * 29)

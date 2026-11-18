@@ -1,6 +1,6 @@
 import { stageDeployment } from './data.ts'
-import type { Point, Stage } from './data.ts'
-import { joTerrainRow } from './jo-game.ts'
+import type { Point, Stage, Terrain } from './data.ts'
+import { joTerrainId, joTerrainRow, webCampaign } from './jo-game.ts'
 import type { CampaignData } from './jo-game.ts'
 
 type PlacementMap = Readonly<Record<string, readonly [x: number, y: number]>>
@@ -83,5 +83,35 @@ export function createHexStage(data: CampaignData, stage: Stage): Stage | undefi
       guests: relocate(stage.jo.guests, layout.guests),
       reinforcements: relocate(stage.jo.reinforcements, layout.reinforcements),
     },
+  }
+}
+
+// Translate the imported terrain IDs into the web campaign's movement rules.
+// Rivers and gates are traversable here, where naval and siege loadouts are not required.
+const webTerrainByJoId = [
+  '.', 'g', 'f', 'a', 'M', 'm', 'm', 's', 'b', 'j',
+  'e', 'w', 'r', 'r', 'P', 'W', 'c', 'G', 'C', 'G',
+  'F', 'v', 'B', 'h', 'h', 'w', '.', 'r', 'F', 'u',
+] as const satisfies readonly Terrain[]
+
+export function withHexGrid(stage: Stage): Stage {
+  if (stage.grid === 'hex') return stage
+  return { ...stage, grid: 'hex', board: undefined, jo: stage.jo && { ...stage.jo, image: undefined } }
+}
+
+export function createWebHexCampaign(reference?: CampaignData): CampaignData {
+  return {
+    ...webCampaign,
+    stages: webCampaign.stages.map((web, index) => {
+      const original = reference?.stages[index]
+      if (!reference || !original?.jo) return withHexGrid(web)
+      const adapted = createHexStage(reference, original) ?? withHexGrid(original)
+      const map = adapted.map.map((row, y) => Array.from(row, (tile, x) => {
+        const id = joTerrainId(adapted.map, { x, y })
+        return id === undefined ? tile : webTerrainByJoId[id]
+      }).join(''))
+      return { ...adapted, map, reward: web.reward, tier: web.tier,
+        enemies: adapted.enemies.map((unit) => ({ ...unit, behavior: unit.behavior === 0 || unit.behavior === 2 ? unit.behavior : 1 })) }
+    }),
   }
 }
